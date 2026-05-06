@@ -405,7 +405,10 @@
             <a href="#catalog" class="toc-h1 toc-link" data-title="Catalog">Catalog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#attributes-and-options" class="toc-h2 toc-link" data-title="Attributes and options">Attributes and options</a>
+                    <a href="#mandatory-attributes-and-options" class="toc-h2 toc-link" data-title="Mandatory attributes and options">Mandatory attributes and options</a>
+                  </li>
+                  <li>
+                    <a href="#optional-attributes-and-options" class="toc-h2 toc-link" data-title="Optional attributes and options">Optional attributes and options</a>
                   </li>
               </ul>
           </li>
@@ -1547,243 +1550,257 @@ ODPC should also not define graph traversal, graph analytics, or relationship se
 <p>A <code>Catalog</code> should provide identity, ownership, scope, lifecycle status, and references to the objects included in the catalog. The catalog does not define relationship semantics between the objects. That belongs to ODPG.</p>
 
 <p>By defining catalogs as machine-readable objects, ODPC supports interoperability between tools, platforms, marketplaces, AI workflows, and graph-based portfolio analysis.</p>
-<h2 id='attributes-and-options'>Attributes and options</h2>
+<h2 id='mandatory-attributes-and-options'>Mandatory attributes and options</h2>
 <blockquote>
-<p>Example of Catalog object usage:</p>
+<p>Example of productReference object usage:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code><span class="na">catalog</span><span class="pi">:</span>
   <span class="na">id</span><span class="pi">:</span> <span class="s">CAT-001</span>
   <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Smart City Data Product Portfolio Catalog</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Urban Mobility Data Product Catalog</span>
   <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog of reusable data product portfolio objects for smart city planning and operations.</span>
-  <span class="na">owner</span><span class="pi">:</span>
-    <span class="na">organization</span><span class="pi">:</span> <span class="s">Example Smart City Office</span>
-    <span class="na">role</span><span class="pi">:</span> <span class="s">Data Product Portfolio Manager</span>
-  <span class="na">scope</span><span class="pi">:</span>
-    <span class="na">domain</span><span class="pi">:</span> <span class="s">smart-city</span>
-    <span class="na">geography</span><span class="pi">:</span> <span class="s">Example City</span>
-    <span class="na">audience</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">internal</span>
-      <span class="pi">-</span> <span class="s">partner</span>
-  <span class="na">version</span><span class="pi">:</span> <span class="s">1.0.0</span>
-  <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-  <span class="na">productReferences</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">DP-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">UrbanPulse Events Data Product</span>
-      <span class="na">productModel</span><span class="pi">:</span>
-        <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
-        <span class="na">version</span><span class="pi">:</span> <span class="m">4.1</span>
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/urbanpulse-events/odps.yaml</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">DP-002</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Traffic Flow Data Product</span>
-      <span class="na">productModel</span><span class="pi">:</span>
-        <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
-        <span class="na">version</span><span class="pi">:</span> <span class="m">4.1</span>
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/traffic-flow/odps.yaml</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">DP-003</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Emergency Incident Data Product</span>
-      <span class="na">productModel</span><span class="pi">:</span>
-        <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
-        <span class="na">version</span><span class="pi">:</span> <span class="m">4.1</span>
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-      <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/emergency-incidents/odps.yaml</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-  <span class="na">useCases</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">UC-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Emergency Response Optimization</span>
-      <span class="na">expectedOutcome</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce average emergency response time across the city.</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">UC-002</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Event-Aware Traffic Planning</span>
-      <span class="na">expectedOutcome</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce congestion around major event locations.</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-  <span class="na">businessObjectives</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">BO-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce Emergency Response Time</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">BO-002</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Improve Event Mobility</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-  <span class="na">kpis</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">KPI-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">City Emergency Response Time</span>
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">minutes</span>
-      <span class="na">target</span><span class="pi">:</span> <span class="m">5</span>
-      <span class="na">direction</span><span class="pi">:</span> <span class="s">at_most</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">KPI-002</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Event Area Congestion Index</span>
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span>
-      <span class="na">target</span><span class="pi">:</span> <span class="s">-10</span>
-      <span class="na">direction</span><span class="pi">:</span> <span class="s">decrease</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-  <span class="na">signals</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Rising Incident Delay Signal</span>
-      <span class="na">signalType</span><span class="pi">:</span> <span class="s">risk</span>
-      <span class="na">severity</span><span class="pi">:</span> <span class="s">high</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-002</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">High Event Congestion Signal</span>
-      <span class="na">signalType</span><span class="pi">:</span> <span class="s">opportunity</span>
-      <span class="na">severity</span><span class="pi">:</span> <span class="s">medium</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-  <span class="na">tags</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">smart-city</span>
-    <span class="pi">-</span> <span class="s">portfolio</span>
-    <span class="pi">-</span> <span class="s">data-products</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog of data products, use cases, objectives, and signals related to urban mobility.</span>
 </code></pre></div>
 <table><thead>
 <tr>
-<th>Element</th>
+<th>Attribute</th>
 <th>Type</th>
-<th>Options</th>
+<th style="text-align: right">Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>catalog</strong></td>
+<td><code>catalog</code></td>
 <td>object</td>
-<td>required</td>
+<td style="text-align: right">✓</td>
 <td>Top-level object that defines an ODPC catalog.</td>
 </tr>
 <tr>
-<td><strong>id</strong></td>
+<td><code>id</code></td>
 <td>string</td>
-<td>required</td>
+<td style="text-align: right">✓</td>
 <td>Stable identifier for the catalog.</td>
 </tr>
 <tr>
-<td><strong>name</strong></td>
+<td><code>name</code></td>
 <td>object</td>
-<td>language-tagged strings</td>
-<td>Human-readable catalog name.</td>
+<td style="text-align: right">✓</td>
+<td>Human-readable catalog name using language-tagged strings.</td>
 </tr>
 <tr>
-<td><strong>description</strong></td>
-<td>object</td>
-<td>language-tagged strings</td>
-<td>Short explanation of the catalog purpose and scope.</td>
+<td><code>name.en</code></td>
+<td>string</td>
+<td style="text-align: right">✓</td>
+<td>English catalog name.</td>
 </tr>
 <tr>
-<td><strong>owner</strong></td>
+<td><code>description</code></td>
 <td>object</td>
-<td>optional</td>
+<td style="text-align: right">✓</td>
+<td>Short explanation of the catalog purpose and scope using language-tagged strings.</td>
+</tr>
+<tr>
+<td><code>description.en</code></td>
+<td>string</td>
+<td style="text-align: right">✓</td>
+<td>English catalog description.</td>
+</tr>
+</tbody></table>
+<h2 id='optional-attributes-and-options'>Optional attributes and options</h2>
+<blockquote>
+<p>Example of productReference object usage:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">catalog</span><span class="pi">:</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">CAT-001</span>
+  <span class="na">name</span><span class="pi">:</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Urban Mobility Data Product Catalog</span>
+  <span class="na">description</span><span class="pi">:</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog of data products, use cases, objectives, and signals related to urban mobility.</span>
+
+  <span class="na">owner</span><span class="pi">:</span>
+    <span class="na">organization</span><span class="pi">:</span> <span class="s">Example Transport Authority</span>
+    <span class="na">team</span><span class="pi">:</span> <span class="s">Business Analytics</span>
+    <span class="na">role</span><span class="pi">:</span> <span class="s">Data Product Portfolio Manager</span>
+
+  <span class="na">scope</span><span class="pi">:</span>
+    <span class="na">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">smart-city</span>
+      <span class="pi">-</span> <span class="s">mobility</span>
+      <span class="pi">-</span> <span class="s">transport</span>
+    <span class="na">geography</span><span class="pi">:</span> <span class="s">Abu Dhabi</span>
+    <span class="na">audience</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">internal</span>
+      <span class="pi">-</span> <span class="s">public</span>
+
+  <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0.0"</span>
+  <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+  <span class="na">graph</span><span class="pi">:</span>
+    <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPG</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0"</span>
+    <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/graphs/urban-mobility.graph.yaml</span>
+
+  <span class="na">productReferences</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">DP-001</span>
+      <span class="na">productID</span><span class="pi">:</span> <span class="s">urbanpulse-events</span>
+      <span class="na">productVersion</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0.0"</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">UrbanPulse Events Data Product</span>
+      <span class="na">description</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Data product providing event information for urban analytics and citizen services.</span>
+      <span class="na">productModel</span><span class="pi">:</span>
+        <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
+        <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">4.1"</span>
+        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
+        <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/urbanpulse-events/odps.yaml</span>
+
+  <span class="na">useCases</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">UC-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Event Demand Forecasting</span>
+      <span class="na">description</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Forecast event-related demand to improve mobility planning and citizen services.</span>
+
+  <span class="na">businessObjectives</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">BO-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Improve Urban Mobility Efficiency</span>
+      <span class="na">description</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce travel delays and improve movement across the city through better data-driven planning and operations.</span>
+
+  <span class="na">signals</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Increasing Event Demand</span>
+      <span class="na">description</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Indicates rising demand for event-related mobility and public service planning.</span>
+
+  <span class="na">tags</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">smart-city</span>
+    <span class="pi">-</span> <span class="s">mobility</span>
+    <span class="pi">-</span> <span class="s">events</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th style="text-align: right">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>owner</code></td>
+<td>object</td>
+<td style="text-align: right"></td>
 <td>Ownership information for the catalog.</td>
 </tr>
 <tr>
-<td><strong>organization</strong></td>
+<td><code>owner.organization</code></td>
 <td>string</td>
-<td>optional</td>
+<td style="text-align: right"></td>
 <td>Organization responsible for the catalog.</td>
 </tr>
 <tr>
-<td><strong>role</strong></td>
+<td><code>owner.team</code></td>
 <td>string</td>
-<td>optional</td>
-<td>Responsible role, such as Data Product Portfolio Manager.</td>
+<td style="text-align: right"></td>
+<td>Team responsible for the catalog.</td>
 </tr>
 <tr>
-<td><strong>scope</strong></td>
+<td><code>owner.role</code></td>
+<td>string</td>
+<td style="text-align: right"></td>
+<td>Responsible role, such as <code>Data Product Portfolio Manager</code>.</td>
+</tr>
+<tr>
+<td><code>scope</code></td>
 <td>object</td>
-<td>optional</td>
-<td>Defines the business, organizational, geographic, or audience scope of the catalog.</td>
+<td style="text-align: right"></td>
+<td>Business, organizational, geographic, or audience scope of the catalog.</td>
 </tr>
 <tr>
-<td><strong>domain</strong></td>
-<td>string</td>
-<td>optional</td>
-<td>Domain covered by the catalog.</td>
+<td><code>scope.domains</code></td>
+<td>array of strings</td>
+<td style="text-align: right"></td>
+<td>Domains covered by the catalog.</td>
 </tr>
 <tr>
-<td><strong>geography</strong></td>
+<td><code>scope.geography</code></td>
 <td>string</td>
-<td>optional</td>
+<td style="text-align: right"></td>
 <td>Geographic scope of the catalog, if relevant.</td>
 </tr>
 <tr>
-<td><strong>audience</strong></td>
+<td><code>scope.audience</code></td>
 <td>array of strings</td>
-<td>e.g., <code>internal</code>, <code>partner</code>, <code>public</code>, <code>commercial</code></td>
-<td>Intended audience for catalog use.</td>
+<td style="text-align: right"></td>
+<td>Intended audience for catalog use, such as <code>internal</code>, <code>partner</code>, <code>public</code>, or <code>commercial</code>.</td>
 </tr>
 <tr>
-<td><strong>version</strong></td>
+<td><code>version</code></td>
 <td>string</td>
-<td>optional</td>
+<td style="text-align: right"></td>
 <td>Catalog version.</td>
 </tr>
 <tr>
-<td><strong>status</strong></td>
+<td><code>status</code></td>
 <td>string</td>
-<td>e.g., <code>draft</code>, <code>active</code>, <code>deprecated</code>, <code>retired</code></td>
-<td>Lifecycle status of the catalog.</td>
+<td style="text-align: right"></td>
+<td>Lifecycle status of the catalog, such as <code>draft</code>, <code>active</code>, <code>deprecated</code>, or <code>retired</code>.</td>
 </tr>
 <tr>
-<td><strong>productReferences</strong></td>
+<td><code>graph</code></td>
+<td>object</td>
+<td style="text-align: right"></td>
+<td>Defines the graph specification used to describe relationships between catalog objects.</td>
+</tr>
+<tr>
+<td><code>graph.standard</code></td>
+<td>string</td>
+<td style="text-align: right">✓ when <code>graph</code> is used</td>
+<td>Graph standard used for relationship modeling, such as <code>ODPG</code>.</td>
+</tr>
+<tr>
+<td><code>graph.version</code></td>
+<td>string</td>
+<td style="text-align: right">✓ when <code>graph</code> is used</td>
+<td>Version of the graph standard.</td>
+</tr>
+<tr>
+<td><code>graph.uri</code></td>
+<td>string</td>
+<td style="text-align: right">✓ when <code>graph</code> is used</td>
+<td>URI pointing to the graph definition.</td>
+</tr>
+<tr>
+<td><code>productReferences</code></td>
 <td>array of objects</td>
-<td>optional</td>
-<td>List of data product references included in the catalog. Each item follows the <code>productReference</code> object schema.</td>
+<td style="text-align: right"></td>
+<td>List of data product references included in the catalog. Each item follows the <code>ProductReference</code> object schema.</td>
 </tr>
 <tr>
-<td><strong>useCases</strong></td>
+<td><code>useCases</code></td>
 <td>array of objects</td>
-<td>optional</td>
-<td>List of use cases included in the catalog. Each item follows the <code>useCase</code> object schema.</td>
+<td style="text-align: right"></td>
+<td>List of use cases included in the catalog. Each item follows the <code>UseCase</code> object schema.</td>
 </tr>
 <tr>
-<td><strong>businessObjectives</strong></td>
+<td><code>businessObjectives</code></td>
 <td>array of objects</td>
-<td>optional</td>
-<td>List of business objectives included in the catalog. Each item follows the <code>businessObjective</code> object schema.</td>
+<td style="text-align: right"></td>
+<td>List of business objectives included in the catalog. Each item follows the <code>BusinessObjective</code> object schema.</td>
 </tr>
 <tr>
-<td><strong>kpis</strong></td>
+<td><code>signals</code></td>
 <td>array of objects</td>
-<td>optional</td>
-<td>List of KPIs included in the catalog. Each item follows the <code>kpi</code> object schema.</td>
+<td style="text-align: right"></td>
+<td>List of signals included in the catalog. Each item follows the <code>Signal</code> object schema.</td>
 </tr>
 <tr>
-<td><strong>signals</strong></td>
-<td>array of objects</td>
-<td>optional</td>
-<td>List of signals included in the catalog. Each item follows the <code>signal</code> object schema.</td>
-</tr>
-<tr>
-<td><strong>tags</strong></td>
+<td><code>tags</code></td>
 <td>array of strings</td>
-<td>optional</td>
-<td>Keywords used for search, grouping, and portfolio analysis.</td>
+<td style="text-align: right"></td>
+<td>Keywords used for search, grouping, filtering, and portfolio analysis.</td>
 </tr>
 </tbody></table>
 <h1 id='editors-and-contributors'>Editors and contributors</h1>
