@@ -24,10 +24,25 @@ businessObjective:
     - en: Transport Digital Transformation Program
   owner:
     organization: Example Transport Authority
+    team: Business Analytics
     role: Strategy Lead
+  expectedOutcomes:
+    - en: Shorter average travel times across key corridors.
+    - en: Improved public transport reliability.
+    - en: Better coordination between road, traffic, and public transport operations.
   kpis:
-    - KPI-001
-    - KPI-002
+    - id: KPI-001
+      name:
+        en: Average Travel Time Reduction
+      description:
+        en: Measures reduction in average travel time across selected mobility corridors.
+      unit: percentage
+      baseline:
+        value: 0
+        date: 2025-10-31
+      target:
+        value: 10
+        date: 2026-12-31
   timeframe:
     startDate: 2026-01-01
     endDate: 2026-12-31
@@ -35,19 +50,42 @@ businessObjective:
   priority: high
 ```
 
-| Element | Type | Options | Description |
-|---|---|---|---|
-| **businessObjective** | object | required | Top-level object that describes a reusable business objective. |
-| **id** | string | required | Stable identifier for the business objective. |
-| **name** | object | language-tagged strings | Human-readable objective name. |
-| **description** | object | language-tagged strings | Natural-language explanation of the intended outcome. |
-| **strategicAlignment** | array of objects | language-tagged strings | Strategies, programs, policies, or plans the objective supports. |
-| **owner** | object | optional | Ownership information for the objective. |
-| **organization** | string | optional | Organization responsible for the objective. |
-| **role** | string | optional | Responsible role, such as Strategy Lead or Business Owner. |
-| **kpis** | array of strings | optional | IDs of KPI objects used to measure progress toward the objective. |
-| **timeframe** | object | optional | Start and end dates for the objective. |
-| **startDate** | string | ISO 8601 date (YYYY-MM-DD) | Date when the objective becomes active. |
-| **endDate** | string | ISO 8601 date (YYYY-MM-DD) | Date when the objective ends or is planned to end. |
-| **status** | string | e.g., `planned`, `active`, `at_risk`, `achieved`, `cancelled`, `expired` | Lifecycle status of the business objective. |
-| **priority** | string | e.g., `low`, `medium`, `high`, `critical` | Priority used for portfolio and investment decisions. |
+## Mandatory
+
+| Element             | Type   | Options                           | Description                                                                       |
+| ------------------- | ------ | --------------------------------- | --------------------------------------------------------------------------------- |
+| `businessObjective` | object | required                          | Top-level object that defines a business objective in ODPC.                       |
+| `id`                | string | required                          | Stable identifier for the business objective.                                     |
+| `name`              | object | required, language-tagged strings | Human-readable business objective name.                                           |
+| `name.en`           | string | required                          | English name of the business objective.                                           |
+| `description`       | object | required, language-tagged strings | Short explanation of the business objective, its purpose, and expected direction. |
+| `description.en`    | string | required                          | English description of the business objective.                                    |
+
+## Optional 
+
+| Element                | Type             | Options                           | Description                                                                                                                                                     |
+| ---------------------- | ---------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `strategicAlignment`   | array of objects | optional                          | Strategic programs, policies, visions, mandates, or transformation initiatives the business objective supports.                                                 |
+| `strategicAlignment[]` | object           | language-tagged strings           | One strategic alignment statement.                                                                                                                              |
+| `owner`                | object           | optional                          | Ownership information for the business objective.                                                                                                               |
+| `owner.organization`   | string           | optional                          | Organization responsible for the business objective.                                                                                                            |
+| `owner.team`           | string           | optional                          | Team responsible for the business objective.                                                                                                                    |
+| `owner.role`           | string           | optional                          | Responsible role, such as Strategy Lead, Product Owner, or Performance Lead.                                                                                    |
+| `expectedOutcomes`     | array of objects | optional                          | Business outcomes expected from achieving the objective.                                                                                                        |
+| `expectedOutcomes[]`   | object           | language-tagged strings           | One expected outcome statement.                                                                                                                                 |
+| `kpis`                 | array of objects | optional                          | Measurable indicators used to track progress against the business objective. KPIs are nested inside `businessObjective`, not defined as top-level ODPC objects. |
+| `kpis.id`              | string           | optional                          | Stable identifier for the KPI within the business objective.                                                                                                    |
+| `kpis.name`            | object           | optional, language-tagged strings | Human-readable KPI name.                                                                                                                                        |
+| `kpis.description`     | object           | optional, language-tagged strings | Explanation of what the KPI measures.                                                                                                                           |
+| `kpis.unit`            | string           | optional                          | Unit used for the KPI value, such as `percentage`, `count`, `days`, `AED`, or `score`.                                                                          |
+| `kpis.baseline`        | object           | optional                          | Starting measurement used as the comparison point.                                                                                                              |
+| `kpis.baseline.value`  | number           | optional                          | Baseline value.                                                                                                                                                 |
+| `kpis.baseline.date`   | date             | optional                          | Date when the baseline value was measured.                                                                                                                      |
+| `kpis.target`          | object           | optional                          | Target measurement expected for the KPI.                                                                                                                        |
+| `kpis.target.value`    | number           | optional                          | Target value.                                                                                                                                                   |
+| `kpis.target.date`     | date             | optional                          | Date when the target should be reached.                                                                                                                         |
+| `timeframe`            | object           | optional                          | Time period during which the business objective is active or expected to be achieved.                                                                           |
+| `timeframe.startDate`  | date             | optional                          | Start date for the business objective.                                                                                                                          |
+| `timeframe.endDate`    | date             | optional                          | End date for the business objective.                                                                                                                            |
+| `status`               | string           | optional                          | Lifecycle status of the business objective, such as `draft`, `active`, `paused`, `completed`, or `retired`.                                                     |
+| `priority`             | string           | optional                          | Relative importance of the business objective, such as `low`, `medium`, `high`, or `critical`.                                                                  |
