@@ -410,14 +410,6 @@
               </ul>
           </li>
           <li>
-            <a href="#catalogitem" class="toc-h1 toc-link" data-title="CatalogItem">CatalogItem</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#attributes-and-options" class="toc-h2 toc-link" data-title="Attributes and options">Attributes and options</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#editors-and-contributors" class="toc-h1 toc-link" data-title="Editors and contributors">Editors and contributors</a>
           </li>
           <li>
@@ -1270,34 +1262,96 @@ Development of the specification is under the umbrella of the Linux Foundation. 
       <span class="pi">-</span> <span class="s">partner</span>
   <span class="na">version</span><span class="pi">:</span> <span class="s">1.0.0</span>
   <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-  <span class="na">catalogItems</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">CI-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Urban Mobility Data Product</span>
-      <span class="na">description</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog item for a data product supporting traffic flow, mobility planning, and transport operations.</span>
-      <span class="na">itemType</span><span class="pi">:</span> <span class="s">productReference</span>
-      <span class="na">referenceId</span><span class="pi">:</span> <span class="s">DP-001</span>
-      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-      <span class="na">priority</span><span class="pi">:</span> <span class="s">high</span>
-      <span class="na">tags</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">mobility</span>
-        <span class="pi">-</span> <span class="s">transport</span>
-        <span class="pi">-</span> <span class="s">traffic</span>
 
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">CI-002</span>
+  <span class="na">productReferences</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">DP-001</span>
       <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Emergency Response Optimization Use Case</span>
-      <span class="na">description</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog item for a use case focused on reducing emergency response time through better situational awareness.</span>
-      <span class="na">itemType</span><span class="pi">:</span> <span class="s">useCase</span>
-      <span class="na">referenceId</span><span class="pi">:</span> <span class="s">UC-001</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">UrbanPulse Events Data Product</span>
+      <span class="na">productModel</span><span class="pi">:</span>
+        <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
+        <span class="na">version</span><span class="pi">:</span> <span class="m">4.1</span>
+        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
+      <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/urbanpulse-events/odps.yaml</span>
       <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-      <span class="na">priority</span><span class="pi">:</span> <span class="s">high</span>
-      <span class="na">tags</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">emergency-response</span>
-        <span class="pi">-</span> <span class="s">public-safety</span>
-        <span class="pi">-</span> <span class="s">operations</span>
+
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">DP-002</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Traffic Flow Data Product</span>
+      <span class="na">productModel</span><span class="pi">:</span>
+        <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
+        <span class="na">version</span><span class="pi">:</span> <span class="m">4.1</span>
+        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
+      <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/traffic-flow/odps.yaml</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">DP-003</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Emergency Incident Data Product</span>
+      <span class="na">productModel</span><span class="pi">:</span>
+        <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
+        <span class="na">version</span><span class="pi">:</span> <span class="m">4.1</span>
+        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
+      <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/emergency-incidents/odps.yaml</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+  <span class="na">useCases</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">UC-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Emergency Response Optimization</span>
+      <span class="na">expectedOutcome</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce average emergency response time across the city.</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">UC-002</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Event-Aware Traffic Planning</span>
+      <span class="na">expectedOutcome</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce congestion around major event locations.</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+  <span class="na">businessObjectives</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">BO-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce Emergency Response Time</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">BO-002</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Improve Event Mobility</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+  <span class="na">kpis</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">KPI-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">City Emergency Response Time</span>
+      <span class="na">unit</span><span class="pi">:</span> <span class="s">minutes</span>
+      <span class="na">target</span><span class="pi">:</span> <span class="m">5</span>
+      <span class="na">direction</span><span class="pi">:</span> <span class="s">at_most</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">KPI-002</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Event Area Congestion Index</span>
+      <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span>
+      <span class="na">target</span><span class="pi">:</span> <span class="s">-10</span>
+      <span class="na">direction</span><span class="pi">:</span> <span class="s">decrease</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+  <span class="na">signals</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Rising Incident Delay Signal</span>
+      <span class="na">signalType</span><span class="pi">:</span> <span class="s">risk</span>
+      <span class="na">severity</span><span class="pi">:</span> <span class="s">high</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-002</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">High Event Congestion Signal</span>
+      <span class="na">signalType</span><span class="pi">:</span> <span class="s">opportunity</span>
+      <span class="na">severity</span><span class="pi">:</span> <span class="s">medium</span>
+      <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
   <span class="na">tags</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">smart-city</span>
     <span class="pi">-</span> <span class="s">portfolio</span>
@@ -1390,148 +1444,40 @@ Development of the specification is under the umbrella of the Linux Foundation. 
 <td>Lifecycle status of the catalog.</td>
 </tr>
 <tr>
-<td><strong>catalogItems</strong></td>
-<td>array of strings</td>
+<td><strong>productReferences</strong></td>
+<td>array of objects</td>
 <td>optional</td>
-<td>IDs of <code>CatalogItem</code> objects included in the catalog.</td>
+<td>List of data product references included in the catalog. Each item follows the <code>productReference</code> object schema.</td>
+</tr>
+<tr>
+<td><strong>useCases</strong></td>
+<td>array of objects</td>
+<td>optional</td>
+<td>List of use cases included in the catalog. Each item follows the <code>useCase</code> object schema.</td>
+</tr>
+<tr>
+<td><strong>businessObjectives</strong></td>
+<td>array of objects</td>
+<td>optional</td>
+<td>List of business objectives included in the catalog. Each item follows the <code>businessObjective</code> object schema.</td>
+</tr>
+<tr>
+<td><strong>kpis</strong></td>
+<td>array of objects</td>
+<td>optional</td>
+<td>List of KPIs included in the catalog. Each item follows the <code>kpi</code> object schema.</td>
+</tr>
+<tr>
+<td><strong>signals</strong></td>
+<td>array of objects</td>
+<td>optional</td>
+<td>List of signals included in the catalog. Each item follows the <code>signal</code> object schema.</td>
 </tr>
 <tr>
 <td><strong>tags</strong></td>
 <td>array of strings</td>
 <td>optional</td>
 <td>Keywords used for search, grouping, and portfolio analysis.</td>
-</tr>
-</tbody></table>
-<h1 id='catalogitem'>CatalogItem</h1>
-<p>The <code>CatalogItem</code> object defines an entry inside an ODPC catalog. It provides a common wrapper for reusable catalog objects such as product references, use cases, business objectives, KPIs, and signals.</p>
-
-<p>In ODPC, catalog items make catalogs easier to manage, publish, filter, and govern. They allow different object types to be included in one catalog while preserving object-specific definitions separately.</p>
-
-<p>A <code>CatalogItem</code> should identify the referenced object, describe its item type, provide catalog-level metadata, and support lifecycle, ownership, visibility, and priority management. It should not duplicate the full referenced object.</p>
-
-<p>By defining catalog items as reusable wrappers, ODPC supports marketplace-style catalogs, enterprise catalogs, domain catalogs, AI-assisted catalog maintenance, and graph-based portfolio views.</p>
-<h2 id='attributes-and-options'>Attributes and options</h2>
-<blockquote>
-<p>Example of CatalogItem object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">catalogItem</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">CI-001</span>
-  <span class="na">itemType</span><span class="pi">:</span> <span class="s">productReference</span>
-  <span class="na">ref</span><span class="pi">:</span> <span class="s">DP-001</span>
-  <span class="na">title</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">UrbanPulse Events Data Product</span>
-  <span class="na">summary</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog entry for a smart city events data product used in mobility and citizen service use cases.</span>
-  <span class="na">visibility</span><span class="pi">:</span> <span class="s">internal</span>
-  <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-  <span class="na">priority</span><span class="pi">:</span> <span class="s">high</span>
-  <span class="na">owner</span><span class="pi">:</span>
-    <span class="na">organization</span><span class="pi">:</span> <span class="s">Example Smart City Office</span>
-    <span class="na">role</span><span class="pi">:</span> <span class="s">Catalog Manager</span>
-  <span class="na">listedAt</span><span class="pi">:</span> <span class="s">2026-01-15T08:00:00Z</span>
-  <span class="na">updatedAt</span><span class="pi">:</span> <span class="s">2026-04-20T10:30:00Z</span>
-  <span class="na">tags</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">events</span>
-    <span class="pi">-</span> <span class="s">mobility</span>
-    <span class="pi">-</span> <span class="s">smart-city</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Element</th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>catalogItem</strong></td>
-<td>object</td>
-<td>required</td>
-<td>Top-level object that defines an entry in an ODPC catalog.</td>
-</tr>
-<tr>
-<td><strong>id</strong></td>
-<td>string</td>
-<td>required</td>
-<td>Stable identifier for the catalog item.</td>
-</tr>
-<tr>
-<td><strong>itemType</strong></td>
-<td>string</td>
-<td><code>productReference</code>, <code>useCase</code>, <code>businessObjective</code>, <code>kpi</code>, <code>signal</code></td>
-<td>Type of catalog object referenced by the item.</td>
-</tr>
-<tr>
-<td><strong>ref</strong></td>
-<td>string</td>
-<td>required</td>
-<td>ID of the referenced ODPC object.</td>
-</tr>
-<tr>
-<td><strong>title</strong></td>
-<td>object</td>
-<td>language-tagged strings</td>
-<td>Catalog-level title for the item.</td>
-</tr>
-<tr>
-<td><strong>summary</strong></td>
-<td>object</td>
-<td>language-tagged strings</td>
-<td>Short catalog-level summary used in listings and previews.</td>
-</tr>
-<tr>
-<td><strong>visibility</strong></td>
-<td>string</td>
-<td>e.g., <code>internal</code>, <code>partner</code>, <code>public</code>, <code>restricted</code>, <code>commercial</code></td>
-<td>Intended visibility of the catalog item.</td>
-</tr>
-<tr>
-<td><strong>status</strong></td>
-<td>string</td>
-<td>e.g., <code>draft</code>, <code>active</code>, <code>hidden</code>, <code>deprecated</code>, <code>retired</code></td>
-<td>Lifecycle status of the catalog item.</td>
-</tr>
-<tr>
-<td><strong>priority</strong></td>
-<td>string</td>
-<td>e.g., <code>low</code>, <code>medium</code>, <code>high</code>, <code>critical</code></td>
-<td>Priority used for catalog management and portfolio planning.</td>
-</tr>
-<tr>
-<td><strong>owner</strong></td>
-<td>object</td>
-<td>optional</td>
-<td>Ownership information for the catalog item.</td>
-</tr>
-<tr>
-<td><strong>organization</strong></td>
-<td>string</td>
-<td>optional</td>
-<td>Organization responsible for the catalog item.</td>
-</tr>
-<tr>
-<td><strong>role</strong></td>
-<td>string</td>
-<td>optional</td>
-<td>Responsible role, such as Catalog Manager.</td>
-</tr>
-<tr>
-<td><strong>listedAt</strong></td>
-<td>string</td>
-<td>ISO 8601 datetime</td>
-<td>Date and time when the item was first listed.</td>
-</tr>
-<tr>
-<td><strong>updatedAt</strong></td>
-<td>string</td>
-<td>ISO 8601 datetime</td>
-<td>Date and time when the item was last updated.</td>
-</tr>
-<tr>
-<td><strong>tags</strong></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Keywords used for search, grouping, filtering, and AI-assisted analysis.</td>
 </tr>
 </tbody></table>
 <h1 id='editors-and-contributors'>Editors and contributors</h1>
