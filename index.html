@@ -373,7 +373,10 @@
             <a href="#usecase" class="toc-h1 toc-link" data-title="UseCase">UseCase</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#attributes-and-options" class="toc-h2 toc-link" data-title="Attributes and options">Attributes and options</a>
+                    <a href="#mandatory-attributes-and-options" class="toc-h2 toc-link" data-title="Mandatory attributes and options">Mandatory attributes and options</a>
+                  </li>
+                  <li>
+                    <a href="#optional-attributes-and-options" class="toc-h2 toc-link" data-title="Optional attributes and options">Optional attributes and options</a>
                   </li>
               </ul>
           </li>
@@ -693,130 +696,287 @@ Development of the specification is under the umbrella of the Linux Foundation. 
 <h1 id='usecase'>UseCase</h1>
 <p>The <code>UseCase</code> object describes a business, operational, analytical, or policy use case that needs data products. It captures why data is needed, who needs it, what decision or process it supports, and what outcome is expected.</p>
 
-<p>In ODPC, a use case is a demand-side portfolio object. It helps organizations understand where data products create value and which products support real business needs.</p>
+<p>In ODPC, a use case is a demand-side portfolio object. It helps organizations understand where data products create value and which business needs the portfolio should support.</p>
 
-<p>A <code>UseCase</code> can reference one or more data products through <code>productReferences</code>. It can also connect to business objectives and KPIs through catalog-level relationships or graph definitions. The object should remain focused on the use case itself, not on detailed relationship semantics. Relationship modeling belongs to ODPG.</p>
+<p>A <code>UseCase</code> can describe required data through <code>dataNeeds</code>, but it should not directly reference data products. Connections between use cases, data products, business objectives, and signal belong to Open Data Product Graphs (ODPG).</p>
+
+<p>ODPG defines graphs and connections between catalog objects. It is used to model relationships such as which data products support a use case, which use cases contribute to a business objective, and where portfolio gaps exist.</p>
+
+<p>The <code>UseCase</code> object should remain focused on the use case itself, not on detailed relationship semantics.</p>
 
 <p>By defining use cases as reusable catalog objects, ODPC enables discovery, prioritization, gap analysis, reuse analysis, and AI-assisted planning across data product portfolios.</p>
-<h2 id='attributes-and-options'>Attributes and options</h2>
+<h2 id='mandatory-attributes-and-options'>Mandatory attributes and options</h2>
 <blockquote>
-<p>Example of UseCase object usage:</p>
+<p>Example of BusinessObjective object usage:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code><span class="na">useCase</span><span class="pi">:</span>
   <span class="na">id</span><span class="pi">:</span> <span class="s">UC-001</span>
   <span class="na">name</span><span class="pi">:</span>
     <span class="na">en</span><span class="pi">:</span> <span class="s">Predictive Maintenance for Aircraft Fleet</span>
   <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Predict maintenance needs earlier by combining aircraft usage, schedules, and maintenance history.</span>
-  <span class="na">domain</span><span class="pi">:</span> <span class="s">aviation</span>
-  <span class="na">stakeholders</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">Fleet Operations Manager</span>
-    <span class="pi">-</span> <span class="s">Maintenance Planning Team</span>
-    <span class="pi">-</span> <span class="s">Safety and Compliance Team</span>
-  <span class="na">decision</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Schedule aircraft maintenance proactively based on usage patterns.</span>
-  <span class="na">expectedOutcome</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce maintenance costs and increase aircraft availability.</span>
-  <span class="na">dataNeeds</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">flight schedules</span>
-    <span class="pi">-</span> <span class="s">aircraft usage</span>
-    <span class="pi">-</span> <span class="s">maintenance history</span>
-  <span class="na">productReferences</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">DP-001</span>
-    <span class="pi">-</span> <span class="s">DP-002</span>
-    <span class="pi">-</span> <span class="s">DP-003</span>
-  <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-  <span class="na">priority</span><span class="pi">:</span> <span class="s">high</span>
-  <span class="na">tags</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">maintenance</span>
-    <span class="pi">-</span> <span class="s">aviation</span>
-    <span class="pi">-</span> <span class="s">operations</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Predict maintenance needs earlier by combining</span> 
+        <span class="s">aircraft usage, schedules, and maintenance history.</span>
 </code></pre></div>
 <table><thead>
 <tr>
-<th>Element</th>
+<th>Attribute</th>
 <th>Type</th>
 <th>Options</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>useCase</strong></td>
+<td><code>useCase</code></td>
 <td>object</td>
 <td>required</td>
-<td>Top-level object that describes a reusable data product use case.</td>
+<td>Top-level object that defines a use case in ODPC.</td>
 </tr>
 <tr>
-<td><strong>id</strong></td>
+<td><code>id</code></td>
 <td>string</td>
 <td>required</td>
 <td>Stable identifier for the use case.</td>
 </tr>
 <tr>
-<td><strong>name</strong></td>
+<td><code>name</code></td>
 <td>object</td>
-<td>language-tagged strings</td>
+<td>required, language-tagged strings</td>
 <td>Human-readable use case name.</td>
 </tr>
 <tr>
-<td><strong>description</strong></td>
-<td>object</td>
-<td>language-tagged strings</td>
-<td>Short explanation of the business or operational challenge.</td>
+<td><code>name.en</code></td>
+<td>string</td>
+<td>required</td>
+<td>English name of the use case.</td>
 </tr>
 <tr>
-<td><strong>domain</strong></td>
+<td><code>description</code></td>
+<td>object</td>
+<td>required, language-tagged strings</td>
+<td>Short explanation of the use case, its purpose, and expected value.</td>
+</tr>
+<tr>
+<td><code>description.en</code></td>
+<td>string</td>
+<td>required</td>
+<td>English description of the use case.</td>
+</tr>
+</tbody></table>
+<h2 id='optional-attributes-and-options'>Optional attributes and options</h2>
+<blockquote>
+<p>Example of BusinessObjective object usage:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">useCase</span><span class="pi">:</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">UC-001</span>
+  <span class="na">name</span><span class="pi">:</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Predictive Maintenance for Healthcare Revenue Growth</span>
+
+  <span class="na">description</span><span class="pi">:</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Predict equipment maintenance needs in healthcare facilities to reduce downtime, improve service reliability, and support revenue growth.</span>
+
+  <span class="na">domains</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">healthcare</span>
+    <span class="pi">-</span> <span class="s">operations</span>
+    <span class="pi">-</span> <span class="s">revenue management</span>
+
+  <span class="na">stakeholders</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">Healthcare Administrators</span>
+    <span class="pi">-</span> <span class="s">CFOs</span>
+    <span class="pi">-</span> <span class="s">Revenue Managers</span>
+    <span class="pi">-</span> <span class="s">Maintenance Engineers</span>
+    <span class="pi">-</span> <span class="s">Operations Managers</span>
+    <span class="pi">-</span> <span class="s">Safety Officers</span>
+    <span class="pi">-</span> <span class="s">Data Analysts</span>
+
+  <span class="na">businessChallenge</span><span class="pi">:</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Healthcare organizations face operational disruptions from equipment failures, leading to service delays, safety risks, and lost revenue.</span>
+
+  <span class="na">decision</span><span class="pi">:</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Schedule healthcare equipment maintenance proactively based on equipment usage, failure patterns, and patient service demand.</span>
+
+  <span class="na">expectedOutcome</span><span class="pi">:</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce equipment downtime, improve patient service continuity, reduce maintenance costs, and support measurable revenue growth.</span>
+
+  <span class="na">kpis</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">Revenue growth from improved equipment uptime</span>
+    <span class="pi">-</span> <span class="s">Equipment downtime reduction</span>
+    <span class="pi">-</span> <span class="s">Maintenance cost reduction</span>
+    <span class="pi">-</span> <span class="s">On-time service performance</span>
+    <span class="pi">-</span> <span class="s">Patient service utilization rate</span>
+
+  <span class="na">impactMetrics</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">Cost savings from reduced reactive repairs</span>
+    <span class="pi">-</span> <span class="s">Increased revenue from higher patient service availability</span>
+    <span class="pi">-</span> <span class="s">Improved on-time service performance</span>
+    <span class="pi">-</span> <span class="s">Enhanced safety and reduced operational disruption</span>
+
+  <span class="na">dataNeeds</span><span class="pi">:</span>
+    <span class="na">summary</span><span class="pi">:</span>
+      <span class="na">en</span><span class="pi">:</span> <span class="s">Combines revenue data, equipment sensor readings, maintenance logs, patient utilization metrics, and market trends to forecast failures and optimize service planning.</span>
+    <span class="na">items</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">Historical revenue and cost data by service line</span>
+      <span class="pi">-</span> <span class="s">Patient visit records and demographics</span>
+      <span class="pi">-</span> <span class="s">Market competition analysis and pricing benchmarks</span>
+      <span class="pi">-</span> <span class="s">Service quality feedback and patient satisfaction scores</span>
+      <span class="pi">-</span> <span class="s">Real-time equipment sensor readings</span>
+      <span class="pi">-</span> <span class="s">Historical maintenance and failure logs</span>
+      <span class="pi">-</span> <span class="s">Equipment usage schedules</span>
+      <span class="pi">-</span> <span class="s">Inventory levels for parts availability</span>
+
+  <span class="na">scoring</span><span class="pi">:</span>
+    <span class="na">businessValue</span><span class="pi">:</span> <span class="s">high</span>
+    <span class="na">effort</span><span class="pi">:</span> <span class="s">medium</span>
+    <span class="na">category</span><span class="pi">:</span> <span class="s">juicyAndWorthIt</span>
+    <span class="na">score</span><span class="pi">:</span> <span class="m">3.0</span>
+
+  <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+  <span class="na">priority</span><span class="pi">:</span> <span class="s">high</span>
+
+  <span class="na">tags</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">predictive-maintenance</span>
+    <span class="pi">-</span> <span class="s">healthcare</span>
+    <span class="pi">-</span> <span class="s">revenue-growth</span>
+    <span class="pi">-</span> <span class="s">operations</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>domains</code></td>
+<td>array of strings</td>
+<td>optional</td>
+<td>Business, operational, policy, or industry domains related to the use case.</td>
+</tr>
+<tr>
+<td><code>stakeholders</code></td>
+<td>array of strings</td>
+<td>optional</td>
+<td>People, teams, roles, or groups involved in or affected by the use case.</td>
+</tr>
+<tr>
+<td><code>businessChallenge</code></td>
+<td>object</td>
+<td>optional, language-tagged strings</td>
+<td>Business, operational, policy, or service problem the use case addresses.</td>
+</tr>
+<tr>
+<td><code>businessChallenge.en</code></td>
 <td>string</td>
 <td>optional</td>
-<td>Business, policy, or operational domain of the use case.</td>
+<td>English business challenge statement.</td>
 </tr>
 <tr>
-<td><strong>stakeholders</strong></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Roles, teams, or groups that benefit from or own the use case.</td>
-</tr>
-<tr>
-<td><strong>decision</strong></td>
+<td><code>decision</code></td>
 <td>object</td>
-<td>language-tagged strings</td>
-<td>Decision, process, or action the use case supports.</td>
+<td>optional, language-tagged strings</td>
+<td>Decision, action, or operational choice the use case supports.</td>
 </tr>
 <tr>
-<td><strong>expectedOutcome</strong></td>
+<td><code>decision.en</code></td>
+<td>string</td>
+<td>optional</td>
+<td>English decision statement.</td>
+</tr>
+<tr>
+<td><code>expectedOutcome</code></td>
 <td>object</td>
-<td>language-tagged strings</td>
-<td>Business, operational, or policy outcome expected from the use case.</td>
+<td>optional, language-tagged strings</td>
+<td>Expected business, operational, policy, or service outcome.</td>
 </tr>
 <tr>
-<td><strong>dataNeeds</strong></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Data needs expressed in business language.</td>
-</tr>
-<tr>
-<td><strong>productReferences</strong></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>IDs of <code>ProductReference</code> objects expected to support the use case.</td>
-</tr>
-<tr>
-<td><strong>status</strong></td>
+<td><code>expectedOutcome.en</code></td>
 <td>string</td>
-<td>e.g., <code>proposed</code>, <code>active</code>, <code>at_risk</code>, <code>completed</code>, <code>cancelled</code></td>
-<td>Lifecycle status of the use case.</td>
+<td>optional</td>
+<td>English expected outcome statement.</td>
 </tr>
 <tr>
-<td><strong>priority</strong></td>
-<td>string</td>
-<td>e.g., <code>low</code>, <code>medium</code>, <code>high</code>, <code>critical</code></td>
-<td>Priority used for portfolio planning and backlog decisions.</td>
-</tr>
-<tr>
-<td><strong>tags</strong></td>
+<td><code>kpis</code></td>
 <td>array of strings</td>
 <td>optional</td>
-<td>Keywords used for search, grouping, and AI-assisted analysis.</td>
+<td>KPI or key result labels used to assess the value or success of the use case.</td>
+</tr>
+<tr>
+<td><code>impactMetrics</code></td>
+<td>array of strings</td>
+<td>optional</td>
+<td>Measurable or observable impact areas expected from the use case.</td>
+</tr>
+<tr>
+<td><code>dataNeeds</code></td>
+<td>object</td>
+<td>optional</td>
+<td>Data required to support the use case.</td>
+</tr>
+<tr>
+<td><code>dataNeeds.summary</code></td>
+<td>object</td>
+<td>optional, language-tagged strings</td>
+<td>Short summary of the overall data requirement.</td>
+</tr>
+<tr>
+<td><code>dataNeeds.summary.en</code></td>
+<td>string</td>
+<td>optional</td>
+<td>English summary of the data requirement.</td>
+</tr>
+<tr>
+<td><code>dataNeeds.items</code></td>
+<td>array of strings</td>
+<td>optional</td>
+<td>Individual data needs, expressed as plain strings.</td>
+</tr>
+<tr>
+<td><code>scoring</code></td>
+<td>object</td>
+<td>optional</td>
+<td>Evaluation of the use case for prioritization or portfolio review.</td>
+</tr>
+<tr>
+<td><code>scoring.businessValue</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Estimated business value, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
+</tr>
+<tr>
+<td><code>scoring.effort</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Estimated implementation effort, such as <code>low</code>, <code>medium</code>, or <code>high</code>.</td>
+</tr>
+<tr>
+<td><code>scoring.category</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Portfolio scoring category, such as <code>quickWins</code>, <code>juicyAndWorthIt</code>, <code>niceToHave</code>, or <code>avoidOrDefer</code>.</td>
+</tr>
+<tr>
+<td><code>scoring.score</code></td>
+<td>number</td>
+<td>optional</td>
+<td>Numeric score used for prioritization, ranking, or portfolio analysis.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Lifecycle status of the use case, such as <code>draft</code>, <code>active</code>, <code>paused</code>, <code>completed</code>, or <code>retired</code>.</td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Relative importance of the use case, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>array of strings</td>
+<td>optional</td>
+<td>Keywords used to classify, search, or filter the use case.</td>
 </tr>
 </tbody></table>
 <h1 id='businessobjective'>BusinessObjective</h1>
