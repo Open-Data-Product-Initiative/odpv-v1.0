@@ -1543,13 +1543,15 @@ ODPC should also not define graph traversal, graph analytics, or relationship se
 </tr>
 </tbody></table>
 <h1 id='catalog'>Catalog</h1>
-<p>The <code>Catalog</code> object defines a managed collection of ODPC portfolio objects. It provides the container for product references, use cases, business objectives, KPIs, signals, and catalog items.</p>
+<p>The <code>Catalog</code> object defines a reusable ODPC catalog. It provides the top-level structure for organizing product references, use cases, business objectives, signals, tags, ownership, scope, lifecycle status, and graph location.</p>
 
-<p>In ODPC, a catalog is the portfolio-level structure that allows organizations to organize, publish, govern, and exchange reusable catalog objects. A catalog may represent an enterprise data product catalog, a government portfolio catalog, a domain catalog, a marketplace catalog, or a project-specific catalog.</p>
+<p>In ODPC, the <code>Catalog</code> object acts as the portfolio container. It helps organizations group related data products and demand-side objects around a domain, organization, geography, audience, or strategic theme.</p>
 
-<p>A <code>Catalog</code> should provide identity, ownership, scope, lifecycle status, and references to the objects included in the catalog. The catalog does not define relationship semantics between the objects. That belongs to ODPG.</p>
+<p>The <code>Catalog</code> object can include product references, use cases, business objectives, and signals directly as reusable catalog objects. It can also point to an ODPG graph through the <code>graph</code> attribute. The graph defines the relationships between catalog objects, such as which products support which use cases, which use cases contribute to which objectives, and where gaps exist.</p>
 
-<p>By defining catalogs as machine-readable objects, ODPC supports interoperability between tools, platforms, marketplaces, AI workflows, and graph-based portfolio analysis.</p>
+<p>The <code>Catalog</code> object should remain focused on catalog structure and portfolio organization. It should not define detailed product metadata, relationship semantics, or graph edges. Detailed product definitions belong to product models such as ODPS. Relationship modeling belongs to ODPG.</p>
+
+<p>By defining catalogs as reusable objects, ODPC supports discovery, portfolio browsing, governance review, prioritization, filtering, AI-assisted portfolio analysis, and reporting across data product ecosystems.</p>
 <h2 id='mandatory-attributes-and-options'>Mandatory attributes and options</h2>
 <blockquote>
 <p>Example of catalog object usage:</p>
