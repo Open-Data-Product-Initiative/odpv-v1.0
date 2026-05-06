@@ -126,25 +126,25 @@ catalog:
     - data-products
 ```
 
-| Element                | Type             | Options                                             | Description                                                                                                      |
-| ---------------------- | ---------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **catalog**            | object           | required                                            | Top-level object that defines an ODPC catalog.                                                                   |
-| **id**                 | string           | required                                            | Stable identifier for the catalog.                                                                               |
-| **name**               | object           | language-tagged strings                             | Human-readable catalog name.                                                                                     |
-| **description**        | object           | language-tagged strings                             | Short explanation of the catalog purpose and scope.                                                              |
-| **owner**              | object           | optional                                            | Ownership information for the catalog.                                                                           |
-| **organization**       | string           | optional                                            | Organization responsible for the catalog.                                                                        |
-| **role**               | string           | optional                                            | Responsible role, such as Data Product Portfolio Manager.                                                        |
-| **scope**              | object           | optional                                            | Defines the business, organizational, geographic, or audience scope of the catalog.                              |
-| **domain**             | string           | optional                                            | Domain covered by the catalog.                                                                                   |
-| **geography**          | string           | optional                                            | Geographic scope of the catalog, if relevant.                                                                    |
-| **audience**           | array of strings | e.g., `internal`, `partner`, `public`, `commercial` | Intended audience for catalog use.                                                                               |
-| **version**            | string           | optional                                            | Catalog version.                                                                                                 |
-| **status**             | string           | e.g., `draft`, `active`, `deprecated`, `retired`    | Lifecycle status of the catalog.                                                                                 |
-| **productReferences**  | array of objects | optional                                            | List of data product references included in the catalog. Each item follows the `productReference` object schema. |
-| **useCases**           | array of objects | optional                                            | List of use cases included in the catalog. Each item follows the `useCase` object schema.                        |
-| **businessObjectives** | array of objects | optional                                            | List of business objectives included in the catalog. Each item follows the `businessObjective` object schema.    |
-| **kpis**               | array of objects | optional                                            | List of KPIs included in the catalog. Each item follows the `kpi` object schema.                                 |
-| **signals**            | array of objects | optional                                            | List of signals included in the catalog. Each item follows the `signal` object schema.                           |
-| **tags**               | array of strings | optional                                            | Keywords used for search, grouping, and portfolio analysis.                                                      |
+| Element | Type | Options | Description |
+|---|---|---|---|
+| catalog | object | required | Top-level object that defines an ODPC catalog. |
+| id | string | required | Stable identifier for the catalog. |
+| name | object | language-tagged strings | Human-readable catalog name. |
+| description | object | language-tagged strings | Short explanation of the catalog purpose and scope. |
+| owner | object | optional | Ownership information for the catalog. |
+| organization | string | optional | Organization responsible for the catalog. |
+| role | string | optional | Responsible role, such as Data Product Portfolio Manager. |
+| scope | object | optional | Defines the business, organizational, geographic, or audience scope of the catalog. |
+| domain | string | optional | Domain covered by the catalog. |
+| geography | string | optional | Geographic scope of the catalog, when relevant. |
+| audience | array of strings | internal, partner, public, commercial | Intended audience for catalog use. |
+| version | string | optional | Catalog version. |
+| status | string | draft, active, deprecated, retired | Lifecycle status of the catalog. |
+| productReferences | array of objects | optional | List of data product references included in the catalog. Each item follows the productReference object schema. |
+| useCases | array of objects | optional | List of use cases included in the catalog. Each item follows the useCase object schema. |
+| businessObjectives | array of objects | optional | List of business objectives included in the catalog. Each item follows the businessObjective object schema. |
+| kpis | array of objects | optional | List of KPIs included in the catalog. Each item follows the kpi object schema. |
+| signals | array of objects | optional | List of signals included in the catalog. Each item follows the signal object schema. |
+| tags | array of strings | optional | Keywords used for search, grouping, and portfolio analysis. |analysis.                                                      |
 
