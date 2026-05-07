@@ -10,7 +10,7 @@ Extensions should not be used to redefine core ODPC semantics. They should be us
 
 Useful and widely adopted extensions may become candidates for future versions of the standard. To propose useful extensions, raise an issue in GitHub:
 
-[Open Data Product Initiative GitHub issues](https://github.com/Open-Data-Product-Initiative/dev/issues)
+[Open Data Product Initiative GitHub issues](https://github.com/Open-Data-Product-Initiative/odpc-v1.0/issues)
 
 > Example of extension usage:
 
