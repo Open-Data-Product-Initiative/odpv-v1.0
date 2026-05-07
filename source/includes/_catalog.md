@@ -123,7 +123,7 @@ catalog:
 | `version` | string |  | Catalog version. |
 | `status` | string |  | Lifecycle status of the catalog, such as `draft`, `active`, `deprecated`, or `retired`. |
 | `graph` | object |  | Defines the graph specification used to describe relationships between catalog objects. |
-| `graph.standard` | string | ✓ when `graph` is used | Graph standard used for relationship modeling, such as `ODPG`. |
+| `graph.standard` | string |  | Graph standard used for the catalog graph. Default is `ODPG` for Open Data Product Graphs. Other options: `RDF` for semantic web graphs, `JSON-LD` for linked data in JSON, `GraphML` for graph exchange, `openCypher` for property graph scripts, `GQL` for ISO property graph queries, `Gremlin` for graph traversal, `GraphSON` for TinkerPop-style graph JSON, or `GeoSPARQL` for geospatial RDF graphs. |
 | `graph.version` | string | ✓ when `graph` is used | Version of the graph standard. |
 | `graph.uri` | string | ✓ when `graph` is used | URI pointing to the graph definition. |
 | `productReferences` | array of objects |  | List of data product references included in the catalog. Each item follows the `ProductReference` object schema. |
