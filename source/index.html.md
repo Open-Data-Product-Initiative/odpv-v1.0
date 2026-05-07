@@ -116,22 +116,17 @@ This keeps each specification focused. ODPC should not redefine the full structu
 ODPC should also not define graph traversal, graph analytics, or relationship semantics. Those belong to [Open Data Product Graphs, ODPG](https://opendataproducts.org/odpg-v1.0/).
 
 ## Main ODPC objects
-> Example of ProductReference:
+> Example of catalog use:
 
 ```yml
-productReference:
-  id: DP-001
-  productID: urbanpulse-events
-  productVersion: "1.0.0"
+schema: https://opendataproducts.org/odpc-v1.0/schema/catalog.yaml
+version: "1.0"
+catalog:
+  id: CAT-001
   name:
-    en: UrbanPulse Events Data Product
+    en: Urban Mobility Data Product Catalog
   description:
-    en: Data product providing event information for urban analytics and citizen services.
-  productModel:
-    standard: ODPS
-    version: "4.1"
-    format: yaml
-    uri: https://example.org/products/urbanpulse-events/odps.yaml
+    en: Catalog of data products, use cases, objectives, and signals related to urban mobility.
 ```
 
 The first version of ODPC focuses on these objects:
