@@ -69,75 +69,53 @@ signal:
 > Example of catalog object usage:
 
 ```yml
-catalog:
-  id: CAT-001
+signal:
+  id: SIG-TRAFFIC-CONGESTION-001
   name:
-    en: Urban Mobility Data Product Catalog
+    en: Increasing Traffic Congestion During Peak Hours
   description:
-    en: Catalog of data products, use cases, objectives, and signals related to urban mobility.
+    en: Recurring congestion has been observed in key urban corridors during morning and evening peak hours, creating demand for better traffic optimization and mobility planning data.
+  type: operational
+  source:
+    origin: internal
+    method: system_monitoring
+    system: Traffic Operations Center
+    channel: usage_logs
+    reference: Monthly congestion monitoring report
+  observedAt: 2026-04-15T09:30:00Z
 
-  owner:
-    organization: Example Transport Authority
-    team: Business Analytics
-    role: Data Product Portfolio Manager
+  strength: high
+  confidence: high
 
-  scope:
-    domains:
-      - smart-city
+  opportunity:
+    en: Improve traffic planning and congestion response through better traffic flow analysis, incident monitoring, and journey time reliability data.
+
+  impact:
+    valuePotential: high
+    urgency: high
+    affectedDomains:
       - mobility
       - transport
-    geography: Abu Dhabi
-    audience:
-      - internal
-      - public
+      - smart-city
 
-  version: "1.0.0"
-  status: active
+  evidence:
+    summary:
+      en: Monitoring reports show recurring congestion patterns across central Abu Dhabi corridors during morning and evening peak hours.
+    examples:
+      - Increased travel time on selected arterial roads during weekday morning peaks.
+      - Repeated congestion near high-demand business and government districts.
+      - Incident reports and vehicle speed patterns indicate recurring bottlenecks.
 
-  graph:
-    standard: ODPG
-    version: "1.0"
-    uri: https://example.org/graphs/urban-mobility.graph.yaml
+  recommendedAction:
+    en: Review existing mobility data products and identify missing traffic flow, vehicle speed, road incident, and public transport datasets.
 
-  productReferences:
-    - id: DP-001
-      productID: urbanpulse-events
-      productVersion: "1.0.0"
-      name:
-        en: UrbanPulse Events Data Product
-      description:
-        en: Data product providing event information for urban analytics and citizen services.
-      productModel:
-        standard: ODPS
-        version: "4.1"
-        format: yaml
-        uri: https://example.org/products/urbanpulse-events/odps.yaml
-
-  useCases:
-    - id: UC-001
-      name:
-        en: Event Demand Forecasting
-      description:
-        en: Forecast event-related demand to improve mobility planning and citizen services.
-
-  businessObjectives:
-    - id: BO-001
-      name:
-        en: Improve Urban Mobility Efficiency
-      description:
-        en: Reduce travel delays and improve movement across the city through better data-driven planning and operations.
-
-  signals:
-    - id: SIG-001
-      name:
-        en: Increasing Event Demand
-      description:
-        en: Indicates rising demand for event-related mobility and public service planning.
+  status: reviewing
 
   tags:
-    - smart-city
     - mobility
-    - events
+    - transport
+    - congestion
+    - traffic-optimization
 ```
 
 | Attribute                | Type             | Required | Description                                                                                                                                                 |
