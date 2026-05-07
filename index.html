@@ -397,7 +397,13 @@
             <a href="#signal" class="toc-h1 toc-link" data-title="Signal">Signal</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#attributes-and-options" class="toc-h2 toc-link" data-title="Attributes and options">Attributes and options</a>
+                    <a href="#mandatory-attributes-and-options" class="toc-h2 toc-link" data-title="Mandatory attributes and options">Mandatory attributes and options</a>
+                  </li>
+                  <li>
+                    <a href="#type-explained" class="toc-h2 toc-link" data-title="Type explained">Type explained</a>
+                  </li>
+                  <li>
+                    <a href="#optional-attributes-and-options" class="toc-h2 toc-link" data-title="Optional attributes and options">Optional attributes and options</a>
                   </li>
               </ul>
           </li>
@@ -1389,157 +1395,351 @@ ODPC should also not define graph traversal, graph analytics, or relationship se
 </tr>
 </tbody></table>
 <h1 id='signal'>Signal</h1>
-<p>The <code>Signal</code> object captures demand, risk, opportunity, quality, usage, feedback, or change signals related to a data product portfolio. Signals help organizations detect what needs attention and support portfolio decisions with evidence.</p>
+<p>The <code>Signal</code> object describes an observed market, operational, user, technology, policy, competitive, quality, usage, risk, or gap indicator that may create demand for new use cases, new data products, or product improvements.</p>
 
-<p>In ODPC, signals are reusable observation objects. They can indicate demand for a new product, increased use of an existing product, quality issues, policy changes, operational risks, stakeholder feedback, or market opportunities.</p>
+<p>In ODPC, a <code>Signal</code> acts as the voice of opportunity. It helps organizations capture what is changing around them or inside their operations, then use that intelligence to guide portfolio planning, prioritization, and product development.</p>
 
-<p>A <code>Signal</code> should describe what was observed, where it came from, how strong it is, and which catalog objects it may relate to. It should not define the full relationship graph. Relationship semantics belong to ODPG.</p>
+<p>A <code>Signal</code> can come from internal sources such as search logs, usage analytics, support tickets, surveys, and operational systems. It can also come from external sources such as AI web crawling, competitor monitoring, market reports, public tenders, policy changes, technology trends, or sector analysis.</p>
 
-<p>By defining signals as catalog objects, ODPC supports AI-assisted planning, backlog creation, governance monitoring, product improvement, and portfolio-level sensing.</p>
-<h2 id='attributes-and-options'>Attributes and options</h2>
+<p>The <code>Signal</code> object should describe what was observed, where it came from, how strong it is, how confident the organization is, what opportunity it suggests, and what action should be considered.</p>
+
+<p>The <code>Signal</code> object should not directly define relationships to products, use cases, business objectives, or other catalog objects. Those connections belong to Open Data Product Graphs (ODPG), which defines the graphs and relationships between catalog objects.</p>
+
+<p>By defining signals as reusable catalog objects, ODPC supports opportunity discovery, market intelligence, gap analysis, portfolio prioritization, AI-assisted planning, and continuous alignment between data products and changing business needs.</p>
+<h2 id='mandatory-attributes-and-options'>Mandatory attributes and options</h2>
 <blockquote>
-<p>Example of Signal object usage:</p>
+<p>Example of catalog object usage:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml"><code><span class="na">signal</span><span class="pi">:</span>
   <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-001</span>
   <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Increased demand for real-time event data</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Competitors expanding real-time event intelligence</span>
   <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Multiple use case requests indicate demand for more frequent event data updates.</span>
-  <span class="na">type</span><span class="pi">:</span> <span class="s">demand</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">External market monitoring found that competing smart city platforms are adding real-time event intelligence features.</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">competitive</span>
   <span class="na">source</span><span class="pi">:</span>
-    <span class="na">system</span><span class="pi">:</span> <span class="s">Open Data Portal</span>
-    <span class="na">channel</span><span class="pi">:</span> <span class="s">search_queries</span>
-    <span class="na">reference</span><span class="pi">:</span> <span class="s">search-log-2026-04</span>
-  <span class="na">strength</span><span class="pi">:</span> <span class="s">high</span>
-  <span class="na">confidence</span><span class="pi">:</span> <span class="s">medium</span>
+    <span class="na">origin</span><span class="pi">:</span> <span class="s">external</span>
+    <span class="na">method</span><span class="pi">:</span> <span class="s">ai_crawl</span>
   <span class="na">observedAt</span><span class="pi">:</span> <span class="s">2026-04-18T09:30:00Z</span>
-  <span class="na">relatedObjects</span><span class="pi">:</span>
-    <span class="na">productReferences</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">DP-001</span>
-    <span class="na">useCases</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">UC-001</span>
-    <span class="na">businessObjectives</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">BO-001</span>
-  <span class="na">status</span><span class="pi">:</span> <span class="s">new</span>
-  <span class="na">recommendedAction</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Review update frequency and assess feasibility of near real-time publication.</span>
 </code></pre></div>
 <table><thead>
 <tr>
-<th>Element</th>
+<th>Attribute</th>
 <th>Type</th>
-<th>Options</th>
+<th style="text-align: right">Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>signal</strong></td>
+<td><code>signal</code></td>
 <td>object</td>
-<td>required</td>
-<td>Top-level object that captures a reusable portfolio signal.</td>
+<td style="text-align: right">✓</td>
+<td>Top-level object that defines an ODPC signal.</td>
 </tr>
 <tr>
-<td><strong>id</strong></td>
+<td><code>id</code></td>
 <td>string</td>
-<td>required</td>
+<td style="text-align: right">✓</td>
 <td>Stable identifier for the signal.</td>
 </tr>
 <tr>
-<td><strong>name</strong></td>
+<td><code>name</code></td>
 <td>object</td>
-<td>language-tagged strings</td>
-<td>Human-readable signal name.</td>
+<td style="text-align: right">✓</td>
+<td>Human-readable signal name using language-tagged strings.</td>
 </tr>
 <tr>
-<td><strong>description</strong></td>
+<td><code>name.en</code></td>
+<td>string</td>
+<td style="text-align: right">✓</td>
+<td>English signal name.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
 <td>object</td>
-<td>language-tagged strings</td>
-<td>Explanation of the observation and why it matters.</td>
+<td style="text-align: right">✓</td>
+<td>Short explanation of what was observed and why it matters, using language-tagged strings.</td>
 </tr>
 <tr>
-<td><strong>type</strong></td>
+<td><code>description.en</code></td>
 <td>string</td>
-<td>e.g., <code>demand</code>, <code>risk</code>, <code>opportunity</code>, <code>quality</code>, <code>usage</code>, <code>feedback</code>, <code>change</code></td>
-<td>Signal category used for filtering and analysis.</td>
+<td style="text-align: right">✓</td>
+<td>English signal description.</td>
 </tr>
 <tr>
-<td><strong>source</strong></td>
+<td><code>type</code></td>
+<td>string</td>
+<td style="text-align: right">✓</td>
+<td>Signal type. One of: <code>demand</code>, <code>competitive</code>, <code>market</code>, <code>technology</code>, <code>policy</code>, <code>operational</code>, <code>quality</code>, <code>usage</code>, <code>risk</code>, or <code>gap</code>.</td>
+</tr>
+<tr>
+<td><code>source</code></td>
 <td>object</td>
-<td>optional</td>
-<td>Source of the signal.</td>
+<td style="text-align: right">✓</td>
+<td>Source information that explains where the signal came from.</td>
 </tr>
 <tr>
-<td><strong>system</strong></td>
+<td><code>source.origin</code></td>
 <td>string</td>
-<td>optional</td>
-<td>System or platform where the signal was observed.</td>
+<td style="text-align: right">✓</td>
+<td>Origin of the signal, such as <code>internal</code>, <code>external</code>, or <code>mixed</code>.</td>
 </tr>
 <tr>
-<td><strong>channel</strong></td>
+<td><code>source.method</code></td>
 <td>string</td>
-<td>optional</td>
-<td>Channel, process, or data source that produced the signal.</td>
+<td style="text-align: right">✓</td>
+<td>Method used to detect the signal, such as <code>ai_crawl</code>, <code>search_analysis</code>, <code>usage_analysis</code>, <code>survey</code>, <code>manual_review</code>, or <code>system_monitoring</code>.</td>
 </tr>
 <tr>
-<td><strong>reference</strong></td>
+<td><code>observedAt</code></td>
+<td>datetime</td>
+<td style="text-align: right">✓</td>
+<td>Date and time when the signal was observed.</td>
+</tr>
+</tbody></table>
+<h2 id='type-explained'>Type explained</h2>
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>demand</code></td>
+<td>Users, customers, or stakeholders show demand for data, use cases, or products.</td>
+</tr>
+<tr>
+<td><code>competitive</code></td>
+<td>Competitors or peer organizations are moving in a relevant direction.</td>
+</tr>
+<tr>
+<td><code>market</code></td>
+<td>Market behavior suggests new demand or value potential.</td>
+</tr>
+<tr>
+<td><code>technology</code></td>
+<td>Technology change creates a new product or use case opportunity.</td>
+</tr>
+<tr>
+<td><code>policy</code></td>
+<td>Regulation, policy, or strategy creates new demand or obligations.</td>
+</tr>
+<tr>
+<td><code>operational</code></td>
+<td>Internal operations show need for better data or decisions.</td>
+</tr>
+<tr>
+<td><code>quality</code></td>
+<td>Quality issues create risk or improvement opportunities.</td>
+</tr>
+<tr>
+<td><code>usage</code></td>
+<td>Product usage or non-usage reveals demand, friction, or value.</td>
+</tr>
+<tr>
+<td><code>risk</code></td>
+<td>A risk appears that may affect trust, compliance, delivery, or operations.</td>
+</tr>
+<tr>
+<td><code>gap</code></td>
+<td>A missing product, missing data, or unmet capability is detected.</td>
+</tr>
+</tbody></table>
+<h2 id='optional-attributes-and-options'>Optional attributes and options</h2>
+<blockquote>
+<p>Example of catalog object usage:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">catalog</span><span class="pi">:</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">CAT-001</span>
+  <span class="na">name</span><span class="pi">:</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Urban Mobility Data Product Catalog</span>
+  <span class="na">description</span><span class="pi">:</span>
+    <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog of data products, use cases, objectives, and signals related to urban mobility.</span>
+
+  <span class="na">owner</span><span class="pi">:</span>
+    <span class="na">organization</span><span class="pi">:</span> <span class="s">Example Transport Authority</span>
+    <span class="na">team</span><span class="pi">:</span> <span class="s">Business Analytics</span>
+    <span class="na">role</span><span class="pi">:</span> <span class="s">Data Product Portfolio Manager</span>
+
+  <span class="na">scope</span><span class="pi">:</span>
+    <span class="na">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">smart-city</span>
+      <span class="pi">-</span> <span class="s">mobility</span>
+      <span class="pi">-</span> <span class="s">transport</span>
+    <span class="na">geography</span><span class="pi">:</span> <span class="s">Abu Dhabi</span>
+    <span class="na">audience</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">internal</span>
+      <span class="pi">-</span> <span class="s">public</span>
+
+  <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0.0"</span>
+  <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
+
+  <span class="na">graph</span><span class="pi">:</span>
+    <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPG</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0"</span>
+    <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/graphs/urban-mobility.graph.yaml</span>
+
+  <span class="na">productReferences</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">DP-001</span>
+      <span class="na">productID</span><span class="pi">:</span> <span class="s">urbanpulse-events</span>
+      <span class="na">productVersion</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0.0"</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">UrbanPulse Events Data Product</span>
+      <span class="na">description</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Data product providing event information for urban analytics and citizen services.</span>
+      <span class="na">productModel</span><span class="pi">:</span>
+        <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
+        <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">4.1"</span>
+        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
+        <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/urbanpulse-events/odps.yaml</span>
+
+  <span class="na">useCases</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">UC-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Event Demand Forecasting</span>
+      <span class="na">description</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Forecast event-related demand to improve mobility planning and citizen services.</span>
+
+  <span class="na">businessObjectives</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">BO-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Improve Urban Mobility Efficiency</span>
+      <span class="na">description</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce travel delays and improve movement across the city through better data-driven planning and operations.</span>
+
+  <span class="na">signals</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-001</span>
+      <span class="na">name</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Increasing Event Demand</span>
+      <span class="na">description</span><span class="pi">:</span>
+        <span class="na">en</span><span class="pi">:</span> <span class="s">Indicates rising demand for event-related mobility and public service planning.</span>
+
+  <span class="na">tags</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">smart-city</span>
+    <span class="pi">-</span> <span class="s">mobility</span>
+    <span class="pi">-</span> <span class="s">events</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th style="text-align: right">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>source.system</code></td>
 <td>string</td>
-<td>optional</td>
-<td>Source reference, log identifier, ticket ID, document ID, or URL.</td>
+<td style="text-align: right"></td>
+<td>System, tool, agent, or platform that detected or produced the signal.</td>
 </tr>
 <tr>
-<td><strong>strength</strong></td>
+<td><code>source.channel</code></td>
 <td>string</td>
-<td>e.g., <code>low</code>, <code>medium</code>, <code>high</code>, <code>critical</code></td>
-<td>Relative strength or urgency of the signal.</td>
+<td style="text-align: right"></td>
+<td>Channel where the signal was observed, such as <code>public_web</code>, <code>search_queries</code>, <code>usage_logs</code>, <code>support_tickets</code>, <code>market_report</code>, or <code>stakeholder_feedback</code>.</td>
 </tr>
 <tr>
-<td><strong>confidence</strong></td>
+<td><code>source.reference</code></td>
 <td>string</td>
-<td>e.g., <code>low</code>, <code>medium</code>, <code>high</code></td>
-<td>Confidence level in the signal interpretation.</td>
+<td style="text-align: right"></td>
+<td>Source reference, such as a report ID, crawl ID, log reference, URL, or document reference.</td>
 </tr>
 <tr>
-<td><strong>observedAt</strong></td>
+<td><code>strength</code></td>
 <td>string</td>
-<td>ISO 8601 datetime</td>
-<td>Time when the signal was observed.</td>
+<td style="text-align: right"></td>
+<td>Estimated strength of the signal, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
 </tr>
 <tr>
-<td><strong>relatedObjects</strong></td>
+<td><code>confidence</code></td>
+<td>string</td>
+<td style="text-align: right"></td>
+<td>Confidence in the signal, such as <code>low</code>, <code>medium</code>, or <code>high</code>.</td>
+</tr>
+<tr>
+<td><code>opportunity</code></td>
 <td>object</td>
-<td>optional</td>
-<td>Catalog object IDs that may be relevant to the signal.</td>
+<td style="text-align: right"></td>
+<td>Opportunity suggested by the signal, using language-tagged strings.</td>
 </tr>
 <tr>
-<td><strong>productReferences</strong></td>
+<td><code>opportunity.en</code></td>
+<td>string</td>
+<td style="text-align: right"></td>
+<td>English opportunity statement.</td>
+</tr>
+<tr>
+<td><code>impact</code></td>
+<td>object</td>
+<td style="text-align: right"></td>
+<td>Expected impact or relevance of the signal.</td>
+</tr>
+<tr>
+<td><code>impact.valuePotential</code></td>
+<td>string</td>
+<td style="text-align: right"></td>
+<td>Estimated value potential, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
+</tr>
+<tr>
+<td><code>impact.urgency</code></td>
+<td>string</td>
+<td style="text-align: right"></td>
+<td>Estimated urgency, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
+</tr>
+<tr>
+<td><code>impact.affectedDomains</code></td>
 <td>array of strings</td>
-<td>optional</td>
-<td>Related <code>ProductReference</code> IDs.</td>
+<td style="text-align: right"></td>
+<td>Domains affected by the signal.</td>
 </tr>
 <tr>
-<td><strong>useCases</strong></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Related <code>UseCase</code> IDs.</td>
-</tr>
-<tr>
-<td><strong>businessObjectives</strong></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Related <code>BusinessObjective</code> IDs.</td>
-</tr>
-<tr>
-<td><strong>status</strong></td>
-<td>string</td>
-<td>e.g., <code>new</code>, <code>reviewing</code>, <code>accepted</code>, <code>dismissed</code>, <code>resolved</code></td>
-<td>Lifecycle status of the signal.</td>
-</tr>
-<tr>
-<td><strong>recommendedAction</strong></td>
+<td><code>evidence</code></td>
 <td>object</td>
-<td>language-tagged strings</td>
-<td>Suggested next action based on the signal.</td>
+<td style="text-align: right"></td>
+<td>Evidence supporting the signal.</td>
+</tr>
+<tr>
+<td><code>evidence.summary</code></td>
+<td>object</td>
+<td style="text-align: right"></td>
+<td>Short evidence summary using language-tagged strings.</td>
+</tr>
+<tr>
+<td><code>evidence.summary.en</code></td>
+<td>string</td>
+<td style="text-align: right"></td>
+<td>English evidence summary.</td>
+</tr>
+<tr>
+<td><code>evidence.examples</code></td>
+<td>array of strings</td>
+<td style="text-align: right"></td>
+<td>Concrete examples that support the signal.</td>
+</tr>
+<tr>
+<td><code>recommendedAction</code></td>
+<td>object</td>
+<td style="text-align: right"></td>
+<td>Recommended action based on the signal, using language-tagged strings.</td>
+</tr>
+<tr>
+<td><code>recommendedAction.en</code></td>
+<td>string</td>
+<td style="text-align: right"></td>
+<td>English recommended action.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td style="text-align: right"></td>
+<td>Signal lifecycle status, such as <code>new</code>, <code>reviewing</code>, <code>accepted</code>, <code>rejected</code>, <code>converted</code>, or <code>archived</code>.</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>array of strings</td>
+<td style="text-align: right"></td>
+<td>Keywords used to classify, search, or filter the signal.</td>
 </tr>
 </tbody></table>
 <h1 id='catalog'>Catalog</h1>
