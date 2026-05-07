@@ -15,6 +15,7 @@ includes:
 - usecase
 - businessobjective
 - signal
+- extensions
 - contributors
 - terms
 
