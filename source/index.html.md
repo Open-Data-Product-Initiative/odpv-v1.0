@@ -128,6 +128,10 @@ catalog:
     en: Urban Mobility Data Product Catalog
   description:
     en: Catalog of data products, use cases, objectives, and signals related to urban mobility.
+  graph:
+    standard: ODPG
+    version: "1.0"
+    uri: https://example.org/graphs/urban-mobility.graph.yaml
 ```
 
 The first version of ODPC focuses on these objects:
