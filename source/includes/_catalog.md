@@ -19,6 +19,8 @@ By defining catalogs as reusable objects, ODPC supports discovery, portfolio bro
 > Example of catalog object usage:
 
 ```yml
+schema: https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml
+version: "1.0"
 catalog:
   id: CAT-001
   name:
@@ -30,6 +32,8 @@ catalog:
 
 | Attribute | Type | Required | Description |
 |---|---|---:|---|
+| `schema` | string | ✓ | URI of the ODPC catalog schema used to validate the catalog file. |
+| `version` | string | ✓ | Version of the ODPC specification used by the catalog file. |
 | `catalog` | object | ✓ | Top-level object that defines an ODPC catalog. |
 | `id` | string | ✓ | Stable identifier for the catalog. |
 | `name` | object | ✓ | Human-readable catalog name using language-tagged strings. |
