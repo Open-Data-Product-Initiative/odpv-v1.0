@@ -54,6 +54,9 @@ ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards 
 
 These groups create a common language for describing, connecting, validating, and reasoning over data product portfolios.
 
+
+<img src="/images/specs-with-vocab.png" width="550">
+
 **ODPV Core**: ODPV Core defines foundational terms used across the standards family.These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.
 
 **ODPV Value**: ODPV Value defines terms that connect data products to business demand, objectives, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.
