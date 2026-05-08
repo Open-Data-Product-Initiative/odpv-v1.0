@@ -40,6 +40,18 @@ Development of the vocabulary is under the umbrella of the Linux Foundation.
 | Version source | <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0">Open Data Products Vocab on GitHub</a> | Official source repository for the ODPV vocabulary |
 | Contribute | [Raise an issue in GitHub](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) | Submit issues or suggestions to the vocabulary maintainers |
 
+## Machine-readable vocabulary files
+
+ODPV is published as both human-readable documentation and machine-readable files.
+
+| File | Format | Purpose |
+|---|---|---|
+| [`odpv.yaml`](/examples/odpv.yaml) | YAML | Canonical machine-readable vocabulary file |
+| [`odpv.json`](/examples/odpv.json) | JSON | JSON representation for tools, APIs, search indexes, and graph applications |
+| [`odpv.schema.json`](/schema/odpv.schema.json) | JSON Schema | Validation schema for ODPV vocabulary files |
+
+The Markdown tables in this specification are intended for human readers. The YAML file is intended for programmable use, automation, validation, AI retrieval, and graph-based tooling.
+
 # Introduction
 The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. ODPV defines shared terms used across the OpenDataProducts.org standards family, including data products, catalogs, graphs, value concepts, governance concepts, and relationship terms. It is designed to help organizations use consistent language across specifications, catalogs, graph implementations, AI assistants, and GraphRAG-ready data product portfolios.
 
