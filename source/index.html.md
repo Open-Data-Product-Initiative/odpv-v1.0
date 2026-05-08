@@ -12,6 +12,7 @@ toc_footers:
 includes:
 - core
 - value
+- governance
 - extensions
 - contributors
 
