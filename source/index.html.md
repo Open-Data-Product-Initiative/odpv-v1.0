@@ -11,6 +11,7 @@ toc_footers:
 
 includes:
 - core
+- value
 - extensions
 - contributors
 
