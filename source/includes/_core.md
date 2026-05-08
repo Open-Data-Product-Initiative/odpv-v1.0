@@ -1,5 +1,12 @@
 # ODPV Core
 
+ODPV Core defines the foundational terms used across the Open Data Products specification family. These terms describe the main objects, roles, classifications, and references that appear in ODPS, ODPC, and ODPG.
+
+The purpose of the core vocabulary is to create a shared language for describing data products and their surrounding ecosystem. It helps different specifications, catalogs, graphs, tools, and platforms use the same concepts consistently.
+
+Each term has one canonical ODPV name. Alternative terms are included to support search, mapping, onboarding, and AI-assisted interpretation. Related terms show nearby concepts that are connected to the term but have a different meaning.
+
+The core terms are intentionally lightweight. They do not replace the full object models of ODPS, ODPC, or ODPG. Instead, they provide a common vocabulary layer that supports interoperability across the Open Data Products ecosystem.
 
 | Term                 | Type           | Description                                                                                                                                               | Also known as terms                                                                | Related terms                                     | Used in          |
 | -------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------- |
