@@ -29,13 +29,13 @@ meta:
 ## Version DEV 
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 ([RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119) and [RFC 8174](https://datatracker.ietf.org/doc/html/rfc8174)) when, and only when, they appear in all capitals, as shown here.
 
-The specification is shared under <a href='https://www.apache.org/licenses/LICENSE-2.0'>Apache 2.0</a> license. 
-Development of the specification is under the umbrella of the Linux Foundation. 
+The vocabulary is shared under <a href='https://www.apache.org/licenses/LICENSE-2.0'>Apache 2.0</a> license. 
+Development of the vocabulary is under the umbrella of the Linux Foundation. 
 
 | Topic | Link | Description |
 |---|---|---|
-| Version source | <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0">Open Data Products Vocab on GitHub</a> | Official source repository for the ODPV specification |
-| Contribute | [Raise an issue in GitHub](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) | Submit issues or suggestions to the specification maintainers |
+| Version source | <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0">Open Data Products Vocab on GitHub</a> | Official source repository for the ODPV vocabulary |
+| Contribute | [Raise an issue in GitHub](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) | Submit issues or suggestions to the vocabulary maintainers |
 
 # Introduction
 The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. ODPV defines shared terms used across the OpenDataProducts.org standards family, including data products, catalogs, graphs, value concepts, governance concepts, and relationship terms. It is designed to help organizations use consistent language across specifications, catalogs, graph implementations, AI assistants, and GraphRAG-ready data product portfolios.
