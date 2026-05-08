@@ -604,11 +604,21 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 </tr>
 </tbody></table>
 <h1 id='odpv-value'>ODPV Value</h1>
+<p>ODPV Value defines the terms used to describe why data products matter, where they create value, and how that value connects to business outcomes.</p>
+
+<p>These terms help connect data products to use cases, objectives, KPIs, signals, gaps, opportunities, risks, and benefits. They make the vocabulary useful beyond technical metadata by linking data products to planning, prioritization, investment, and measurable impact.</p>
+
+<p>The value vocabulary supports portfolio-level thinking. It helps teams describe which data products are needed, which use cases they support, what outcomes they contribute to, and where new opportunities or gaps exist.</p>
+
+<p>Each term has one canonical ODPV name. Also known as terms help users map familiar business language to the official vocabulary. Related terms show nearby concepts that are connected but should not be treated as identical.</p>
+
 <table><thead>
 <tr>
 <th>Term</th>
 <th>Type</th>
 <th>Description</th>
+<th>Also known as</th>
+<th>Related terms</th>
 <th>Used in</th>
 </tr>
 </thead><tbody>
@@ -616,90 +626,120 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 <td><code>UseCase</code></td>
 <td>object</td>
 <td>A practical business, operational, analytical, or technical scenario where one or more data products are used to create value.</td>
+<td>use case, scenario, business scenario, application case</td>
+<td><code>DataProduct</code>, <code>BusinessObjective</code>, <code>DataNeed</code>, <code>Outcome</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>BusinessObjective</code></td>
 <td>object</td>
 <td>A business goal or intended outcome that data products, use cases, or portfolio actions support.</td>
+<td>objective, business goal, strategic goal, target outcome</td>
+<td><code>Outcome</code>, <code>KPI</code>, <code>Impact</code>, <code>UseCase</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>KPI</code></td>
 <td>object</td>
 <td>A measurable indicator used to track progress toward a business objective, outcome, or portfolio goal.</td>
+<td>key performance indicator, metric, performance measure, success measure</td>
+<td><code>BusinessObjective</code>, <code>Outcome</code>, <code>Impact</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Impact</code></td>
 <td>object</td>
 <td>The expected or observed effect created by a data product, use case, signal, or portfolio decision.</td>
+<td>effect, value impact, business impact, observed effect</td>
+<td><code>Outcome</code>, <code>Benefit</code>, <code>KPI</code>, <code>ValueProposition</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Signal</code></td>
 <td>object</td>
 <td>An observed demand, trend, risk, gap, usage pattern, policy change, market change, or operational event that may require action.</td>
+<td>market signal, demand signal, trigger, observation</td>
+<td><code>Demand</code>, <code>Risk</code>, <code>Gap</code>, <code>Opportunity</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Gap</code></td>
 <td>object</td>
 <td>A missing data product, dataset, capability, quality level, access method, relationship, or portfolio coverage area.</td>
+<td>missing capability, coverage gap, data gap, portfolio gap</td>
+<td><code>DataNeed</code>, <code>Opportunity</code>, <code>Signal</code>, <code>Priority</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Priority</code></td>
 <td>classification</td>
 <td>A ranking or importance level used to guide portfolio planning, product development, investment, or remediation.</td>
+<td>importance level, ranking, urgency, priority level</td>
+<td><code>PortfolioPriority</code>, <code>Signal</code>, <code>Gap</code>, <code>Risk</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Outcome</code></td>
 <td>object</td>
 <td>A desired or achieved result connected to a business objective, use case, KPI, or impact statement.</td>
+<td>result, target result, achieved result, intended outcome</td>
+<td><code>BusinessObjective</code>, <code>KPI</code>, <code>Impact</code>, <code>Benefit</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>DataNeed</code></td>
 <td>object</td>
 <td>A required data input, data product, dataset, attribute, capability, or access pattern needed to support a use case or objective.</td>
+<td>data requirement, data demand, required data, information need</td>
+<td><code>UseCase</code>, <code>Gap</code>, <code>Demand</code>, <code>DataProduct</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Benefit</code></td>
 <td>object</td>
 <td>A positive business, operational, financial, social, or technical value expected from a data product, use case, or portfolio action.</td>
+<td>value, expected benefit, positive impact, business benefit</td>
+<td><code>Impact</code>, <code>Outcome</code>, <code>ValueProposition</code></td>
 <td>ODPC</td>
 </tr>
 <tr>
 <td><code>Demand</code></td>
 <td>object</td>
 <td>Evidence of need or interest from consumers, stakeholders, systems, markets, policies, or operational processes.</td>
+<td>need, interest, request, demand signal</td>
+<td><code>Signal</code>, <code>DataNeed</code>, <code>Opportunity</code>, <code>UseCase</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Opportunity</code></td>
 <td>object</td>
 <td>A possible area for value creation, reuse, innovation, service improvement, monetization, or better decision-making.</td>
+<td>value opportunity, improvement area, innovation opportunity, reuse opportunity</td>
+<td><code>Signal</code>, <code>Gap</code>, <code>Benefit</code>, <code>Impact</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Risk</code></td>
 <td>object</td>
 <td>A possible negative event, weakness, exposure, or uncertainty that may affect data product value, trust, access, compliance, or operation.</td>
+<td>issue, exposure, threat, concern</td>
+<td><code>Signal</code>, <code>Priority</code>, <code>Gap</code>, <code>Governance</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>ValueProposition</code></td>
 <td>object</td>
 <td>A short explanation of why a data product, use case, or portfolio item matters and what value it is expected to create.</td>
+<td>value statement, value case, product value, business value statement</td>
+<td><code>Benefit</code>, <code>Impact</code>, <code>Outcome</code>, <code>UseCase</code></td>
 <td>ODPS, ODPC</td>
 </tr>
 <tr>
 <td><code>PortfolioPriority</code></td>
 <td>classification</td>
 <td>A portfolio-level priority assigned to a data product, use case, signal, gap, or objective.</td>
+<td>portfolio ranking, portfolio importance, investment priority, planning priority</td>
+<td><code>Priority</code>, <code>Gap</code>, <code>Signal</code>, <code>BusinessObjective</code></td>
 <td>ODPC, ODPG</td>
 </tr>
 </tbody></table>
