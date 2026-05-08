@@ -1,4 +1,4 @@
-# DPV Governance
+# ODPV Governance
 
 | Term | Type | Description | Used in |
 | --- | --- | --- | --- |
