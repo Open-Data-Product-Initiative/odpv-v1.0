@@ -1,7 +1,7 @@
 # ODPV Core
 
 
-| Term                 | Type           | Description                                                                                                                                               | Alternative terms                                                                | Related terms                                     | Used in          |
+| Term                 | Type           | Description                                                                                                                                               | Also known as terms                                                                | Related terms                                     | Used in          |
 | -------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------- |
 | `DataProduct`        | object         | A managed data offering designed for reuse, with defined ownership, access, quality, usage terms, and value context.                                      | data product, data offering, reusable data asset, data product asset             | `Dataset`, `DataService`, `Distribution`          | ODPS, ODPC, ODPG |
 | `DataProductCatalog` | object         | A managed collection of data products and related portfolio objects, such as use cases, objectives, KPIs, signals, and references.                        | data catalog, product catalog, data product portfolio, portfolio catalog         | `DataProduct`, `DataProductGraph`, `Reference`    | ODPC, ODPG       |
