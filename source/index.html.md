@@ -42,6 +42,32 @@ Development of the vocabulary is under the umbrella of the Linux Foundation.
 
 ## Machine-readable vocabulary files
 
+> Snippet of YAML version:
+
+```yml
+id: DataProduct
+uri: https://opendataproducts.org/odpv-v1.0/terms/DataProduct
+type: object
+status: stable
+preferredLabel:
+  en: Data Product
+definition:
+  en: A managed data offering designed for reuse, with defined ownership, access, quality, usage terms, and value context.
+alsoKnownAs:
+  en:
+    - data product
+    - data offering
+    - reusable data asset
+relatedTerms:
+  - Dataset
+  - DataService
+  - Distribution
+usedIn:
+  - ODPS
+  - ODPC
+  - ODPG
+```
+
 ODPV is published as both human-readable documentation and machine-readable files.
 
 | File | Format | Purpose |
