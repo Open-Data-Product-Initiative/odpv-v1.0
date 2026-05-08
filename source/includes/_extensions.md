@@ -1,30 +1,29 @@
-# Specification extensions
+# Extensions
 
-While the Open Data Product Catalog Specification defines the core catalog objects and attributes, organizations may need to add implementation-specific metadata for local tools, internal workflows, or platform-specific requirements.
+ODPV defines a shared controlled vocabulary for the OpenDataProducts.org standards family. It provides stable terms, labels, definitions, concept groups, mappings, and relationship names used across ODPS, ODPC, and ODPG. Organizations may need additional terms for domain-specific, platform-specific, or organization-specific use cases. These terms can be added through vocabulary extensions.
 
-Extension properties are implemented as patterned fields that are always prefixed with `x-`. These fields may appear in ODPC objects such as `Catalog`, `ProductReference`, `UseCase`, `BusinessObjective`, and `Signal`.
+Extensions should add new terms, labels, mappings, concept groups, related terms, or usage notes. They should not change the meaning of official ODPV terms. Extension terms should use a separate namespace or prefix to avoid conflict with official ODPV terms.
 
-Extensions are not part of the official ODPC object model unless they are later adopted into the specification. Tooling may ignore extension fields unless explicit support has been added.
+Examples:
 
-Extensions should not be used to redefine core ODPC semantics. They should be used only for additional metadata that does not fit the standard attributes.
+* `x-mobility:CongestionIndex`
+* `x-healthcare:PatientCohort`
+* `x-finance:RiskExposure`
+* `x-platform:InternalDataOwner`
 
-Useful and widely adopted extensions may become candidates for future versions of the standard. To propose useful extensions, raise an issue in GitHub:
+Extension terms may define:
 
-[Open Data Product Initiative GitHub issues](https://github.com/Open-Data-Product-Initiative/odpc-v1.0/issues)
+* `id`
+* `preferredLabel`
+* `alternativeLabels`
+* `definition`
+* `conceptGroup`
+* `relatedTerms`
+* `externalMappings`
+* `notes`
 
-> Example of extension usage:
+Extensions are not part of the official ODPV vocabulary unless they are later adopted into the specification. Tooling may ignore extension terms unless explicit support has been added. Extensions should not be used to redefine official ODPV terms such as `DataProduct`, `UseCase`, `BusinessObjective`, `KPI`, `Signal`, `DataQuality`, `License`, or `supports`.
 
-```yml
-catalog:
-  id: CAT-001
-  name:
-    en: Urban Mobility Data Product Catalog
-  description:
-    en: Catalog of reusable portfolio objects related to urban mobility.
-  x-internal-id: foobar123
-  x-source-system: internal-catalog-platform
-```
+Useful and widely adopted extensions may become candidates for future versions of ODPV. To propose useful extensions, raise an issue in GitHub:
 
-| <div style="width:150px">Element name</div>   | Type  | Options  | Description  |
-|---|---|---|---|
-|  **^x-** | any  |  | Allows extensions to the Open Data Catalogs Schema. The field name MUST begin with x-, for example, x-internal-id. The value can be null, a primitive, an array or an object. |
+[Open Data Products Vocabulary GitHub issues](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues)
