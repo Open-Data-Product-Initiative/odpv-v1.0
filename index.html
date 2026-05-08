@@ -14,10 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
-            content="The Open Data Product Catalogs, ODPC, is a vendor-neutral, open-source, machine-readable model for cataloging data product portfolios. ODPC defines reusable portfolio objects around data products, including product references, use cases, business objectives, KPIs, signals, and catalog items."
+            content="The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management."
         >
 
-    <title>Open Data Product Catalogs (ODPC) version DEV | Linux Foundation</title>
+    <title>Open Data Products Vocab (ODPV) version DEV | Linux Foundation</title>
 
 
     <style media="screen">
@@ -333,7 +333,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#open-data-product-catalogs-the-linux-foundation" class="toc-h1 toc-link" data-title="OPEN DATA PRODUCT CATALOGS - The Linux Foundation">OPEN DATA PRODUCT CATALOGS - The Linux Foundation</a>
+            <a href="#open-data-products-vocabulary-the-linux-foundation" class="toc-h1 toc-link" data-title="OPEN DATA PRODUCTS VOCABULARY - The Linux Foundation">OPEN DATA PRODUCTS VOCABULARY - The Linux Foundation</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#version-dev" class="toc-h2 toc-link" data-title="Version DEV">Version DEV</a>
@@ -342,90 +342,47 @@
           </li>
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#what-odpv-defines" class="toc-h1 toc-link" data-title="What ODPV Defines">What ODPV Defines</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#odpc-is-odps-native-but-not-odps-only" class="toc-h2 toc-link" data-title="ODPC is ODPS-native, but not ODPS-only">ODPC is ODPS-native, but not ODPS-only</a>
+                    <a href="#odpv-core" class="toc-h2 toc-link" data-title="ODPV Core">ODPV Core</a>
                   </li>
                   <li>
-                    <a href="#why-odpc-is-needed" class="toc-h2 toc-link" data-title="Why ODPC is needed">Why ODPC is needed</a>
+                    <a href="#odpv-value" class="toc-h2 toc-link" data-title="ODPV Value">ODPV Value</a>
                   </li>
                   <li>
-                    <a href="#specification-aims-and-aspects" class="toc-h2 toc-link" data-title="Specification aims and aspects">Specification aims and aspects</a>
+                    <a href="#odpv-governance" class="toc-h2 toc-link" data-title="ODPV Governance">ODPV Governance</a>
                   </li>
                   <li>
-                    <a href="#core-design-principle" class="toc-h2 toc-link" data-title="Core design principle">Core design principle</a>
-                  </li>
-                  <li>
-                    <a href="#main-odpc-objects" class="toc-h2 toc-link" data-title="Main ODPC objects">Main ODPC objects</a>
+                    <a href="#odpv-relationships" class="toc-h2 toc-link" data-title="ODPV Relationships">ODPV Relationships</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#catalog" class="toc-h1 toc-link" data-title="Catalog">Catalog</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#mandatory-attributes-and-options" class="toc-h2 toc-link" data-title="Mandatory attributes and options">Mandatory attributes and options</a>
-                  </li>
-                  <li>
-                    <a href="#optional-attributes-and-options" class="toc-h2 toc-link" data-title="Optional attributes and options">Optional attributes and options</a>
-                  </li>
-              </ul>
+            <a href="#companion-vocabulary-not-a-heavy-ontology" class="toc-h1 toc-link" data-title="Companion Vocabulary, Not a Heavy Ontology">Companion Vocabulary, Not a Heavy Ontology</a>
           </li>
           <li>
-            <a href="#productreference" class="toc-h1 toc-link" data-title="ProductReference">ProductReference</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#mandatory-attributes-and-options" class="toc-h2 toc-link" data-title="Mandatory attributes and options">Mandatory attributes and options</a>
-                  </li>
-                  <li>
-                    <a href="#optional-attributes-and-options" class="toc-h2 toc-link" data-title="Optional attributes and options">Optional attributes and options</a>
-                  </li>
-              </ul>
+            <a href="#relationship-to-odps-odpc-and-odpg" class="toc-h1 toc-link" data-title="Relationship to ODPS, ODPC, and ODPG">Relationship to ODPS, ODPC, and ODPG</a>
           </li>
           <li>
-            <a href="#usecase" class="toc-h1 toc-link" data-title="UseCase">UseCase</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#mandatory-attributes-and-options" class="toc-h2 toc-link" data-title="Mandatory attributes and options">Mandatory attributes and options</a>
-                  </li>
-                  <li>
-                    <a href="#optional-attributes-and-options" class="toc-h2 toc-link" data-title="Optional attributes and options">Optional attributes and options</a>
-                  </li>
-              </ul>
+            <a href="#why-odpv-matters" class="toc-h1 toc-link" data-title="Why ODPV Matters">Why ODPV Matters</a>
           </li>
           <li>
-            <a href="#businessobjective" class="toc-h1 toc-link" data-title="BusinessObjective">BusinessObjective</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#mandatory-attributes-and-options" class="toc-h2 toc-link" data-title="Mandatory attributes and options">Mandatory attributes and options</a>
-                  </li>
-                  <li>
-                    <a href="#optional-attributes-and-options" class="toc-h2 toc-link" data-title="Optional attributes and options">Optional attributes and options</a>
-                  </li>
-              </ul>
+            <a href="#example-use" class="toc-h1 toc-link" data-title="Example Use">Example Use</a>
           </li>
           <li>
-            <a href="#signal" class="toc-h1 toc-link" data-title="Signal">Signal</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#mandatory-attributes-and-options" class="toc-h2 toc-link" data-title="Mandatory attributes and options">Mandatory attributes and options</a>
-                  </li>
-                  <li>
-                    <a href="#type-explained" class="toc-h2 toc-link" data-title="Type explained">Type explained</a>
-                  </li>
-                  <li>
-                    <a href="#optional-attributes-and-options" class="toc-h2 toc-link" data-title="Optional attributes and options">Optional attributes and options</a>
-                  </li>
-              </ul>
+            <a href="#specification-aims" class="toc-h1 toc-link" data-title="Specification Aims">Specification Aims</a>
+          </li>
+          <li>
+            <a href="#core" class="toc-h1 toc-link" data-title="Core">Core</a>
           </li>
           <li>
             <a href="#specification-extensions" class="toc-h1 toc-link" data-title="Specification extensions">Specification extensions</a>
           </li>
           <li>
             <a href="#editors-and-contributors" class="toc-h1 toc-link" data-title="Editors and contributors">Editors and contributors</a>
-          </li>
-          <li>
-            <a href="#terms-used" class="toc-h1 toc-link" data-title="Terms used">Terms used</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -437,11 +394,11 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='open-data-product-catalogs-the-linux-foundation'>OPEN DATA PRODUCT CATALOGS - The Linux Foundation</h1><h2 id='version-dev'>Version DEV</h2>
+        <h1 id='open-data-products-vocabulary-the-linux-foundation'>OPEN DATA PRODUCTS VOCABULARY - The Linux Foundation</h1><h2 id='version-dev'>Version DEV</h2>
 <p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 (<a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a> and <a href="https://datatracker.ietf.org/doc/html/rfc8174">RFC 8174</a>) when, and only when, they appear in all capitals, as shown here.</p>
 
-<p>The specification is shared under <a href='https://www.apache.org/licenses/LICENSE-2.0'>Apache 2.0</a> license. 
-Development of the specification is under the umbrella of the Linux Foundation. </p>
+<p>The vocabulary is shared under <a href='https://www.apache.org/licenses/LICENSE-2.0'>Apache 2.0</a> license. 
+Development of the vocabulary is under the umbrella of the Linux Foundation. </p>
 
 <table><thead>
 <tr>
@@ -452,1578 +409,169 @@ Development of the specification is under the umbrella of the Linux Foundation. 
 </thead><tbody>
 <tr>
 <td>Version source</td>
-<td><a href="https://github.com/Open-Data-Product-Initiative/odpc-v1.0">Open Data Product Catalogs on GitHub</a></td>
-<td>Official source repository for the ODPC specification</td>
-</tr>
-<tr>
-<td>ODPC YAML schema</td>
-<td><a href="https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml">YAML Schema</a></td>
-<td>Machine-readable schema definition in YAML format</td>
-</tr>
-<tr>
-<td>ODPC JSON schema</td>
-<td><a href="https://opendataproducts.org/odpc-v1.0/schema/odpc.json">JSON Schema</a></td>
-<td>Machine-readable schema definition in JSON format</td>
-</tr>
-<tr>
-<td>Knowledge Base</td>
-<td><a href="https://opendataproducts.org/howto/">Open Data Product Spec Family Knowledge Base</a></td>
-<td>Practical examples, FAQs, and implementation guidance</td>
+<td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0">Open Data Products Vocab on GitHub</a></td>
+<td>Official source repository for the ODPV vocabulary</td>
 </tr>
 <tr>
 <td>Contribute</td>
-<td><a href="https://github.com/Open-Data-Product-Initiative/odpc-v1.0/issues">Raise an issue in GitHub</a></td>
-<td>Submit issues or suggestions to the specification maintainers</td>
+<td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues">Raise an issue in GitHub</a></td>
+<td>Submit issues or suggestions to the vocabulary maintainers</td>
 </tr>
 </tbody></table>
 <h1 id='introduction'>Introduction</h1>
-<p>The Open Data Product Catalogs, ODPC, is a vendor-neutral, open-source, machine-readable catalog model for data product portfolios. It defines reusable catalog objects such as data product references, use cases, business objectives, KPIs, signals, and catalog items.</p>
-
-<p>ODPC is part of the OpenDataProducts.org standards family. It complements the Open Data Product Specification, ODPS, by adding the catalog and portfolio layer around individual data products.</p>
-
-<p><img src="images/odpc-98772d2a.png" width="500"></p>
-
-<p>ODPS defines one data product. ODPC defines the reusable portfolio objects around data products. <a href="https://opendataproducts.org/odpg-v1.0/">Open Data Product Graphs, ODPG</a>, defines the relationships between those objects.</p>
-
-<p>The goal of ODPC is to help organizations move from isolated data product descriptions to managed data product portfolios that connect products to demand, use cases, business objectives, and measurable outcomes.</p>
-<h2 id='odpc-is-odps-native-but-not-odps-only'>ODPC is ODPS-native, but not ODPS-only</h2>
-<p>ODPC is designed to work naturally with ODPS. ODPS remains the preferred product definition model in the OpenDataProducts.org standards family.</p>
-
-<p>At the same time, ODPC is not limited to ODPS. Many organizations already use other product descriptions, internal schemas, vendor catalogs, marketplace definitions, or data mesh descriptors. ODPC supports those models through the ProductReference object and mapping profiles.</p>
-
-<p>This makes it possible to catalog data products described with:</p>
+<p>The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. ODPV defines shared terms used across the OpenDataProducts.org standards family, including data products, catalogs, graphs, value concepts, governance concepts, and relationship terms. It is designed to help organizations use consistent language across specifications, catalogs, graph implementations, AI assistants, and GraphRAG-ready data product portfolios.</p>
+<h1 id='what-odpv-defines'>What ODPV Defines</h1>
+<p>ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The first version focuses on four concept groups:</p>
 
 <ul>
-<li>ODPS YAML files</li>
-<li>DPDS descriptors</li>
-<li>internal enterprise product templates</li>
-<li>vendor catalog assets</li>
-<li>marketplace product definitions</li>
-<li>API-based product metadata sources</li>
+<li>ODPV Core</li>
+<li>ODPV Value</li>
+<li>ODPV Governance</li>
+<li>ODPV Relationships</li>
 </ul>
 
-<p>The ProductReference object provides the bridge between the catalog layer and the source product definition.</p>
-<h2 id='why-odpc-is-needed'>Why ODPC is needed</h2>
-<p>Data product management does not stop at one product. Organizations need to understand which data products exist, which use cases they support, which business objectives they contribute to, and which signals indicate demand, risk, opportunity, or change.</p>
+<p>These groups create a common language for describing, connecting, validating, and reasoning over data product portfolios.</p>
+<h2 id='odpv-core'>ODPV Core</h2>
+<p>ODPV Core defines foundational terms used across the standards family.These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.</p>
+<h2 id='odpv-value'>ODPV Value</h2>
+<p>ODPV Value defines terms that connect data products to business demand, objectives, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.</p>
+<h2 id='odpv-governance'>ODPV Governance</h2>
+<p>ODPV Governance defines terms for quality, access, legal, operational, and compliance context.These terms help describe how data products are governed, accessed, controlled, and trusted.</p>
+<h2 id='odpv-relationships'>ODPV Relationships</h2>
+<p>ODPV Relationships defines reusable relationship terms for graph implementation and portfolio analysis. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, and catalogs in a consistent way.</p>
+<h1 id='companion-vocabulary-not-a-heavy-ontology'>Companion Vocabulary, Not a Heavy Ontology</h1>
+<p>ODPV is not intended to be a heavy ontology. It is a practical controlled vocabulary that gives stable reference terms to the OpenDataProducts.org standards family. Each specification can reference ODPV terms instead of redefining shared concepts locally. Shared terms belong in ODPV. Spec-specific terms stay in the relevant specification. Extensions can define additional domain-specific or organization-specific terms.</p>
+<h1 id='relationship-to-odps-odpc-and-odpg'>Relationship to ODPS, ODPC, and ODPG</h1>
+<ul>
+<li>ODPS defines one data product.</li>
+<li>ODPC defines reusable catalog and portfolio objects.</li>
+<li>ODPG defines relationships between data products, use cases, objectives, KPIs, signals, and other portfolio objects.</li>
+<li>ODPV defines the shared language used by all of them.</li>
+</ul>
 
-<p>A catalog should not only list products. It should help organizations manage data products as a portfolio.</p>
-
-<p>ODPC defines the structure for that portfolio layer. It enables organizations to catalog:</p>
+<p>Used together, ODPS, ODPC, ODPG, and ODPV create a machine-readable operating model for data product management.</p>
+<h1 id='why-odpv-matters'>Why ODPV Matters</h1>
+<p>ODPV helps prevent terminology drift across the standards family. Without a shared vocabulary, each specification may define terms such as Data Product, Use Case, Objective, KPI, Signal, Owner, SLA, License, or Relationship slightly differently. ODPV gives these terms one stable reference point. This improves:</p>
 
 <ul>
-<li>data products</li>
-<li>use cases</li>
-<li>business objectives</li>
-<li>signals</li>
-<li>ownership</li>
-<li>priorities</li>
-<li>references to source definitions</li>
+<li>Specification alignment</li>
+<li>Graph implementation</li>
+<li>Metadata validation</li>
+<li>Catalog interoperability</li>
+<li>AI-assisted discovery</li>
+<li>GraphRAG context</li>
+<li>Portfolio analysis</li>
+<li>Tool development</li>
 </ul>
-
-<p>This creates a reusable foundation for discovery, governance, prioritization, AI-assisted planning, and graph-based portfolio analysis.</p>
-
-<p><strong>ODPC organizes the portfolio. ODPG connects the portfolio. GraphRAG makes the connected portfolio usable by AI assistants for discovery, gap analysis, impact mapping, and decision support.</strong></p>
-<h2 id='specification-aims-and-aspects'>Specification aims and aspects</h2>
-<p>ODPC aims to:</p>
-
+<h1 id='example-use'>Example Use</h1>
 <ul>
-<li>enable interoperability between catalogs, data platforms, marketplaces, and tools</li>
-<li>provide reusable catalog objects for data product portfolio management</li>
-<li>connect data products to use cases, business objectives, and signals</li>
-<li>support ODPS-native and non-ODPS product definitions</li>
-<li>reduce metadata conversion friction between systems</li>
-<li>support AI-assisted discovery, cataloging, and portfolio planning</li>
-<li>provide the reusable object layer for Open Data Product Graphs, ODPG</li>
-<li>support machine-readable cataloging with YAML and schema validation</li>
+<li>A data product in ODPS can reference ODPV terms for concepts such as DataProduct, Owner, SLA, DataQuality, License, and AccessMethod.</li>
+<li>A catalog in ODPC can reference ODPV terms for concepts such as DataProductCatalog, UseCase, BusinessObjective, KPI, Signal, Gap, and Priority.</li>
+<li>A graph in ODPG can reference ODPV terms for node types and relationship types such as supports, requires, contributesTo, measures, belongsTo, dependsOn, governedBy, providedBy, consumedBy, and indicates.</li>
 </ul>
-
-<p><strong>Note!</strong> In the &quot;Open Data Product&quot; focus is on the latter words and the prefix &quot;open&quot; refers to the openness of the standard. Any kind of 
-connotations to open data are not intentional, intended, or desirable.</p>
-<h2 id='core-design-principle'>Core design principle</h2>
-<p>The OpenDataProducts.org standards family follows a simple separation of concerns.</p>
-
+<h1 id='specification-aims'>Specification Aims</h1>
 <ul>
-<li><strong>ODPS defines the product.</strong></li>
-<li><strong>ODPC defines the reusable portfolio objects.</strong></li>
-<li><strong>ODPG defines the relationships.</strong></li>
+<li>Define shared terms for data product management.</li>
+<li>Reduce duplicate term definitions across ODPS, ODPC, and ODPG.</li>
+<li>Prevent terminology drift across the standards family.</li>
+<li>Support consistent graph node and relationship naming.</li>
+<li>Support AI-assisted discovery, metadata generation, and GraphRAG.</li>
+<li>Improve interoperability between catalogs, platforms, marketplaces, and tools.</li>
+<li>Provide a lightweight path toward semantic knowledge graph implementation.</li>
+<li>Keep formal ontology work optional.</li>
 </ul>
-
-<p>This keeps each specification focused. ODPC should not redefine the full structure of a data product. That belongs to ODPS or to another source product model. 
-ODPC should also not define graph traversal, graph analytics, or relationship semantics. Those belong to <a href="https://opendataproducts.org/odpg-v1.0/">Open Data Product Graphs, ODPG</a>.</p>
-<h2 id='main-odpc-objects'>Main ODPC objects</h2>
-<blockquote>
-<p>Example of catalog use:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">schema</span><span class="pi">:</span> <span class="s">https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml</span>
-<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0"</span>
-<span class="na">catalog</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">CAT-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Urban Mobility Data Product Catalog</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog of data products, use cases, objectives, and signals related to urban mobility.</span>
-  <span class="na">graph</span><span class="pi">:</span>
-    <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPG</span>
-    <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0"</span>
-    <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/graphs/urban-mobility.graph.yaml</span>
-</code></pre></div>
-<p>The first version of ODPC focuses on these objects:</p>
-
-<ul>
-<li>ProductReference</li>
-<li>UseCase</li>
-<li>BusinessObjective</li>
-<li>Signal</li>
-<li>Catalog</li>
-</ul>
-
-<p>These objects are designed to be reusable across catalogs, tools, AI workflows, and graph models.</p>
-<h1 id='catalog'>Catalog</h1>
-<p>The <code>Catalog</code> object defines a reusable ODPC catalog. It provides the top-level structure for organizing product references, use cases, business objectives, signals, tags, ownership, scope, lifecycle status, and graph implementation.</p>
-
-<p><img src="images/catalog-d58657f4.png" width="500"></p>
-
-<p>In ODPC, the <code>Catalog</code> object acts as the portfolio container. It helps organizations group related data products and demand-side objects around a domain, organization, geography, audience, or strategic theme.</p>
-
-<p>The <code>Catalog</code> object can include product references, use cases, business objectives, and signals directly as reusable catalog objects. It can also define where the catalog graph is implemented through the <code>graph</code> attribute.</p>
-
-<p>The <code>graph</code> attribute identifies the graph standard, version, and URI used for the catalog graph. The graph can be implemented with <code>ODPG</code> or another supported graph standard, such as <code>RDF</code>, <code>JSON-LD</code>, <code>GraphML</code>, <code>openCypher</code>, <code>GQL</code>, <code>Gremlin</code>, <code>GraphSON</code>, or <code>GeoSPARQL</code>.</p>
-
-<p>The <code>Catalog</code> object should remain focused on catalog structure and portfolio organization. It should not define detailed product metadata, relationship semantics, nodes, edges, or graph rules. Detailed product definitions belong to product models such as <code>ODPS</code>. Relationship modeling belongs to the selected graph standard, with <code>ODPG</code> as the native standard for the OpenDataProducts.org specification family.</p>
-
-<p>By defining catalogs as reusable objects, ODPC supports discovery, portfolio browsing, governance review, prioritization, filtering, AI-assisted portfolio analysis, and reporting across data product ecosystems.</p>
-<h2 id='mandatory-attributes-and-options'>Mandatory attributes and options</h2>
-<blockquote>
-<p>Example of catalog object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">schema</span><span class="pi">:</span> <span class="s">https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml</span>
-<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0"</span>
-<span class="na">catalog</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">CAT-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Urban Mobility Data Product Catalog</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog of data products, use cases, objectives, and signals related to urban mobility.</span>
-</code></pre></div>
+<h1 id='core'>Core</h1>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Term</th>
 <th>Type</th>
-<th style="text-align: right">Required</th>
 <th>Description</th>
+<th>Used in</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>schema</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>URI of the ODPC catalog schema used to validate the catalog file.</td>
-</tr>
-<tr>
-<td><code>version</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>Version of the ODPC specification used by the catalog file.</td>
-</tr>
-<tr>
-<td><code>catalog</code></td>
+<td><code>DataProduct</code></td>
 <td>object</td>
-<td style="text-align: right">✓</td>
-<td>Top-level object that defines an ODPC catalog.</td>
+<td>A managed data offering designed for reuse, with defined ownership, access, quality, usage terms, and value context.</td>
+<td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
-<td><code>id</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>Stable identifier for the catalog.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
+<td><code>DataProductCatalog</code></td>
 <td>object</td>
-<td style="text-align: right">✓</td>
-<td>Human-readable catalog name using language-tagged strings.</td>
+<td>A managed collection of data products and related portfolio objects, such as use cases, objectives, KPIs, signals, and references.</td>
+<td>ODPC, ODPG</td>
 </tr>
 <tr>
-<td><code>name.en</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>English catalog name.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
+<td><code>DataProductGraph</code></td>
 <td>object</td>
-<td style="text-align: right">✓</td>
-<td>Short explanation of the catalog purpose and scope using language-tagged strings.</td>
+<td>A graph representation that connects data products, catalogs, use cases, objectives, KPIs, signals, and governance objects through defined relationships.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>description.en</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>English catalog description.</td>
-</tr>
-</tbody></table>
-<h2 id='optional-attributes-and-options'>Optional attributes and options</h2>
-<blockquote>
-<p>Example of catalog object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">catalog</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">CAT-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Urban Mobility Data Product Catalog</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog of data products, use cases, objectives, and signals related to urban mobility.</span>
-
-  <span class="na">owner</span><span class="pi">:</span>
-    <span class="na">organization</span><span class="pi">:</span> <span class="s">Example Transport Authority</span>
-    <span class="na">team</span><span class="pi">:</span> <span class="s">Business Analytics</span>
-    <span class="na">role</span><span class="pi">:</span> <span class="s">Data Product Portfolio Manager</span>
-
-  <span class="na">scope</span><span class="pi">:</span>
-    <span class="na">domains</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">smart-city</span>
-      <span class="pi">-</span> <span class="s">mobility</span>
-      <span class="pi">-</span> <span class="s">transport</span>
-    <span class="na">geography</span><span class="pi">:</span> <span class="s">Abu Dhabi</span>
-    <span class="na">audience</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">internal</span>
-      <span class="pi">-</span> <span class="s">public</span>
-
-  <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0.0"</span>
-  <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-
-  <span class="na">graph</span><span class="pi">:</span>
-    <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPG</span>
-    <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0"</span>
-    <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/graphs/urban-mobility.graph.yaml</span>
-
-  <span class="na">productReferences</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">DP-001</span>
-      <span class="na">productID</span><span class="pi">:</span> <span class="s">urbanpulse-events</span>
-      <span class="na">productVersion</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0.0"</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">UrbanPulse Events Data Product</span>
-      <span class="na">description</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Data product providing event information for urban analytics and citizen services.</span>
-      <span class="na">productModel</span><span class="pi">:</span>
-        <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
-        <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">4.1"</span>
-        <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-        <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/urbanpulse-events/odps.yaml</span>
-
-  <span class="na">useCases</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">UC-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Event Demand Forecasting</span>
-      <span class="na">description</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Forecast event-related demand to improve mobility planning and citizen services.</span>
-
-  <span class="na">businessObjectives</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">BO-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Improve Urban Mobility Efficiency</span>
-      <span class="na">description</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce travel delays and improve movement across the city through better data-driven planning and operations.</span>
-
-  <span class="na">signals</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Increasing Event Demand</span>
-      <span class="na">description</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Indicates rising demand for event-related mobility and public service planning.</span>
-
-  <span class="na">tags</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">smart-city</span>
-    <span class="pi">-</span> <span class="s">mobility</span>
-    <span class="pi">-</span> <span class="s">events</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th style="text-align: right">Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>owner</code></td>
+<td><code>Dataset</code></td>
 <td>object</td>
-<td style="text-align: right"></td>
-<td>Ownership information for the catalog.</td>
+<td>A structured collection of data that may be part of, or exposed through, a data product. Aligns with DCAT where applicable.</td>
+<td>ODPS, ODPC</td>
 </tr>
 <tr>
-<td><code>owner.organization</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Organization responsible for the catalog.</td>
-</tr>
-<tr>
-<td><code>owner.team</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Team responsible for the catalog.</td>
-</tr>
-<tr>
-<td><code>owner.role</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Responsible role, such as <code>Data Product Portfolio Manager</code>.</td>
-</tr>
-<tr>
-<td><code>scope</code></td>
+<td><code>Distribution</code></td>
 <td>object</td>
-<td style="text-align: right"></td>
-<td>Business, organizational, geographic, or audience scope of the catalog.</td>
+<td>A specific accessible form of a dataset, such as a file, API response, export, or downloadable representation. Aligns with DCAT where applicable.</td>
+<td>ODPS</td>
 </tr>
 <tr>
-<td><code>scope.domains</code></td>
-<td>array of strings</td>
-<td style="text-align: right"></td>
-<td>Domains covered by the catalog.</td>
-</tr>
-<tr>
-<td><code>scope.geography</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Geographic scope of the catalog, if relevant.</td>
-</tr>
-<tr>
-<td><code>scope.audience</code></td>
-<td>array of strings</td>
-<td style="text-align: right"></td>
-<td>Intended audience for catalog use, such as <code>internal</code>, <code>partner</code>, <code>public</code>, or <code>commercial</code>.</td>
-</tr>
-<tr>
-<td><code>version</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Catalog version.</td>
-</tr>
-<tr>
-<td><code>status</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Lifecycle status of the catalog, such as <code>draft</code>, <code>active</code>, <code>deprecated</code>, or <code>retired</code>.</td>
-</tr>
-<tr>
-<td><code>graph</code></td>
+<td><code>DataService</code></td>
 <td>object</td>
-<td style="text-align: right"></td>
-<td>Defines the graph specification used to describe relationships between catalog objects.</td>
+<td>A service that provides access to data or data operations, such as an API, query endpoint, or data delivery service. Aligns with DCAT where applicable.</td>
+<td>ODPS</td>
 </tr>
 <tr>
-<td><code>graph.standard</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Graph standard used for the catalog graph. Default is <code>ODPG</code> for Open Data Product Graphs. Other options: <code>RDF</code> for semantic web graphs, <code>JSON-LD</code> for linked data in JSON, <code>GraphML</code> for graph exchange, <code>openCypher</code> for property graph scripts, <code>GQL</code> for ISO property graph queries, <code>Gremlin</code> for graph traversal, <code>GraphSON</code> for TinkerPop-style graph JSON, or <code>GeoSPARQL</code> for geospatial RDF graphs.</td>
+<td><code>Provider</code></td>
+<td>role</td>
+<td>A person, team, organization, or system that provides or publishes a data product, dataset, distribution, or data service.</td>
+<td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
-<td><code>graph.version</code></td>
-<td>string</td>
-<td style="text-align: right">✓ when <code>graph</code> is used</td>
-<td>Version of the graph standard.</td>
+<td><code>Consumer</code></td>
+<td>role</td>
+<td>A person, team, organization, system, or agent that uses or consumes a data product, dataset, distribution, or data service.</td>
+<td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
-<td><code>graph.uri</code></td>
-<td>string</td>
-<td style="text-align: right">✓ when <code>graph</code> is used</td>
-<td>URI pointing to the graph definition.</td>
+<td><code>Owner</code></td>
+<td>role</td>
+<td>A person, team, or organization accountable for a data product, catalog, dataset, service, or related object.</td>
+<td>ODPS, ODPC</td>
 </tr>
 <tr>
-<td><code>productReferences</code></td>
-<td>array of objects</td>
-<td style="text-align: right"></td>
-<td>List of data product references included in the catalog. Each item follows the <code>ProductReference</code> object schema.</td>
+<td><code>Steward</code></td>
+<td>role</td>
+<td>A person, team, or organization responsible for the operational management, quality, metadata, and lifecycle of a data product or related object.</td>
+<td>ODPS, ODPC</td>
 </tr>
 <tr>
-<td><code>useCases</code></td>
-<td>array of objects</td>
-<td style="text-align: right"></td>
-<td>List of use cases included in the catalog. Each item follows the <code>UseCase</code> object schema.</td>
+<td><code>Domain</code></td>
+<td>classification</td>
+<td>A business, organizational, subject, or functional area used to group data products and related objects.</td>
+<td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
-<td><code>businessObjectives</code></td>
-<td>array of objects</td>
-<td style="text-align: right"></td>
-<td>List of business objectives included in the catalog. Each item follows the <code>BusinessObjective</code> object schema.</td>
+<td><code>Identifier</code></td>
+<td>reference</td>
+<td>A stable value used to uniquely identify a vocabulary term, specification object, product, catalog item, or graph node.</td>
+<td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
-<td><code>signals</code></td>
-<td>array of objects</td>
-<td style="text-align: right"></td>
-<td>List of signals included in the catalog. Each item follows the <code>Signal</code> object schema.</td>
+<td><code>Reference</code></td>
+<td>reference</td>
+<td>A link or pointer to another object, specification file, external vocabulary term, system record, or graph node.</td>
+<td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
-<td><code>tags</code></td>
-<td>array of strings</td>
-<td style="text-align: right"></td>
-<td>Keywords used for search, grouping, filtering, and portfolio analysis.</td>
-</tr>
-</tbody></table>
-<h1 id='productreference'>ProductReference</h1>
-<p>The <code>ProductReference</code> object defines a lightweight catalog reference to a data product. It identifies the product, provides the key information needed for catalog discovery, and points to the authoritative product definition through <code>productModel</code>.</p>
-
-<p><img src="images/productreference-c8498678.png" width="500"></p>
-
-<p>In ODPC, a <code>ProductReference</code> is used to list, search, filter, and display data products as part of a portfolio. It should include enough information for users and tools to understand what the product is, who owns it, what domain it belongs to, what type of product it is, and where the full product definition is located.</p>
-
-<p>The <code>ProductReference</code> object should stay lightweight. It should not duplicate detailed product metadata such as data access, SLA, data quality, license, pricing, support, or technical interface details. Those details belong in the referenced product model, such as ODPS.</p>
-
-<p>ODPC is ODPS-native, but not ODPS-only. A <code>ProductReference</code> can point to an ODPS file or another product definition model through <code>productModel</code>.</p>
-
-<p>Connections between products, use cases, business objectives, KPIs, signals, and other catalog objects belong to Open Data Product Graphs (ODPG). ODPG defines the graphs and relationships between catalog objects, while ODPC defines the reusable catalog objects themselves.</p>
-
-<p>By defining product references as catalog objects, ODPC supports product discovery, portfolio browsing, filtering, prioritization, governance review, and AI-assisted portfolio analysis.</p>
-<h2 id='mandatory-attributes-and-options'>Mandatory attributes and options</h2>
-<blockquote>
-<p>Example of productReference object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">productReference</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">DP-001</span>
-  <span class="na">productID</span><span class="pi">:</span> <span class="s">urbanpulse-events</span>
-  <span class="na">productVersion</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0.0"</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">UrbanPulse Events Data Product</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Data product providing event information for urban analytics and citizen services.</span>
-  <span class="na">productModel</span><span class="pi">:</span>
-    <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
-    <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">4.1"</span>
-    <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-    <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/urbanpulse-events/odps.yaml</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>productReference</code></td>
-<td>object</td>
-<td>required</td>
-<td>Top-level object that defines a lightweight catalog reference to a data product.</td>
-</tr>
-<tr>
-<td><code>id</code></td>
-<td>string</td>
-<td>required</td>
-<td>Stable identifier for the product reference inside ODPC.</td>
-</tr>
-<tr>
-<td><code>productID</code></td>
-<td>string</td>
-<td>required</td>
-<td>Product identifier aligned with the referenced data product.</td>
-</tr>
-<tr>
-<td><code>productVersion</code></td>
-<td>string</td>
-<td>required</td>
-<td>Version of the data product shown in the catalog.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td>object</td>
-<td>required, language-tagged strings</td>
-<td>Human-readable product name.</td>
-</tr>
-<tr>
-<td><code>name.en</code></td>
-<td>string</td>
-<td>required</td>
-<td>English product name.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>object</td>
-<td>required, language-tagged strings</td>
-<td>Short product description used for catalog display and discovery.</td>
-</tr>
-<tr>
-<td><code>description.en</code></td>
-<td>string</td>
-<td>required</td>
-<td>English product description.</td>
-</tr>
-<tr>
-<td><code>productModel</code></td>
-<td>object</td>
-<td>required</td>
-<td>Defines the authoritative product model or specification the catalog reference points to.</td>
-</tr>
-<tr>
-<td><code>productModel.standard</code></td>
-<td>string</td>
-<td>required</td>
-<td>Product model or standard used by the referenced product, such as <code>ODPS</code>, <code>DPDS</code>, or <code>internal</code>.</td>
-</tr>
-<tr>
-<td><code>productModel.version</code></td>
-<td>string</td>
-<td>required</td>
-<td>Version of the referenced product model or standard, such as ODPS <code>4.1</code>.</td>
-</tr>
-<tr>
-<td><code>productModel.format</code></td>
-<td>string</td>
-<td>required</td>
-<td>Format of the referenced product model, such as <code>yaml</code>, <code>json</code>, or <code>html</code>.</td>
-</tr>
-<tr>
-<td><code>productModel.uri</code></td>
-<td>string</td>
-<td>required</td>
-<td>URI pointing to the authoritative product definition.</td>
-</tr>
-</tbody></table>
-<h2 id='optional-attributes-and-options'>Optional attributes and options</h2>
-<blockquote>
-<p>Example of productReference object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">productReference</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">DP-001</span>
-  <span class="na">productID</span><span class="pi">:</span> <span class="s">urbanpulse-events</span>
-  <span class="na">productVersion</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0.0"</span>
-
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">UrbanPulse Events Data Product</span>
-
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Data product providing event information for urban analytics and citizen services.</span>
-
-  <span class="na">valueProposition</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Supports event-based mobility planning, citizen services, and urban operations.</span>
-
-  <span class="na">visibility</span><span class="pi">:</span> <span class="s">public</span>
-  <span class="na">status</span><span class="pi">:</span> <span class="s">production</span>
-  <span class="na">type</span><span class="pi">:</span> <span class="s">dataset</span>
-
-  <span class="na">domains</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">smart-city</span>
-    <span class="pi">-</span> <span class="s">mobility</span>
-
-  <span class="na">categories</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">urban analytics</span>
-    <span class="pi">-</span> <span class="s">citizen services</span>
-
-  <span class="na">standards</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">ODPS</span>
-
-  <span class="na">tags</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">events</span>
-    <span class="pi">-</span> <span class="s">smart-city</span>
-    <span class="pi">-</span> <span class="s">mobility</span>
-
-  <span class="na">portfolioPriority</span><span class="pi">:</span> <span class="s">high</span>
-  <span class="na">governanceProfile</span><span class="pi">:</span> <span class="s">structured</span>
-
-  <span class="na">owner</span><span class="pi">:</span>
-    <span class="na">organization</span><span class="pi">:</span> <span class="s">Example Organization</span>
-    <span class="na">team</span><span class="pi">:</span> <span class="s">Urban Analytics</span>
-    <span class="na">role</span><span class="pi">:</span> <span class="s">Data Product Owner</span>
-
-  <span class="na">productModel</span><span class="pi">:</span>
-    <span class="na">standard</span><span class="pi">:</span> <span class="s">ODPS</span>
-    <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">4.1"</span>
-    <span class="na">format</span><span class="pi">:</span> <span class="s">yaml</span>
-    <span class="na">uri</span><span class="pi">:</span> <span class="s">https://example.org/products/urbanpulse-events/odps.yaml</span>
-
-  <span class="na">logoURL</span><span class="pi">:</span> <span class="s">https://example.org/assets/urbanpulse-logo.png</span>
-
-  <span class="na">outputFileFormats</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">JSON</span>
-    <span class="pi">-</span> <span class="s">CSV</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>valueProposition</code></td>
-<td>object</td>
-<td>optional, language-tagged strings</td>
-<td>Short explanation of the value the product provides.</td>
-</tr>
-<tr>
-<td><code>valueProposition.en</code></td>
-<td>string</td>
-<td>optional</td>
-<td>English value proposition.</td>
-</tr>
-<tr>
-<td><code>visibility</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Product visibility, such as <code>public</code>, <code>internal</code>, <code>restricted</code>, or <code>private</code>.</td>
-</tr>
-<tr>
-<td><code>status</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Lifecycle status of the product, such as <code>draft</code>, <code>active</code>, <code>production</code>, <code>deprecated</code>, or <code>retired</code>.</td>
-</tr>
-<tr>
-<td><code>type</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Type of data product. One of: <code>raw data</code>, <code>derived data</code>, <code>dataset</code>, <code>reports</code>, <code>analytic view</code>, <code>3D visualisation</code>, <code>algorithm</code>, <code>decision support</code>, <code>automated decision-making</code>, <code>data-enhanced product</code>, <code>data-driven service</code>, <code>data-enabled performance</code>, or <code>bi-directional</code>.</td>
-</tr>
-<tr>
-<td><code>domains</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Business, operational, policy, or industry domains related to the product.</td>
-</tr>
-<tr>
-<td><code>categories</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Catalog categories used for grouping and browsing.</td>
-</tr>
-<tr>
-<td><code>standards</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Standards or specifications associated with the product, such as <code>ODPS</code>, <code>DCAT</code>, or <code>OpenAPI</code>.</td>
-</tr>
-<tr>
-<td><code>tags</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Keywords used to classify, search, or filter the product reference.</td>
-</tr>
-<tr>
-<td><code>portfolioPriority</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Relative portfolio importance, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
-</tr>
-<tr>
-<td><code>governanceProfile</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Governance posture or profile used to classify the product in the catalog.</td>
-</tr>
-<tr>
-<td><code>owner</code></td>
-<td>object</td>
-<td>optional</td>
-<td>Ownership information for the product.</td>
-</tr>
-<tr>
-<td><code>owner.organization</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Organization responsible for the product.</td>
-</tr>
-<tr>
-<td><code>owner.team</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Team responsible for the product.</td>
-</tr>
-<tr>
-<td><code>owner.role</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Responsible role, such as Data Product Owner or Product Manager.</td>
-</tr>
-<tr>
-<td><code>logoURL</code></td>
-<td>string</td>
-<td>optional</td>
-<td>URL to a logo or visual asset used in catalog display.</td>
-</tr>
-<tr>
-<td><code>outputFileFormats</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Output formats available from the product, such as <code>CSV</code>, <code>JSON</code>, <code>Parquet</code>, or <code>GeoJSON</code>.</td>
-</tr>
-</tbody></table>
-<h1 id='usecase'>UseCase</h1>
-<p>The <code>UseCase</code> object describes a business, operational, analytical, or policy use case that needs data products. It captures why data is needed, who needs it, what decision or process it supports, and what outcome is expected.</p>
-
-<p><img src="images/usecase-0c9b7470.png" width="500"></p>
-
-<p>In ODPC, a use case is a demand-side portfolio object. It helps organizations understand where data products create value and which business needs the portfolio should support.</p>
-
-<p>A <code>UseCase</code> can describe required data through <code>dataNeeds</code>, but it should not directly reference data products. Connections between use cases, data products, business objectives, and signal belong to Open Data Product Graphs (ODPG).</p>
-
-<p>ODPG defines graphs and connections between catalog objects. It is used to model relationships such as which data products support a use case, which use cases contribute to a business objective, and where portfolio gaps exist.</p>
-
-<p>The <code>UseCase</code> object should remain focused on the use case itself, not on detailed relationship semantics.</p>
-
-<p>By defining use cases as reusable catalog objects, ODPC enables discovery, prioritization, gap analysis, reuse analysis, and AI-assisted planning across data product portfolios.</p>
-<h2 id='mandatory-attributes-and-options'>Mandatory attributes and options</h2>
-<blockquote>
-<p>Example of useCase object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">useCase</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">UC-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Predictive Maintenance for Aircraft Fleet</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Predict maintenance needs earlier by combining</span> 
-        <span class="s">aircraft usage, schedules, and maintenance history.</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>useCase</code></td>
-<td>object</td>
-<td>required</td>
-<td>Top-level object that defines a use case in ODPC.</td>
-</tr>
-<tr>
-<td><code>id</code></td>
-<td>string</td>
-<td>required</td>
-<td>Stable identifier for the use case.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td>object</td>
-<td>required, language-tagged strings</td>
-<td>Human-readable use case name.</td>
-</tr>
-<tr>
-<td><code>name.en</code></td>
-<td>string</td>
-<td>required</td>
-<td>English name of the use case.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>object</td>
-<td>required, language-tagged strings</td>
-<td>Short explanation of the use case, its purpose, and expected value.</td>
-</tr>
-<tr>
-<td><code>description.en</code></td>
-<td>string</td>
-<td>required</td>
-<td>English description of the use case.</td>
-</tr>
-</tbody></table>
-<h2 id='optional-attributes-and-options'>Optional attributes and options</h2>
-<blockquote>
-<p>Example of useCase object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">useCase</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">UC-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Predictive Maintenance for Healthcare Revenue Growth</span>
-
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Predict equipment maintenance needs in healthcare facilities to reduce downtime, improve service reliability, and support revenue growth.</span>
-
-  <span class="na">domains</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">healthcare</span>
-    <span class="pi">-</span> <span class="s">operations</span>
-    <span class="pi">-</span> <span class="s">revenue management</span>
-
-  <span class="na">stakeholders</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">Healthcare Administrators</span>
-    <span class="pi">-</span> <span class="s">CFOs</span>
-    <span class="pi">-</span> <span class="s">Revenue Managers</span>
-    <span class="pi">-</span> <span class="s">Maintenance Engineers</span>
-    <span class="pi">-</span> <span class="s">Operations Managers</span>
-    <span class="pi">-</span> <span class="s">Safety Officers</span>
-    <span class="pi">-</span> <span class="s">Data Analysts</span>
-
-  <span class="na">businessChallenge</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Healthcare organizations face operational disruptions from equipment failures, leading to service delays, safety risks, and lost revenue.</span>
-
-  <span class="na">decision</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Schedule healthcare equipment maintenance proactively based on equipment usage, failure patterns, and patient service demand.</span>
-
-  <span class="na">expectedOutcome</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce equipment downtime, improve patient service continuity, reduce maintenance costs, and support measurable revenue growth.</span>
-
-  <span class="na">kpis</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">Revenue growth from improved equipment uptime</span>
-    <span class="pi">-</span> <span class="s">Equipment downtime reduction</span>
-    <span class="pi">-</span> <span class="s">Maintenance cost reduction</span>
-    <span class="pi">-</span> <span class="s">On-time service performance</span>
-    <span class="pi">-</span> <span class="s">Patient service utilization rate</span>
-
-  <span class="na">impactMetrics</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">Cost savings from reduced reactive repairs</span>
-    <span class="pi">-</span> <span class="s">Increased revenue from higher patient service availability</span>
-    <span class="pi">-</span> <span class="s">Improved on-time service performance</span>
-    <span class="pi">-</span> <span class="s">Enhanced safety and reduced operational disruption</span>
-
-  <span class="na">dataNeeds</span><span class="pi">:</span>
-    <span class="na">summary</span><span class="pi">:</span>
-      <span class="na">en</span><span class="pi">:</span> <span class="s">Combines revenue data, equipment sensor readings, maintenance logs, patient utilization metrics, and market trends to forecast failures and optimize service planning.</span>
-    <span class="na">items</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">Historical revenue and cost data by service line</span>
-      <span class="pi">-</span> <span class="s">Patient visit records and demographics</span>
-      <span class="pi">-</span> <span class="s">Market competition analysis and pricing benchmarks</span>
-      <span class="pi">-</span> <span class="s">Service quality feedback and patient satisfaction scores</span>
-      <span class="pi">-</span> <span class="s">Real-time equipment sensor readings</span>
-      <span class="pi">-</span> <span class="s">Historical maintenance and failure logs</span>
-      <span class="pi">-</span> <span class="s">Equipment usage schedules</span>
-      <span class="pi">-</span> <span class="s">Inventory levels for parts availability</span>
-
-  <span class="na">scoring</span><span class="pi">:</span>
-    <span class="na">businessValue</span><span class="pi">:</span> <span class="s">high</span>
-    <span class="na">effort</span><span class="pi">:</span> <span class="s">medium</span>
-    <span class="na">category</span><span class="pi">:</span> <span class="s">juicyAndWorthIt</span>
-    <span class="na">score</span><span class="pi">:</span> <span class="m">3.0</span>
-
-  <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-  <span class="na">priority</span><span class="pi">:</span> <span class="s">high</span>
-
-  <span class="na">tags</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">predictive-maintenance</span>
-    <span class="pi">-</span> <span class="s">healthcare</span>
-    <span class="pi">-</span> <span class="s">revenue-growth</span>
-    <span class="pi">-</span> <span class="s">operations</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>domains</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Business, operational, policy, or industry domains related to the use case.</td>
-</tr>
-<tr>
-<td><code>stakeholders</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>People, teams, roles, or groups involved in or affected by the use case.</td>
-</tr>
-<tr>
-<td><code>businessChallenge</code></td>
-<td>object</td>
-<td>optional, language-tagged strings</td>
-<td>Business, operational, policy, or service problem the use case addresses.</td>
-</tr>
-<tr>
-<td><code>businessChallenge.en</code></td>
-<td>string</td>
-<td>optional</td>
-<td>English business challenge statement.</td>
-</tr>
-<tr>
-<td><code>decision</code></td>
-<td>object</td>
-<td>optional, language-tagged strings</td>
-<td>Decision, action, or operational choice the use case supports.</td>
-</tr>
-<tr>
-<td><code>decision.en</code></td>
-<td>string</td>
-<td>optional</td>
-<td>English decision statement.</td>
-</tr>
-<tr>
-<td><code>expectedOutcome</code></td>
-<td>object</td>
-<td>optional, language-tagged strings</td>
-<td>Expected business, operational, policy, or service outcome.</td>
-</tr>
-<tr>
-<td><code>expectedOutcome.en</code></td>
-<td>string</td>
-<td>optional</td>
-<td>English expected outcome statement.</td>
-</tr>
-<tr>
-<td><code>kpis</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>KPI or key result labels used to assess the value or success of the use case.</td>
-</tr>
-<tr>
-<td><code>impactMetrics</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Measurable or observable impact areas expected from the use case.</td>
-</tr>
-<tr>
-<td><code>dataNeeds</code></td>
-<td>object</td>
-<td>optional</td>
-<td>Data required to support the use case.</td>
-</tr>
-<tr>
-<td><code>dataNeeds.summary</code></td>
-<td>object</td>
-<td>optional, language-tagged strings</td>
-<td>Short summary of the overall data requirement.</td>
-</tr>
-<tr>
-<td><code>dataNeeds.summary.en</code></td>
-<td>string</td>
-<td>optional</td>
-<td>English summary of the data requirement.</td>
-</tr>
-<tr>
-<td><code>dataNeeds.items</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Individual data needs, expressed as plain strings.</td>
-</tr>
-<tr>
-<td><code>scoring</code></td>
-<td>object</td>
-<td>optional</td>
-<td>Evaluation of the use case for prioritization or portfolio review.</td>
-</tr>
-<tr>
-<td><code>scoring.businessValue</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Estimated business value, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
-</tr>
-<tr>
-<td><code>scoring.effort</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Estimated implementation effort, such as <code>low</code>, <code>medium</code>, or <code>high</code>.</td>
-</tr>
-<tr>
-<td><code>scoring.category</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Portfolio scoring category, such as <code>quickWins</code>, <code>juicyAndWorthIt</code>, <code>niceToHave</code>, or <code>avoidOrDefer</code>.</td>
-</tr>
-<tr>
-<td><code>scoring.score</code></td>
-<td>number</td>
-<td>optional</td>
-<td>Numeric score used for prioritization, ranking, or portfolio analysis.</td>
-</tr>
-<tr>
-<td><code>status</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Lifecycle status of the use case, such as <code>draft</code>, <code>active</code>, <code>paused</code>, <code>completed</code>, or <code>retired</code>.</td>
-</tr>
-<tr>
-<td><code>priority</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Relative importance of the use case, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
-</tr>
-<tr>
-<td><code>tags</code></td>
-<td>array of strings</td>
-<td>optional</td>
-<td>Keywords used to classify, search, or filter the use case.</td>
-</tr>
-</tbody></table>
-<h1 id='businessobjective'>BusinessObjective</h1>
-<p>The <code>BusinessObjective</code> object defines a higher-level business, operational, policy, or strategic objective that data products and use cases contribute to. It captures the outcome the organization wants to achieve and provides the portfolio-level anchor for value management.</p>
-
-<p><img src="images/businessobjective-80deb06a.png" width="500"></p>
-
-<p>In ODPC, business objectives help move data product management from asset lists to outcome-driven portfolios. They help clarify which data products support strategic goals, which use cases contribute to measurable outcomes, and where gaps exist.</p>
-
-<p>A <code>BusinessObjective</code> can include one or more KPIs to measure progress against the objective. KPI definitions stay inside the <code>BusinessObjective</code> object, not as top-level ODPC objects.</p>
-
-<p>Connections between objectives, use cases, data products, catalog items, and graph relationships are defined outside ODPC, for example in Open Data Product Graphs.</p>
-
-<p>By defining objectives as catalog objects, ODPC supports prioritization, investment decisions, governance reviews, AI-assisted portfolio analysis, and reporting on business value.</p>
-<h2 id='mandatory-attributes-and-options'>Mandatory attributes and options</h2>
-<blockquote>
-<p>Example of BusinessObjective object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">businessObjective</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">BO-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Improve Urban Mobility Efficiency</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce travel delays and improve movement across the city</span> 
-        <span class="s">through better data-driven planning and operations.</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Element</th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>businessObjective</code></td>
-<td>object</td>
-<td>required</td>
-<td>Top-level object that defines a business objective in ODPC.</td>
-</tr>
-<tr>
-<td><code>id</code></td>
-<td>string</td>
-<td>required</td>
-<td>Stable identifier for the business objective.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td>object</td>
-<td>required, language-tagged strings</td>
-<td>Human-readable business objective name.</td>
-</tr>
-<tr>
-<td><code>name.en</code></td>
-<td>string</td>
-<td>required</td>
-<td>English name of the business objective.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>object</td>
-<td>required, language-tagged strings</td>
-<td>Short explanation of the business objective, its purpose, and expected direction.</td>
-</tr>
-<tr>
-<td><code>description.en</code></td>
-<td>string</td>
-<td>required</td>
-<td>English description of the business objective.</td>
-</tr>
-</tbody></table>
-<h2 id='optional-attributes-and-options'>Optional attributes and options</h2>
-<blockquote>
-<p>Example of BusinessObjective object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">businessObjective</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">BO-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Improve Urban Mobility Efficiency</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Reduce travel delays and improve movement across the city</span> 
-        <span class="s">through better data-driven planning and operations.</span>
-  <span class="na">strategicAlignment</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">en</span><span class="pi">:</span> <span class="s">Smart City Vision </span><span class="m">2030</span>
-    <span class="pi">-</span> <span class="na">en</span><span class="pi">:</span> <span class="s">Transport Digital Transformation Program</span>
-  <span class="na">owner</span><span class="pi">:</span>
-    <span class="na">organization</span><span class="pi">:</span> <span class="s">Example Transport Authority</span>
-    <span class="na">team</span><span class="pi">:</span> <span class="s">Business Analytics</span>
-    <span class="na">role</span><span class="pi">:</span> <span class="s">Strategy Lead</span>
-  <span class="na">expectedOutcomes</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">en</span><span class="pi">:</span> <span class="s">Shorter average travel times across key corridors.</span>
-    <span class="pi">-</span> <span class="na">en</span><span class="pi">:</span> <span class="s">Improved public transport reliability.</span>
-    <span class="pi">-</span> <span class="na">en</span><span class="pi">:</span> <span class="s">Better coordination between road, traffic, and public transport operations.</span>
-  <span class="na">kpis</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">KPI-001</span>
-      <span class="na">name</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Average Travel Time Reduction</span>
-      <span class="na">description</span><span class="pi">:</span>
-        <span class="na">en</span><span class="pi">:</span> <span class="s">Measures reduction in average travel time across selected mobility corridors.</span>
-      <span class="na">unit</span><span class="pi">:</span> <span class="s">percentage</span>
-      <span class="na">baseline</span><span class="pi">:</span>
-        <span class="na">value</span><span class="pi">:</span> <span class="m">0</span>
-        <span class="na">date</span><span class="pi">:</span> <span class="s">2025-10-31</span>
-      <span class="na">target</span><span class="pi">:</span>
-        <span class="na">value</span><span class="pi">:</span> <span class="m">10</span>
-        <span class="na">date</span><span class="pi">:</span> <span class="s">2026-12-31</span>
-  <span class="na">timeframe</span><span class="pi">:</span>
-    <span class="na">startDate</span><span class="pi">:</span> <span class="s">2026-01-01</span>
-    <span class="na">endDate</span><span class="pi">:</span> <span class="s">2026-12-31</span>
-  <span class="na">status</span><span class="pi">:</span> <span class="s">active</span>
-  <span class="na">priority</span><span class="pi">:</span> <span class="s">high</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Element</th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>strategicAlignment</code></td>
-<td>array of objects</td>
-<td>optional</td>
-<td>Strategic programs, policies, visions, mandates, or transformation initiatives the business objective supports.</td>
-</tr>
-<tr>
-<td><code>strategicAlignment[]</code></td>
-<td>object</td>
-<td>language-tagged strings</td>
-<td>One strategic alignment statement.</td>
-</tr>
-<tr>
-<td><code>owner</code></td>
-<td>object</td>
-<td>optional</td>
-<td>Ownership information for the business objective.</td>
-</tr>
-<tr>
-<td><code>owner.organization</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Organization responsible for the business objective.</td>
-</tr>
-<tr>
-<td><code>owner.team</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Team responsible for the business objective.</td>
-</tr>
-<tr>
-<td><code>owner.role</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Responsible role, such as Strategy Lead, Product Owner, or Performance Lead.</td>
-</tr>
-<tr>
-<td><code>expectedOutcomes</code></td>
-<td>array of objects</td>
-<td>optional</td>
-<td>Business outcomes expected from achieving the objective.</td>
-</tr>
-<tr>
-<td><code>expectedOutcomes[]</code></td>
-<td>object</td>
-<td>language-tagged strings</td>
-<td>One expected outcome statement.</td>
-</tr>
-<tr>
-<td><code>kpis</code></td>
-<td>array of objects</td>
-<td>optional</td>
-<td>Measurable indicators used to track progress against the business objective. KPIs are nested inside <code>businessObjective</code>, not defined as top-level ODPC objects.</td>
-</tr>
-<tr>
-<td><code>kpis.id</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Stable identifier for the KPI within the business objective.</td>
-</tr>
-<tr>
-<td><code>kpis.name</code></td>
-<td>object</td>
-<td>optional, language-tagged strings</td>
-<td>Human-readable KPI name.</td>
-</tr>
-<tr>
-<td><code>kpis.description</code></td>
-<td>object</td>
-<td>optional, language-tagged strings</td>
-<td>Explanation of what the KPI measures.</td>
-</tr>
-<tr>
-<td><code>kpis.unit</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Unit used for the KPI value, such as <code>percentage</code>, <code>count</code>, <code>days</code>, <code>AED</code>, or <code>score</code>.</td>
-</tr>
-<tr>
-<td><code>kpis.baseline</code></td>
-<td>object</td>
-<td>optional</td>
-<td>Starting measurement used as the comparison point.</td>
-</tr>
-<tr>
-<td><code>kpis.baseline.value</code></td>
-<td>number</td>
-<td>optional</td>
-<td>Baseline value.</td>
-</tr>
-<tr>
-<td><code>kpis.baseline.date</code></td>
-<td>date</td>
-<td>optional</td>
-<td>Date when the baseline value was measured.</td>
-</tr>
-<tr>
-<td><code>kpis.target</code></td>
-<td>object</td>
-<td>optional</td>
-<td>Target measurement expected for the KPI.</td>
-</tr>
-<tr>
-<td><code>kpis.target.value</code></td>
-<td>number</td>
-<td>optional</td>
-<td>Target value.</td>
-</tr>
-<tr>
-<td><code>kpis.target.date</code></td>
-<td>date</td>
-<td>optional</td>
-<td>Date when the target should be reached.</td>
-</tr>
-<tr>
-<td><code>timeframe</code></td>
-<td>object</td>
-<td>optional</td>
-<td>Time period during which the business objective is active or expected to be achieved.</td>
-</tr>
-<tr>
-<td><code>timeframe.startDate</code></td>
-<td>date</td>
-<td>optional</td>
-<td>Start date for the business objective.</td>
-</tr>
-<tr>
-<td><code>timeframe.endDate</code></td>
-<td>date</td>
-<td>optional</td>
-<td>End date for the business objective.</td>
-</tr>
-<tr>
-<td><code>status</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Lifecycle status of the business objective, such as <code>draft</code>, <code>active</code>, <code>paused</code>, <code>completed</code>, or <code>retired</code>.</td>
-</tr>
-<tr>
-<td><code>priority</code></td>
-<td>string</td>
-<td>optional</td>
-<td>Relative importance of the business objective, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
-</tr>
-</tbody></table>
-<h1 id='signal'>Signal</h1>
-<p>The <code>Signal</code> object describes an observed market, operational, user, technology, policy, competitive, quality, usage, risk, or gap indicator that may create demand for new use cases, new data products, or product improvements.</p>
-
-<p><img src="images/signal-381de337.png" width="500"></p>
-
-<p>In ODPC, a <code>Signal</code> acts as the voice of opportunity. It helps organizations capture what is changing around them or inside their operations, then use that intelligence to guide portfolio planning, prioritization, and product development.</p>
-
-<p>A <code>Signal</code> can come from internal sources such as search logs, usage analytics, support tickets, surveys, and operational systems. It can also come from external sources such as AI web crawling, competitor monitoring, market reports, public tenders, policy changes, technology trends, or sector analysis.</p>
-
-<p>The <code>Signal</code> object should describe what was observed, where it came from, how strong it is, how confident the organization is, what opportunity it suggests, and what action should be considered.</p>
-
-<p>The <code>Signal</code> object should not directly define relationships to products, use cases, business objectives, or other catalog objects. Those connections belong to Open Data Product Graphs (ODPG), which defines the graphs and relationships between catalog objects.</p>
-
-<p>By defining signals as reusable catalog objects, ODPC supports opportunity discovery, market intelligence, gap analysis, portfolio prioritization, AI-assisted planning, and continuous alignment between data products and changing business needs.</p>
-<h2 id='mandatory-attributes-and-options'>Mandatory attributes and options</h2>
-<blockquote>
-<p>Example of catalog object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">signal</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Competitors expanding real-time event intelligence</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">External market monitoring found that competing smart city platforms are adding real-time event intelligence features.</span>
-  <span class="na">type</span><span class="pi">:</span> <span class="s">competitive</span>
-  <span class="na">source</span><span class="pi">:</span>
-    <span class="na">origin</span><span class="pi">:</span> <span class="s">external</span>
-    <span class="na">method</span><span class="pi">:</span> <span class="s">ai_crawl</span>
-  <span class="na">observedAt</span><span class="pi">:</span> <span class="s">2026-04-18T09:30:00Z</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th style="text-align: right">Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>signal</code></td>
-<td>object</td>
-<td style="text-align: right">✓</td>
-<td>Top-level object that defines an ODPC signal.</td>
-</tr>
-<tr>
-<td><code>id</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>Stable identifier for the signal.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td>object</td>
-<td style="text-align: right">✓</td>
-<td>Human-readable signal name using language-tagged strings.</td>
-</tr>
-<tr>
-<td><code>name.en</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>English signal name.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>object</td>
-<td style="text-align: right">✓</td>
-<td>Short explanation of what was observed and why it matters, using language-tagged strings.</td>
-</tr>
-<tr>
-<td><code>description.en</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>English signal description.</td>
-</tr>
-<tr>
-<td><code>type</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>Signal type. One of: <code>demand</code>, <code>competitive</code>, <code>market</code>, <code>technology</code>, <code>policy</code>, <code>operational</code>, <code>quality</code>, <code>usage</code>, <code>risk</code>, or <code>gap</code>.</td>
-</tr>
-<tr>
-<td><code>source</code></td>
-<td>object</td>
-<td style="text-align: right">✓</td>
-<td>Source information that explains where the signal came from.</td>
-</tr>
-<tr>
-<td><code>source.origin</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>Origin of the signal, such as <code>internal</code>, <code>external</code>, or <code>mixed</code>.</td>
-</tr>
-<tr>
-<td><code>source.method</code></td>
-<td>string</td>
-<td style="text-align: right">✓</td>
-<td>Method used to detect the signal, such as <code>ai_crawl</code>, <code>search_analysis</code>, <code>usage_analysis</code>, <code>survey</code>, <code>manual_review</code>, or <code>system_monitoring</code>.</td>
-</tr>
-<tr>
-<td><code>observedAt</code></td>
-<td>datetime</td>
-<td style="text-align: right">✓</td>
-<td>Date and time when the signal was observed.</td>
-</tr>
-</tbody></table>
-<h2 id='type-explained'>Type explained</h2>
-<table><thead>
-<tr>
-<th>Type</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>demand</code></td>
-<td>Users, customers, or stakeholders show demand for data, use cases, or products.</td>
-</tr>
-<tr>
-<td><code>competitive</code></td>
-<td>Competitors or peer organizations are moving in a relevant direction.</td>
-</tr>
-<tr>
-<td><code>market</code></td>
-<td>Market behavior suggests new demand or value potential.</td>
-</tr>
-<tr>
-<td><code>technology</code></td>
-<td>Technology change creates a new product or use case opportunity.</td>
-</tr>
-<tr>
-<td><code>policy</code></td>
-<td>Regulation, policy, or strategy creates new demand or obligations.</td>
-</tr>
-<tr>
-<td><code>operational</code></td>
-<td>Internal operations show need for better data or decisions.</td>
-</tr>
-<tr>
-<td><code>quality</code></td>
-<td>Quality issues create risk or improvement opportunities.</td>
-</tr>
-<tr>
-<td><code>usage</code></td>
-<td>Product usage or non-usage reveals demand, friction, or value.</td>
-</tr>
-<tr>
-<td><code>risk</code></td>
-<td>A risk appears that may affect trust, compliance, delivery, or operations.</td>
-</tr>
-<tr>
-<td><code>gap</code></td>
-<td>A missing product, missing data, or unmet capability is detected.</td>
-</tr>
-</tbody></table>
-<h2 id='optional-attributes-and-options'>Optional attributes and options</h2>
-<blockquote>
-<p>Example of catalog object usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">signal</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">SIG-TRAFFIC-CONGESTION-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Increasing Traffic Congestion During Peak Hours</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Recurring congestion has been observed in key urban corridors during morning and evening peak hours, creating demand for better traffic optimization and mobility planning data.</span>
-  <span class="na">type</span><span class="pi">:</span> <span class="s">operational</span>
-  <span class="na">source</span><span class="pi">:</span>
-    <span class="na">origin</span><span class="pi">:</span> <span class="s">internal</span>
-    <span class="na">method</span><span class="pi">:</span> <span class="s">system_monitoring</span>
-    <span class="na">system</span><span class="pi">:</span> <span class="s">Traffic Operations Center</span>
-    <span class="na">channel</span><span class="pi">:</span> <span class="s">usage_logs</span>
-    <span class="na">reference</span><span class="pi">:</span> <span class="s">Monthly congestion monitoring report</span>
-  <span class="na">observedAt</span><span class="pi">:</span> <span class="s">2026-04-15T09:30:00Z</span>
-
-  <span class="na">strength</span><span class="pi">:</span> <span class="s">high</span>
-  <span class="na">confidence</span><span class="pi">:</span> <span class="s">high</span>
-
-  <span class="na">opportunity</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Improve traffic planning and congestion response through better traffic flow analysis, incident monitoring, and journey time reliability data.</span>
-
-  <span class="na">impact</span><span class="pi">:</span>
-    <span class="na">valuePotential</span><span class="pi">:</span> <span class="s">high</span>
-    <span class="na">urgency</span><span class="pi">:</span> <span class="s">high</span>
-    <span class="na">affectedDomains</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">mobility</span>
-      <span class="pi">-</span> <span class="s">transport</span>
-      <span class="pi">-</span> <span class="s">smart-city</span>
-
-  <span class="na">evidence</span><span class="pi">:</span>
-    <span class="na">summary</span><span class="pi">:</span>
-      <span class="na">en</span><span class="pi">:</span> <span class="s">Monitoring reports show recurring congestion patterns across central Abu Dhabi corridors during morning and evening peak hours.</span>
-    <span class="na">examples</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">Increased travel time on selected arterial roads during weekday morning peaks.</span>
-      <span class="pi">-</span> <span class="s">Repeated congestion near high-demand business and government districts.</span>
-      <span class="pi">-</span> <span class="s">Incident reports and vehicle speed patterns indicate recurring bottlenecks.</span>
-
-  <span class="na">recommendedAction</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Review existing mobility data products and identify missing traffic flow, vehicle speed, road incident, and public transport datasets.</span>
-
-  <span class="na">status</span><span class="pi">:</span> <span class="s">reviewing</span>
-
-  <span class="na">tags</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">mobility</span>
-    <span class="pi">-</span> <span class="s">transport</span>
-    <span class="pi">-</span> <span class="s">congestion</span>
-    <span class="pi">-</span> <span class="s">traffic-optimization</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th style="text-align: right">Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>source.system</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>System, tool, agent, or platform that detected or produced the signal.</td>
-</tr>
-<tr>
-<td><code>source.channel</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Channel where the signal was observed, such as <code>public_web</code>, <code>search_queries</code>, <code>usage_logs</code>, <code>support_tickets</code>, <code>market_report</code>, or <code>stakeholder_feedback</code>.</td>
-</tr>
-<tr>
-<td><code>source.reference</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Source reference, such as a report ID, crawl ID, log reference, URL, or document reference.</td>
-</tr>
-<tr>
-<td><code>strength</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Estimated strength of the signal, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
-</tr>
-<tr>
-<td><code>confidence</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Confidence in the signal, such as <code>low</code>, <code>medium</code>, or <code>high</code>.</td>
-</tr>
-<tr>
-<td><code>opportunity</code></td>
-<td>object</td>
-<td style="text-align: right"></td>
-<td>Opportunity suggested by the signal, using language-tagged strings.</td>
-</tr>
-<tr>
-<td><code>opportunity.en</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>English opportunity statement.</td>
-</tr>
-<tr>
-<td><code>impact</code></td>
-<td>object</td>
-<td style="text-align: right"></td>
-<td>Expected impact or relevance of the signal.</td>
-</tr>
-<tr>
-<td><code>impact.valuePotential</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Estimated value potential, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
-</tr>
-<tr>
-<td><code>impact.urgency</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Estimated urgency, such as <code>low</code>, <code>medium</code>, <code>high</code>, or <code>critical</code>.</td>
-</tr>
-<tr>
-<td><code>impact.affectedDomains</code></td>
-<td>array of strings</td>
-<td style="text-align: right"></td>
-<td>Domains affected by the signal.</td>
-</tr>
-<tr>
-<td><code>evidence</code></td>
-<td>object</td>
-<td style="text-align: right"></td>
-<td>Evidence supporting the signal.</td>
-</tr>
-<tr>
-<td><code>evidence.summary</code></td>
-<td>object</td>
-<td style="text-align: right"></td>
-<td>Short evidence summary using language-tagged strings.</td>
-</tr>
-<tr>
-<td><code>evidence.summary.en</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>English evidence summary.</td>
-</tr>
-<tr>
-<td><code>evidence.examples</code></td>
-<td>array of strings</td>
-<td style="text-align: right"></td>
-<td>Concrete examples that support the signal.</td>
-</tr>
-<tr>
-<td><code>recommendedAction</code></td>
-<td>object</td>
-<td style="text-align: right"></td>
-<td>Recommended action based on the signal, using language-tagged strings.</td>
-</tr>
-<tr>
-<td><code>recommendedAction.en</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>English recommended action.</td>
-</tr>
-<tr>
-<td><code>status</code></td>
-<td>string</td>
-<td style="text-align: right"></td>
-<td>Signal lifecycle status, such as <code>new</code>, <code>reviewing</code>, <code>accepted</code>, <code>rejected</code>, <code>converted</code>, or <code>archived</code>.</td>
-</tr>
-<tr>
-<td><code>tags</code></td>
-<td>array of strings</td>
-<td style="text-align: right"></td>
-<td>Keywords used to classify, search, or filter the signal.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 <h1 id='specification-extensions'>Specification extensions</h1>
@@ -2074,80 +622,6 @@ ODPC should also not define graph traversal, graph analytics, or relationship se
 <ul>
 <li><a href="https://www.linkedin.com/in/jarkkomoilanen/">Jarkko Moilanen</a></li>
 </ul>
-<h1 id='terms-used'>Terms used</h1>
-<p>Here&#39;s list of terms used and what we mean with them. The meaning of terms is mostly taken from existing knowledge eg articles and other trusted sources. The source is always linked to the term. In some rare cases term is defined for the specification purposes only. </p>
-
-<table><thead>
-<tr>
-<th>Term</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>Open Data Product Specification (ODPS)</code></td>
-<td>Defines one data product, including metadata, ownership, access, quality, service levels, pricing, licensing, support, governance, and product strategy.</td>
-</tr>
-<tr>
-<td><code>Open Data Product Catalog Specification (ODPC)</code></td>
-<td>Defines reusable portfolio objects used for data product discovery, planning, prioritization, and portfolio management.</td>
-</tr>
-<tr>
-<td><code>Open Data Product Graph Specification (ODPG)</code></td>
-<td>Defines graphs and relationships between data products, product references, use cases, business objectives, signals, and other catalog objects.</td>
-</tr>
-<tr>
-<td><code>Catalog</code></td>
-<td>The top-level ODPC object that organizes reusable portfolio objects such as product references, use cases, business objectives, and signals.</td>
-</tr>
-<tr>
-<td><code>ProductReference</code></td>
-<td>A lightweight catalog object that identifies a data product and points to its authoritative product definition through <code>productModel</code>.</td>
-</tr>
-<tr>
-<td><code>UseCase</code></td>
-<td>A demand-side catalog object that describes why data is needed, who needs it, what decision or process it supports, and what outcome is expected.</td>
-</tr>
-<tr>
-<td><code>BusinessObjective</code></td>
-<td>A catalog object that defines a higher-level business, operational, policy, or strategic objective. It can include KPIs used to measure progress.</td>
-</tr>
-<tr>
-<td><code>Signal</code></td>
-<td>A catalog object that captures an observed market, operational, user, technology, policy, competitive, quality, usage, risk, or gap indicator.</td>
-</tr>
-<tr>
-<td><code>ProductModel</code></td>
-<td>The authoritative model or specification used to define a data product, such as <code>ODPS</code>, <code>DPDS</code>, or an internal product model.</td>
-</tr>
-<tr>
-<td><code>Graph</code></td>
-<td>A model that connects catalog objects through nodes and edges. In the OpenDataProducts.org family, <code>ODPG</code> is the native graph standard.</td>
-</tr>
-<tr>
-<td><code>Node</code></td>
-<td>An object represented in a graph, such as a product reference, use case, business objective, or signal.</td>
-</tr>
-<tr>
-<td><code>Edge</code></td>
-<td>A relationship between two graph nodes. It can include direction, type, confidence, weight, evidence, and source.</td>
-</tr>
-<tr>
-<td><code>KPI</code></td>
-<td>A key performance indicator used to measure progress, performance, or value. In ODPC, KPIs are defined inside <code>BusinessObjective</code>.</td>
-</tr>
-<tr>
-<td><code>Portfolio object</code></td>
-<td>A reusable object used to manage a data product portfolio. Examples include <code>ProductReference</code>, <code>UseCase</code>, <code>BusinessObjective</code>, and <code>Signal</code>.</td>
-</tr>
-<tr>
-<td><code>Relationship</code></td>
-<td>A connection between two or more objects, such as a use case using a product reference or a signal suggesting a use case. Relationship modeling belongs to graph standards such as <code>ODPG</code>.</td>
-</tr>
-<tr>
-<td><code>Graph standard</code></td>
-<td>The graph standard used to implement the catalog graph, such as <code>ODPG</code>, <code>RDF</code>, <code>JSON-LD</code>, <code>GraphML</code>, <code>openCypher</code>, <code>GQL</code>, <code>Gremlin</code>, <code>GraphSON</code>, or <code>GeoSPARQL</code>.</td>
-</tr>
-</tbody></table>
 
       </div>
       <div class="dark-box">
