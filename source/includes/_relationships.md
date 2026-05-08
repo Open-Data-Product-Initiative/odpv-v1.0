@@ -1,5 +1,7 @@
 # ODPV Relationships
 
+ODPV defines the names and meanings of relationship types. ODPG defines how those relationship types are used in graph structures. In other words, ODPV defines the vocabulary. ODPG defines the graph model.
+
 ODPV Relationships defines the terms used to connect data products, catalogs, use cases, objectives, KPIs, signals, governance objects, and related portfolio items.
 
 These terms describe how objects support, require, measure, govern, depend on, replace, or relate to each other. They turn separate vocabulary terms into a connected model that AI tools, catalogs, graph systems, and portfolio applications can understand.
@@ -7,6 +9,7 @@ These terms describe how objects support, require, measure, govern, depend on, r
 The relationship vocabulary is especially important for ODPG. It provides the shared relationship types needed to build data product graphs, trace value paths, identify gaps, and connect data products to business outcomes.
 
 Each relationship term has one canonical ODPV name. Also known as terms help users map familiar relationship language to the official vocabulary. Related terms show nearby relationship types that are connected but should not be treated as identical.
+
 
 | Term            | Type         | Description                                                                                                                                   | Also known as                                                    | Related terms                                      | Used in |
 | --------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------- | ------- |
