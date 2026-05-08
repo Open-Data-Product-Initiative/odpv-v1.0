@@ -1,5 +1,5 @@
 ---
-title: Open Data Product Catalogs (ODPC) version DEV | Linux Foundation 
+title: Open Data Products Vocab (ODPV) version DEV | Linux Foundation 
 
 language_tabs: # must be one of https://git.io/vQNgJ
 - yaml
@@ -10,14 +10,10 @@ toc_footers:
   - <br/>Linux Foundation</a>
 
 includes:
-- catalog
-- productreference
-- usecase
-- businessobjective
-- signal
+- core
 - extensions
 - contributors
-- terms
+
 
 search: true
 
@@ -25,10 +21,10 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: The Open Data Product Catalogs, ODPC, is a vendor-neutral, open-source, machine-readable model for cataloging data product portfolios. ODPC defines reusable portfolio objects around data products, including product references, use cases, business objectives, KPIs, signals, and catalog items. 
+    content: The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. 
 ---
 
-# OPEN DATA PRODUCT CATALOGS - The Linux Foundation
+# OPEN DATA PRODUCTS VOCABULARY - The Linux Foundation
 
 ## Version DEV 
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 ([RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119) and [RFC 8174](https://datatracker.ietf.org/doc/html/rfc8174)) when, and only when, they appear in all capitals, as shown here.
@@ -38,112 +34,83 @@ Development of the specification is under the umbrella of the Linux Foundation.
 
 | Topic | Link | Description |
 |---|---|---|
-| Version source | <a href="https://github.com/Open-Data-Product-Initiative/odpc-v1.0">Open Data Product Catalogs on GitHub</a> | Official source repository for the ODPC specification |
-| ODPC YAML schema | <a href="https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml">YAML Schema</a> | Machine-readable schema definition in YAML format |
-| ODPC JSON schema | <a href="https://opendataproducts.org/odpc-v1.0/schema/odpc.json">JSON Schema</a> | Machine-readable schema definition in JSON format |
-| Knowledge Base | [Open Data Product Spec Family Knowledge Base](https://opendataproducts.org/howto/) | Practical examples, FAQs, and implementation guidance |
-| Contribute | [Raise an issue in GitHub](https://github.com/Open-Data-Product-Initiative/odpc-v1.0/issues) | Submit issues or suggestions to the specification maintainers |
+| Version source | <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0">Open Data Products Vocab on GitHub</a> | Official source repository for the ODPV specification |
+| Contribute | [Raise an issue in GitHub](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) | Submit issues or suggestions to the specification maintainers |
 
 # Introduction
-The Open Data Product Catalogs, ODPC, is a vendor-neutral, open-source, machine-readable catalog model for data product portfolios. It defines reusable catalog objects such as data product references, use cases, business objectives, KPIs, signals, and catalog items.
+The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. ODPV defines shared terms used across the OpenDataProducts.org standards family, including data products, catalogs, graphs, value concepts, governance concepts, and relationship terms. It is designed to help organizations use consistent language across specifications, catalogs, graph implementations, AI assistants, and GraphRAG-ready data product portfolios.
 
-ODPC is part of the OpenDataProducts.org standards family. It complements the Open Data Product Specification, ODPS, by adding the catalog and portfolio layer around individual data products.
+# What ODPV Defines
 
-<img src="/images/odpc.png" width="500">
+ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The first version focuses on four concept groups:
+
+* ODPV Core
+* ODPV Value
+* ODPV Governance
+* ODPV Relationships
+
+These groups create a common language for describing, connecting, validating, and reasoning over data product portfolios.
+
+## ODPV Core
+
+ODPV Core defines foundational terms used across the standards family.These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.
+
+## ODPV Value
+
+ODPV Value defines terms that connect data products to business demand, objectives, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.
+
+## ODPV Governance
+
+ODPV Governance defines terms for quality, access, legal, operational, and compliance context.These terms help describe how data products are governed, accessed, controlled, and trusted.
+
+## ODPV Relationships
+
+ODPV Relationships defines reusable relationship terms for graph implementation and portfolio analysis. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, and catalogs in a consistent way.
+
+# Companion Vocabulary, Not a Heavy Ontology
+
+ODPV is not intended to be a heavy ontology. It is a practical controlled vocabulary that gives stable reference terms to the OpenDataProducts.org standards family. Each specification can reference ODPV terms instead of redefining shared concepts locally. Shared terms belong in ODPV. Spec-specific terms stay in the relevant specification. Extensions can define additional domain-specific or organization-specific terms.
+
+# Relationship to ODPS, ODPC, and ODPG
+
+* ODPS defines one data product.
+* ODPC defines reusable catalog and portfolio objects.
+* ODPG defines relationships between data products, use cases, objectives, KPIs, signals, and other portfolio objects.
+* ODPV defines the shared language used by all of them.
+
+Used together, ODPS, ODPC, ODPG, and ODPV create a machine-readable operating model for data product management.
+
+# Why ODPV Matters
+
+ODPV helps prevent terminology drift across the standards family. Without a shared vocabulary, each specification may define terms such as Data Product, Use Case, Objective, KPI, Signal, Owner, SLA, License, or Relationship slightly differently. ODPV gives these terms one stable reference point. This improves:
+
+* Specification alignment
+* Graph implementation
+* Metadata validation
+* Catalog interoperability
+* AI-assisted discovery
+* GraphRAG context
+* Portfolio analysis
+* Tool development
+
+# Example Use
+
+* A data product in ODPS can reference ODPV terms for concepts such as DataProduct, Owner, SLA, DataQuality, License, and AccessMethod.
+* A catalog in ODPC can reference ODPV terms for concepts such as DataProductCatalog, UseCase, BusinessObjective, KPI, Signal, Gap, and Priority.
+* A graph in ODPG can reference ODPV terms for node types and relationship types such as supports, requires, contributesTo, measures, belongsTo, dependsOn, governedBy, providedBy, consumedBy, and indicates.
+
+# Specification Aims
+
+* Define shared terms for data product management.
+* Reduce duplicate term definitions across ODPS, ODPC, and ODPG.
+* Prevent terminology drift across the standards family.
+* Support consistent graph node and relationship naming.
+* Support AI-assisted discovery, metadata generation, and GraphRAG.
+* Improve interoperability between catalogs, platforms, marketplaces, and tools.
+* Provide a lightweight path toward semantic knowledge graph implementation.
+* Keep formal ontology work optional.
 
 
-ODPS defines one data product. ODPC defines the reusable portfolio objects around data products. [Open Data Product Graphs, ODPG](https://opendataproducts.org/odpg-v1.0/), defines the relationships between those objects.
-
-The goal of ODPC is to help organizations move from isolated data product descriptions to managed data product portfolios that connect products to demand, use cases, business objectives, and measurable outcomes.
-
-## ODPC is ODPS-native, but not ODPS-only
-ODPC is designed to work naturally with ODPS. ODPS remains the preferred product definition model in the OpenDataProducts.org standards family.
-
-At the same time, ODPC is not limited to ODPS. Many organizations already use other product descriptions, internal schemas, vendor catalogs, marketplace definitions, or data mesh descriptors. ODPC supports those models through the ProductReference object and mapping profiles.
-
-This makes it possible to catalog data products described with:
-
-* ODPS YAML files
-* DPDS descriptors
-* internal enterprise product templates
-* vendor catalog assets
-* marketplace product definitions
-* API-based product metadata sources
-
-The ProductReference object provides the bridge between the catalog layer and the source product definition.
-
-## Why ODPC is needed
-Data product management does not stop at one product. Organizations need to understand which data products exist, which use cases they support, which business objectives they contribute to, and which signals indicate demand, risk, opportunity, or change.
-
-A catalog should not only list products. It should help organizations manage data products as a portfolio.
-
-ODPC defines the structure for that portfolio layer. It enables organizations to catalog:
-
-* data products
-* use cases
-* business objectives
-* signals
-* ownership
-* priorities
-* references to source definitions
-
-This creates a reusable foundation for discovery, governance, prioritization, AI-assisted planning, and graph-based portfolio analysis.
-
-**ODPC organizes the portfolio. ODPG connects the portfolio. GraphRAG makes the connected portfolio usable by AI assistants for discovery, gap analysis, impact mapping, and decision support.**
-
-
-## Specification aims and aspects
-ODPC aims to:
-
-* enable interoperability between catalogs, data platforms, marketplaces, and tools
-* provide reusable catalog objects for data product portfolio management
-* connect data products to use cases, business objectives, and signals
-* support ODPS-native and non-ODPS product definitions
-* reduce metadata conversion friction between systems
-* support AI-assisted discovery, cataloging, and portfolio planning
-* provide the reusable object layer for Open Data Product Graphs, ODPG
-* support machine-readable cataloging with YAML and schema validation
-
-**Note!** In the "Open Data Product" focus is on the latter words and the prefix "open" refers to the openness of the standard. Any kind of 
-connotations to open data are not intentional, intended, or desirable.
-
-## Core design principle
-The OpenDataProducts.org standards family follows a simple separation of concerns.
-
-* **ODPS defines the product.**
-* **ODPC defines the reusable portfolio objects.**
-* **ODPG defines the relationships.**
-
-This keeps each specification focused. ODPC should not redefine the full structure of a data product. That belongs to ODPS or to another source product model. 
-ODPC should also not define graph traversal, graph analytics, or relationship semantics. Those belong to [Open Data Product Graphs, ODPG](https://opendataproducts.org/odpg-v1.0/).
-
-## Main ODPC objects
-> Example of catalog use:
-
-```yml
-schema: https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml
-version: "1.0"
-catalog:
-  id: CAT-001
-  name:
-    en: Urban Mobility Data Product Catalog
-  description:
-    en: Catalog of data products, use cases, objectives, and signals related to urban mobility.
-  graph:
-    standard: ODPG
-    version: "1.0"
-    uri: https://example.org/graphs/urban-mobility.graph.yaml
-```
-
-The first version of ODPC focuses on these objects:
-
-* ProductReference
-* UseCase
-* BusinessObjective
-* Signal
-* Catalog
-
-These objects are designed to be reusable across catalogs, tools, AI workflows, and graph models.
 
 
 
