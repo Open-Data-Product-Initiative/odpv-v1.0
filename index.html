@@ -342,38 +342,26 @@
           </li>
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#what-odpv-defines" class="toc-h1 toc-link" data-title="What ODPV Defines">What ODPV Defines</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#odpv-core" class="toc-h2 toc-link" data-title="ODPV Core">ODPV Core</a>
+                    <a href="#what-odpv-defines" class="toc-h2 toc-link" data-title="What ODPV Defines">What ODPV Defines</a>
                   </li>
                   <li>
-                    <a href="#odpv-value" class="toc-h2 toc-link" data-title="ODPV Value">ODPV Value</a>
+                    <a href="#companion-vocabulary-not-a-heavy-ontology" class="toc-h2 toc-link" data-title="Companion Vocabulary, Not a Heavy Ontology">Companion Vocabulary, Not a Heavy Ontology</a>
                   </li>
                   <li>
-                    <a href="#odpv-governance" class="toc-h2 toc-link" data-title="ODPV Governance">ODPV Governance</a>
+                    <a href="#relationship-to-odps-odpc-and-odpg" class="toc-h2 toc-link" data-title="Relationship to ODPS, ODPC, and ODPG">Relationship to ODPS, ODPC, and ODPG</a>
                   </li>
                   <li>
-                    <a href="#odpv-relationships" class="toc-h2 toc-link" data-title="ODPV Relationships">ODPV Relationships</a>
+                    <a href="#why-odpv-matters" class="toc-h2 toc-link" data-title="Why ODPV Matters">Why ODPV Matters</a>
+                  </li>
+                  <li>
+                    <a href="#example-use" class="toc-h2 toc-link" data-title="Example Use">Example Use</a>
+                  </li>
+                  <li>
+                    <a href="#specification-aims" class="toc-h2 toc-link" data-title="Specification Aims">Specification Aims</a>
                   </li>
               </ul>
-          </li>
-          <li>
-            <a href="#companion-vocabulary-not-a-heavy-ontology" class="toc-h1 toc-link" data-title="Companion Vocabulary, Not a Heavy Ontology">Companion Vocabulary, Not a Heavy Ontology</a>
-          </li>
-          <li>
-            <a href="#relationship-to-odps-odpc-and-odpg" class="toc-h1 toc-link" data-title="Relationship to ODPS, ODPC, and ODPG">Relationship to ODPS, ODPC, and ODPG</a>
-          </li>
-          <li>
-            <a href="#why-odpv-matters" class="toc-h1 toc-link" data-title="Why ODPV Matters">Why ODPV Matters</a>
-          </li>
-          <li>
-            <a href="#example-use" class="toc-h1 toc-link" data-title="Example Use">Example Use</a>
-          </li>
-          <li>
-            <a href="#specification-aims" class="toc-h1 toc-link" data-title="Specification Aims">Specification Aims</a>
           </li>
           <li>
             <a href="#core" class="toc-h1 toc-link" data-title="Core">Core</a>
@@ -420,7 +408,7 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 </tbody></table>
 <h1 id='introduction'>Introduction</h1>
 <p>The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. ODPV defines shared terms used across the OpenDataProducts.org standards family, including data products, catalogs, graphs, value concepts, governance concepts, and relationship terms. It is designed to help organizations use consistent language across specifications, catalogs, graph implementations, AI assistants, and GraphRAG-ready data product portfolios.</p>
-<h1 id='what-odpv-defines'>What ODPV Defines</h1>
+<h2 id='what-odpv-defines'>What ODPV Defines</h2>
 <p>ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The first version focuses on four concept groups:</p>
 
 <ul>
@@ -431,17 +419,17 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 </ul>
 
 <p>These groups create a common language for describing, connecting, validating, and reasoning over data product portfolios.</p>
-<h2 id='odpv-core'>ODPV Core</h2>
-<p>ODPV Core defines foundational terms used across the standards family.These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.</p>
-<h2 id='odpv-value'>ODPV Value</h2>
-<p>ODPV Value defines terms that connect data products to business demand, objectives, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.</p>
-<h2 id='odpv-governance'>ODPV Governance</h2>
-<p>ODPV Governance defines terms for quality, access, legal, operational, and compliance context.These terms help describe how data products are governed, accessed, controlled, and trusted.</p>
-<h2 id='odpv-relationships'>ODPV Relationships</h2>
-<p>ODPV Relationships defines reusable relationship terms for graph implementation and portfolio analysis. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, and catalogs in a consistent way.</p>
-<h1 id='companion-vocabulary-not-a-heavy-ontology'>Companion Vocabulary, Not a Heavy Ontology</h1>
+
+<p><strong>ODPV Core</strong>: ODPV Core defines foundational terms used across the standards family.These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.</p>
+
+<p><strong>ODPV Value</strong>: ODPV Value defines terms that connect data products to business demand, objectives, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.</p>
+
+<p><strong>ODPV Governance</strong>: ODPV Governance defines terms for quality, access, legal, operational, and compliance context.These terms help describe how data products are governed, accessed, controlled, and trusted.</p>
+
+<p><strong>ODPV Relationships</strong>: ODPV Relationships defines reusable relationship terms for graph implementation and portfolio analysis. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, and catalogs in a consistent way.</p>
+<h2 id='companion-vocabulary-not-a-heavy-ontology'>Companion Vocabulary, Not a Heavy Ontology</h2>
 <p>ODPV is not intended to be a heavy ontology. It is a practical controlled vocabulary that gives stable reference terms to the OpenDataProducts.org standards family. Each specification can reference ODPV terms instead of redefining shared concepts locally. Shared terms belong in ODPV. Spec-specific terms stay in the relevant specification. Extensions can define additional domain-specific or organization-specific terms.</p>
-<h1 id='relationship-to-odps-odpc-and-odpg'>Relationship to ODPS, ODPC, and ODPG</h1>
+<h2 id='relationship-to-odps-odpc-and-odpg'>Relationship to ODPS, ODPC, and ODPG</h2>
 <ul>
 <li>ODPS defines one data product.</li>
 <li>ODPC defines reusable catalog and portfolio objects.</li>
@@ -450,7 +438,7 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 </ul>
 
 <p>Used together, ODPS, ODPC, ODPG, and ODPV create a machine-readable operating model for data product management.</p>
-<h1 id='why-odpv-matters'>Why ODPV Matters</h1>
+<h2 id='why-odpv-matters'>Why ODPV Matters</h2>
 <p>ODPV helps prevent terminology drift across the standards family. Without a shared vocabulary, each specification may define terms such as Data Product, Use Case, Objective, KPI, Signal, Owner, SLA, License, or Relationship slightly differently. ODPV gives these terms one stable reference point. This improves:</p>
 
 <ul>
@@ -463,13 +451,13 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 <li>Portfolio analysis</li>
 <li>Tool development</li>
 </ul>
-<h1 id='example-use'>Example Use</h1>
+<h2 id='example-use'>Example Use</h2>
 <ul>
 <li>A data product in ODPS can reference ODPV terms for concepts such as DataProduct, Owner, SLA, DataQuality, License, and AccessMethod.</li>
 <li>A catalog in ODPC can reference ODPV terms for concepts such as DataProductCatalog, UseCase, BusinessObjective, KPI, Signal, Gap, and Priority.</li>
 <li>A graph in ODPG can reference ODPV terms for node types and relationship types such as supports, requires, contributesTo, measures, belongsTo, dependsOn, governedBy, providedBy, consumedBy, and indicates.</li>
 </ul>
-<h1 id='specification-aims'>Specification Aims</h1>
+<h2 id='specification-aims'>Specification Aims</h2>
 <ul>
 <li>Define shared terms for data product management.</li>
 <li>Reduce duplicate term definitions across ODPS, ODPC, and ODPG.</li>
