@@ -2,18 +2,19 @@
 
 | Term | Type | Description | Used in |
 | --- | --- | --- | --- |
-| `DataQuality` | object | The expected, measured, or reported quality of a data product, dataset, distribution, or data service. | ODPS, ODPC, ODPG |
-| `SLA` | object | A service-level agreement or expectation that defines operational commitments for a data product, distribution, or data service. | ODPS, ODPG |
-| `License` | object | The legal terms that define how a data product, dataset, distribution, or data service may be used, shared, or redistributed. | ODPS, ODPC, ODPG |
-| `AccessMethod` | object | The method used to access a data product, dataset, distribution, or data service, such as API, file download, query endpoint, or platform access. | ODPS, ODPC, ODPG |
-| `Agreement` | object | A formal or informal agreement that defines usage, commercial, legal, operational, or governance terms for a data product or data exchange. | ODPS, ODPC, ODPG |
-| `Policy` | object | A rule, guideline, or governance statement that applies to a data product, catalog, graph, use case, access method, or related object. | ODPS, ODPC, ODPG |
-| `ComplianceRule` | object | A specific rule or requirement used to assess, enforce, or document compliance. | ODPS, ODPC, ODPG |
-| `Sensitivity` | classification | A classification that indicates how sensitive a data product, dataset, attribute, distribution, or service is from a privacy, security, commercial, or operational perspective. | ODPS, ODPC |
-| `UsageRights` | object | The rights granted to consumers for using, sharing, modifying, deriving, or redistributing a data product or dataset. | ODPS, ODPC |
-| `Retention` | object | The rules or expectations for how long data, metadata, logs, agreements, or related records should be retained. | ODPS, ODPC |
-| `AccessCondition` | object | A condition that must be met before a consumer can access a data product, dataset, distribution, or data service. | ODPS, ODPC, ODPG |
-| `GovernanceProfile` | classification | A reusable governance classification that describes the expected level of control, assurance, review, or operational maturity for a data product or catalog item. | ODPS, ODPC |
-| `DataAgreement` | object | A structured agreement that defines the allowed use, responsibilities, obligations, and constraints for a data product or data exchange. | ODPS, ODPC |
-| `DataContract` | object | A technical or operational contract that defines expectations for schema, quality, delivery, compatibility, and change management. | ODPS |
-| `Stewardship` | object | The assigned responsibility model for managing data product metadata, quality, lifecycle, and operational health. | ODPS, ODPC |
+| `supports` | relationship | Indicates that one object helps enable, serve, or make another object possible, such as a data product supporting a use case. | ODPG |
+| `requires` | relationship | Indicates that one object needs another object to be complete, useful, or executable, such as a use case requiring a data product. | ODPG |
+| `contributesTo` | relationship | Indicates that one object helps advance another object, such as a use case contributing to a business objective. | ODPG |
+| `measures` | relationship | Indicates that one object measures another object, such as a KPI measuring a business objective or outcome. | ODPG |
+| `belongsTo` | relationship | Indicates that one object is assigned to, grouped under, or included in another object, such as a data product belonging to a catalog. | ODPG |
+| `dependsOn` | relationship | Indicates that one object has a dependency on another object, such as a data product depending on another product, service, or dataset. | ODPG |
+| `governedBy` | relationship | Indicates that one object is governed by another object, such as a data product governed by a license, policy, agreement, or compliance rule. | ODPG |
+| `providedBy` | relationship | Indicates that one object is provided, published, or made available by a provider. | ODPG |
+| `consumedBy` | relationship | Indicates that one object is used, accessed, or consumed by a consumer. | ODPG |
+| `indicates` | relationship | Indicates that one object points to, reveals, or suggests another object, such as a signal indicating a gap, demand, risk, or opportunity. | ODPG |
+| `relatedTo` | relationship | Indicates a general relationship between two objects when a more specific relationship type is not available. | ODPG |
+| `partOf` | relationship | Indicates that one object is part of a larger object, such as a catalog item being part of a catalog. | ODPG |
+| `hasPart` | relationship | Indicates that one object contains or includes another object. | ODPG |
+| `derivedFrom` | relationship | Indicates that one object is derived from another object, such as an insight, product, dataset, or signal derived from a source. | ODPG |
+| `replaces` | relationship | Indicates that one object replaces another object, such as a newer data product replacing an older version. | ODPG |
+| `versionOf` | relationship | Indicates that one object is a version of another object. | ODPG |
