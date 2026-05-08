@@ -781,94 +781,100 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 </tr>
 </thead><tbody>
 <tr>
-<td><code>DataQuality</code></td>
-<td>object</td>
-<td>The expected, measured, or reported quality of a data product, dataset, distribution, or data service.</td>
-<td>ODPS, ODPC, ODPG</td>
+<td><code>supports</code></td>
+<td>relationship</td>
+<td>Indicates that one object helps enable, serve, or make another object possible, such as a data product supporting a use case.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>SLA</code></td>
-<td>object</td>
-<td>A service-level agreement or expectation that defines operational commitments for a data product, distribution, or data service.</td>
-<td>ODPS, ODPG</td>
+<td><code>requires</code></td>
+<td>relationship</td>
+<td>Indicates that one object needs another object to be complete, useful, or executable, such as a use case requiring a data product.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>License</code></td>
-<td>object</td>
-<td>The legal terms that define how a data product, dataset, distribution, or data service may be used, shared, or redistributed.</td>
-<td>ODPS, ODPC, ODPG</td>
+<td><code>contributesTo</code></td>
+<td>relationship</td>
+<td>Indicates that one object helps advance another object, such as a use case contributing to a business objective.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>AccessMethod</code></td>
-<td>object</td>
-<td>The method used to access a data product, dataset, distribution, or data service, such as API, file download, query endpoint, or platform access.</td>
-<td>ODPS, ODPC, ODPG</td>
+<td><code>measures</code></td>
+<td>relationship</td>
+<td>Indicates that one object measures another object, such as a KPI measuring a business objective or outcome.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>Agreement</code></td>
-<td>object</td>
-<td>A formal or informal agreement that defines usage, commercial, legal, operational, or governance terms for a data product or data exchange.</td>
-<td>ODPS, ODPC, ODPG</td>
+<td><code>belongsTo</code></td>
+<td>relationship</td>
+<td>Indicates that one object is assigned to, grouped under, or included in another object, such as a data product belonging to a catalog.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>Policy</code></td>
-<td>object</td>
-<td>A rule, guideline, or governance statement that applies to a data product, catalog, graph, use case, access method, or related object.</td>
-<td>ODPS, ODPC, ODPG</td>
+<td><code>dependsOn</code></td>
+<td>relationship</td>
+<td>Indicates that one object has a dependency on another object, such as a data product depending on another product, service, or dataset.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>ComplianceRule</code></td>
-<td>object</td>
-<td>A specific rule or requirement used to assess, enforce, or document compliance.</td>
-<td>ODPS, ODPC, ODPG</td>
+<td><code>governedBy</code></td>
+<td>relationship</td>
+<td>Indicates that one object is governed by another object, such as a data product governed by a license, policy, agreement, or compliance rule.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>Sensitivity</code></td>
-<td>classification</td>
-<td>A classification that indicates how sensitive a data product, dataset, attribute, distribution, or service is from a privacy, security, commercial, or operational perspective.</td>
-<td>ODPS, ODPC</td>
+<td><code>providedBy</code></td>
+<td>relationship</td>
+<td>Indicates that one object is provided, published, or made available by a provider.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>UsageRights</code></td>
-<td>object</td>
-<td>The rights granted to consumers for using, sharing, modifying, deriving, or redistributing a data product or dataset.</td>
-<td>ODPS, ODPC</td>
+<td><code>consumedBy</code></td>
+<td>relationship</td>
+<td>Indicates that one object is used, accessed, or consumed by a consumer.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>Retention</code></td>
-<td>object</td>
-<td>The rules or expectations for how long data, metadata, logs, agreements, or related records should be retained.</td>
-<td>ODPS, ODPC</td>
+<td><code>indicates</code></td>
+<td>relationship</td>
+<td>Indicates that one object points to, reveals, or suggests another object, such as a signal indicating a gap, demand, risk, or opportunity.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>AccessCondition</code></td>
-<td>object</td>
-<td>A condition that must be met before a consumer can access a data product, dataset, distribution, or data service.</td>
-<td>ODPS, ODPC, ODPG</td>
+<td><code>relatedTo</code></td>
+<td>relationship</td>
+<td>Indicates a general relationship between two objects when a more specific relationship type is not available.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>GovernanceProfile</code></td>
-<td>classification</td>
-<td>A reusable governance classification that describes the expected level of control, assurance, review, or operational maturity for a data product or catalog item.</td>
-<td>ODPS, ODPC</td>
+<td><code>partOf</code></td>
+<td>relationship</td>
+<td>Indicates that one object is part of a larger object, such as a catalog item being part of a catalog.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>DataAgreement</code></td>
-<td>object</td>
-<td>A structured agreement that defines the allowed use, responsibilities, obligations, and constraints for a data product or data exchange.</td>
-<td>ODPS, ODPC</td>
+<td><code>hasPart</code></td>
+<td>relationship</td>
+<td>Indicates that one object contains or includes another object.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>DataContract</code></td>
-<td>object</td>
-<td>A technical or operational contract that defines expectations for schema, quality, delivery, compatibility, and change management.</td>
-<td>ODPS</td>
+<td><code>derivedFrom</code></td>
+<td>relationship</td>
+<td>Indicates that one object is derived from another object, such as an insight, product, dataset, or signal derived from a source.</td>
+<td>ODPG</td>
 </tr>
 <tr>
-<td><code>Stewardship</code></td>
-<td>object</td>
-<td>The assigned responsibility model for managing data product metadata, quality, lifecycle, and operational health.</td>
-<td>ODPS, ODPC</td>
+<td><code>replaces</code></td>
+<td>relationship</td>
+<td>Indicates that one object replaces another object, such as a newer data product replacing an older version.</td>
+<td>ODPG</td>
+</tr>
+<tr>
+<td><code>versionOf</code></td>
+<td>relationship</td>
+<td>Indicates that one object is a version of another object.</td>
+<td>ODPG</td>
 </tr>
 </tbody></table>
 <h1 id='extensions'>Extensions</h1>
