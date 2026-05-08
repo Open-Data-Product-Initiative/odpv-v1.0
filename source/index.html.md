@@ -13,6 +13,7 @@ includes:
 - core
 - value
 - governance
+- relationships
 - extensions
 - contributors
 
