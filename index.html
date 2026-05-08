@@ -744,11 +744,21 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 </tr>
 </tbody></table>
 <h1 id='odpv-governance'>ODPV Governance</h1>
+<p>ODPV Governance defines the terms used to describe how data products are controlled, protected, accessed, licensed, and operated.</p>
+
+<p>These terms help connect data products to quality expectations, service commitments, access rules, usage rights, policies, compliance requirements, and responsibility models. They make governance visible as part of the product vocabulary instead of treating it as separate documentation.</p>
+
+<p>The governance vocabulary supports trusted reuse. It helps teams describe who is accountable, what rules apply, how access works, what consumers are allowed to do, and what obligations must be followed.</p>
+
+<p>Each term has one canonical ODPV name. Also known as terms help users map familiar governance, legal, operational, and technical language to the official vocabulary. Related terms show nearby concepts that are connected but should not be treated as identical.</p>
+
 <table><thead>
 <tr>
 <th>Term</th>
 <th>Type</th>
 <th>Description</th>
+<th>Also known as</th>
+<th>Related terms</th>
 <th>Used in</th>
 </tr>
 </thead><tbody>
@@ -756,90 +766,120 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 <td><code>DataQuality</code></td>
 <td>object</td>
 <td>The expected, measured, or reported quality of a data product, dataset, distribution, or data service.</td>
+<td>quality, data quality score, quality assessment, quality metrics</td>
+<td><code>SLA</code>, <code>DataContract</code>, <code>Stewardship</code>, <code>ComplianceRule</code></td>
 <td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>SLA</code></td>
 <td>object</td>
 <td>A service-level agreement or expectation that defines operational commitments for a data product, distribution, or data service.</td>
+<td>service level agreement, service commitment, operational commitment, service expectation</td>
+<td><code>DataQuality</code>, <code>Agreement</code>, <code>AccessMethod</code>, <code>DataContract</code></td>
 <td>ODPS, ODPG</td>
 </tr>
 <tr>
 <td><code>License</code></td>
 <td>object</td>
 <td>The legal terms that define how a data product, dataset, distribution, or data service may be used, shared, or redistributed.</td>
+<td>data license, usage license, legal license, redistribution terms</td>
+<td><code>UsageRights</code>, <code>Agreement</code>, <code>DataAgreement</code>, <code>Policy</code></td>
 <td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>AccessMethod</code></td>
 <td>object</td>
 <td>The method used to access a data product, dataset, distribution, or data service, such as API, file download, query endpoint, or platform access.</td>
+<td>access channel, delivery method, access interface, data access method</td>
+<td><code>AccessCondition</code>, <code>DataService</code>, <code>Distribution</code>, <code>SLA</code></td>
 <td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Agreement</code></td>
 <td>object</td>
 <td>A formal or informal agreement that defines usage, commercial, legal, operational, or governance terms for a data product or data exchange.</td>
+<td>data agreement, usage agreement, service agreement, commercial agreement</td>
+<td><code>DataAgreement</code>, <code>License</code>, <code>UsageRights</code>, <code>SLA</code></td>
 <td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Policy</code></td>
 <td>object</td>
 <td>A rule, guideline, or governance statement that applies to a data product, catalog, graph, use case, access method, or related object.</td>
+<td>governance policy, rule, guideline, control policy</td>
+<td><code>ComplianceRule</code>, <code>GovernanceProfile</code>, <code>AccessCondition</code>, <code>Sensitivity</code></td>
 <td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>ComplianceRule</code></td>
 <td>object</td>
 <td>A specific rule or requirement used to assess, enforce, or document compliance.</td>
+<td>compliance requirement, control rule, regulatory rule, validation rule</td>
+<td><code>Policy</code>, <code>GovernanceProfile</code>, <code>DataQuality</code>, <code>Risk</code></td>
 <td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>Sensitivity</code></td>
 <td>classification</td>
 <td>A classification that indicates how sensitive a data product, dataset, attribute, distribution, or service is from a privacy, security, commercial, or operational perspective.</td>
+<td>sensitivity level, data sensitivity, security classification, privacy classification</td>
+<td><code>Policy</code>, <code>AccessCondition</code>, <code>UsageRights</code>, <code>GovernanceProfile</code></td>
 <td>ODPS, ODPC</td>
 </tr>
 <tr>
 <td><code>UsageRights</code></td>
 <td>object</td>
 <td>The rights granted to consumers for using, sharing, modifying, deriving, or redistributing a data product or dataset.</td>
+<td>use rights, permitted use, usage permissions, allowed use</td>
+<td><code>License</code>, <code>Agreement</code>, <code>DataAgreement</code>, <code>AccessCondition</code></td>
 <td>ODPS, ODPC</td>
 </tr>
 <tr>
 <td><code>Retention</code></td>
 <td>object</td>
 <td>The rules or expectations for how long data, metadata, logs, agreements, or related records should be retained.</td>
+<td>retention rule, retention period, record retention, data retention</td>
+<td><code>Policy</code>, <code>ComplianceRule</code>, <code>DataAgreement</code>, <code>Stewardship</code></td>
 <td>ODPS, ODPC</td>
 </tr>
 <tr>
 <td><code>AccessCondition</code></td>
 <td>object</td>
 <td>A condition that must be met before a consumer can access a data product, dataset, distribution, or data service.</td>
+<td>access rule, access requirement, eligibility condition, access constraint</td>
+<td><code>AccessMethod</code>, <code>UsageRights</code>, <code>Policy</code>, <code>Sensitivity</code></td>
 <td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
 <td><code>GovernanceProfile</code></td>
 <td>classification</td>
 <td>A reusable governance classification that describes the expected level of control, assurance, review, or operational maturity for a data product or catalog item.</td>
+<td>governance level, assurance profile, control profile, maturity profile</td>
+<td><code>Policy</code>, <code>ComplianceRule</code>, <code>Sensitivity</code>, <code>Stewardship</code></td>
 <td>ODPS, ODPC</td>
 </tr>
 <tr>
 <td><code>DataAgreement</code></td>
 <td>object</td>
 <td>A structured agreement that defines the allowed use, responsibilities, obligations, and constraints for a data product or data exchange.</td>
+<td>data sharing agreement, data usage agreement, data exchange agreement, product agreement</td>
+<td><code>Agreement</code>, <code>License</code>, <code>UsageRights</code>, <code>AccessCondition</code></td>
 <td>ODPS, ODPC</td>
 </tr>
 <tr>
 <td><code>DataContract</code></td>
 <td>object</td>
 <td>A technical or operational contract that defines expectations for schema, quality, delivery, compatibility, and change management.</td>
+<td>schema contract, delivery contract, operational contract, technical contract</td>
+<td><code>DataQuality</code>, <code>SLA</code>, <code>AccessMethod</code>, <code>Stewardship</code></td>
 <td>ODPS</td>
 </tr>
 <tr>
 <td><code>Stewardship</code></td>
 <td>object</td>
 <td>The assigned responsibility model for managing data product metadata, quality, lifecycle, and operational health.</td>
+<td>data stewardship, product stewardship, metadata stewardship, lifecycle responsibility</td>
+<td><code>Steward</code>, <code>Owner</code>, <code>DataQuality</code>, <code>GovernanceProfile</code></td>
 <td>ODPS, ODPC</td>
 </tr>
 </tbody></table>
