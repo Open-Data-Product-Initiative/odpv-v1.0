@@ -338,6 +338,9 @@
                   <li>
                     <a href="#version-dev" class="toc-h2 toc-link" data-title="Version DEV">Version DEV</a>
                   </li>
+                  <li>
+                    <a href="#machine-readable-vocabulary-files" class="toc-h2 toc-link" data-title="Machine-readable vocabulary files">Machine-readable vocabulary files</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -415,6 +418,34 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 <td>Submit issues or suggestions to the vocabulary maintainers</td>
 </tr>
 </tbody></table>
+<h2 id='machine-readable-vocabulary-files'>Machine-readable vocabulary files</h2>
+<p>ODPV is published as both human-readable documentation and machine-readable files.</p>
+
+<table><thead>
+<tr>
+<th>File</th>
+<th>Format</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/examples/odpv.yaml"><code>odpv.yaml</code></a></td>
+<td>YAML</td>
+<td>Canonical machine-readable vocabulary file</td>
+</tr>
+<tr>
+<td><a href="/examples/odpv.json"><code>odpv.json</code></a></td>
+<td>JSON</td>
+<td>JSON representation for tools, APIs, search indexes, and graph applications</td>
+</tr>
+<tr>
+<td><a href="/schema/odpv.schema.json"><code>odpv.schema.json</code></a></td>
+<td>JSON Schema</td>
+<td>Validation schema for ODPV vocabulary files</td>
+</tr>
+</tbody></table>
+
+<p>The Markdown tables in this specification are intended for human readers. The YAML file is intended for programmable use, automation, validation, AI retrieval, and graph-based tooling.</p>
 <h1 id='introduction'>Introduction</h1>
 <p>The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. ODPV defines shared terms used across the OpenDataProducts.org standards family, including data products, catalogs, graphs, value concepts, governance concepts, and relationship terms. It is designed to help organizations use consistent language across specifications, catalogs, graph implementations, AI assistants, and GraphRAG-ready data product portfolios.</p>
 
