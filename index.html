@@ -367,7 +367,7 @@
             <a href="#core" class="toc-h1 toc-link" data-title="Core">Core</a>
           </li>
           <li>
-            <a href="#specification-extensions" class="toc-h1 toc-link" data-title="Specification extensions">Specification extensions</a>
+            <a href="#extensions" class="toc-h1 toc-link" data-title="Extensions">Extensions</a>
           </li>
           <li>
             <a href="#editors-and-contributors" class="toc-h1 toc-link" data-title="Editors and contributors">Editors and contributors</a>
@@ -562,46 +562,38 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 <td></td>
 </tr>
 </tbody></table>
-<h1 id='specification-extensions'>Specification extensions</h1>
-<p>While the Open Data Product Catalog Specification defines the core catalog objects and attributes, organizations may need to add implementation-specific metadata for local tools, internal workflows, or platform-specific requirements.</p>
+<h1 id='extensions'>Extensions</h1>
+<p>ODPV defines a shared controlled vocabulary for the OpenDataProducts.org standards family. It provides stable terms, labels, definitions, concept groups, mappings, and relationship names used across ODPS, ODPC, and ODPG. Organizations may need additional terms for domain-specific, platform-specific, or organization-specific use cases. These terms can be added through vocabulary extensions.</p>
 
-<p>Extension properties are implemented as patterned fields that are always prefixed with <code>x-</code>. These fields may appear in ODPC objects such as <code>Catalog</code>, <code>ProductReference</code>, <code>UseCase</code>, <code>BusinessObjective</code>, and <code>Signal</code>.</p>
+<p>Extensions should add new terms, labels, mappings, concept groups, related terms, or usage notes. They should not change the meaning of official ODPV terms. Extension terms should use a separate namespace or prefix to avoid conflict with official ODPV terms.</p>
 
-<p>Extensions are not part of the official ODPC object model unless they are later adopted into the specification. Tooling may ignore extension fields unless explicit support has been added.</p>
+<p>Examples:</p>
 
-<p>Extensions should not be used to redefine core ODPC semantics. They should be used only for additional metadata that does not fit the standard attributes.</p>
+<ul>
+<li><code>x-mobility:CongestionIndex</code></li>
+<li><code>x-healthcare:PatientCohort</code></li>
+<li><code>x-finance:RiskExposure</code></li>
+<li><code>x-platform:InternalDataOwner</code></li>
+</ul>
 
-<p>Useful and widely adopted extensions may become candidates for future versions of the standard. To propose useful extensions, raise an issue in GitHub:</p>
+<p>Extension terms may define:</p>
 
-<p><a href="https://github.com/Open-Data-Product-Initiative/odpc-v1.0/issues">Open Data Product Initiative GitHub issues</a></p>
+<ul>
+<li><code>id</code></li>
+<li><code>preferredLabel</code></li>
+<li><code>alternativeLabels</code></li>
+<li><code>definition</code></li>
+<li><code>conceptGroup</code></li>
+<li><code>relatedTerms</code></li>
+<li><code>externalMappings</code></li>
+<li><code>notes</code></li>
+</ul>
 
-<blockquote>
-<p>Example of extension usage:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">catalog</span><span class="pi">:</span>
-  <span class="na">id</span><span class="pi">:</span> <span class="s">CAT-001</span>
-  <span class="na">name</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Urban Mobility Data Product Catalog</span>
-  <span class="na">description</span><span class="pi">:</span>
-    <span class="na">en</span><span class="pi">:</span> <span class="s">Catalog of reusable portfolio objects related to urban mobility.</span>
-  <span class="na">x-internal-id</span><span class="pi">:</span> <span class="s">foobar123</span>
-  <span class="na">x-source-system</span><span class="pi">:</span> <span class="s">internal-catalog-platform</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th><div style="width:150px">Element name</div></th>
-<th>Type</th>
-<th>Options</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>^x-</strong></td>
-<td>any</td>
-<td></td>
-<td>Allows extensions to the Open Data Catalogs Schema. The field name MUST begin with x-, for example, x-internal-id. The value can be null, a primitive, an array or an object.</td>
-</tr>
-</tbody></table>
+<p>Extensions are not part of the official ODPV vocabulary unless they are later adopted into the specification. Tooling may ignore extension terms unless explicit support has been added. Extensions should not be used to redefine official ODPV terms such as <code>DataProduct</code>, <code>UseCase</code>, <code>BusinessObjective</code>, <code>KPI</code>, <code>Signal</code>, <code>DataQuality</code>, <code>License</code>, or <code>supports</code>.</p>
+
+<p>Useful and widely adopted extensions may become candidates for future versions of ODPV. To propose useful extensions, raise an issue in GitHub:</p>
+
+<p><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues">Open Data Products Vocabulary GitHub issues</a></p>
 <h1 id='editors-and-contributors'>Editors and contributors</h1>
 <p>This specification is openly developed and a lot of the work comes from community. We list all community contributors as a sign of appreciation. Maintainers process the feedback and draft new candidate releases, which may become the versions of the specification. </p>
 
