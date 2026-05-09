@@ -29,3 +29,5 @@ Each relationship term has one canonical ODPV name. Also known as terms help use
 | `derivedFrom`   | relationship | Indicates that one object is derived from another object, such as an insight, product, dataset, or signal derived from a source.              | based on, sourced from, generated from, created from             | `dependsOn`, `Reference`, `Dataset`                | ODPG    |
 | `replaces`      | relationship | Indicates that one object replaces another object, such as a newer data product replacing an older version.                                   | supersedes, succeeds, takes over from, replaces version          | `versionOf`, `derivedFrom`, `relatedTo`            | ODPG    |
 | `versionOf`     | relationship | Indicates that one object is a version of another object.                                                                                     | variant of, release of, revision of, versioned form of           | `replaces`, `derivedFrom`, `Identifier`            | ODPG    |
+
+[Suggest addition to the vocabulary](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) 
