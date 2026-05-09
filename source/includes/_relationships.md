@@ -10,6 +10,30 @@ The relationship vocabulary is especially important for ODPG. It provides the sh
 
 Each relationship term has one canonical ODPV name. Also known as terms help users map familiar relationship language to the official vocabulary. Related terms show nearby relationship types that are connected but should not be treated as identical.
 
+Example relationship term:
+
+```yml
+id: supports
+uri: https://opendataproducts.org/odpv-v1.0/terms/supports
+type: relationship
+status: stable
+preferredLabel:
+  en: supports
+definition:
+  en: Indicates that one object helps enable, serve, or make another object possible, such as a data product supporting a use case.
+alsoKnownAs:
+  en:
+    - enables
+    - serves
+    - helps
+    - provides support for
+relatedTerms:
+  - contributesTo
+  - requires
+  - relatedTo
+usedIn:
+  - ODPG
+```
 
 | Term            | Type         | Description                                                                                                                                   | Also known as                                                    | Related terms                                      | Used in |
 | --------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------- | ------- |

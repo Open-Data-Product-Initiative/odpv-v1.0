@@ -8,6 +8,33 @@ The value vocabulary supports portfolio-level thinking. It helps teams describe 
 
 Each term has one canonical ODPV name. Also known as terms help users map familiar business language to the official vocabulary. Related terms show nearby concepts that are connected but should not be treated as identical.
 
+Example value term:
+
+```yml
+id: BusinessObjective
+uri: https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective
+type: object
+status: stable
+preferredLabel:
+  en: Business Objective
+definition:
+  en: A business goal or intended outcome that data products, use cases, or portfolio actions support.
+alsoKnownAs:
+  en:
+    - objective
+    - business goal
+    - strategic goal
+    - target outcome
+relatedTerms:
+  - Outcome
+  - KPI
+  - Impact
+  - UseCase
+usedIn:
+  - ODPC
+  - ODPG
+```
+
 | Term                | Type           | Description                                                                                                                                | Also known as                                                                   | Related terms                                             | Used in    |
 | ------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- | --------------------------------------------------------- | ---------- |
 | `UseCase`           | object         | A practical business, operational, analytical, or technical scenario where one or more data products are used to create value.             | use case, scenario, business scenario, application case                         | `DataProduct`, `BusinessObjective`, `DataNeed`, `Outcome` | ODPC, ODPG |

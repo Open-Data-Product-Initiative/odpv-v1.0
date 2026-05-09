@@ -8,6 +8,34 @@ The governance vocabulary supports trusted reuse. It helps teams describe who is
 
 Each term has one canonical ODPV name. Also known as terms help users map familiar governance, legal, operational, and technical language to the official vocabulary. Related terms show nearby concepts that are connected but should not be treated as identical.
 
+Example governance term:
+
+```yml
+id: DataQuality
+uri: https://opendataproducts.org/odpv-v1.0/terms/DataQuality
+type: object
+status: stable
+preferredLabel:
+  en: Data Quality
+definition:
+  en: The expected, measured, or reported quality of a data product, dataset, distribution, or data service.
+alsoKnownAs:
+  en:
+    - quality
+    - data quality score
+    - quality assessment
+    - quality metrics
+relatedTerms:
+  - SLA
+  - DataContract
+  - Stewardship
+  - ComplianceRule
+usedIn:
+  - ODPS
+  - ODPC
+  - ODPG
+```
+
 | Term                | Type           | Description                                                                                                                                                                     | Also known as                                                                            | Related terms                                                           | Used in          |
 | ------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------------- |
 | `DataQuality`       | object         | The expected, measured, or reported quality of a data product, dataset, distribution, or data service.                                                                          | quality, data quality score, quality assessment, quality metrics                         | `SLA`, `DataContract`, `Stewardship`, `ComplianceRule`                  | ODPS, ODPC, ODPG |

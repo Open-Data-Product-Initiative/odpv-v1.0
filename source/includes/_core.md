@@ -8,6 +8,32 @@ Each term has one canonical ODPV name. Alternative terms are included to support
 
 The core terms are intentionally lightweight. They do not replace the full object models of ODPS, ODPC, or ODPG. Instead, they provide a common vocabulary layer that supports interoperability across the Open Data Products ecosystem.
 
+Example core term:
+
+```yml
+id: DataProduct
+uri: https://opendataproducts.org/odpv-v1.0/terms/DataProduct
+type: object
+status: stable
+preferredLabel:
+  en: Data Product
+definition:
+  en: A managed data offering designed for reuse, with defined ownership, access, quality, usage terms, and value context.
+alsoKnownAs:
+  en:
+    - data product
+    - data offering
+    - reusable data asset
+relatedTerms:
+  - Dataset
+  - DataService
+  - Distribution
+usedIn:
+  - ODPS
+  - ODPC
+  - ODPG
+```
+
 | Term                 | Type           | Description                                                                                                                                               | Also known as terms                                                                | Related terms                                     | Used in          |
 | -------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------- |
 | `DataProduct`        | object         | A managed data offering designed for reuse, with defined ownership, access, quality, usage terms, and value context.                                      | data product, data offering, reusable data asset, data product asset             | `Dataset`, `DataService`, `Distribution`          | ODPS, ODPC, ODPG |
