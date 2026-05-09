@@ -56,7 +56,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Customer Churn Risk Scores is a DataProduct used by retention teams.",
+              "Use DataProduct for a managed reusable data offering with ownership, access, quality, and usage context."
+            ]
+          }
         },
         {
           "id": "DataProductCatalog",
@@ -86,7 +92,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The enterprise data marketplace is a DataProductCatalog containing reusable data products and related portfolio objects.",
+              "Use DataProductCatalog when describing a managed collection of products, use cases, objectives, KPIs, and signals."
+            ]
+          }
         },
         {
           "id": "DataProductGraph",
@@ -115,7 +127,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A DataProductGraph connects customer analytics products to use cases, KPIs, owners, and policies.",
+              "Use DataProductGraph when data product portfolio objects need to be represented as connected nodes and relationships."
+            ]
+          }
         },
         {
           "id": "Dataset",
@@ -145,7 +163,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The monthly customer transactions table is a Dataset used by a Customer Analytics DataProduct.",
+              "Use Dataset for a structured collection of data, not for the managed product wrapper around it."
+            ]
+          }
         },
         {
           "id": "Distribution",
@@ -174,7 +198,13 @@
           ],
           "usedIn": [
             "ODPS"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A downloadable CSV export is a Distribution of a Dataset.",
+              "Use Distribution for a specific accessible representation such as a file, API response, or export."
+            ]
+          }
         },
         {
           "id": "DataService",
@@ -203,7 +233,13 @@
           ],
           "usedIn": [
             "ODPS"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A REST API that returns fraud risk scores is a DataService.",
+              "Use DataService for an API, query endpoint, or delivery service that provides access to data."
+            ]
+          }
         },
         {
           "id": "Provider",
@@ -234,7 +270,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Payments Data Platform team is the Provider of the Transaction Events DataProduct.",
+              "Use Provider for the team, organization, system, or person that publishes or supplies a data asset."
+            ]
+          }
         },
         {
           "id": "Consumer",
@@ -266,7 +308,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Retention Analytics team is a Consumer of the Customer Churn DataProduct.",
+              "Use Consumer for a person, team, system, or agent that uses or receives data."
+            ]
+          }
         },
         {
           "id": "Owner",
@@ -296,7 +344,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Head of Customer Analytics is the Owner accountable for the Churn Scores DataProduct.",
+              "Use Owner for accountability, not day-to-day operational stewardship."
+            ]
+          }
         },
         {
           "id": "Steward",
@@ -326,7 +380,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A data steward maintains metadata and quality checks for the Customer Profile DataProduct.",
+              "Use Steward for operational responsibility over metadata, quality, lifecycle, or product health."
+            ]
+          }
         },
         {
           "id": "Domain",
@@ -357,7 +417,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Mobility is a Domain used to group traffic, routing, and transit data products.",
+              "Use Domain for a business, organizational, subject, or functional grouping."
+            ]
+          }
         },
         {
           "id": "Identifier",
@@ -388,7 +454,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "customer-churn-risk-score is an Identifier for a catalog item.",
+              "Use Identifier for stable ids used by terms, products, catalog items, or graph nodes."
+            ]
+          }
         },
         {
           "id": "Reference",
@@ -419,7 +491,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A catalog entry may include a Reference to an external schema registry record.",
+              "Use Reference for a link or pointer to another object, file, vocabulary term, or system record."
+            ]
+          }
         }
       ]
     },
@@ -461,7 +539,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Fraud detection is a UseCase supported by transaction monitoring data products.",
+              "Use UseCase for the practical scenario where data is used to create business, operational, analytical, or technical value."
+            ]
+          }
         },
         {
           "id": "BusinessObjective",
@@ -492,7 +576,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Reduce customer churn by 10 percent is a BusinessObjective supported by retention analytics products.",
+              "Use BusinessObjective for the goal or target outcome that data products and use cases help advance."
+            ]
+          }
         },
         {
           "id": "KPI",
@@ -522,7 +612,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Monthly churn rate is a KPI used to measure progress toward a retention objective.",
+              "Use KPI for a measurable indicator connected to an objective, outcome, or impact."
+            ]
+          }
         },
         {
           "id": "Impact",
@@ -553,7 +649,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Reduced manual reconciliation effort is an Impact of the Finance DataProduct.",
+              "Use Impact for the expected or observed effect of a data product, signal, use case, or portfolio decision."
+            ]
+          }
         },
         {
           "id": "Signal",
@@ -584,7 +686,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A sudden rise in failed deliveries is a Signal that may indicate an operational data gap.",
+              "Use Signal for observed demand, trend, risk, usage pattern, market change, policy change, or event requiring attention."
+            ]
+          }
         },
         {
           "id": "Gap",
@@ -615,7 +723,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Missing product-level carbon emissions data is a Gap for sustainability reporting use cases.",
+              "Use Gap for missing data, capability, quality, access, relationship, or portfolio coverage."
+            ]
+          }
         },
         {
           "id": "Priority",
@@ -646,7 +760,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Critical is a Priority assigned to a gap blocking regulatory reporting.",
+              "Use Priority for ranking importance or urgency in planning, remediation, or investment decisions."
+            ]
+          }
         },
         {
           "id": "Outcome",
@@ -677,7 +797,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Faster fraud investigation is an Outcome of improved transaction event data.",
+              "Use Outcome for a desired or achieved result connected to objectives, use cases, KPIs, or impact."
+            ]
+          }
         },
         {
           "id": "DataNeed",
@@ -708,7 +834,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Daily merchant risk scores are a DataNeed for the fraud monitoring use case.",
+              "Use DataNeed for required data inputs, products, attributes, capabilities, or access patterns."
+            ]
+          }
         },
         {
           "id": "Benefit",
@@ -737,7 +869,13 @@
           ],
           "usedIn": [
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Reduced reporting effort is a Benefit expected from a governed finance metrics product.",
+              "Use Benefit for a positive business, operational, financial, social, or technical value."
+            ]
+          }
         },
         {
           "id": "Demand",
@@ -768,7 +906,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Repeated requests for near-real-time inventory data are Demand for a new data product.",
+              "Use Demand for evidence of need or interest from consumers, stakeholders, systems, markets, or operations."
+            ]
+          }
         },
         {
           "id": "Opportunity",
@@ -799,7 +943,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Combining mobility and weather data is an Opportunity for better route optimization.",
+              "Use Opportunity for a possible area of reuse, innovation, service improvement, monetization, or better decisions."
+            ]
+          }
         },
         {
           "id": "Risk",
@@ -830,7 +980,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Unclear licensing for customer demographic data is a Risk for external sharing.",
+              "Use Risk for a possible negative event, exposure, weakness, or uncertainty affecting value, trust, access, compliance, or operation."
+            ]
+          }
         },
         {
           "id": "ValueProposition",
@@ -861,7 +1017,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "This product reduces onboarding time for analysts by providing governed customer features is a ValueProposition.",
+              "Use ValueProposition for a short explanation of why a product, use case, or portfolio item matters."
+            ]
+          }
         },
         {
           "id": "PortfolioPriority",
@@ -892,7 +1054,13 @@
           "usedIn": [
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "High reuse potential is a PortfolioPriority for a shared customer identity data product.",
+              "Use PortfolioPriority for a portfolio-level ranking assigned to products, use cases, signals, gaps, or objectives."
+            ]
+          }
         }
       ]
     },
@@ -935,7 +1103,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Completeness above 98 percent is a DataQuality expectation for the Customer Profile DataProduct.",
+              "Use DataQuality for expected, measured, or reported quality of a product, dataset, distribution, or service."
+            ]
+          }
         },
         {
           "id": "SLA",
@@ -966,7 +1140,13 @@
           "usedIn": [
             "ODPS",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The product refreshes by 08:00 UTC every business day is an SLA.",
+              "Use SLA for service-level expectations or operational commitments."
+            ]
+          }
         },
         {
           "id": "License",
@@ -998,7 +1178,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Apache 2.0 is a License for a publicly shared dataset.",
+              "Use License for legal terms that define how data may be used, shared, or redistributed."
+            ]
+          }
         },
         {
           "id": "AccessMethod",
@@ -1030,7 +1216,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A Snowflake share is an AccessMethod for the Customer Features DataProduct.",
+              "Use AccessMethod for the channel or interface used to access data, such as API, file download, query endpoint, or platform access."
+            ]
+          }
         },
         {
           "id": "Agreement",
@@ -1062,7 +1254,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A commercial data sharing contract is an Agreement for an external data exchange.",
+              "Use Agreement for usage, commercial, legal, operational, or governance terms between parties."
+            ]
+          }
         },
         {
           "id": "Policy",
@@ -1094,7 +1292,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Customer data must not be exported outside approved regions is a Policy.",
+              "Use Policy for a rule, guideline, or governance statement that applies to products, catalogs, graphs, use cases, or access."
+            ]
+          }
         },
         {
           "id": "ComplianceRule",
@@ -1126,7 +1330,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "PII fields must be masked before non-production use is a ComplianceRule.",
+              "Use ComplianceRule for a specific requirement used to assess, enforce, or document compliance."
+            ]
+          }
         },
         {
           "id": "Sensitivity",
@@ -1157,7 +1367,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Confidential is a Sensitivity classification for customer identity data.",
+              "Use Sensitivity to indicate privacy, security, commercial, or operational sensitivity."
+            ]
+          }
         },
         {
           "id": "UsageRights",
@@ -1188,7 +1404,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Internal analytics only is a UsageRights statement for a licensed dataset.",
+              "Use UsageRights for what consumers may do with data, including use, sharing, modification, derivation, or redistribution."
+            ]
+          }
         },
         {
           "id": "Retention",
@@ -1219,7 +1441,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Transaction logs retained for seven years is a Retention rule.",
+              "Use Retention for how long data, metadata, logs, agreements, or records should be kept."
+            ]
+          }
         },
         {
           "id": "AccessCondition",
@@ -1251,7 +1479,13 @@
             "ODPS",
             "ODPC",
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Manager approval required before access is granted is an AccessCondition.",
+              "Use AccessCondition for a requirement that must be met before a consumer can access data."
+            ]
+          }
         },
         {
           "id": "GovernanceProfile",
@@ -1282,7 +1516,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "High assurance is a GovernanceProfile for regulated finance data products.",
+              "Use GovernanceProfile for a reusable classification of control, assurance, review, or maturity expectations."
+            ]
+          }
         },
         {
           "id": "DataAgreement",
@@ -1313,7 +1553,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A partner data exchange contract with allowed uses and obligations is a DataAgreement.",
+              "Use DataAgreement for structured allowed use, responsibilities, obligations, and constraints for data sharing."
+            ]
+          }
         },
         {
           "id": "DataContract",
@@ -1343,7 +1589,13 @@
           ],
           "usedIn": [
             "ODPS"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A schema compatibility and freshness contract for an events API is a DataContract.",
+              "Use DataContract for technical or operational expectations around schema, quality, delivery, compatibility, and change management."
+            ]
+          }
         },
         {
           "id": "Stewardship",
@@ -1374,7 +1626,13 @@
           "usedIn": [
             "ODPS",
             "ODPC"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The analytics platform team handles Stewardship for metadata quality and lifecycle reviews.",
+              "Use Stewardship for the assigned responsibility model for metadata, quality, lifecycle, and operational health."
+            ]
+          }
         }
       ]
     },
@@ -1424,7 +1682,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Customer Churn Risk Scores supports the Retention Campaign Optimization use case.",
+              "Use supports when one object helps enable, serve, or make another object possible."
+            ]
+          }
         },
         {
           "id": "requires",
@@ -1463,7 +1727,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Fraud Detection use case requires the Transaction Events DataProduct.",
+              "Use requires when one object needs another object to be complete, useful, or executable."
+            ]
+          }
         },
         {
           "id": "contributesTo",
@@ -1502,7 +1772,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Retention Campaign Optimization use case contributesTo the Reduce Churn business objective.",
+              "Use contributesTo when one object helps advance an objective, outcome, or impact."
+            ]
+          }
         },
         {
           "id": "measures",
@@ -1540,7 +1816,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Monthly churn rate measures the Reduce Churn business objective.",
+              "Use measures when a KPI, signal, or metric tracks an objective, outcome, or impact."
+            ]
+          }
         },
         {
           "id": "belongsTo",
@@ -1578,7 +1860,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Customer Churn Risk Scores DataProduct belongsTo the Customer Analytics catalog.",
+              "Use belongsTo when one object is assigned to, grouped under, or included in another object."
+            ]
+          }
         },
         {
           "id": "dependsOn",
@@ -1617,7 +1905,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Churn Scores DataProduct dependsOn the Customer Profile Dataset.",
+              "Use dependsOn for operational, technical, or data dependencies between products, services, datasets, or use cases."
+            ]
+          }
         },
         {
           "id": "governedBy",
@@ -1658,7 +1952,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Customer Profile DataProduct is governedBy the Customer Data Access Policy.",
+              "Use governedBy when a product, dataset, service, or access method is subject to a policy, license, agreement, or compliance rule."
+            ]
+          }
         },
         {
           "id": "providedBy",
@@ -1696,7 +1996,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Transaction Events DataProduct is providedBy the Payments Data Platform team.",
+              "Use providedBy when an object is published, supplied, or made available by a provider or owner."
+            ]
+          }
         },
         {
           "id": "consumedBy",
@@ -1733,7 +2039,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Customer Features DataProduct is consumedBy the Personalization Model Training system.",
+              "Use consumedBy when an object is used, accessed, or received by a consumer."
+            ]
+          }
         },
         {
           "id": "indicates",
@@ -1774,7 +2086,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A rising support ticket trend indicates a Gap in product usage data.",
+              "Use indicates when a signal, KPI, or observation points to a gap, demand, risk, or opportunity."
+            ]
+          }
         },
         {
           "id": "relatedTo",
@@ -1815,7 +2133,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Customer Profile DataProduct is relatedTo the Customer Segmentation UseCase.",
+              "Use relatedTo only when a more specific relationship type is not available."
+            ]
+          }
         },
         {
           "id": "partOf",
@@ -1854,7 +2178,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "A customer address Dataset is partOf the Customer Profile DataProduct.",
+              "Use partOf when one object is a component or member of a larger object."
+            ]
+          }
         },
         {
           "id": "hasPart",
@@ -1893,7 +2223,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Customer Profile DataProduct hasPart the Customer Address Dataset.",
+              "Use hasPart when one object contains or includes another object."
+            ]
+          }
         },
         {
           "id": "derivedFrom",
@@ -1932,7 +2268,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "The Churn Score Dataset is derivedFrom customer events and subscription history datasets.",
+              "Use derivedFrom when an object is based on, sourced from, generated from, or created from another object."
+            ]
+          }
         },
         {
           "id": "replaces",
@@ -1971,7 +2313,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Customer Churn Scores v2 replaces the legacy churn scoring product.",
+              "Use replaces when a newer product, dataset, service, or version supersedes an older one."
+            ]
+          }
         },
         {
           "id": "versionOf",
@@ -2010,7 +2358,13 @@
           ],
           "usedIn": [
             "ODPG"
-          ]
+          ],
+          "examples": {
+            "en": [
+              "Customer Churn Scores v2 is a versionOf Customer Churn Scores.",
+              "Use versionOf when one object is a version, variant, release, or revision of another object."
+            ]
+          }
         }
       ]
     }

@@ -51,6 +51,11 @@ sections:
     - Outcome
     usedIn:
     - ODPG
+    examples:
+      en:
+      - Customer Churn Risk Scores supports the Retention Campaign Optimization use
+        case.
+      - Use supports when one object helps enable, serve, or make another object possible.
   - id: requires
     uri: https://opendataproducts.org/odpv-v1.0/terms/requires
     type: relationship
@@ -81,6 +86,11 @@ sections:
     - DataNeed
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Fraud Detection use case requires the Transaction Events DataProduct.
+      - Use requires when one object needs another object to be complete, useful,
+        or executable.
   - id: contributesTo
     uri: https://opendataproducts.org/odpv-v1.0/terms/contributesTo
     type: relationship
@@ -111,6 +121,12 @@ sections:
     - Impact
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Retention Campaign Optimization use case contributesTo the Reduce Churn
+        business objective.
+      - Use contributesTo when one object helps advance an objective, outcome, or
+        impact.
   - id: measures
     uri: https://opendataproducts.org/odpv-v1.0/terms/measures
     type: relationship
@@ -140,6 +156,11 @@ sections:
     - Impact
     usedIn:
     - ODPG
+    examples:
+      en:
+      - Monthly churn rate measures the Reduce Churn business objective.
+      - Use measures when a KPI, signal, or metric tracks an objective, outcome, or
+        impact.
   - id: belongsTo
     uri: https://opendataproducts.org/odpv-v1.0/terms/belongsTo
     type: relationship
@@ -169,6 +190,12 @@ sections:
     - Domain
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Customer Churn Risk Scores DataProduct belongsTo the Customer Analytics
+        catalog.
+      - Use belongsTo when one object is assigned to, grouped under, or included in
+        another object.
   - id: dependsOn
     uri: https://opendataproducts.org/odpv-v1.0/terms/dependsOn
     type: relationship
@@ -199,6 +226,11 @@ sections:
     - DataService
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Churn Scores DataProduct dependsOn the Customer Profile Dataset.
+      - Use dependsOn for operational, technical, or data dependencies between products,
+        services, datasets, or use cases.
   - id: governedBy
     uri: https://opendataproducts.org/odpv-v1.0/terms/governedBy
     type: relationship
@@ -231,6 +263,11 @@ sections:
     - ComplianceRule
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Customer Profile DataProduct is governedBy the Customer Data Access Policy.
+      - Use governedBy when a product, dataset, service, or access method is subject
+        to a policy, license, agreement, or compliance rule.
   - id: providedBy
     uri: https://opendataproducts.org/odpv-v1.0/terms/providedBy
     type: relationship
@@ -260,6 +297,12 @@ sections:
     - Owner
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Transaction Events DataProduct is providedBy the Payments Data Platform
+        team.
+      - Use providedBy when an object is published, supplied, or made available by
+        a provider or owner.
   - id: consumedBy
     uri: https://opendataproducts.org/odpv-v1.0/terms/consumedBy
     type: relationship
@@ -287,6 +330,11 @@ sections:
     - Consumer
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Customer Features DataProduct is consumedBy the Personalization Model
+        Training system.
+      - Use consumedBy when an object is used, accessed, or received by a consumer.
   - id: indicates
     uri: https://opendataproducts.org/odpv-v1.0/terms/indicates
     type: relationship
@@ -319,6 +367,11 @@ sections:
     - Opportunity
     usedIn:
     - ODPG
+    examples:
+      en:
+      - A rising support ticket trend indicates a Gap in product usage data.
+      - Use indicates when a signal, KPI, or observation points to a gap, demand,
+        risk, or opportunity.
   - id: relatedTo
     uri: https://opendataproducts.org/odpv-v1.0/terms/relatedTo
     type: relationship
@@ -351,6 +404,10 @@ sections:
     - GovernanceProfile
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Customer Profile DataProduct is relatedTo the Customer Segmentation UseCase.
+      - Use relatedTo only when a more specific relationship type is not available.
   - id: partOf
     uri: https://opendataproducts.org/odpv-v1.0/terms/partOf
     type: relationship
@@ -381,6 +438,10 @@ sections:
     - Dataset
     usedIn:
     - ODPG
+    examples:
+      en:
+      - A customer address Dataset is partOf the Customer Profile DataProduct.
+      - Use partOf when one object is a component or member of a larger object.
   - id: hasPart
     uri: https://opendataproducts.org/odpv-v1.0/terms/hasPart
     type: relationship
@@ -410,6 +471,10 @@ sections:
     - Distribution
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Customer Profile DataProduct hasPart the Customer Address Dataset.
+      - Use hasPart when one object contains or includes another object.
   - id: derivedFrom
     uri: https://opendataproducts.org/odpv-v1.0/terms/derivedFrom
     type: relationship
@@ -440,6 +505,12 @@ sections:
     - Reference
     usedIn:
     - ODPG
+    examples:
+      en:
+      - The Churn Score Dataset is derivedFrom customer events and subscription history
+        datasets.
+      - Use derivedFrom when an object is based on, sourced from, generated from,
+        or created from another object.
   - id: replaces
     uri: https://opendataproducts.org/odpv-v1.0/terms/replaces
     type: relationship
@@ -470,6 +541,11 @@ sections:
     - DataService
     usedIn:
     - ODPG
+    examples:
+      en:
+      - Customer Churn Scores v2 replaces the legacy churn scoring product.
+      - Use replaces when a newer product, dataset, service, or version supersedes
+        an older one.
   - id: versionOf
     uri: https://opendataproducts.org/odpv-v1.0/terms/versionOf
     type: relationship
@@ -499,3 +575,8 @@ sections:
     - DataService
     usedIn:
     - ODPG
+    examples:
+      en:
+      - Customer Churn Scores v2 is a versionOf Customer Churn Scores.
+      - Use versionOf when one object is a version, variant, release, or revision
+        of another object.

@@ -44,6 +44,11 @@ sections:
     - ODPS
     - ODPC
     - ODPG
+    examples:
+      en:
+      - Customer Churn Risk Scores is a DataProduct used by retention teams.
+      - Use DataProduct for a managed reusable data offering with ownership, access,
+        quality, and usage context.
   - id: DataProductCatalog
     uri: https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog
     type: object
@@ -67,6 +72,12 @@ sections:
     usedIn:
     - ODPC
     - ODPG
+    examples:
+      en:
+      - The enterprise data marketplace is a DataProductCatalog containing reusable
+        data products and related portfolio objects.
+      - Use DataProductCatalog when describing a managed collection of products, use
+        cases, objectives, KPIs, and signals.
   - id: DataProductGraph
     uri: https://opendataproducts.org/odpv-v1.0/terms/DataProductGraph
     type: object
@@ -89,6 +100,12 @@ sections:
     - Relationship
     usedIn:
     - ODPG
+    examples:
+      en:
+      - A DataProductGraph connects customer analytics products to use cases, KPIs,
+        owners, and policies.
+      - Use DataProductGraph when data product portfolio objects need to be represented
+        as connected nodes and relationships.
   - id: Dataset
     uri: https://opendataproducts.org/odpv-v1.0/terms/Dataset
     type: object
@@ -112,6 +129,12 @@ sections:
     usedIn:
     - ODPS
     - ODPC
+    examples:
+      en:
+      - The monthly customer transactions table is a Dataset used by a Customer Analytics
+        DataProduct.
+      - Use Dataset for a structured collection of data, not for the managed product
+        wrapper around it.
   - id: Distribution
     uri: https://opendataproducts.org/odpv-v1.0/terms/Distribution
     type: object
@@ -134,6 +157,11 @@ sections:
     - DataAccess
     usedIn:
     - ODPS
+    examples:
+      en:
+      - A downloadable CSV export is a Distribution of a Dataset.
+      - Use Distribution for a specific accessible representation such as a file,
+        API response, or export.
   - id: DataService
     uri: https://opendataproducts.org/odpv-v1.0/terms/DataService
     type: object
@@ -156,6 +184,11 @@ sections:
     - DataAccess
     usedIn:
     - ODPS
+    examples:
+      en:
+      - A REST API that returns fraud risk scores is a DataService.
+      - Use DataService for an API, query endpoint, or delivery service that provides
+        access to data.
   - id: Provider
     uri: https://opendataproducts.org/odpv-v1.0/terms/Provider
     type: role
@@ -180,6 +213,12 @@ sections:
     - ODPS
     - ODPC
     - ODPG
+    examples:
+      en:
+      - The Payments Data Platform team is the Provider of the Transaction Events
+        DataProduct.
+      - Use Provider for the team, organization, system, or person that publishes
+        or supplies a data asset.
   - id: Consumer
     uri: https://opendataproducts.org/odpv-v1.0/terms/Consumer
     type: role
@@ -205,6 +244,10 @@ sections:
     - ODPS
     - ODPC
     - ODPG
+    examples:
+      en:
+      - The Retention Analytics team is a Consumer of the Customer Churn DataProduct.
+      - Use Consumer for a person, team, system, or agent that uses or receives data.
   - id: Owner
     uri: https://opendataproducts.org/odpv-v1.0/terms/Owner
     type: role
@@ -228,6 +271,11 @@ sections:
     usedIn:
     - ODPS
     - ODPC
+    examples:
+      en:
+      - The Head of Customer Analytics is the Owner accountable for the Churn Scores
+        DataProduct.
+      - Use Owner for accountability, not day-to-day operational stewardship.
   - id: Steward
     uri: https://opendataproducts.org/odpv-v1.0/terms/Steward
     type: role
@@ -251,6 +299,12 @@ sections:
     usedIn:
     - ODPS
     - ODPC
+    examples:
+      en:
+      - A data steward maintains metadata and quality checks for the Customer Profile
+        DataProduct.
+      - Use Steward for operational responsibility over metadata, quality, lifecycle,
+        or product health.
   - id: Domain
     uri: https://opendataproducts.org/odpv-v1.0/terms/Domain
     type: classification
@@ -275,6 +329,10 @@ sections:
     - ODPS
     - ODPC
     - ODPG
+    examples:
+      en:
+      - Mobility is a Domain used to group traffic, routing, and transit data products.
+      - Use Domain for a business, organizational, subject, or functional grouping.
   - id: Identifier
     uri: https://opendataproducts.org/odpv-v1.0/terms/Identifier
     type: reference
@@ -299,6 +357,11 @@ sections:
     - ODPS
     - ODPC
     - ODPG
+    examples:
+      en:
+      - customer-churn-risk-score is an Identifier for a catalog item.
+      - Use Identifier for stable ids used by terms, products, catalog items, or graph
+        nodes.
   - id: Reference
     uri: https://opendataproducts.org/odpv-v1.0/terms/Reference
     type: reference
@@ -323,3 +386,8 @@ sections:
     - ODPS
     - ODPC
     - ODPG
+    examples:
+      en:
+      - A catalog entry may include a Reference to an external schema registry record.
+      - Use Reference for a link or pointer to another object, file, vocabulary term,
+        or system record.
