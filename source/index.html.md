@@ -53,7 +53,9 @@ status: stable
 preferredLabel:
   en: Data Product
 definition:
-  en: A managed data offering designed for reuse, with defined ownership, access, quality, usage terms, and value context.
+  en: A managed data offering designed for reuse, with 
+      defined ownership, access, quality, usage terms, 
+      and value context.
 alsoKnownAs:
   en:
     - data product
