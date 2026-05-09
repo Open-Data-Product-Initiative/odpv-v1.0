@@ -110,6 +110,8 @@ These groups create a common language for describing, connecting, validating, an
 | ODPV Relationships | Relationship terms for graphs and portfolio analysis | 16 |
 | Total | Shared vocabulary terms | 59 |
 
+[Suggest additiont to the vocabulary](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) 
+
 ## Companion Vocabulary, Not a Heavy Ontology
 
 ODPV is not intended to be a heavy ontology. It is a practical controlled vocabulary that gives stable reference terms to the OpenDataProducts.org standards family. Each specification can reference ODPV terms instead of redefining shared concepts locally. Shared terms belong in ODPV. Spec-specific terms stay in the relevant specification. Extensions can define additional domain-specific or organization-specific terms.
