@@ -71,7 +71,7 @@ usedIn:
   - ODPG
 ```
 
-ODPV is published as both human-readable documentation and machine-readable files.
+ODPV is published in several forms for different users and tools. This specification provides the human-readable documentation, while the vocabulary files provide machine-readable representations for validation, catalog integration, graph construction, AI retrieval, and automation. Use `odpv.yaml` as the canonical source, `odpv.json` when JSON is easier to consume, the section YAML files when only one vocabulary area is needed, and `terms.jsonl` for search, embeddings, and lightweight AI agent workflows.
 
 | File | Format | Purpose |
 |---|---|---|
@@ -158,5 +158,3 @@ ODPV helps prevent terminology drift across the standards family. Without a shar
 * Improve interoperability between catalogs, platforms, marketplaces, and tools.
 * Provide a lightweight path toward semantic knowledge graph implementation.
 * Keep formal ontology work optional.
-
-
