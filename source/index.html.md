@@ -25,6 +25,10 @@ code_clipboard: true
 meta:
   - name: description
     content: The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. 
+  - name: llms
+    content: /llms.txt
+  - name: ai-agent-guidance
+    content: Use /llms.txt for agent guidance and /vocab/terms.jsonl for retrieval-friendly vocabulary terms.
 ---
 
 # OPEN DATA PRODUCT VOCABULARY - The Linux Foundation
@@ -83,6 +87,7 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 
 | File | Format | Purpose |
 |---|---|---|
+| [`llms.txt`](/llms.txt) | Text | AI agent guidance for discovering and using the ODPV vocabulary files |
 | [`odpv.yaml`](/vocab/odpv.yaml) | YAML | Canonical machine-readable vocabulary file |
 | [`odpv.json`](/vocab/odpv.json) | JSON | JSON representation for tools, APIs, search indexes, and graph applications |
 | [`terms.jsonl`](/vocab/terms.jsonl) | JSONL | Agent-friendly one-term-per-line file for retrieval, embeddings, and lightweight tools |
