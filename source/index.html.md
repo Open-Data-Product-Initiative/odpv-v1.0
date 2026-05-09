@@ -77,6 +77,7 @@ ODPV is published as both human-readable documentation and machine-readable file
 |---|---|---|
 | [`odpv.yaml`](/vocab/odpv.yaml) | YAML | Canonical machine-readable vocabulary file |
 | [`odpv.json`](/vocab/odpv.json) | JSON | JSON representation for tools, APIs, search indexes, and graph applications |
+| [`terms.jsonl`](/vocab/terms.jsonl) | JSONL | Agent-friendly one-term-per-line file for retrieval, embeddings, and lightweight tools |
 | [`core.yaml`](/vocab/core.yaml) | YAML | ODPV Core terms as a standalone machine-readable section file |
 | [`value.yaml`](/vocab/value.yaml) | YAML | ODPV Value terms as a standalone machine-readable section file |
 | [`governance.yaml`](/vocab/governance.yaml) | YAML | ODPV Governance terms as a standalone machine-readable section file |
@@ -157,6 +158,5 @@ ODPV helps prevent terminology drift across the standards family. Without a shar
 * Improve interoperability between catalogs, platforms, marketplaces, and tools.
 * Provide a lightweight path toward semantic knowledge graph implementation.
 * Keep formal ontology work optional.
-
 
 
