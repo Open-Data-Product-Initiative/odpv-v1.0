@@ -73,6 +73,14 @@ usedIn:
 
 ODPV is published in several forms for different users and tools. This specification provides the human-readable documentation, while the vocabulary files provide machine-readable representations for validation, catalog integration, graph construction, AI retrieval, and automation. Use `odpv.yaml` as the canonical source, `odpv.json` when JSON is easier to consume, the section YAML files when only one vocabulary area is needed, and `terms.jsonl` for search, embeddings, and lightweight AI agent workflows.
 
+<!-- AI_AGENT_GUIDANCE:
+Use /vocab/odpv.yaml as the canonical ODPV vocabulary source.
+Use /vocab/terms.jsonl for retrieval, embeddings, search, and lightweight tool calls.
+Use /vocab/core.yaml, /vocab/value.yaml, /vocab/governance.yaml, and /vocab/relationships.yaml when only one vocabulary section is needed.
+Use stable term ids and uris exactly as published. Do not redefine official ODPV terms.
+If a needed term is missing, treat it as an extension candidate and use a separate namespace or prefix.
+-->
+
 | File | Format | Purpose |
 |---|---|---|
 | [`odpv.yaml`](/vocab/odpv.yaml) | YAML | Canonical machine-readable vocabulary file |
