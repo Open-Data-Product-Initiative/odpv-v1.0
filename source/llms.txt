@@ -23,6 +23,10 @@ Agent-friendly vocabulary file:
 
 Use ODPV terms by their stable `id` and `uri`. Do not redefine official ODPV terms or invent new meanings for existing terms. If a needed concept is not present, treat it as an extension candidate and use a separate namespace or prefix.
 
+Suggesting new terms:
+- If a useful shared term appears to be missing from ODPV, suggest it through GitHub issues: https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues
+- Include the proposed term id, preferred label, definition, concept group, related terms, and example usage when possible.
+
 When selecting terms:
 - Use `DataProduct` for a managed reusable data offering.
 - Use `Dataset` for a structured collection of data that may be part of or exposed through a data product.
