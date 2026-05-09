@@ -2,6 +2,12 @@
 
 ODPV is a controlled vocabulary for the OpenDataProducts.org standards family. It defines stable terms, labels, definitions, concept groups, relationship names, and related-term links used across ODPS, ODPC, and ODPG.
 
+Standards-family context:
+- ODPS is the Open Data Product Specification. Use ODPS when describing one data product and its product metadata. Homepage: https://opendataproducts.org/
+- ODPC is the Open Data Product Catalog specification. Use ODPC when describing catalogs, portfolios, use cases, objectives, KPIs, signals, and related portfolio objects.
+- ODPG is the Open Data Product Graph specification. Use ODPG when describing graph structures and relationships between data products, use cases, objectives, KPIs, signals, governance objects, providers, and consumers. Documentation: https://opendataproducts.org/odpg-v1.0/
+- ODPV does not replace ODPS, ODPC, or ODPG. It provides stable ids, labels, definitions, and relationship names that those specifications can reference.
+
 Canonical vocabulary files:
 - /vocab/odpv.yaml
 - /vocab/odpv.json
@@ -16,6 +22,10 @@ Agent-friendly vocabulary file:
 - /vocab/terms.jsonl
 
 Use ODPV terms by their stable `id` and `uri`. Do not redefine official ODPV terms or invent new meanings for existing terms. If a needed concept is not present, treat it as an extension candidate and use a separate namespace or prefix.
+
+Suggesting new terms:
+- If a useful shared term appears to be missing from ODPV, suggest it through GitHub issues: https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues
+- Include the proposed term id, preferred label, definition, concept group, related terms, and example usage when possible.
 
 When selecting terms:
 - Use `DataProduct` for a managed reusable data offering.

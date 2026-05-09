@@ -566,6 +566,16 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 <h2 id='companion-vocabulary-not-a-heavy-ontology'>Companion Vocabulary, Not a Heavy Ontology</h2>
 <p>ODPV is not intended to be a heavy ontology. It is a practical controlled vocabulary that gives stable reference terms to the OpenDataProducts.org standards family. Each specification can reference ODPV terms instead of redefining shared concepts locally. Shared terms belong in ODPV. Spec-specific terms stay in the relevant specification. Extensions can define additional domain-specific or organization-specific terms.</p>
 <h2 id='relationship-to-odps-odpc-and-odpg'>Relationship to ODPS, ODPC, and ODPG</h2>
+<!-- AI_STANDARDS_FAMILY_GUIDANCE:
+ODPV is the shared vocabulary layer for the OpenDataProducts.org standards family.
+ODPS is the Open Data Product Specification. Use ODPS when describing one data product and its product metadata.
+ODPC is the Open Data Product Catalog specification. Use ODPC when describing catalogs, portfolios, use cases, objectives, KPIs, signals, and related portfolio objects.
+ODPG is the Open Data Product Graph specification. Use ODPG when describing graph structures and relationships between data products, use cases, objectives, KPIs, signals, governance objects, providers, and consumers.
+ODPV does not replace ODPS, ODPC, or ODPG. It provides stable ids, labels, definitions, and relationship names that those specifications can reference.
+ODPG documentation: https://opendataproducts.org/odpg-v1.0/
+ODPS homepage: https://opendataproducts.org/
+-->
+
 <ul>
 <li>ODPS defines one data product.</li>
 <li>ODPC defines reusable catalog and portfolio objects.</li>
@@ -1099,6 +1109,13 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 
 <p><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues">Suggest addition to the vocabulary</a> </p>
 <h1 id='odpv-relationships'>ODPV Relationships</h1>
+<!-- AI_SECTION_GUIDANCE:
+This section defines ODPV relationship term names and meanings.
+Use these relationship ids as controlled vocabulary terms for graph edges.
+ODPG defines how these relationship types are used in graph structures; ODPV only defines the shared names, labels, and definitions.
+ODPG documentation: https://opendataproducts.org/odpg-v1.0/
+-->
+
 <p>ODPV defines the names and meanings of relationship types. <a href="https://opendataproducts.org/odpg-v1.0/">ODPG</a> defines how those relationship types are used in graph structures. In other words, ODPV defines the vocabulary. <a href="https://opendataproducts.org/odpg-v1.0/">ODPG</a> defines the graph model.</p>
 
 <p>ODPV Relationships defines the terms used to connect data products, catalogs, use cases, objectives, KPIs, signals, governance objects, and related portfolio items.</p>
