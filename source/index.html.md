@@ -38,6 +38,7 @@ Development of the vocabulary is under the umbrella of the Linux Foundation.
 | Topic | Link | Description |
 |---|---|---|
 | Version source | <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0">Open Data Products Vocab on GitHub</a> | Official source repository for the ODPV vocabulary |
+| Knowledge Base | [Open Data Product Spec Family Knowledge Base](https://opendataproducts.org/howto/) | Practical examples, FAQs, and implementation guidance |
 | Contribute | [Raise an issue in GitHub](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) | Submit issues or suggestions to the vocabulary maintainers |
 
 ## Machine-readable vocabulary files
