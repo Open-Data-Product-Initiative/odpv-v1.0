@@ -1,0 +1,28 @@
+# Open Data Product Vocabulary (ODPV)
+
+ODPV is a controlled vocabulary for the OpenDataProducts.org standards family. It defines stable terms, labels, definitions, concept groups, relationship names, and related-term links used across ODPS, ODPC, and ODPG.
+
+Canonical vocabulary files:
+- /vocab/odpv.yaml
+- /vocab/odpv.json
+
+Section vocabulary files:
+- /vocab/core.yaml
+- /vocab/value.yaml
+- /vocab/governance.yaml
+- /vocab/relationships.yaml
+
+Agent-friendly vocabulary file:
+- /vocab/terms.jsonl
+
+Use ODPV terms by their stable `id` and `uri`. Do not redefine official ODPV terms or invent new meanings for existing terms. If a needed concept is not present, treat it as an extension candidate and use a separate namespace or prefix.
+
+When selecting terms:
+- Use `DataProduct` for a managed reusable data offering.
+- Use `Dataset` for a structured collection of data that may be part of or exposed through a data product.
+- Use `DataService` for an API, query endpoint, or delivery service that provides access to data.
+- Use Value terms such as `UseCase`, `BusinessObjective`, `KPI`, `Signal`, `Gap`, and `Priority` to connect data products to demand and measurable outcomes.
+- Use Governance terms such as `DataQuality`, `SLA`, `License`, `Policy`, `ComplianceRule`, and `AccessCondition` to describe trust, access, obligations, and control.
+- Use Relationship terms such as `supports`, `requires`, `contributesTo`, `measures`, `dependsOn`, `governedBy`, `providedBy`, and `consumedBy` when building graph structures.
+
+Prefer the JSONL file for retrieval, embeddings, search, and lightweight agent tools. Prefer the YAML or JSON files when complete vocabulary structure, sections, and schema-compatible metadata are required.
