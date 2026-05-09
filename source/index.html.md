@@ -1,5 +1,5 @@
 ---
-title: Open Data Product Vocab (ODPV) version DEV | Linux Foundation 
+title: Open Data Product Vocab (ODPV) version DRAFT | Linux Foundation 
 
 language_tabs: # must be one of https://git.io/vQNgJ
 - yaml
