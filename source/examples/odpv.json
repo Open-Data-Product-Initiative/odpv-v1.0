@@ -14,7 +14,8 @@
   },
   "publisher": {
     "name": "Open Data Product Initiative",
-    "umbrella": "Linux Foundation"
+    "umbrella": "Linux Foundation",
+    "url": "https://opendataproducts.org"
   },
   "sections": [
     {
@@ -23,7 +24,7 @@
         "en": "ODPV Core"
       },
       "description": {
-        "en": "ODPV Core defines the foundational terms used across the Open Data Products specification family. These terms describe the main objects, roles, classifications, and references that appear in ODPS, ODPC, and ODPG."
+        "en": "Foundational terms used across the Open Data Products specification family."
       },
       "terms": [
         {
@@ -31,6 +32,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/DataProduct",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Data Product"
           },
@@ -61,6 +63,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Data Product Catalog"
           },
@@ -90,6 +93,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/DataProductGraph",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Data Product Graph"
           },
@@ -118,6 +122,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Dataset",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Dataset"
           },
@@ -147,6 +152,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Distribution",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Distribution"
           },
@@ -175,6 +181,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/DataService",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Data Service"
           },
@@ -203,6 +210,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Provider",
           "type": "role",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Provider"
           },
@@ -233,6 +241,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Consumer",
           "type": "role",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Consumer"
           },
@@ -264,6 +273,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Owner",
           "type": "role",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Owner"
           },
@@ -293,6 +303,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Steward",
           "type": "role",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Steward"
           },
@@ -322,6 +333,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Domain",
           "type": "classification",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Domain"
           },
@@ -352,6 +364,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Identifier",
           "type": "reference",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Identifier"
           },
@@ -382,6 +395,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Reference",
           "type": "reference",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Reference"
           },
@@ -415,7 +429,7 @@
         "en": "ODPV Value"
       },
       "description": {
-        "en": "ODPV Value defines the terms used to describe why data products matter, where they create value, and how that value connects to business outcomes."
+        "en": "Terms used to describe why data products matter, where they create value, and how that value connects to business outcomes."
       },
       "terms": [
         {
@@ -423,6 +437,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/UseCase",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Use Case"
           },
@@ -453,6 +468,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Business Objective"
           },
@@ -483,6 +499,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/KPI",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "KPI"
           },
@@ -512,6 +529,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Impact",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Impact"
           },
@@ -542,6 +560,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Signal",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Signal"
           },
@@ -572,6 +591,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Gap",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Gap"
           },
@@ -602,6 +622,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Priority",
           "type": "classification",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Priority"
           },
@@ -632,6 +653,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Outcome",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Outcome"
           },
@@ -662,6 +684,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/DataNeed",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Data Need"
           },
@@ -692,6 +715,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Benefit",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Benefit"
           },
@@ -720,6 +744,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Demand",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Demand"
           },
@@ -750,6 +775,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Opportunity",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Opportunity"
           },
@@ -780,6 +806,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Risk",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Risk"
           },
@@ -810,6 +837,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/ValueProposition",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Value Proposition"
           },
@@ -840,6 +868,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/PortfolioPriority",
           "type": "classification",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Portfolio Priority"
           },
@@ -873,7 +902,7 @@
         "en": "ODPV Governance"
       },
       "description": {
-        "en": "ODPV Governance defines the terms used to describe how data products are controlled, protected, accessed, licensed, and operated."
+        "en": "Terms used to describe how data products are controlled, protected, accessed, licensed, and operated."
       },
       "terms": [
         {
@@ -881,6 +910,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/DataQuality",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Data Quality"
           },
@@ -912,6 +942,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/SLA",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "SLA"
           },
@@ -942,6 +973,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/License",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "License"
           },
@@ -973,6 +1005,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/AccessMethod",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Access Method"
           },
@@ -1004,6 +1037,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Agreement",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Agreement"
           },
@@ -1035,6 +1069,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Policy",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Policy"
           },
@@ -1066,6 +1101,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/ComplianceRule",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Compliance Rule"
           },
@@ -1097,6 +1133,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Sensitivity",
           "type": "classification",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Sensitivity"
           },
@@ -1127,6 +1164,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/UsageRights",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Usage Rights"
           },
@@ -1157,6 +1195,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Retention",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Retention"
           },
@@ -1187,6 +1226,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/AccessCondition",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Access Condition"
           },
@@ -1218,6 +1258,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/GovernanceProfile",
           "type": "classification",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Governance Profile"
           },
@@ -1248,6 +1289,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/DataAgreement",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Data Agreement"
           },
@@ -1278,6 +1320,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/DataContract",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Data Contract"
           },
@@ -1307,6 +1350,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/Stewardship",
           "type": "object",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "Stewardship"
           },
@@ -1340,7 +1384,7 @@
         "en": "ODPV Relationships"
       },
       "description": {
-        "en": "ODPV Relationships defines the terms used to connect data products, catalogs, use cases, objectives, KPIs, signals, governance objects, and related portfolio items."
+        "en": "Terms used to connect data products, catalogs, use cases, objectives, KPIs, signals, governance objects, and related portfolio items."
       },
       "terms": [
         {
@@ -1348,6 +1392,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/supports",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "supports"
           },
@@ -1367,6 +1412,16 @@
             "requires",
             "relatedTo"
           ],
+          "domain": [
+            "DataProduct",
+            "DataProductCatalog",
+            "UseCase"
+          ],
+          "range": [
+            "UseCase",
+            "BusinessObjective",
+            "Outcome"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1376,6 +1431,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/requires",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "requires"
           },
@@ -1395,6 +1451,16 @@
             "supports",
             "DataNeed"
           ],
+          "domain": [
+            "UseCase",
+            "DataProduct",
+            "BusinessObjective"
+          ],
+          "range": [
+            "DataProduct",
+            "Dataset",
+            "DataNeed"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1404,6 +1470,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/contributesTo",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "contributes to"
           },
@@ -1423,6 +1490,16 @@
             "measures",
             "BusinessObjective"
           ],
+          "domain": [
+            "DataProduct",
+            "UseCase",
+            "KPI"
+          ],
+          "range": [
+            "BusinessObjective",
+            "Outcome",
+            "Impact"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1432,6 +1509,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/measures",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "measures"
           },
@@ -1451,6 +1529,15 @@
             "Outcome",
             "BusinessObjective"
           ],
+          "domain": [
+            "KPI",
+            "Signal"
+          ],
+          "range": [
+            "BusinessObjective",
+            "Outcome",
+            "Impact"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1460,6 +1547,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/belongsTo",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "belongs to"
           },
@@ -1479,6 +1567,15 @@
             "hasPart",
             "DataProductCatalog"
           ],
+          "domain": [
+            "DataProduct",
+            "UseCase",
+            "BusinessObjective"
+          ],
+          "range": [
+            "DataProductCatalog",
+            "Domain"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1488,6 +1585,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/dependsOn",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "depends on"
           },
@@ -1507,6 +1605,16 @@
             "relatedTo",
             "derivedFrom"
           ],
+          "domain": [
+            "DataProduct",
+            "DataService",
+            "UseCase"
+          ],
+          "range": [
+            "DataProduct",
+            "Dataset",
+            "DataService"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1516,6 +1624,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/governedBy",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "governed by"
           },
@@ -1536,6 +1645,17 @@
             "Agreement",
             "ComplianceRule"
           ],
+          "domain": [
+            "DataProduct",
+            "Dataset",
+            "AccessMethod"
+          ],
+          "range": [
+            "Policy",
+            "License",
+            "Agreement",
+            "ComplianceRule"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1545,6 +1665,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/providedBy",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "provided by"
           },
@@ -1564,6 +1685,15 @@
             "Owner",
             "Steward"
           ],
+          "domain": [
+            "DataProduct",
+            "Dataset",
+            "DataService"
+          ],
+          "range": [
+            "Provider",
+            "Owner"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1573,6 +1703,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/consumedBy",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "consumed by"
           },
@@ -1592,6 +1723,14 @@
             "AccessMethod",
             "UsageRights"
           ],
+          "domain": [
+            "DataProduct",
+            "Dataset",
+            "DataService"
+          ],
+          "range": [
+            "Consumer"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1601,6 +1740,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/indicates",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "indicates"
           },
@@ -1622,6 +1762,16 @@
             "Risk",
             "Opportunity"
           ],
+          "domain": [
+            "Signal",
+            "KPI"
+          ],
+          "range": [
+            "Gap",
+            "Demand",
+            "Risk",
+            "Opportunity"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1631,6 +1781,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/relatedTo",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "related to"
           },
@@ -1650,6 +1801,18 @@
             "dependsOn",
             "partOf"
           ],
+          "domain": [
+            "DataProduct",
+            "UseCase",
+            "BusinessObjective",
+            "GovernanceProfile"
+          ],
+          "range": [
+            "DataProduct",
+            "UseCase",
+            "BusinessObjective",
+            "GovernanceProfile"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1659,6 +1822,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/partOf",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "part of"
           },
@@ -1678,6 +1842,16 @@
             "belongsTo",
             "DataProductCatalog"
           ],
+          "domain": [
+            "DataProduct",
+            "Dataset",
+            "Distribution"
+          ],
+          "range": [
+            "DataProductCatalog",
+            "DataProduct",
+            "Dataset"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1687,6 +1861,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/hasPart",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "has part"
           },
@@ -1706,6 +1881,16 @@
             "belongsTo",
             "Dataset"
           ],
+          "domain": [
+            "DataProductCatalog",
+            "DataProduct",
+            "Dataset"
+          ],
+          "range": [
+            "DataProduct",
+            "Dataset",
+            "Distribution"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1715,6 +1900,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/derivedFrom",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "derived from"
           },
@@ -1734,6 +1920,16 @@
             "Reference",
             "Dataset"
           ],
+          "domain": [
+            "DataProduct",
+            "Dataset",
+            "Signal"
+          ],
+          "range": [
+            "Dataset",
+            "DataProduct",
+            "Reference"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1743,6 +1939,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/replaces",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "replaces"
           },
@@ -1762,6 +1959,16 @@
             "derivedFrom",
             "relatedTo"
           ],
+          "domain": [
+            "DataProduct",
+            "Dataset",
+            "DataService"
+          ],
+          "range": [
+            "DataProduct",
+            "Dataset",
+            "DataService"
+          ],
           "usedIn": [
             "ODPG"
           ]
@@ -1771,6 +1978,7 @@
           "uri": "https://opendataproducts.org/odpv-v1.0/terms/versionOf",
           "type": "relationship",
           "status": "stable",
+          "introducedIn": "1.0.0",
           "preferredLabel": {
             "en": "version of"
           },
@@ -1789,6 +1997,16 @@
             "replaces",
             "derivedFrom",
             "Identifier"
+          ],
+          "domain": [
+            "DataProduct",
+            "Dataset",
+            "DataService"
+          ],
+          "range": [
+            "DataProduct",
+            "Dataset",
+            "DataService"
           ],
           "usedIn": [
             "ODPG"

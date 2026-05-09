@@ -13,6 +13,7 @@ license:
 publisher:
   name: Open Data Product Initiative
   umbrella: Linux Foundation
+  url: https://opendataproducts.org
 
 sections:
   - id: core
@@ -25,6 +26,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/DataProduct
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Data Product
         definition:
@@ -48,6 +50,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Data Product Catalog
         definition:
@@ -70,6 +73,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/DataProductGraph
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Data Product Graph
         definition:
@@ -91,6 +95,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Dataset
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Dataset
         definition:
@@ -113,6 +118,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Distribution
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Distribution
         definition:
@@ -134,6 +140,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/DataService
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Data Service
         definition:
@@ -155,6 +162,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Provider
         type: role
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Provider
         definition:
@@ -178,6 +186,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Consumer
         type: role
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Consumer
         definition:
@@ -202,6 +211,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Owner
         type: role
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Owner
         definition:
@@ -224,6 +234,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Steward
         type: role
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Steward
         definition:
@@ -246,6 +257,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Domain
         type: classification
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Domain
         definition:
@@ -269,6 +281,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Identifier
         type: reference
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Identifier
         definition:
@@ -292,6 +305,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Reference
         type: reference
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Reference
         definition:
@@ -321,6 +335,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/UseCase
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Use Case
         definition:
@@ -344,6 +359,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Business Objective
         definition:
@@ -367,6 +383,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/KPI
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: KPI
         definition:
@@ -389,6 +406,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Impact
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Impact
         definition:
@@ -412,6 +430,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Signal
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Signal
         definition:
@@ -435,6 +454,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Gap
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Gap
         definition:
@@ -458,6 +478,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Priority
         type: classification
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Priority
         definition:
@@ -481,6 +502,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Outcome
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Outcome
         definition:
@@ -504,6 +526,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/DataNeed
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Data Need
         definition:
@@ -527,6 +550,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Benefit
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Benefit
         definition:
@@ -548,6 +572,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Demand
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Demand
         definition:
@@ -571,6 +596,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Opportunity
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Opportunity
         definition:
@@ -594,6 +620,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Risk
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Risk
         definition:
@@ -617,6 +644,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/ValueProposition
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Value Proposition
         definition:
@@ -640,6 +668,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/PortfolioPriority
         type: classification
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Portfolio Priority
         definition:
@@ -669,6 +698,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/DataQuality
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Data Quality
         definition:
@@ -693,6 +723,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/SLA
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: SLA
         definition:
@@ -716,6 +747,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/License
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: License
         definition:
@@ -740,6 +772,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/AccessMethod
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Access Method
         definition:
@@ -764,6 +797,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Agreement
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Agreement
         definition:
@@ -788,6 +822,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Policy
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Policy
         definition:
@@ -812,6 +847,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/ComplianceRule
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Compliance Rule
         definition:
@@ -836,6 +872,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Sensitivity
         type: classification
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Sensitivity
         definition:
@@ -859,6 +896,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/UsageRights
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Usage Rights
         definition:
@@ -882,6 +920,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Retention
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Retention
         definition:
@@ -905,6 +944,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/AccessCondition
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Access Condition
         definition:
@@ -929,6 +969,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/GovernanceProfile
         type: classification
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Governance Profile
         definition:
@@ -952,6 +993,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/DataAgreement
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Data Agreement
         definition:
@@ -975,6 +1017,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/DataContract
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Data Contract
         definition:
@@ -997,6 +1040,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/Stewardship
         type: object
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: Stewardship
         definition:
@@ -1026,6 +1070,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/supports
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: supports
         definition:
@@ -1040,6 +1085,14 @@ sections:
           - contributesTo
           - requires
           - relatedTo
+        domain:
+          - DataProduct
+          - DataProductCatalog
+          - UseCase
+        range:
+          - UseCase
+          - BusinessObjective
+          - Outcome
         usedIn:
           - ODPG
 
@@ -1047,6 +1100,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/requires
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: requires
         definition:
@@ -1061,6 +1115,14 @@ sections:
           - dependsOn
           - supports
           - DataNeed
+        domain:
+          - UseCase
+          - DataProduct
+          - BusinessObjective
+        range:
+          - DataProduct
+          - Dataset
+          - DataNeed
         usedIn:
           - ODPG
 
@@ -1068,6 +1130,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/contributesTo
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: contributes to
         definition:
@@ -1082,6 +1145,14 @@ sections:
           - supports
           - measures
           - BusinessObjective
+        domain:
+          - DataProduct
+          - UseCase
+          - KPI
+        range:
+          - BusinessObjective
+          - Outcome
+          - Impact
         usedIn:
           - ODPG
 
@@ -1089,6 +1160,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/measures
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: measures
         definition:
@@ -1103,6 +1175,13 @@ sections:
           - KPI
           - Outcome
           - BusinessObjective
+        domain:
+          - KPI
+          - Signal
+        range:
+          - BusinessObjective
+          - Outcome
+          - Impact
         usedIn:
           - ODPG
 
@@ -1110,6 +1189,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/belongsTo
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: belongs to
         definition:
@@ -1124,6 +1204,13 @@ sections:
           - partOf
           - hasPart
           - DataProductCatalog
+        domain:
+          - DataProduct
+          - UseCase
+          - BusinessObjective
+        range:
+          - DataProductCatalog
+          - Domain
         usedIn:
           - ODPG
 
@@ -1131,6 +1218,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/dependsOn
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: depends on
         definition:
@@ -1145,6 +1233,14 @@ sections:
           - requires
           - relatedTo
           - derivedFrom
+        domain:
+          - DataProduct
+          - DataService
+          - UseCase
+        range:
+          - DataProduct
+          - Dataset
+          - DataService
         usedIn:
           - ODPG
 
@@ -1152,6 +1248,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/governedBy
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: governed by
         definition:
@@ -1167,6 +1264,15 @@ sections:
           - License
           - Agreement
           - ComplianceRule
+        domain:
+          - DataProduct
+          - Dataset
+          - AccessMethod
+        range:
+          - Policy
+          - License
+          - Agreement
+          - ComplianceRule
         usedIn:
           - ODPG
 
@@ -1174,6 +1280,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/providedBy
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: provided by
         definition:
@@ -1188,6 +1295,13 @@ sections:
           - Provider
           - Owner
           - Steward
+        domain:
+          - DataProduct
+          - Dataset
+          - DataService
+        range:
+          - Provider
+          - Owner
         usedIn:
           - ODPG
 
@@ -1195,6 +1309,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/consumedBy
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: consumed by
         definition:
@@ -1209,6 +1324,12 @@ sections:
           - Consumer
           - AccessMethod
           - UsageRights
+        domain:
+          - DataProduct
+          - Dataset
+          - DataService
+        range:
+          - Consumer
         usedIn:
           - ODPG
 
@@ -1216,6 +1337,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/indicates
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: indicates
         definition:
@@ -1232,6 +1354,14 @@ sections:
           - Demand
           - Risk
           - Opportunity
+        domain:
+          - Signal
+          - KPI
+        range:
+          - Gap
+          - Demand
+          - Risk
+          - Opportunity
         usedIn:
           - ODPG
 
@@ -1239,6 +1369,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/relatedTo
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: related to
         definition:
@@ -1253,6 +1384,16 @@ sections:
           - supports
           - dependsOn
           - partOf
+        domain:
+          - DataProduct
+          - UseCase
+          - BusinessObjective
+          - GovernanceProfile
+        range:
+          - DataProduct
+          - UseCase
+          - BusinessObjective
+          - GovernanceProfile
         usedIn:
           - ODPG
 
@@ -1260,6 +1401,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/partOf
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: part of
         definition:
@@ -1274,6 +1416,14 @@ sections:
           - hasPart
           - belongsTo
           - DataProductCatalog
+        domain:
+          - DataProduct
+          - Dataset
+          - Distribution
+        range:
+          - DataProductCatalog
+          - DataProduct
+          - Dataset
         usedIn:
           - ODPG
 
@@ -1281,6 +1431,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/hasPart
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: has part
         definition:
@@ -1295,6 +1446,14 @@ sections:
           - partOf
           - belongsTo
           - Dataset
+        domain:
+          - DataProductCatalog
+          - DataProduct
+          - Dataset
+        range:
+          - DataProduct
+          - Dataset
+          - Distribution
         usedIn:
           - ODPG
 
@@ -1302,6 +1461,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/derivedFrom
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: derived from
         definition:
@@ -1316,6 +1476,14 @@ sections:
           - dependsOn
           - Reference
           - Dataset
+        domain:
+          - DataProduct
+          - Dataset
+          - Signal
+        range:
+          - Dataset
+          - DataProduct
+          - Reference
         usedIn:
           - ODPG
 
@@ -1323,6 +1491,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/replaces
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: replaces
         definition:
@@ -1337,6 +1506,14 @@ sections:
           - versionOf
           - derivedFrom
           - relatedTo
+        domain:
+          - DataProduct
+          - Dataset
+          - DataService
+        range:
+          - DataProduct
+          - Dataset
+          - DataService
         usedIn:
           - ODPG
 
@@ -1344,6 +1521,7 @@ sections:
         uri: https://opendataproducts.org/odpv-v1.0/terms/versionOf
         type: relationship
         status: stable
+        introducedIn: 1.0.0
         preferredLabel:
           en: version of
         definition:
@@ -1358,5 +1536,13 @@ sections:
           - replaces
           - derivedFrom
           - Identifier
+        domain:
+          - DataProduct
+          - Dataset
+          - DataService
+        range:
+          - DataProduct
+          - Dataset
+          - DataService
         usedIn:
           - ODPG
