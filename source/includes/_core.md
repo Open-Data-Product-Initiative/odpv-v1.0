@@ -24,3 +24,4 @@ The core terms are intentionally lightweight. They do not replace the full objec
 | `Identifier`         | reference      | A stable value used to uniquely identify a vocabulary term, specification object, product, catalog item, or graph node.                                   | id, unique id, persistent id, node id                                            | `Reference`, `URI`, `DataProduct`                 | ODPS, ODPC, ODPG |
 | `Reference`          | reference      | A link or pointer to another object, specification file, external vocabulary term, system record, or graph node.                                          | link, pointer, external reference, object reference                              | `Identifier`, `$ref`, `URI`                       | ODPS, ODPC, ODPG |
 
+[Suggest addition to the vocabulary](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) 
