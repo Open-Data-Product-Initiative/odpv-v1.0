@@ -1,6 +1,6 @@
 # Extensions
 
-ODPV defines a shared controlled vocabulary for the OpenDataProducts.org standards family. It provides stable terms, labels, definitions, concept groups, mappings, and relationship names used across ODPS, ODPC, and ODPG. Organizations may need additional terms for domain-specific, platform-specific, or organization-specific use cases. These terms can be added through vocabulary extensions.
+ODPV defines a shared controlled vocabulary for the OpenDataProducts.org standards family. It provides stable terms, labels, definitions, concept groups, mappings, and relationship names used across ODPS, ODPC, and [ODPG](https://opendataproducts.org/odpg-v1.0/). Organizations may need additional terms for domain-specific, platform-specific, or organization-specific use cases. These terms can be added through vocabulary extensions.
 
 Extensions should add new terms, labels, mappings, concept groups, related terms, or usage notes. They should not change the meaning of official ODPV terms. Extension terms should use a separate namespace or prefix to avoid conflict with official ODPV terms.
 
