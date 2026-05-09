@@ -8,7 +8,7 @@ Each term has one canonical ODPV name. Alternative terms are included to support
 
 The core terms are intentionally lightweight. They do not replace the full object models of ODPS, ODPC, or [ODPG](https://opendataproducts.org/odpg-v1.0/). Instead, they provide a common vocabulary layer that supports interoperability across the Open Data Products ecosystem.
 
-Example core term:
+> Snippet of YAML version:
 
 ```yml
 id: DataProduct

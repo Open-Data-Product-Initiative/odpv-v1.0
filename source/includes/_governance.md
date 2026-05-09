@@ -8,7 +8,7 @@ The governance vocabulary supports trusted reuse. It helps teams describe who is
 
 Each term has one canonical ODPV name. Also known as terms help users map familiar governance, legal, operational, and technical language to the official vocabulary. Related terms show nearby concepts that are connected but should not be treated as identical.
 
-Example governance term:
+> Snippet of YAML version:
 
 ```yml
 id: DataQuality

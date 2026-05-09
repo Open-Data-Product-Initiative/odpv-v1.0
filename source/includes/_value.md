@@ -8,7 +8,7 @@ The value vocabulary supports portfolio-level thinking. It helps teams describe 
 
 Each term has one canonical ODPV name. Also known as terms help users map familiar business language to the official vocabulary. Related terms show nearby concepts that are connected but should not be treated as identical.
 
-Example value term:
+> Snippet of YAML version:
 
 ```yml
 id: BusinessObjective

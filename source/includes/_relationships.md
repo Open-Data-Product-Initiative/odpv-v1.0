@@ -10,7 +10,7 @@ The relationship vocabulary is especially important for [ODPG](https://opendatap
 
 Each relationship term has one canonical ODPV name. Also known as terms help users map familiar relationship language to the official vocabulary. Related terms show nearby relationship types that are connected but should not be treated as identical.
 
-Example relationship term:
+> Snippet of YAML version:
 
 ```yml
 id: supports

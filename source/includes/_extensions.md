@@ -22,7 +22,7 @@ Extension terms may define:
 * `externalMappings`
 * `notes`
 
-Example extension term:
+> Snippet of YAML version:
 
 ```yml
 id: x-mobility:CongestionIndex
