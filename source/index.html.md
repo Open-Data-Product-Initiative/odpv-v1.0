@@ -77,9 +77,13 @@ ODPV is published as both human-readable documentation and machine-readable file
 |---|---|---|
 | [`odpv.yaml`](/examples/odpv.yaml) | YAML | Canonical machine-readable vocabulary file |
 | [`odpv.json`](/examples/odpv.json) | JSON | JSON representation for tools, APIs, search indexes, and graph applications |
+| [`core.yaml`](/examples/core.yaml) | YAML | ODPV Core terms as a standalone machine-readable section file |
+| [`value.yaml`](/examples/value.yaml) | YAML | ODPV Value terms as a standalone machine-readable section file |
+| [`governance.yaml`](/examples/governance.yaml) | YAML | ODPV Governance terms as a standalone machine-readable section file |
+| [`relationships.yaml`](/examples/relationships.yaml) | YAML | ODPV Relationships terms as a standalone machine-readable section file |
 | [`odpv.schema.json`](/schema/odpv.schema.json) | JSON Schema | Validation schema for ODPV vocabulary files |
 
-The Markdown tables in this specification are intended for human readers. The YAML file is intended for programmable use, automation, validation, AI retrieval, and graph-based tooling.
+The Markdown tables in this specification are intended for human readers. The YAML files are intended for programmable use, automation, validation, AI retrieval, and graph-based tooling.
 
 # Introduction
 The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. ODPV defines shared terms used across the OpenDataProducts.org standards family, including data products, catalogs, graphs, value concepts, governance concepts, and relationship terms. It is designed to help organizations use consistent language across specifications, catalogs, graph implementations, AI assistants, and GraphRAG-ready data product portfolios.
@@ -153,7 +157,6 @@ ODPV helps prevent terminology drift across the standards family. Without a shar
 * Improve interoperability between catalogs, platforms, marketplaces, and tools.
 * Provide a lightweight path toward semantic knowledge graph implementation.
 * Keep formal ontology work optional.
-
 
 
 
