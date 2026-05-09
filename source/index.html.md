@@ -87,20 +87,16 @@ The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machin
 
 ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The first version focuses on four concept groups:
 
-* ODPV Core
-* ODPV Value
-* ODPV Governance
-* ODPV Relationships
+**ODPV Core**: [ODPV Core](#odpv-core) defines foundational terms used across the standards family.These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.
+
+**ODPV Value**: [ODPV Value](#odpv-value) defines terms that connect data products to business demand, objectives, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.
+
+**ODPV Governance**: [ODPV Governance](#odpv-governance) defines terms for quality, access, legal, operational, and compliance context.These terms help describe how data products are governed, accessed, controlled, and trusted.
+
+**ODPV Relationships**: [ODPV Relationships](#odpv-relationships) defines reusable relationship terms for graph implementation and portfolio analysis. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, and catalogs in a consistent way.
 
 These groups create a common language for describing, connecting, validating, and reasoning over data product portfolios.
 
-**ODPV Core**: ODPV Core defines foundational terms used across the standards family.These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.
-
-**ODPV Value**: ODPV Value defines terms that connect data products to business demand, objectives, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.
-
-**ODPV Governance**: ODPV Governance defines terms for quality, access, legal, operational, and compliance context.These terms help describe how data products are governed, accessed, controlled, and trusted.
-
-**ODPV Relationships**: ODPV Relationships defines reusable relationship terms for graph implementation and portfolio analysis. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, and catalogs in a consistent way.
 
 | Section | Purpose | Term count |
 |---|---|---:|
