@@ -22,6 +22,25 @@ Extension terms may define:
 * `externalMappings`
 * `notes`
 
+Example extension term:
+
+```yml
+id: x-mobility:CongestionIndex
+preferredLabel:
+  en: Congestion Index
+definition:
+  en: A domain-specific indicator describing the level of traffic congestion for a mobility data product.
+conceptGroup: x-mobility
+relatedTerms:
+  - KPI
+  - Signal
+externalMappings:
+  - scheme: example-mobility-taxonomy
+    value: congestion-index
+notes:
+  en: Extension terms use a separate namespace so they do not conflict with official ODPV terms.
+```
+
 Extensions are not part of the official ODPV vocabulary unless they are later adopted into the specification. Tooling may ignore extension terms unless explicit support has been added. Extensions should not be used to redefine official ODPV terms such as `DataProduct`, `UseCase`, `BusinessObjective`, `KPI`, `Signal`, `DataQuality`, `License`, or `supports`.
 
 Useful and widely adopted extensions may become candidates for future versions of ODPV. To propose useful extensions, raise an issue in GitHub:
