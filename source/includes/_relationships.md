@@ -17,6 +17,7 @@ id: supports
 uri: https://opendataproducts.org/odpv-v1.0/terms/supports
 type: relationship
 status: stable
+introducedIn: 1.0.0
 preferredLabel:
   en: supports
 definition:

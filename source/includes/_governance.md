@@ -15,6 +15,7 @@ id: DataQuality
 uri: https://opendataproducts.org/odpv-v1.0/terms/DataQuality
 type: object
 status: stable
+introducedIn: 1.0.0
 preferredLabel:
   en: Data Quality
 definition:

@@ -15,6 +15,7 @@ id: DataProduct
 uri: https://opendataproducts.org/odpv-v1.0/terms/DataProduct
 type: object
 status: stable
+introducedIn: 1.0.0
 preferredLabel:
   en: Data Product
 definition:

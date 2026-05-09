@@ -15,6 +15,7 @@ id: BusinessObjective
 uri: https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective
 type: object
 status: stable
+introducedIn: 1.0.0
 preferredLabel:
   en: Business Objective
 definition:
