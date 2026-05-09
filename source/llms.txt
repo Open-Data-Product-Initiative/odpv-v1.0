@@ -2,6 +2,9 @@
 
 ODPV is a controlled vocabulary for the OpenDataProducts.org standards family. It defines stable terms, labels, definitions, concept groups, relationship names, and related-term links used across ODPS, ODPC, and ODPG.
 
+Base URL:
+- https://opendataproducts.org/odpv-v1.0
+
 Standards-family context:
 - ODPS is the Open Data Product Specification. Use ODPS when describing one data product and its product metadata. Homepage: https://opendataproducts.org/
 - ODPC is the Open Data Product Catalog specification. Use ODPC when describing catalogs, portfolios, use cases, objectives, KPIs, signals, and related portfolio objects.
@@ -9,28 +12,57 @@ Standards-family context:
 - ODPV does not replace ODPS, ODPC, or ODPG. It provides stable ids, labels, definitions, and relationship names that those specifications can reference.
 
 Canonical vocabulary files:
-- /vocab/odpv.yaml
-- /vocab/odpv.json
+- /vocab/odpv.yaml (https://opendataproducts.org/odpv-v1.0/vocab/odpv.yaml)
+- /vocab/odpv.json (https://opendataproducts.org/odpv-v1.0/vocab/odpv.json)
 
 Section vocabulary files:
-- /vocab/core.yaml
-- /vocab/value.yaml
-- /vocab/governance.yaml
-- /vocab/relationships.yaml
+- /vocab/core.yaml (https://opendataproducts.org/odpv-v1.0/vocab/core.yaml)
+- /vocab/value.yaml (https://opendataproducts.org/odpv-v1.0/vocab/value.yaml)
+- /vocab/governance.yaml (https://opendataproducts.org/odpv-v1.0/vocab/governance.yaml)
+- /vocab/relationships.yaml (https://opendataproducts.org/odpv-v1.0/vocab/relationships.yaml)
 
 Agent-friendly vocabulary file:
-- /vocab/terms.jsonl
+- /vocab/terms.jsonl (https://opendataproducts.org/odpv-v1.0/vocab/terms.jsonl)
+
+Validation schema:
+- /schema/odpv.schema.json (https://opendataproducts.org/odpv-v1.0/schema/odpv.schema.json)
+
+File selection guidance:
+- Use /vocab/terms.jsonl for retrieval, embeddings, search, and lightweight agent tools. It contains one term per line with ids, uris, labels, definitions, aliases, related terms, examples, usedIn values, and relationship domain/range hints where available.
+- Use /vocab/odpv.yaml as the canonical source when complete vocabulary structure, section context, schema-compatible metadata, or validation context is required.
+- Use /vocab/odpv.json when JSON is easier to consume than YAML.
+- Use section YAML files when only one vocabulary area is needed.
+- Use /schema/odpv.schema.json to validate ODPV vocabulary files.
 
 Recommended agent workflow:
 1. Fetch /llms.txt first to understand the standards-family context and available machine-readable files.
 2. Load /vocab/terms.jsonl for term search, retrieval, embeddings, and lightweight lookup.
 3. Use /vocab/odpv.yaml when full vocabulary structure, section context, schema-compatible metadata, or validation context is needed.
 4. Match user language against preferredLabel, alsoKnownAs, definition, examples, and relatedTerms.
-5. Return stable term id and uri, not only human-readable labels.
+5. Check the vocabulary version and include it when generating structured outputs.
 6. For graph work, use relationship domain and range fields from relationship terms.
-7. If no existing term fits, suggest an extension term or propose a new shared term through GitHub issues instead of inventing a new meaning for an official term.
+7. Return stable term id and uri, not only human-readable labels.
+8. If no existing term fits, suggest an extension term or propose a new shared term through GitHub issues instead of inventing a new meaning for an official term.
 
 Use ODPV terms by their stable `id` and `uri`. Do not redefine official ODPV terms or invent new meanings for existing terms. If a needed concept is not present, treat it as an extension candidate and use a separate namespace or prefix.
+
+When returning a matched ODPV term, include:
+- vocabularyVersion
+- section
+- id
+- uri
+- preferredLabel
+- definition
+- why this term fits
+- relatedTerms when useful
+
+If multiple terms may fit, return candidate terms and explain the distinction. Prefer the most specific official ODPV term. Use `relatedTo` only when a more specific relationship term is not available.
+
+Graph relationship guidance:
+- Use only official ODPV relationship ids unless using an explicit extension namespace or prefix.
+- For graph edges, use relationship terms from /vocab/relationships.yaml or relationship records in /vocab/terms.jsonl.
+- Check `domain` for recommended source node types and `range` for recommended target node types.
+- ODPV defines relationship names and meanings. ODPG defines graph structures and how relationships are used in graph files.
 
 Suggesting new terms:
 - If a useful shared term appears to be missing from ODPV, suggest it through GitHub issues: https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues
