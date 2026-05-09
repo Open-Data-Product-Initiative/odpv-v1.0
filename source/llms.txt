@@ -21,6 +21,15 @@ Section vocabulary files:
 Agent-friendly vocabulary file:
 - /vocab/terms.jsonl
 
+Recommended agent workflow:
+1. Fetch /llms.txt first to understand the standards-family context and available machine-readable files.
+2. Load /vocab/terms.jsonl for term search, retrieval, embeddings, and lightweight lookup.
+3. Use /vocab/odpv.yaml when full vocabulary structure, section context, schema-compatible metadata, or validation context is needed.
+4. Match user language against preferredLabel, alsoKnownAs, definition, examples, and relatedTerms.
+5. Return stable term id and uri, not only human-readable labels.
+6. For graph work, use relationship domain and range fields from relationship terms.
+7. If no existing term fits, suggest an extension term or propose a new shared term through GitHub issues instead of inventing a new meaning for an official term.
+
 Use ODPV terms by their stable `id` and `uri`. Do not redefine official ODPV terms or invent new meanings for existing terms. If a needed concept is not present, treat it as an extension candidate and use a separate namespace or prefix.
 
 Suggesting new terms:
