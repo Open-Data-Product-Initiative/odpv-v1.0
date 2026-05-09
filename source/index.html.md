@@ -1,5 +1,5 @@
 ---
-title: Open Data Products Vocab (ODPV) version DEV | Linux Foundation 
+title: Open Data Product Vocab (ODPV) version DEV | Linux Foundation 
 
 language_tabs: # must be one of https://git.io/vQNgJ
 - yaml
@@ -27,7 +27,7 @@ meta:
     content: The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. 
 ---
 
-# OPEN DATA PRODUCTS VOCABULARY - The Linux Foundation
+# OPEN DATA PRODUCT VOCABULARY - The Linux Foundation
 
 ## Version DRAFT
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 ([RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119) and [RFC 8174](https://datatracker.ietf.org/doc/html/rfc8174)) when, and only when, they appear in all capitals, as shown here.
