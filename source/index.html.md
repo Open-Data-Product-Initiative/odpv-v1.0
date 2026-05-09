@@ -130,6 +130,16 @@ ODPV is not intended to be a heavy ontology. It is a practical controlled vocabu
 
 ## Relationship to ODPS, ODPC, and ODPG
 
+<!-- AI_STANDARDS_FAMILY_GUIDANCE:
+ODPV is the shared vocabulary layer for the OpenDataProducts.org standards family.
+ODPS is the Open Data Product Specification. Use ODPS when describing one data product and its product metadata.
+ODPC is the Open Data Product Catalog specification. Use ODPC when describing catalogs, portfolios, use cases, objectives, KPIs, signals, and related portfolio objects.
+ODPG is the Open Data Product Graph specification. Use ODPG when describing graph structures and relationships between data products, use cases, objectives, KPIs, signals, governance objects, providers, and consumers.
+ODPV does not replace ODPS, ODPC, or ODPG. It provides stable ids, labels, definitions, and relationship names that those specifications can reference.
+ODPG documentation: https://opendataproducts.org/odpg-v1.0/
+ODPS homepage: https://opendataproducts.org/
+-->
+
 * ODPS defines one data product.
 * ODPC defines reusable catalog and portfolio objects.
 * ODPG defines relationships between data products, use cases, objectives, KPIs, signals, and other portfolio objects.

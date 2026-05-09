@@ -1,5 +1,12 @@
 # ODPV Relationships
 
+<!-- AI_SECTION_GUIDANCE:
+This section defines ODPV relationship term names and meanings.
+Use these relationship ids as controlled vocabulary terms for graph edges.
+ODPG defines how these relationship types are used in graph structures; ODPV only defines the shared names, labels, and definitions.
+ODPG documentation: https://opendataproducts.org/odpg-v1.0/
+-->
+
 ODPV defines the names and meanings of relationship types. [ODPG](https://opendataproducts.org/odpg-v1.0/) defines how those relationship types are used in graph structures. In other words, ODPV defines the vocabulary. [ODPG](https://opendataproducts.org/odpg-v1.0/) defines the graph model.
 
 ODPV Relationships defines the terms used to connect data products, catalogs, use cases, objectives, KPIs, signals, governance objects, and related portfolio items.
