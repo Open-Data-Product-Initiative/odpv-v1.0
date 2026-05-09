@@ -20,7 +20,9 @@ status: stable
 preferredLabel:
   en: supports
 definition:
-  en: Indicates that one object helps enable, serve, or make another object possible, such as a data product supporting a use case.
+  en: Indicates that one object helps enable, serve, or 
+      make another object possible, such as a data product 
+      supporting a use case.
 alsoKnownAs:
   en:
     - enables

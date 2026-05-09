@@ -18,7 +18,8 @@ status: stable
 preferredLabel:
   en: Business Objective
 definition:
-  en: A business goal or intended outcome that data products, use cases, or portfolio actions support.
+  en: A business goal or intended outcome that data products, 
+      use cases, or portfolio actions support.
 alsoKnownAs:
   en:
     - objective

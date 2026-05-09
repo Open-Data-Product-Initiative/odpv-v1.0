@@ -18,7 +18,8 @@ status: stable
 preferredLabel:
   en: Data Quality
 definition:
-  en: The expected, measured, or reported quality of a data product, dataset, distribution, or data service.
+  en: The expected, measured, or reported quality of a data product, 
+      dataset, distribution, or data service.
 alsoKnownAs:
   en:
     - quality
