@@ -75,12 +75,12 @@ ODPV is published as both human-readable documentation and machine-readable file
 
 | File | Format | Purpose |
 |---|---|---|
-| [`odpv.yaml`](/examples/odpv.yaml) | YAML | Canonical machine-readable vocabulary file |
-| [`odpv.json`](/examples/odpv.json) | JSON | JSON representation for tools, APIs, search indexes, and graph applications |
-| [`core.yaml`](/examples/core.yaml) | YAML | ODPV Core terms as a standalone machine-readable section file |
-| [`value.yaml`](/examples/value.yaml) | YAML | ODPV Value terms as a standalone machine-readable section file |
-| [`governance.yaml`](/examples/governance.yaml) | YAML | ODPV Governance terms as a standalone machine-readable section file |
-| [`relationships.yaml`](/examples/relationships.yaml) | YAML | ODPV Relationships terms as a standalone machine-readable section file |
+| [`odpv.yaml`](/vocab/odpv.yaml) | YAML | Canonical machine-readable vocabulary file |
+| [`odpv.json`](/vocab/odpv.json) | JSON | JSON representation for tools, APIs, search indexes, and graph applications |
+| [`core.yaml`](/vocab/core.yaml) | YAML | ODPV Core terms as a standalone machine-readable section file |
+| [`value.yaml`](/vocab/value.yaml) | YAML | ODPV Value terms as a standalone machine-readable section file |
+| [`governance.yaml`](/vocab/governance.yaml) | YAML | ODPV Governance terms as a standalone machine-readable section file |
+| [`relationships.yaml`](/vocab/relationships.yaml) | YAML | ODPV Relationships terms as a standalone machine-readable section file |
 | [`odpv.schema.json`](/schema/odpv.schema.json) | JSON Schema | Validation schema for ODPV vocabulary files |
 
 The Markdown tables in this specification are intended for human readers. The YAML files are intended for programmable use, automation, validation, AI retrieval, and graph-based tooling.
@@ -157,7 +157,6 @@ ODPV helps prevent terminology drift across the standards family. Without a shar
 * Improve interoperability between catalogs, platforms, marketplaces, and tools.
 * Provide a lightweight path toward semantic knowledge graph implementation.
 * Keep formal ontology work optional.
-
 
 
 
