@@ -10,11 +10,21 @@
     <meta property="og:image" content="https://opendataproducts.org/images/social.png" />
     <meta property="og:description" 
     content="The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management." />
+    <link rel="alternate" type="text/plain" title="LLMs and AI agent guidance" href="/llms.txt">
+    <link rel="alternate" type="application/x-ndjson" title="ODPV terms JSONL" href="/vocab/terms.jsonl">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
             content="The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management."
+        >
+        <meta
+            name="llms"
+            content="/llms.txt"
+        >
+        <meta
+            name="ai-agent-guidance"
+            content="Use /llms.txt for agent guidance and /vocab/terms.jsonl for retrieval-friendly vocabulary terms."
         >
 
     <title>Open Data Product Vocab (ODPV) version DRAFT | Linux Foundation</title>
@@ -468,6 +478,11 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 <th>Purpose</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><a href="llms.txt"><code>llms.txt</code></a></td>
+<td>Text</td>
+<td>AI agent guidance for discovering and using the ODPV vocabulary files</td>
+</tr>
 <tr>
 <td><a href="vocab/odpv.yaml"><code>odpv.yaml</code></a></td>
 <td>YAML</td>
