@@ -110,7 +110,7 @@ These groups create a common language for describing, connecting, validating, an
 | ODPV Relationships | Relationship terms for graphs and portfolio analysis | 16 |
 | Total | Shared vocabulary terms | 59 |
 
-[Suggest additiont to the vocabulary](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) 
+[Suggest addition to the vocabulary](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) 
 
 ## Companion Vocabulary, Not a Heavy Ontology
 
