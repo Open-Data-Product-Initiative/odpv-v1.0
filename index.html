@@ -580,6 +580,29 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 
 <p>The core terms are intentionally lightweight. They do not replace the full object models of ODPS, ODPC, or ODPG. Instead, they provide a common vocabulary layer that supports interoperability across the Open Data Products ecosystem.</p>
 
+<p>Example core term:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">id</span><span class="pi">:</span> <span class="s">DataProduct</span>
+<span class="na">uri</span><span class="pi">:</span> <span class="s">https://opendataproducts.org/odpv-v1.0/terms/DataProduct</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">stable</span>
+<span class="na">preferredLabel</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span> <span class="s">Data Product</span>
+<span class="na">definition</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span> <span class="s">A managed data offering designed for reuse, with defined ownership, access, quality, usage terms, and value context.</span>
+<span class="na">alsoKnownAs</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">data product</span>
+    <span class="pi">-</span> <span class="s">data offering</span>
+    <span class="pi">-</span> <span class="s">reusable data asset</span>
+<span class="na">relatedTerms</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">Dataset</span>
+  <span class="pi">-</span> <span class="s">DataService</span>
+  <span class="pi">-</span> <span class="s">Distribution</span>
+<span class="na">usedIn</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">ODPS</span>
+  <span class="pi">-</span> <span class="s">ODPC</span>
+  <span class="pi">-</span> <span class="s">ODPG</span>
+</code></pre></div>
 <table><thead>
 <tr>
 <th>Term</th>
@@ -706,6 +729,30 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 
 <p>Each term has one canonical ODPV name. Also known as terms help users map familiar business language to the official vocabulary. Related terms show nearby concepts that are connected but should not be treated as identical.</p>
 
+<p>Example value term:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">id</span><span class="pi">:</span> <span class="s">BusinessObjective</span>
+<span class="na">uri</span><span class="pi">:</span> <span class="s">https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">stable</span>
+<span class="na">preferredLabel</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span> <span class="s">Business Objective</span>
+<span class="na">definition</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span> <span class="s">A business goal or intended outcome that data products, use cases, or portfolio actions support.</span>
+<span class="na">alsoKnownAs</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">objective</span>
+    <span class="pi">-</span> <span class="s">business goal</span>
+    <span class="pi">-</span> <span class="s">strategic goal</span>
+    <span class="pi">-</span> <span class="s">target outcome</span>
+<span class="na">relatedTerms</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">Outcome</span>
+  <span class="pi">-</span> <span class="s">KPI</span>
+  <span class="pi">-</span> <span class="s">Impact</span>
+  <span class="pi">-</span> <span class="s">UseCase</span>
+<span class="na">usedIn</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">ODPC</span>
+  <span class="pi">-</span> <span class="s">ODPG</span>
+</code></pre></div>
 <table><thead>
 <tr>
 <th>Term</th>
@@ -848,6 +895,31 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 
 <p>Each term has one canonical ODPV name. Also known as terms help users map familiar governance, legal, operational, and technical language to the official vocabulary. Related terms show nearby concepts that are connected but should not be treated as identical.</p>
 
+<p>Example governance term:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">id</span><span class="pi">:</span> <span class="s">DataQuality</span>
+<span class="na">uri</span><span class="pi">:</span> <span class="s">https://opendataproducts.org/odpv-v1.0/terms/DataQuality</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">stable</span>
+<span class="na">preferredLabel</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span> <span class="s">Data Quality</span>
+<span class="na">definition</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span> <span class="s">The expected, measured, or reported quality of a data product, dataset, distribution, or data service.</span>
+<span class="na">alsoKnownAs</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">quality</span>
+    <span class="pi">-</span> <span class="s">data quality score</span>
+    <span class="pi">-</span> <span class="s">quality assessment</span>
+    <span class="pi">-</span> <span class="s">quality metrics</span>
+<span class="na">relatedTerms</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">SLA</span>
+  <span class="pi">-</span> <span class="s">DataContract</span>
+  <span class="pi">-</span> <span class="s">Stewardship</span>
+  <span class="pi">-</span> <span class="s">ComplianceRule</span>
+<span class="na">usedIn</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">ODPS</span>
+  <span class="pi">-</span> <span class="s">ODPC</span>
+  <span class="pi">-</span> <span class="s">ODPG</span>
+</code></pre></div>
 <table><thead>
 <tr>
 <th>Term</th>
@@ -992,6 +1064,28 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 
 <p>Each relationship term has one canonical ODPV name. Also known as terms help users map familiar relationship language to the official vocabulary. Related terms show nearby relationship types that are connected but should not be treated as identical.</p>
 
+<p>Example relationship term:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">id</span><span class="pi">:</span> <span class="s">supports</span>
+<span class="na">uri</span><span class="pi">:</span> <span class="s">https://opendataproducts.org/odpv-v1.0/terms/supports</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">relationship</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">stable</span>
+<span class="na">preferredLabel</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span> <span class="s">supports</span>
+<span class="na">definition</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span> <span class="s">Indicates that one object helps enable, serve, or make another object possible, such as a data product supporting a use case.</span>
+<span class="na">alsoKnownAs</span><span class="pi">:</span>
+  <span class="na">en</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">enables</span>
+    <span class="pi">-</span> <span class="s">serves</span>
+    <span class="pi">-</span> <span class="s">helps</span>
+    <span class="pi">-</span> <span class="s">provides support for</span>
+<span class="na">relatedTerms</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">contributesTo</span>
+  <span class="pi">-</span> <span class="s">requires</span>
+  <span class="pi">-</span> <span class="s">relatedTo</span>
+<span class="na">usedIn</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">ODPG</span>
+</code></pre></div>
 <table><thead>
 <tr>
 <th>Term</th>
