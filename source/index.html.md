@@ -97,6 +97,14 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 | [`relationships.yaml`](/vocab/relationships.yaml) | YAML | ODPV Relationships terms as a standalone machine-readable section file |
 | [`odpv.schema.json`](/schema/odpv.schema.json) | JSON Schema | Validation schema for ODPV vocabulary files |
 
+Agent-oriented helper scripts are available in the source repository for maintaining and using the vocabulary files.
+
+| Script | Purpose |
+|---|---|
+| [`generate_vocab_artifacts.py`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/generate_vocab_artifacts.py) | Regenerates derived vocabulary artifacts from canonical `odpv.yaml`; use `--check` in CI to detect drift |
+| [`validate_vocab.py`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/validate_vocab.py) | Validates vocabulary structure, required fields, generated artifacts, JSONL, section files, and relationship guidance |
+| [`search_vocab.py`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/search_vocab.py) | Searches ODPV terms using labels, aliases, definitions, examples, and related terms |
+
 The Markdown tables in this specification are intended for human readers. The YAML files are intended for programmable use, automation, validation, AI retrieval, and graph-based tooling.
 
 # Introduction
