@@ -1,4 +1,4 @@
-# Vocabulary Toolkit for Tools and AI Agents
+# Vocabulary Toolkit 
 
 > Snippet of YAML version:
 
