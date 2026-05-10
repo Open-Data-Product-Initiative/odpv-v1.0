@@ -45,7 +45,7 @@ Development of the vocabulary is under the umbrella of the Linux Foundation.
 | Knowledge Base | [Open Data Product Spec Family Knowledge Base](https://opendataproducts.org/howto/) | Practical examples, FAQs, and implementation guidance |
 | Contribute | [Raise an issue in GitHub](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) | Submit issues or suggestions to the vocabulary maintainers |
 
-## Machine-readable vocabulary files
+## Vocabulary resources for tools and agents
 
 > Snippet of YAML version:
 
@@ -85,7 +85,7 @@ Use stable term ids and uris exactly as published. Do not redefine official ODPV
 If a needed term is missing, treat it as an extension candidate and use a separate namespace or prefix.
 -->
 
-| File | Format | Purpose |
+| Resource | Format | Purpose |
 |---|---|---|
 | [`llms.txt`](/llms.txt) | Text | AI agent guidance for discovering and using the ODPV vocabulary files |
 | [`odpv.yaml`](/vocab/odpv.yaml) | YAML | Canonical machine-readable vocabulary file |
