@@ -525,6 +525,28 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 </tr>
 </tbody></table>
 
+<p>Agent-oriented helper scripts are available in the source repository for maintaining and using the vocabulary files.</p>
+
+<table><thead>
+<tr>
+<th>Script</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/generate_vocab_artifacts.py"><code>generate_vocab_artifacts.py</code></a></td>
+<td>Regenerates derived vocabulary artifacts from canonical <code>odpv.yaml</code>; use <code>--check</code> in CI to detect drift</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/validate_vocab.py"><code>validate_vocab.py</code></a></td>
+<td>Validates vocabulary structure, required fields, generated artifacts, JSONL, section files, and relationship guidance</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/search_vocab.py"><code>search_vocab.py</code></a></td>
+<td>Searches ODPV terms using labels, aliases, definitions, examples, and related terms</td>
+</tr>
+</tbody></table>
+
 <p>The Markdown tables in this specification are intended for human readers. The YAML files are intended for programmable use, automation, validation, AI retrieval, and graph-based tooling.</p>
 <h1 id='introduction'>Introduction</h1>
 <p>The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. ODPV defines shared terms used across the OpenDataProducts.org standards family, including data products, catalogs, graphs, value concepts, governance concepts, and relationship terms. It is designed to help organizations use consistent language across specifications, catalogs, graph implementations, AI assistants, and GraphRAG-ready data product portfolios.</p>

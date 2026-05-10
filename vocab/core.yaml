@@ -1,4 +1,3 @@
----
 schema: https://opendataproducts.org/odpv-v1.0/schema/odpv.schema.json
 version: 1.0.0
 id: ODPV
@@ -28,8 +27,7 @@ sections:
     preferredLabel:
       en: Data Product
     definition:
-      en: A managed data offering designed for reuse, with defined ownership, access,
-        quality, usage terms, and value context.
+      en: A managed data offering designed for reuse, with defined ownership, access, quality, usage terms, and value context.
     alsoKnownAs:
       en:
       - data product
@@ -47,8 +45,7 @@ sections:
     examples:
       en:
       - Customer Churn Risk Scores is a DataProduct used by retention teams.
-      - Use DataProduct for a managed reusable data offering with ownership, access,
-        quality, and usage context.
+      - Use DataProduct for a managed reusable data offering with ownership, access, quality, and usage context.
   - id: DataProductCatalog
     uri: https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog
     type: object
@@ -57,8 +54,7 @@ sections:
     preferredLabel:
       en: Data Product Catalog
     definition:
-      en: A managed collection of data products and related portfolio objects, such
-        as use cases, objectives, KPIs, signals, and references.
+      en: A managed collection of data products and related portfolio objects, such as use cases, objectives, KPIs, signals, and references.
     alsoKnownAs:
       en:
       - data catalog
@@ -74,10 +70,8 @@ sections:
     - ODPG
     examples:
       en:
-      - The enterprise data marketplace is a DataProductCatalog containing reusable
-        data products and related portfolio objects.
-      - Use DataProductCatalog when describing a managed collection of products, use
-        cases, objectives, KPIs, and signals.
+      - The enterprise data marketplace is a DataProductCatalog containing reusable data products and related portfolio objects.
+      - Use DataProductCatalog when describing a managed collection of products, use cases, objectives, KPIs, and signals.
   - id: DataProductGraph
     uri: https://opendataproducts.org/odpv-v1.0/terms/DataProductGraph
     type: object
@@ -86,8 +80,7 @@ sections:
     preferredLabel:
       en: Data Product Graph
     definition:
-      en: A graph representation that connects data products, catalogs, use cases,
-        objectives, KPIs, signals, and governance objects through defined relationships.
+      en: A graph representation that connects data products, catalogs, use cases, objectives, KPIs, signals, and governance objects through defined relationships.
     alsoKnownAs:
       en:
       - data product graph
@@ -102,10 +95,8 @@ sections:
     - ODPG
     examples:
       en:
-      - A DataProductGraph connects customer analytics products to use cases, KPIs,
-        owners, and policies.
-      - Use DataProductGraph when data product portfolio objects need to be represented
-        as connected nodes and relationships.
+      - A DataProductGraph connects customer analytics products to use cases, KPIs, owners, and policies.
+      - Use DataProductGraph when data product portfolio objects need to be represented as connected nodes and relationships.
   - id: Dataset
     uri: https://opendataproducts.org/odpv-v1.0/terms/Dataset
     type: object
@@ -114,8 +105,7 @@ sections:
     preferredLabel:
       en: Dataset
     definition:
-      en: A structured collection of data that may be part of, or exposed through,
-        a data product. Aligns with DCAT where applicable.
+      en: A structured collection of data that may be part of, or exposed through, a data product. Aligns with DCAT where applicable.
     alsoKnownAs:
       en:
       - data set
@@ -131,10 +121,8 @@ sections:
     - ODPC
     examples:
       en:
-      - The monthly customer transactions table is a Dataset used by a Customer Analytics
-        DataProduct.
-      - Use Dataset for a structured collection of data, not for the managed product
-        wrapper around it.
+      - The monthly customer transactions table is a Dataset used by a Customer Analytics DataProduct.
+      - Use Dataset for a structured collection of data, not for the managed product wrapper around it.
   - id: Distribution
     uri: https://opendataproducts.org/odpv-v1.0/terms/Distribution
     type: object
@@ -143,8 +131,7 @@ sections:
     preferredLabel:
       en: Distribution
     definition:
-      en: A specific accessible form of a dataset, such as a file, API response, export,
-        or downloadable representation. Aligns with DCAT where applicable.
+      en: A specific accessible form of a dataset, such as a file, API response, export, or downloadable representation. Aligns with DCAT where applicable.
     alsoKnownAs:
       en:
       - data file
@@ -160,8 +147,7 @@ sections:
     examples:
       en:
       - A downloadable CSV export is a Distribution of a Dataset.
-      - Use Distribution for a specific accessible representation such as a file,
-        API response, or export.
+      - Use Distribution for a specific accessible representation such as a file, API response, or export.
   - id: DataService
     uri: https://opendataproducts.org/odpv-v1.0/terms/DataService
     type: object
@@ -170,8 +156,7 @@ sections:
     preferredLabel:
       en: Data Service
     definition:
-      en: A service that provides access to data or data operations, such as an API,
-        query endpoint, or data delivery service. Aligns with DCAT where applicable.
+      en: A service that provides access to data or data operations, such as an API, query endpoint, or data delivery service. Aligns with DCAT where applicable.
     alsoKnownAs:
       en:
       - data API
@@ -187,8 +172,7 @@ sections:
     examples:
       en:
       - A REST API that returns fraud risk scores is a DataService.
-      - Use DataService for an API, query endpoint, or delivery service that provides
-        access to data.
+      - Use DataService for an API, query endpoint, or delivery service that provides access to data.
   - id: Provider
     uri: https://opendataproducts.org/odpv-v1.0/terms/Provider
     type: role
@@ -197,8 +181,7 @@ sections:
     preferredLabel:
       en: Provider
     definition:
-      en: A person, team, organization, or system that provides or publishes a data
-        product, dataset, distribution, or data service.
+      en: A person, team, organization, or system that provides or publishes a data product, dataset, distribution, or data service.
     alsoKnownAs:
       en:
       - publisher
@@ -215,10 +198,8 @@ sections:
     - ODPG
     examples:
       en:
-      - The Payments Data Platform team is the Provider of the Transaction Events
-        DataProduct.
-      - Use Provider for the team, organization, system, or person that publishes
-        or supplies a data asset.
+      - The Payments Data Platform team is the Provider of the Transaction Events DataProduct.
+      - Use Provider for the team, organization, system, or person that publishes or supplies a data asset.
   - id: Consumer
     uri: https://opendataproducts.org/odpv-v1.0/terms/Consumer
     type: role
@@ -227,8 +208,7 @@ sections:
     preferredLabel:
       en: Consumer
     definition:
-      en: A person, team, organization, system, or agent that uses or consumes a data
-        product, dataset, distribution, or data service.
+      en: A person, team, organization, system, or agent that uses or consumes a data product, dataset, distribution, or data service.
     alsoKnownAs:
       en:
       - user
@@ -256,8 +236,7 @@ sections:
     preferredLabel:
       en: Owner
     definition:
-      en: A person, team, or organization accountable for a data product, catalog,
-        dataset, service, or related object.
+      en: A person, team, or organization accountable for a data product, catalog, dataset, service, or related object.
     alsoKnownAs:
       en:
       - accountable owner
@@ -273,8 +252,7 @@ sections:
     - ODPC
     examples:
       en:
-      - The Head of Customer Analytics is the Owner accountable for the Churn Scores
-        DataProduct.
+      - The Head of Customer Analytics is the Owner accountable for the Churn Scores DataProduct.
       - Use Owner for accountability, not day-to-day operational stewardship.
   - id: Steward
     uri: https://opendataproducts.org/odpv-v1.0/terms/Steward
@@ -284,8 +262,7 @@ sections:
     preferredLabel:
       en: Steward
     definition:
-      en: A person, team, or organization responsible for the operational management,
-        quality, metadata, and lifecycle of a data product or related object.
+      en: A person, team, or organization responsible for the operational management, quality, metadata, and lifecycle of a data product or related object.
     alsoKnownAs:
       en:
       - data steward
@@ -301,10 +278,8 @@ sections:
     - ODPC
     examples:
       en:
-      - A data steward maintains metadata and quality checks for the Customer Profile
-        DataProduct.
-      - Use Steward for operational responsibility over metadata, quality, lifecycle,
-        or product health.
+      - A data steward maintains metadata and quality checks for the Customer Profile DataProduct.
+      - Use Steward for operational responsibility over metadata, quality, lifecycle, or product health.
   - id: Domain
     uri: https://opendataproducts.org/odpv-v1.0/terms/Domain
     type: classification
@@ -313,8 +288,7 @@ sections:
     preferredLabel:
       en: Domain
     definition:
-      en: A business, organizational, subject, or functional area used to group data
-        products and related objects.
+      en: A business, organizational, subject, or functional area used to group data products and related objects.
     alsoKnownAs:
       en:
       - business domain
@@ -341,8 +315,7 @@ sections:
     preferredLabel:
       en: Identifier
     definition:
-      en: A stable value used to uniquely identify a vocabulary term, specification
-        object, product, catalog item, or graph node.
+      en: A stable value used to uniquely identify a vocabulary term, specification object, product, catalog item, or graph node.
     alsoKnownAs:
       en:
       - id
@@ -360,8 +333,7 @@ sections:
     examples:
       en:
       - customer-churn-risk-score is an Identifier for a catalog item.
-      - Use Identifier for stable ids used by terms, products, catalog items, or graph
-        nodes.
+      - Use Identifier for stable ids used by terms, products, catalog items, or graph nodes.
   - id: Reference
     uri: https://opendataproducts.org/odpv-v1.0/terms/Reference
     type: reference
@@ -370,8 +342,7 @@ sections:
     preferredLabel:
       en: Reference
     definition:
-      en: A link or pointer to another object, specification file, external vocabulary
-        term, system record, or graph node.
+      en: A link or pointer to another object, specification file, external vocabulary term, system record, or graph node.
     alsoKnownAs:
       en:
       - link
@@ -380,7 +351,7 @@ sections:
       - object reference
     relatedTerms:
     - Identifier
-    - "$ref"
+    - $ref
     - URI
     usedIn:
     - ODPS
@@ -389,5 +360,4 @@ sections:
     examples:
       en:
       - A catalog entry may include a Reference to an external schema registry record.
-      - Use Reference for a link or pointer to another object, file, vocabulary term,
-        or system record.
+      - Use Reference for a link or pointer to another object, file, vocabulary term, or system record.

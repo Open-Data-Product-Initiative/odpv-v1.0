@@ -27,6 +27,12 @@ Agent-friendly vocabulary file:
 Validation schema:
 - /schema/odpv.schema.json (https://opendataproducts.org/odpv-v1.0/schema/odpv.schema.json)
 
+Agent-oriented source scripts:
+- scripts/generate_vocab_artifacts.py regenerates derived vocabulary artifacts from canonical source/vocab/odpv.yaml. Use `python3 scripts/generate_vocab_artifacts.py --check` to detect drift.
+- scripts/validate_vocab.py validates vocabulary structure, required fields, generated artifacts, JSONL, section files, and relationship guidance.
+- scripts/search_vocab.py searches ODPV terms using preferredLabel, alsoKnownAs, definition, examples, and relatedTerms. Use `--json` for machine-readable results.
+- scripts/test_vocab_scripts.py verifies the helper scripts.
+
 File selection guidance:
 - Use /vocab/terms.jsonl for retrieval, embeddings, search, and lightweight agent tools. It contains one term per line with ids, uris, labels, definitions, aliases, related terms, examples, usedIn values, and relationship domain/range hints where available.
 - Use /vocab/odpv.yaml as the canonical source when complete vocabulary structure, section context, schema-compatible metadata, or validation context is required.
@@ -37,12 +43,14 @@ File selection guidance:
 Recommended agent workflow:
 1. Fetch /llms.txt first to understand the standards-family context and available machine-readable files.
 2. Load /vocab/terms.jsonl for term search, retrieval, embeddings, and lightweight lookup.
-3. Use /vocab/odpv.yaml when full vocabulary structure, section context, schema-compatible metadata, or validation context is needed.
-4. Match user language against preferredLabel, alsoKnownAs, definition, examples, and relatedTerms.
-5. Check the vocabulary version and include it when generating structured outputs.
-6. For graph work, use relationship domain and range fields from relationship terms.
-7. Return stable term id and uri, not only human-readable labels.
-8. If no existing term fits, suggest an extension term or propose a new shared term through GitHub issues instead of inventing a new meaning for an official term.
+3. If working from the source repository, use scripts/search_vocab.py for repeatable local term lookup; use `--json` when another tool or agent will consume the result.
+4. Use /vocab/odpv.yaml when full vocabulary structure, section context, schema-compatible metadata, or validation context is needed.
+5. Match user language against preferredLabel, alsoKnownAs, definition, examples, and relatedTerms.
+6. Check the vocabulary version and include it when generating structured outputs.
+7. For graph work, use relationship domain and range fields from relationship terms.
+8. Return stable term id and uri, not only human-readable labels.
+9. If editing vocabulary files in the source repository, update source/vocab/odpv.yaml first, then run scripts/generate_vocab_artifacts.py and scripts/validate_vocab.py.
+10. If no existing term fits, suggest an extension term or propose a new shared term through GitHub issues instead of inventing a new meaning for an official term.
 
 Use ODPV terms by their stable `id` and `uri`. Do not redefine official ODPV terms or invent new meanings for existing terms. If a needed concept is not present, treat it as an extension candidate and use a separate namespace or prefix.
 
