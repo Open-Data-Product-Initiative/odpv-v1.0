@@ -5,6 +5,10 @@ ODPV is a controlled vocabulary for the OpenDataProducts.org standards family. I
 Base URL:
 - https://opendataproducts.org/odpv-v1.0
 
+Human-readable specification:
+- / (https://opendataproducts.org/odpv-v1.0/)
+- The "Vocabulary Toolkit for Tools and AI Agents" section lists the published resource files, validation schema, and source helper scripts.
+
 Standards-family context:
 - ODPS is the Open Data Product Specification. Use ODPS when describing one data product and its product metadata. Homepage: https://opendataproducts.org/
 - ODPC is the Open Data Product Catalog specification. Use ODPC when describing catalogs, portfolios, use cases, objectives, KPIs, signals, and related portfolio objects.
@@ -41,7 +45,7 @@ File selection guidance:
 - Use /schema/odpv.schema.json to validate ODPV vocabulary files.
 
 Recommended agent workflow:
-1. Fetch /llms.txt first to understand the standards-family context and available machine-readable files.
+1. Fetch /llms.txt first to understand the standards-family context and available vocabulary resources.
 2. Load /vocab/terms.jsonl for term search, retrieval, embeddings, and lightweight lookup.
 3. If working from the source repository, use scripts/search_vocab.py for repeatable local term lookup; use `--json` when another tool or agent will consume the result.
 4. Use /vocab/odpv.yaml when full vocabulary structure, section context, schema-compatible metadata, or validation context is needed.

@@ -52,6 +52,15 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 
 Agent-oriented helper scripts are available in the source repository for maintaining and using the vocabulary files.
 
+<!-- AI_AGENT_SCRIPT_GUIDANCE:
+When working from the source repository, use scripts/search_vocab.py for repeatable local term lookup.
+Use scripts/generate_vocab_artifacts.py after editing source/vocab/odpv.yaml to regenerate derived JSON, JSONL, and section YAML files.
+Use scripts/generate_vocab_artifacts.py --check in CI or review workflows to detect drift between canonical and derived vocabulary artifacts.
+Use scripts/validate_vocab.py to validate vocabulary structure, generated artifacts, JSONL output, section files, examples, and relationship guidance.
+Use scripts/test_vocab_scripts.py to verify the helper scripts themselves.
+Do not edit generated vocabulary artifacts directly unless intentionally repairing generated output; update source/vocab/odpv.yaml first.
+-->
+
 | Script | Purpose |
 |---|---|
 | [`generate_vocab_artifacts.py`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/generate_vocab_artifacts.py) | Regenerates derived vocabulary artifacts from canonical `odpv.yaml`; use `--check` in CI to detect drift |
