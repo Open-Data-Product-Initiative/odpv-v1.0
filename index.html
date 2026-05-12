@@ -377,6 +377,23 @@
             <a href="#vocabulary-toolkit" class="toc-h1 toc-link" data-title="Vocabulary Toolkit">Vocabulary Toolkit</a>
           </li>
           <li>
+            <a href="#ai-agent-usage-patterns" class="toc-h1 toc-link" data-title="AI Agent Usage Patterns">AI Agent Usage Patterns</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#agent-capabilities-enabled-by-odpv" class="toc-h2 toc-link" data-title="Agent capabilities enabled by ODPV">Agent capabilities enabled by ODPV</a>
+                  </li>
+                  <li>
+                    <a href="#common-agent-workflows" class="toc-h2 toc-link" data-title="Common agent workflows">Common agent workflows</a>
+                  </li>
+                  <li>
+                    <a href="#agent-behavior-constraints" class="toc-h2 toc-link" data-title="Agent behavior constraints">Agent behavior constraints</a>
+                  </li>
+                  <li>
+                    <a href="#example-prompts-odpv-enables" class="toc-h2 toc-link" data-title="Example prompts ODPV enables">Example prompts ODPV enables</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#odpv-core" class="toc-h1 toc-link" data-title="ODPV Core">ODPV Core</a>
           </li>
           <li>
@@ -660,7 +677,92 @@ Do not edit generated vocabulary artifacts directly unless intentionally repairi
 </tbody></table>
 
 <p>The Markdown tables in this specification are intended for human readers. The YAML files are intended for programmable use, automation, validation, AI retrieval, and graph-based tooling.</p>
-<h1 id='odpv-core'>ODPV Core</h1>
+<h1 id='ai-agent-usage-patterns'>AI Agent Usage Patterns</h1>
+<p>ODPV is designed to be usable by AI agents, catalog tools, retrieval systems, graph systems, and automation workflows. From an agent perspective, ODPV provides the shared terminology layer for data product management: it names stable concepts, labels, definitions, aliases, related terms, and relationship names that other specifications and tools can reference consistently.</p>
+
+<p>ODPS defines one data product. ODPC defines reusable catalog and portfolio objects around data products. <a href="https://opendataproducts.org/odpg-v1.0/">ODPG</a> defines relationships between those objects. ODPV provides the shared vocabulary terms used across the standards family. This separation helps agents choose the right source before acting.</p>
+
+<!-- AI_AGENT_USAGE_PATTERNS:
+Use ODPV as the shared vocabulary and terminology layer, not as the full data product, catalog, or graph definition layer.
+Use ODPS or another referenced product model for detailed data product metadata.
+Use ODPC for catalog and portfolio objects such as ProductReference, UseCase, BusinessObjective, KPI, Signal, and Catalog.
+Use ODPG for graph structures, graph relationships, traversal, and connected portfolio analysis.
+Use ODPV term ids and uris for stable shared concepts, labels, definitions, aliases, and relationship names.
+-->
+<h2 id='agent-capabilities-enabled-by-odpv'>Agent capabilities enabled by ODPV</h2>
+<p>Agents can use ODPV to:</p>
+
+<ul>
+<li>select stable term ids and uris for data product management concepts</li>
+<li>map user language, synonyms, and internal terminology to preferred ODPV terms</li>
+<li>retrieve definitions, labels, aliases, related terms, and examples from <code>terms.jsonl</code></li>
+<li>validate vocabulary files against <code>odpv.schema.json</code></li>
+<li>explain distinctions between nearby terms such as <code>DataProduct</code>, <code>Dataset</code>, <code>DataService</code>, and <code>Distribution</code></li>
+<li>choose relationship terms such as <code>supports</code>, <code>requires</code>, <code>contributesTo</code>, <code>measures</code>, <code>dependsOn</code>, <code>governedBy</code>, <code>providedBy</code>, and <code>consumedBy</code></li>
+<li>prepare graph-ready relationship names for ODPG or another graph implementation</li>
+<li>support catalog alignment by using the same terms in ODPC catalogs and ODPS product descriptions</li>
+<li>detect terminology drift, duplicate concepts, unclear aliases, or missing shared terms</li>
+<li>suggest extension terms when an organization-specific or domain-specific concept is not part of the official vocabulary</li>
+</ul>
+<h2 id='common-agent-workflows'>Common agent workflows</h2>
+<table><thead>
+<tr>
+<th>Workflow</th>
+<th>Agent behavior</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Term lookup</td>
+<td>Match a user phrase or internal label to the best ODPV term using preferred labels, aliases, definitions, examples, and related terms.</td>
+</tr>
+<tr>
+<td>Vocabulary validation</td>
+<td>Validate ODPV vocabulary files, check required fields, detect malformed terms, and suggest schema-compliant repairs.</td>
+</tr>
+<tr>
+<td>Terminology alignment</td>
+<td>Compare ODPS, ODPC, ODPG, vendor catalog, or internal model wording against ODPV and recommend stable term ids and uris.</td>
+</tr>
+<tr>
+<td>Relationship selection</td>
+<td>Choose the most specific ODPV relationship term for a graph edge and avoid falling back to <code>relatedTo</code> when a better term exists.</td>
+</tr>
+<tr>
+<td>Retrieval and RAG</td>
+<td>Use <code>llms.txt</code>, <code>terms.jsonl</code>, schema files, section YAML files, and include pages to retrieve the correct term before generating or editing content.</td>
+</tr>
+<tr>
+<td>Vocabulary extension</td>
+<td>Identify missing shared terms and propose extension candidates with an id, label, definition, concept group, related terms, and example usage.</td>
+</tr>
+<tr>
+<td>Artifact maintenance</td>
+<td>Update canonical <code>odpv.yaml</code>, regenerate derived JSON, JSONL, and section YAML files, then validate that generated artifacts are in sync.</td>
+</tr>
+<tr>
+<td>Standards-family guidance</td>
+<td>Decide whether a task belongs in ODPS, ODPC, ODPG, or ODPV before generating content or changing files.</td>
+</tr>
+</tbody></table>
+<h2 id='agent-behavior-constraints'>Agent behavior constraints</h2>
+<p>Agents using ODPV should keep vocabulary boundaries clear:</p>
+
+<ul>
+<li>Do not treat ODPV as a replacement for ODPS, ODPC, or ODPG.</li>
+<li>Do not put full product metadata, catalog objects, or graph structures into ODPV terms.</li>
+<li>Do not redefine official ODPV term ids, uris, labels, or meanings locally.</li>
+<li>Do not invent new official terms when an existing ODPV term fits.</li>
+<li>Do not use <code>relatedTo</code> when a more specific relationship term such as <code>supports</code>, <code>requires</code>, <code>dependsOn</code>, or <code>governedBy</code> applies.</li>
+<li>Do not assume aliases are preferred labels; use them for search, mapping, and onboarding.</li>
+<li>Do not edit generated vocabulary artifacts directly when changing official vocabulary content; update <code>source/vocab/odpv.yaml</code> first and regenerate derived files.</li>
+</ul>
+<h2 id='example-prompts-odpv-enables'>Example prompts ODPV enables</h2><div class="highlight"><pre class="highlight plaintext"><code>Find the best ODPV term for "data API" and return the stable id and uri.
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>Map these internal catalog labels to ODPV preferred terms and explain uncertain matches.
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>Choose ODPV relationship terms for these graph edges and avoid generic relationships where possible.
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>Validate this ODPV vocabulary file and suggest schema-compliant repairs.
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>Identify terminology drift between this ODPC catalog and the official ODPV terms.
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>Propose an ODPV extension term for a missing domain-specific concept.
+</code></pre></div><h1 id='odpv-core'>ODPV Core</h1>
 <p>ODPV Core defines the foundational terms used across the Open Data Products specification family. These terms describe the main objects, roles, classifications, and references that appear in ODPS, ODPC, and <a href="https://opendataproducts.org/odpg-v1.0/">ODPG</a>.</p>
 
 <p>The purpose of the core vocabulary is to create a shared language for describing data products and their surrounding ecosystem. It helps different specifications, catalogs, graphs, tools, and platforms use the same concepts consistently.</p>
