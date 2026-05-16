@@ -7,7 +7,11 @@ Base URL:
 
 Human-readable specification:
 - / (https://opendataproducts.org/odpv-v1.0/)
-- The "Vocabulary Toolkit for Tools and AI Agents" section lists the published resource files, validation schema, and source helper scripts.
+- The "Vocabulary Toolkit for Tools and AI Agents" section lists the Open Data Product Agent SDK, published resource files, validation schema, and source helper scripts.
+
+Main standards-family SDK:
+- Open Data Product Agent SDK: https://github.com/Open-Data-Product-Initiative/odp-agent-sdk
+- Use this SDK as the primary toolkit for building tools, validators, agent workflows, catalog integrations, graph workflows, and automation across ODPS, ODPC, ODPG, and ODPV.
 
 Standards-family context:
 - ODPS is the Open Data Product Specification. Use ODPS when describing one data product and its product metadata. Homepage: https://opendataproducts.org/
@@ -46,15 +50,16 @@ File selection guidance:
 
 Recommended agent workflow:
 1. Fetch /llms.txt first to understand the standards-family context and available vocabulary resources.
-2. Load /vocab/terms.jsonl for term search, retrieval, embeddings, and lightweight lookup.
-3. If working from the source repository, use scripts/search_vocab.py for repeatable local term lookup; use `--json` when another tool or agent will consume the result.
-4. Use /vocab/odpv.yaml when full vocabulary structure, section context, schema-compatible metadata, or validation context is needed.
-5. Match user language against preferredLabel, alsoKnownAs, definition, examples, and relatedTerms.
-6. Check the vocabulary version and include it when generating structured outputs.
-7. For graph work, use relationship domain and range fields from relationship terms.
-8. Return stable term id and uri, not only human-readable labels.
-9. If editing vocabulary files in the source repository, update source/vocab/odpv.yaml first, then run scripts/generate_vocab_artifacts.py and scripts/validate_vocab.py.
-10. If no existing term fits, suggest an extension term or propose a new shared term through GitHub issues instead of inventing a new meaning for an official term.
+2. Use the Open Data Product Agent SDK when the task spans multiple standards or needs reusable tooling across ODPS, ODPC, ODPG, and ODPV.
+3. Load /vocab/terms.jsonl for term search, retrieval, embeddings, and lightweight lookup.
+4. If working from the source repository, use scripts/search_vocab.py for repeatable local term lookup; use `--json` when another tool or agent will consume the result.
+5. Use /vocab/odpv.yaml when full vocabulary structure, section context, schema-compatible metadata, or validation context is needed.
+6. Match user language against preferredLabel, alsoKnownAs, definition, examples, and relatedTerms.
+7. Check the vocabulary version and include it when generating structured outputs.
+8. For graph work, use relationship domain and range fields from relationship terms.
+9. Return stable term id and uri, not only human-readable labels.
+10. If editing vocabulary files in the source repository, update source/vocab/odpv.yaml first, then run scripts/generate_vocab_artifacts.py and scripts/validate_vocab.py.
+11. If no existing term fits, suggest an extension term or propose a new shared term through GitHub issues instead of inventing a new meaning for an official term.
 
 Use ODPV terms by their stable `id` and `uri`. Do not redefine official ODPV terms or invent new meanings for existing terms. If a needed concept is not present, treat it as an extension candidate and use a separate namespace or prefix.
 

@@ -30,16 +30,20 @@ usedIn:
 
 ODPV is published in several forms for different users and tools. This specification provides the human-readable documentation, while the vocabulary files provide machine-readable representations for validation, catalog integration, graph construction, AI retrieval, and automation. Use `odpv.yaml` as the canonical source, `odpv.json` when JSON is easier to consume, the section YAML files when only one vocabulary area is needed, and `terms.jsonl` for search, embeddings, and lightweight AI agent workflows.
 
+The primary implementation toolkit for the whole Open Data Product standards family is the [Open Data Product Agent SDK](https://github.com/Open-Data-Product-Initiative/odp-agent-sdk). Use it when building tools, validators, agent workflows, catalog integrations, graph workflows, or automation that needs to work across ODPS, ODPC, ODPG, and ODPV together.
+
 <!-- AI_AGENT_GUIDANCE:
 Use /vocab/odpv.yaml as the canonical ODPV vocabulary source.
 Use /vocab/terms.jsonl for retrieval, embeddings, search, and lightweight tool calls.
 Use /vocab/core.yaml, /vocab/value.yaml, /vocab/governance.yaml, and /vocab/relationships.yaml when only one vocabulary section is needed.
+Use https://github.com/Open-Data-Product-Initiative/odp-agent-sdk as the main SDK for cross-standard Open Data Product tooling.
 Use stable term ids and uris exactly as published. Do not redefine official ODPV terms.
 If a needed term is missing, treat it as an extension candidate and use a separate namespace or prefix.
 -->
 
 | Resource | Format | Purpose |
 |---|---|---|
+| [Open Data Product Agent SDK](https://github.com/Open-Data-Product-Initiative/odp-agent-sdk) | SDK | Main toolkit for building tools, validators, agent workflows, catalog integrations, and graph workflows across the Open Data Product standards family |
 | [`llms.txt`](/llms.txt) | Text | AI agent guidance for discovering and using the ODPV vocabulary files |
 | [`odpv.yaml`](/vocab/odpv.yaml) | YAML | Canonical machine-readable vocabulary file |
 | [`odpv.json`](/vocab/odpv.json) | JSON | JSON representation for tools, APIs, search indexes, and graph applications |
