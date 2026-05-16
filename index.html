@@ -583,10 +583,13 @@ ODPS homepage: https://opendataproducts.org/
 </code></pre></div>
 <p>ODPV is published in several forms for different users and tools. This specification provides the human-readable documentation, while the vocabulary files provide machine-readable representations for validation, catalog integration, graph construction, AI retrieval, and automation. Use <code>odpv.yaml</code> as the canonical source, <code>odpv.json</code> when JSON is easier to consume, the section YAML files when only one vocabulary area is needed, and <code>terms.jsonl</code> for search, embeddings, and lightweight AI agent workflows.</p>
 
+<p>The primary implementation toolkit for the whole Open Data Product standards family is the <a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk">Open Data Product Agent SDK</a>. Use it when building tools, validators, agent workflows, catalog integrations, graph workflows, or automation that needs to work across ODPS, ODPC, ODPG, and ODPV together.</p>
+
 <!-- AI_AGENT_GUIDANCE:
 Use /vocab/odpv.yaml as the canonical ODPV vocabulary source.
 Use /vocab/terms.jsonl for retrieval, embeddings, search, and lightweight tool calls.
 Use /vocab/core.yaml, /vocab/value.yaml, /vocab/governance.yaml, and /vocab/relationships.yaml when only one vocabulary section is needed.
+Use https://github.com/Open-Data-Product-Initiative/odp-agent-sdk as the main SDK for cross-standard Open Data Product tooling.
 Use stable term ids and uris exactly as published. Do not redefine official ODPV terms.
 If a needed term is missing, treat it as an extension candidate and use a separate namespace or prefix.
 -->
@@ -598,6 +601,11 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 <th>Purpose</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk">Open Data Product Agent SDK</a></td>
+<td>SDK</td>
+<td>Main toolkit for building tools, validators, agent workflows, catalog integrations, and graph workflows across the Open Data Product standards family</td>
+</tr>
 <tr>
 <td><a href="llms.txt"><code>llms.txt</code></a></td>
 <td>Text</td>
