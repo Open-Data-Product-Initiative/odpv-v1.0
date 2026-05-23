@@ -83,6 +83,29 @@ class VocabScriptTests(unittest.TestCase):
         self.assertIn("API", terms_by_id["DataService"]["alsoKnownAs"]["en"])
         self.assertIn("monitors", terms_by_id["measures"]["alsoKnownAs"]["en"])
 
+    def test_cross_spec_drift_check_reports_odpg_schema_alignment(self):
+        report_path = ROOT / "cross-spec-drift/odpg-odpv-drift.md"
+        result = self.run_script("scripts/check_cross_spec_drift.py")
+
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        self.assertTrue(report_path.exists())
+
+        report = report_path.read_text(encoding="utf-8")
+        self.assertIn("# ODPG to ODPV Drift Report", report)
+        self.assertIn("- ODPG schema: `https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml`", report)
+        self.assertIn("| ODPG source | ODPG term | ODPV match | Status | Notes |", report)
+        self.assertIn("| Node type | `API` | `DataService` | Alias match | ODPG term maps through ODPV alias.", report)
+        self.assertIn("| Edge type | `monitors` | `measures` | Alias match | ODPG term maps through ODPV alias.", report)
+        self.assertIn("| Edge type | `uses` | `uses` | Exact match | ODPG term is an official ODPV id.", report)
+        self.assertIn("No unresolved drift detected.", report)
+
+    def test_cross_spec_drift_check_can_validate_existing_report(self):
+        self.run_script("scripts/check_cross_spec_drift.py")
+        result = self.run_script("scripts/check_cross_spec_drift.py", "--check")
+
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        self.assertIn("Cross-spec drift report is in sync", result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()
