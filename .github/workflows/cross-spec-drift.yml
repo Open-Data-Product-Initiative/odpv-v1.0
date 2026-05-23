@@ -34,7 +34,7 @@ jobs:
         PYTHONDONTWRITEBYTECODE=1 python scripts/validate_vocab.py
         PYTHONDONTWRITEBYTECODE=1 python scripts/generate_vocab_artifacts.py --check
 
-    - name: Commit drift report when changed
+    - name: Commit drift report folder when changed
       run: |
         if [ -z "$(git status --porcelain -- cross-spec-drift)" ]; then
           echo "No drift report changes to commit."
