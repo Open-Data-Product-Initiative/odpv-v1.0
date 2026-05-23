@@ -2,28 +2,19 @@
 
 This report compares published Open Data Product family schemas against the canonical ODPV vocabulary.
 
-- Last drift detection run: `2026-05-23T11:45:19Z`
+- Last drift detection run: `2026-05-23T11:59:24Z`
 - ODPG schema: `https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml`
 - ODPC schema: `https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml`
 - ODPS schema: `https://opendataproducts.org/v4.1/schema/odps.yaml`
 - ODPV source: `source/vocab/odpv.yaml`
 - Checked terms: 49
-- Possible drifts: 8
+- Possible drifts: 0
 
-Possible drift detected. Review rows marked `Possible drift` and either add an ODPV term, add an ODPV alias, or update the source specification.
+No unresolved drift detected.
 
 ## Possible Drift Summary
 
-| Spec | Source | Term | Suggested action |
-|---|---|---|---|
-| ODPS | Product component | `details` | Review whether to add an ODPV term, add an alias, or update the source specification. |
-| ODPS | Product component | `productStrategy` | Review whether to add an ODPV term, add an alias, or update the source specification. |
-| ODPS | Product component | `pricingPlans` | Review whether to add an ODPV term, add an alias, or update the source specification. |
-| ODPS | Product component | `dataAccess` | Review whether to add an ODPV term, add an alias, or update the source specification. |
-| ODPS | Product component | `paymentGateways` | Review whether to add an ODPV term, add an alias, or update the source specification. |
-| ODPS | Product component | `support` | Review whether to add an ODPV term, add an alias, or update the source specification. |
-| ODPS | Product component | `license` | Review whether to add an ODPV term, add an alias, or update the source specification. |
-| ODPS | Product component | `dataHolder` | Review whether to add an ODPV term, add an alias, or update the source specification. |
+No unresolved drift detected.
 
 ## ODPG to ODPV
 
@@ -86,20 +77,20 @@ No unresolved drift detected.
 ## ODPS to ODPV
 
 - Checked terms: 11
-- Possible drifts: 8
+- Possible drifts: 0
 
-Possible drift detected. Review rows marked `Possible drift` and either add an ODPV term, add an ODPV alias, or update the source specification.
+No unresolved drift detected.
 
 | ODPS source | ODPS term | ODPV match | Status | Notes |
 |---|---|---|---|---|
 | Product component | `contract` | `DataContract` | Alias match | ODPS term maps through ODPV alias. |
-| **Product component** | **`details`** |  | **Possible drift** | **No exact ODPV id or alias match found.** |
-| **Product component** | **`productStrategy`** |  | **Possible drift** | **No exact ODPV id or alias match found.** |
-| **Product component** | **`pricingPlans`** |  | **Possible drift** | **No exact ODPV id or alias match found.** |
+| Product component | `details` | `ProductDetails` | Alias match | ODPS term maps through ODPV alias. |
+| Product component | `productStrategy` | `ProductStrategy` | Alias match | ODPS term maps through ODPV alias. |
+| Product component | `pricingPlans` | `PricingPlan` | Alias match | ODPS term maps through ODPV alias. |
 | Product component | `SLA` | `SLA` | Exact match | ODPS term is an official ODPV id. |
 | Product component | `dataQuality` | `DataQuality` | Alias match | ODPS term maps through ODPV alias. |
-| **Product component** | **`dataAccess`** |  | **Possible drift** | **No exact ODPV id or alias match found.** |
-| **Product component** | **`paymentGateways`** |  | **Possible drift** | **No exact ODPV id or alias match found.** |
-| **Product component** | **`support`** |  | **Possible drift** | **No exact ODPV id or alias match found.** |
-| **Product component** | **`license`** |  | **Possible drift** | **No exact ODPV id or alias match found.** |
-| **Product component** | **`dataHolder`** |  | **Possible drift** | **No exact ODPV id or alias match found.** |
+| Product component | `dataAccess` | `DataAccess` | Alias match | ODPS term maps through ODPV alias. |
+| Product component | `paymentGateways` | `PaymentGateway` | Alias match | ODPS term maps through ODPV alias. |
+| Product component | `support` | `Support` | Alias match | ODPS term maps through ODPV alias. |
+| Product component | `license` | `License` | Alias match | ODPS term maps through ODPV alias. |
+| Product component | `dataHolder` | `DataHolder` | Alias match | ODPS term maps through ODPV alias. |

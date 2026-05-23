@@ -46,6 +46,32 @@ sections:
       en:
       - Customer Churn Risk Scores is a DataProduct used by retention teams.
       - Use DataProduct for a managed reusable data offering with ownership, access, quality, and usage context.
+  - id: ProductDetails
+    uri: https://opendataproducts.org/odpv-v1.0/terms/ProductDetails
+    type: object
+    status: stable
+    introducedIn: 1.0.0
+    preferredLabel:
+      en: Product Details
+    definition:
+      en: The descriptive metadata block for a data product, including name, product identifier, description, value proposition, visibility, status, and version.
+    alsoKnownAs:
+      en:
+      - details
+      - product details
+      - product metadata
+      - descriptive metadata
+    relatedTerms:
+    - DataProduct
+    - ValueProposition
+    - GovernanceProfile
+    - PortfolioPriority
+    usedIn:
+    - ODPS
+    examples:
+      en:
+      - The Details section of an ODPS product contains its name, identifier, value proposition, visibility, status, and version.
+      - Use ProductDetails for the descriptive metadata block of a data product.
   - id: DataProductCatalog
     uri: https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog
     type: object
@@ -282,6 +308,32 @@ sections:
       en:
       - The Payments Data Platform team is the Provider of the Transaction Events DataProduct.
       - Use Provider for the team, organization, system, or person that publishes or supplies a data asset.
+  - id: DataHolder
+    uri: https://opendataproducts.org/odpv-v1.0/terms/DataHolder
+    type: role
+    status: stable
+    introducedIn: 1.0.0
+    preferredLabel:
+      en: Data Holder
+    definition:
+      en: A legal entity or accountable organization that holds, controls, or is responsible for a data product or the data it contains.
+    alsoKnownAs:
+      en:
+      - dataHolder
+      - data holder
+      - holding organization
+      - accountable legal entity
+    relatedTerms:
+    - Provider
+    - Owner
+    - Steward
+    - DataAgreement
+    usedIn:
+    - ODPS
+    examples:
+      en:
+      - Acme Bank Ltd is the DataHolder for a regulated payments data product.
+      - Use DataHolder for the legal entity or accountable organization that holds or controls the data.
   - id: Consumer
     uri: https://opendataproducts.org/odpv-v1.0/terms/Consumer
     type: role

@@ -20,16 +20,20 @@ ODPV Core defines foundational terms used across the standards family.
 The first version includes:
 
 * DataProduct
+* ProductDetails
 * DataProductCatalog
 * DataProductGraph
 * Dataset
 * Distribution
 * DataService
+* Agent
+* Workflow
+* Capability
 * Provider
+* DataHolder
 * Consumer
 * Owner
-* Outcome Owner
-* System Steward
+* Steward
 
 These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.
 
@@ -46,6 +50,10 @@ The first version includes:
 * Signal
 * Gap
 * Priority
+* StrategicOpportunity
+* ProductStrategy
+* ValueProposition
+* PortfolioPriority
 
 These terms help connect data products to measurable value and portfolio-level decision-making.
 
@@ -56,10 +64,13 @@ ODPV Governance defines terms for quality, access, legal, operational, and compl
 The first version includes:
 
 * DataQuality
-* Pricing plan
 * SLA
 * License
+* DataAccess
 * AccessMethod
+* PricingPlan
+* PaymentGateway
+* Support
 * Agreement
 * Policy
 * ComplianceRule

@@ -50,6 +50,33 @@ sections:
             - Customer Churn Risk Scores is a DataProduct used by retention teams.
             - Use DataProduct for a managed reusable data offering with ownership, access, quality, and usage context.
 
+      - id: ProductDetails
+        uri: https://opendataproducts.org/odpv-v1.0/terms/ProductDetails
+        type: object
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Product Details
+        definition:
+          en: The descriptive metadata block for a data product, including name, product identifier, description, value proposition, visibility, status, and version.
+        alsoKnownAs:
+          en:
+            - details
+            - product details
+            - product metadata
+            - descriptive metadata
+        relatedTerms:
+          - DataProduct
+          - ValueProposition
+          - GovernanceProfile
+          - PortfolioPriority
+        usedIn:
+          - ODPS
+        examples:
+          en:
+            - The Details section of an ODPS product contains its name, identifier, value proposition, visibility, status, and version.
+            - Use ProductDetails for the descriptive metadata block of a data product.
+
       - id: DataProductCatalog
         uri: https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog
         type: object
@@ -294,6 +321,33 @@ sections:
           en:
             - The Payments Data Platform team is the Provider of the Transaction Events DataProduct.
             - Use Provider for the team, organization, system, or person that publishes or supplies a data asset.
+
+      - id: DataHolder
+        uri: https://opendataproducts.org/odpv-v1.0/terms/DataHolder
+        type: role
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Data Holder
+        definition:
+          en: A legal entity or accountable organization that holds, controls, or is responsible for a data product or the data it contains.
+        alsoKnownAs:
+          en:
+            - dataHolder
+            - data holder
+            - holding organization
+            - accountable legal entity
+        relatedTerms:
+          - Provider
+          - Owner
+          - Steward
+          - DataAgreement
+        usedIn:
+          - ODPS
+        examples:
+          en:
+            - Acme Bank Ltd is the DataHolder for a regulated payments data product.
+            - Use DataHolder for the legal entity or accountable organization that holds or controls the data.
 
       - id: Consumer
         uri: https://opendataproducts.org/odpv-v1.0/terms/Consumer
@@ -837,6 +891,33 @@ sections:
             - Reducing unscheduled aircraft maintenance is a StrategicOpportunity identified from reliability signals and operational gaps.
             - Use StrategicOpportunity when an opportunity has portfolio, strategic, or business-objective relevance.
 
+      - id: ProductStrategy
+        uri: https://opendataproducts.org/odpv-v1.0/terms/ProductStrategy
+        type: object
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Product Strategy
+        definition:
+          en: The strategic plan or context for a data product, including objectives, alignment, dates, status, and KPIs used to describe intended value.
+        alsoKnownAs:
+          en:
+            - productStrategy
+            - product strategy
+            - product strategic plan
+            - strategic product context
+        relatedTerms:
+          - BusinessObjective
+          - KPI
+          - StrategicOpportunity
+          - PortfolioPriority
+        usedIn:
+          - ODPS
+        examples:
+          en:
+            - A ProductStrategy links a customer intelligence data product to growth objectives and retention KPIs.
+            - Use ProductStrategy for product-level objectives, alignment, timing, status, and strategic KPIs.
+
       - id: Risk
         uri: https://opendataproducts.org/odpv-v1.0/terms/Risk
         type: object
@@ -995,6 +1076,7 @@ sections:
           en: The legal terms that define how a data product, dataset, distribution, or data service may be used, shared, or redistributed.
         alsoKnownAs:
           en:
+            - license
             - data license
             - usage license
             - legal license
@@ -1012,6 +1094,35 @@ sections:
           en:
             - Apache 2.0 is a License for a publicly shared dataset.
             - Use License for legal terms that define how data may be used, shared, or redistributed.
+
+      - id: DataAccess
+        uri: https://opendataproducts.org/odpv-v1.0/terms/DataAccess
+        type: object
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Data Access
+        definition:
+          en: The access configuration or access description for a data product, dataset, distribution, or data service.
+        alsoKnownAs:
+          en:
+            - dataAccess
+            - data access
+            - access configuration
+            - access description
+        relatedTerms:
+          - AccessMethod
+          - AccessCondition
+          - DataService
+          - Distribution
+        usedIn:
+          - ODPS
+          - ODPC
+          - ODPG
+        examples:
+          en:
+            - An ODPS dataAccess block describes the output ports or access channels for a data product.
+            - Use DataAccess for product-level access configuration or description.
 
       - id: AccessMethod
         uri: https://opendataproducts.org/odpv-v1.0/terms/AccessMethod
@@ -1041,6 +1152,87 @@ sections:
           en:
             - A Snowflake share is an AccessMethod for the Customer Features DataProduct.
             - Use AccessMethod for the channel or interface used to access data, such as API, file download, query endpoint, or platform access.
+
+      - id: PricingPlan
+        uri: https://opendataproducts.org/odpv-v1.0/terms/PricingPlan
+        type: object
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Pricing Plan
+        definition:
+          en: A pricing, cost, subscription, or commercial plan that describes how a data product or data service may be paid for, charged, or monetized.
+        alsoKnownAs:
+          en:
+            - pricingPlans
+            - pricing plan
+            - commercial plan
+            - subscription plan
+        relatedTerms:
+          - Agreement
+          - License
+          - UsageRights
+          - PaymentGateway
+        usedIn:
+          - ODPS
+        examples:
+          en:
+            - A monthly subscription tier for a market data product is a PricingPlan.
+            - Use PricingPlan for pricing, cost, subscription, or monetization plans.
+
+      - id: PaymentGateway
+        uri: https://opendataproducts.org/odpv-v1.0/terms/PaymentGateway
+        type: object
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Payment Gateway
+        definition:
+          en: A payment integration, payment service, or gateway used to process commercial access to a data product or data service.
+        alsoKnownAs:
+          en:
+            - paymentGateways
+            - payment gateway
+            - payment integration
+            - payment service
+        relatedTerms:
+          - PricingPlan
+          - Agreement
+          - DataAccess
+          - DataService
+        usedIn:
+          - ODPS
+        examples:
+          en:
+            - A Stripe integration configured for paid API access is a PaymentGateway.
+            - Use PaymentGateway for payment services or integrations used with commercial data product access.
+
+      - id: Support
+        uri: https://opendataproducts.org/odpv-v1.0/terms/Support
+        type: object
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Support
+        definition:
+          en: The support model or contact channel for help, issue handling, or operational assistance related to a data product or data service.
+        alsoKnownAs:
+          en:
+            - support
+            - product support
+            - support contact
+            - help channel
+        relatedTerms:
+          - SLA
+          - Stewardship
+          - Owner
+          - DataService
+        usedIn:
+          - ODPS
+        examples:
+          en:
+            - A support email and phone number for product incidents is Support metadata.
+            - Use Support for help, issue handling, or operational assistance channels.
 
       - id: Agreement
         uri: https://opendataproducts.org/odpv-v1.0/terms/Agreement

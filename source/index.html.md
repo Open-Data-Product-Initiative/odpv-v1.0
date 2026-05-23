@@ -69,11 +69,11 @@ These groups create a common language for describing, connecting, validating, an
 
 | Section | Purpose | Term count |
 |---|---|---:|
-| ODPV Core | Foundational objects, roles, classifications, and references | 13 |
-| ODPV Value | Business value, demand, outcomes, gaps, and priorities | 15 |
-| ODPV Governance | Quality, access, licensing, agreements, policy, and compliance | 15 |
-| ODPV Relationships | Relationship terms for graphs and portfolio analysis | 16 |
-| Total | Shared vocabulary terms | 59 |
+| ODPV Core | Foundational objects, roles, classifications, and references | 18 |
+| ODPV Value | Business value, demand, outcomes, gaps, and priorities | 17 |
+| ODPV Governance | Quality, access, licensing, agreements, policy, and compliance | 19 |
+| ODPV Relationships | Relationship terms for graphs and portfolio analysis | 24 |
+| Total | Shared vocabulary terms | 78 |
 
 [Suggest addition to the vocabulary](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) 
 

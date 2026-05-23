@@ -31,7 +31,7 @@ class VocabScriptTests(unittest.TestCase):
 
         self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
         self.assertIn("Validation OK", result.stdout)
-        self.assertIn("terms=71", result.stdout)
+        self.assertIn("terms=78", result.stdout)
         self.assertIn("relationships=24", result.stdout)
 
     def test_search_vocab_returns_json_matches_for_aliases_and_examples(self):
@@ -89,6 +89,44 @@ class VocabScriptTests(unittest.TestCase):
         self.assertIn("ProductModel", terms_by_id["Reference"]["alsoKnownAs"]["en"])
         self.assertIn("Catalog", terms_by_id["DataProductCatalog"]["alsoKnownAs"]["en"])
 
+    def test_odps_product_components_are_aligned(self):
+        import yaml
+
+        data = yaml.safe_load((ROOT / "source/vocab/odpv.yaml").read_text(encoding="utf-8"))
+        terms_by_id = {
+            term["id"]: {"section": section["id"], **term}
+            for section in data["sections"]
+            for term in section["terms"]
+        }
+
+        expected_sections = {
+            "ProductDetails": "core",
+            "DataHolder": "core",
+            "ProductStrategy": "value",
+            "PricingPlan": "governance",
+            "DataAccess": "governance",
+            "PaymentGateway": "governance",
+            "Support": "governance",
+        }
+        for term_id, section_id in expected_sections.items():
+            with self.subTest(term_id=term_id):
+                self.assertIn(term_id, terms_by_id)
+                self.assertEqual(terms_by_id[term_id]["section"], section_id)
+
+        expected_aliases = {
+            "ProductDetails": "details",
+            "DataHolder": "dataHolder",
+            "ProductStrategy": "productStrategy",
+            "PricingPlan": "pricingPlans",
+            "DataAccess": "dataAccess",
+            "PaymentGateway": "paymentGateways",
+            "Support": "support",
+            "License": "license",
+        }
+        for term_id, alias in expected_aliases.items():
+            with self.subTest(term_id=term_id, alias=alias):
+                self.assertIn(alias, terms_by_id[term_id]["alsoKnownAs"]["en"])
+
     def test_cross_spec_drift_check_reports_online_schema_alignment(self):
         report_date = datetime.now(timezone.utc).date().isoformat()
         report_path = ROOT / f"cross-spec-drift/{report_date}-odpv-cross-spec-drift.md"
@@ -106,8 +144,9 @@ class VocabScriptTests(unittest.TestCase):
         self.assertIn("- ODPC schema: `https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml`", report)
         self.assertIn("- ODPS schema: `https://opendataproducts.org/v4.1/schema/odps.yaml`", report)
         self.assertIn("## Possible Drift Summary", report)
-        self.assertIn("| Spec | Source | Term | Suggested action |", report)
-        self.assertIn("| ODPS | Product component | `pricingPlans` | Review whether to add an ODPV term, add an alias, or update the source specification. |", report)
+        self.assertIn("No unresolved drift detected.", report)
+        self.assertNotIn("| Spec | Source | Term | Suggested action |", report)
+        self.assertNotIn("**Possible drift**", report)
         self.assertIn("## ODPG to ODPV", report)
         self.assertIn("| ODPG source | ODPG term | ODPV match | Status | Notes |", report)
         self.assertIn("| Node type | `API` | `DataService` | Alias match | ODPG term maps through ODPV alias.", report)
@@ -125,7 +164,14 @@ class VocabScriptTests(unittest.TestCase):
         self.assertIn("| Product component | `SLA` | `SLA` | Exact match | ODPS term is an official ODPV id.", report)
         self.assertIn("| Product component | `dataQuality` | `DataQuality` | Alias match | ODPS term maps through ODPV alias.", report)
         self.assertIn("| Product component | `contract` | `DataContract` | Alias match | ODPS term maps through ODPV alias.", report)
-        self.assertIn("| **Product component** | **`pricingPlans`** |  | **Possible drift** | **No exact ODPV id or alias match found.** |", report)
+        self.assertIn("| Product component | `details` | `ProductDetails` | Alias match | ODPS term maps through ODPV alias.", report)
+        self.assertIn("| Product component | `productStrategy` | `ProductStrategy` | Alias match | ODPS term maps through ODPV alias.", report)
+        self.assertIn("| Product component | `pricingPlans` | `PricingPlan` | Alias match | ODPS term maps through ODPV alias.", report)
+        self.assertIn("| Product component | `dataAccess` | `DataAccess` | Alias match | ODPS term maps through ODPV alias.", report)
+        self.assertIn("| Product component | `paymentGateways` | `PaymentGateway` | Alias match | ODPS term maps through ODPV alias.", report)
+        self.assertIn("| Product component | `support` | `Support` | Alias match | ODPS term maps through ODPV alias.", report)
+        self.assertIn("| Product component | `license` | `License` | Alias match | ODPS term maps through ODPV alias.", report)
+        self.assertIn("| Product component | `dataHolder` | `DataHolder` | Alias match | ODPS term maps through ODPV alias.", report)
 
     def test_cross_spec_drift_check_can_validate_existing_report(self):
         self.run_script("scripts/check_cross_spec_drift.py")
