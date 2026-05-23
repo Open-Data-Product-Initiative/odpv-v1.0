@@ -93,6 +93,10 @@ sections:
     - DataProduct
     - DataProductGraph
     - Reference
+    mappings:
+      closeMatch:
+      - dcat:Catalog
+      - schema:DataCatalog
     usedIn:
     - ODPC
     - ODPG
@@ -145,6 +149,10 @@ sections:
     - DataProduct
     - Distribution
     - DataService
+    mappings:
+      exactMatch:
+      - dcat:Dataset
+      - schema:Dataset
     usedIn:
     - ODPS
     - ODPC
@@ -171,6 +179,11 @@ sections:
     - Dataset
     - DataService
     - DataAccess
+    mappings:
+      exactMatch:
+      - dcat:Distribution
+      closeMatch:
+      - schema:DataDownload
     usedIn:
     - ODPS
     examples:
@@ -198,6 +211,9 @@ sections:
     - Distribution
     - DataAccess
     - API
+    mappings:
+      exactMatch:
+      - dcat:DataService
     usedIn:
     - ODPS
     - ODPG
@@ -225,6 +241,9 @@ sections:
     - Consumer
     - Workflow
     - DataService
+    mappings:
+      closeMatch:
+      - prov:Agent
     usedIn:
     - ODPG
     examples:
@@ -250,6 +269,9 @@ sections:
     - UseCase
     - Agent
     - Capability
+    mappings:
+      closeMatch:
+      - prov:Activity
     usedIn:
     - ODPG
     examples:

@@ -25,6 +25,8 @@ The canonical vocabulary source is [`source/vocab/odpv.yaml`](source/vocab/odpv.
 |---|---|
 | [`source/vocab/odpv.yaml`](source/vocab/odpv.yaml) | Canonical machine-readable vocabulary |
 | [`source/vocab/odpv.json`](source/vocab/odpv.json) | JSON representation for tools and APIs |
+| [`source/vocab/odpv.jsonld`](source/vocab/odpv.jsonld) | JSON-LD representation for linked-data and semantic tooling |
+| [`source/vocab/odpv.skos.ttl`](source/vocab/odpv.skos.ttl) | SKOS Turtle representation with labels, definitions, related terms, and external mappings |
 | [`source/vocab/terms.jsonl`](source/vocab/terms.jsonl) | Agent-friendly one-term-per-line vocabulary for retrieval and embeddings |
 | [`source/vocab/core.yaml`](source/vocab/core.yaml) | Core terms only |
 | [`source/vocab/value.yaml`](source/vocab/value.yaml) | Value terms only |
@@ -42,7 +44,7 @@ This repository also includes helper scripts for maintaining and using the vocab
 |---|---|
 | [`scripts/search_vocab.py`](scripts/search_vocab.py) | Search ODPV terms by label, alias, definition, example, and related term |
 | [`scripts/validate_vocab.py`](scripts/validate_vocab.py) | Validate the canonical vocabulary and generated artifacts |
-| [`scripts/generate_vocab_artifacts.py`](scripts/generate_vocab_artifacts.py) | Regenerate JSON, JSONL, and section YAML files from `odpv.yaml` |
+| [`scripts/generate_vocab_artifacts.py`](scripts/generate_vocab_artifacts.py) | Regenerate JSON, JSON-LD, SKOS Turtle, JSONL, and section YAML files from `odpv.yaml` |
 | [`scripts/check_cross_spec_drift.py`](scripts/check_cross_spec_drift.py) | Compare published ODPS, ODPC, and ODPG schema terms against ODPV |
 
 # Companion Vocabulary, Not a Heavy Ontology

@@ -22,6 +22,8 @@ Standards-family context:
 Canonical vocabulary files:
 - /vocab/odpv.yaml (https://opendataproducts.org/odpv-v1.0/vocab/odpv.yaml)
 - /vocab/odpv.json (https://opendataproducts.org/odpv-v1.0/vocab/odpv.json)
+- /vocab/odpv.jsonld (https://opendataproducts.org/odpv-v1.0/vocab/odpv.jsonld)
+- /vocab/odpv.skos.ttl (https://opendataproducts.org/odpv-v1.0/vocab/odpv.skos.ttl)
 
 Section vocabulary files:
 - /vocab/core.yaml (https://opendataproducts.org/odpv-v1.0/vocab/core.yaml)
@@ -36,7 +38,7 @@ Validation schema:
 - /schema/odpv.schema.json (https://opendataproducts.org/odpv-v1.0/schema/odpv.schema.json)
 
 Agent-oriented source scripts:
-- scripts/generate_vocab_artifacts.py regenerates derived vocabulary artifacts from canonical source/vocab/odpv.yaml. Use `python3 scripts/generate_vocab_artifacts.py --check` to detect drift.
+- scripts/generate_vocab_artifacts.py regenerates derived vocabulary artifacts from canonical source/vocab/odpv.yaml, including JSON, JSON-LD, SKOS Turtle, JSONL, and section YAML. Use `python3 scripts/generate_vocab_artifacts.py --check` to detect drift.
 - scripts/validate_vocab.py validates vocabulary structure, required fields, generated artifacts, JSONL, section files, and relationship guidance.
 - scripts/search_vocab.py searches ODPV terms using preferredLabel, alsoKnownAs, definition, examples, and relatedTerms. Use `--json` for machine-readable results.
 - scripts/check_cross_spec_drift.py fetches the published ODPS, ODPC, and ODPG schemas, compares their schema terms against ODPV, and writes cross-spec-drift/odpv-cross-spec-drift.md. Use `python3 scripts/check_cross_spec_drift.py --check` to detect report drift.
@@ -46,6 +48,8 @@ File selection guidance:
 - Use /vocab/terms.jsonl for retrieval, embeddings, search, and lightweight agent tools. It contains one term per line with ids, uris, labels, definitions, aliases, related terms, examples, usedIn values, and relationship domain/range hints where available.
 - Use /vocab/odpv.yaml as the canonical source when complete vocabulary structure, section context, schema-compatible metadata, or validation context is required.
 - Use /vocab/odpv.json when JSON is easier to consume than YAML.
+- Use /vocab/odpv.jsonld when linked-data JSON is needed.
+- Use /vocab/odpv.skos.ttl when SKOS-aware semantic tools or RDF graph stores are used.
 - Use section YAML files when only one vocabulary area is needed.
 - Use /schema/odpv.schema.json to validate ODPV vocabulary files.
 

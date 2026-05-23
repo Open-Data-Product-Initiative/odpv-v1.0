@@ -11,8 +11,49 @@ ROOT = Path(__file__).resolve().parents[1]
 VOCAB_DIR = ROOT / "source" / "vocab"
 CANONICAL_YAML = VOCAB_DIR / "odpv.yaml"
 CANONICAL_JSON = VOCAB_DIR / "odpv.json"
+CANONICAL_JSONLD = VOCAB_DIR / "odpv.jsonld"
+CANONICAL_SKOS_TTL = VOCAB_DIR / "odpv.skos.ttl"
 TERMS_JSONL = VOCAB_DIR / "terms.jsonl"
 SECTION_IDS = ("core", "value", "governance", "relationships")
+JSONLD_CONTEXT = {
+    "id": "https://schema.org/identifier",
+    "uri": "@id",
+    "type": "@type",
+    "section": "https://opendataproducts.org/odpv-v1.0/schema/section",
+    "preferredLabel": "skos:prefLabel",
+    "definition": "skos:definition",
+    "alsoKnownAs": "skos:altLabel",
+    "relatedTerms": "skos:related",
+    "usedIn": "https://opendataproducts.org/odpv-v1.0/schema/usedIn",
+    "examples": "skos:example",
+    "mappings": "skos:mappingRelation",
+    "exactMatch": "skos:exactMatch",
+    "closeMatch": "skos:closeMatch",
+    "broadMatch": "skos:broadMatch",
+    "narrowMatch": "skos:narrowMatch",
+    "relatedMatch": "skos:relatedMatch",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "https://schema.org/",
+}
+TURTLE_PREFIXES = {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "https://schema.org/",
+}
+MAPPING_PREDICATES = {
+    "exactMatch": "skos:exactMatch",
+    "closeMatch": "skos:closeMatch",
+    "broadMatch": "skos:broadMatch",
+    "narrowMatch": "skos:narrowMatch",
+    "relatedMatch": "skos:relatedMatch",
+}
 REQUIRED_TERM_FIELDS = (
     "id",
     "uri",
@@ -82,9 +123,104 @@ def build_terms_jsonl(data: dict[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def build_jsonld(data: dict[str, Any]) -> str:
+    graph = []
+    for section, term in iter_terms(data):
+        item = {
+            "@id": term["uri"],
+            "@type": "skos:Concept",
+            "id": term["id"],
+            "section": section["id"],
+            "preferredLabel": term["preferredLabel"],
+            "definition": term["definition"],
+            "alsoKnownAs": term["alsoKnownAs"],
+            "relatedTerms": term["relatedTerms"],
+            "usedIn": term["usedIn"],
+            "examples": term["examples"],
+        }
+        if term.get("mappings"):
+            item["mappings"] = term["mappings"]
+        graph.append(item)
+
+    return dump_json(
+        {
+            "@context": JSONLD_CONTEXT,
+            "@id": "https://opendataproducts.org/odpv-v1.0/",
+            "@type": "skos:ConceptScheme",
+            "id": data["id"],
+            "version": data["version"],
+            "preferredLabel": data["name"],
+            "definition": data["description"],
+            "@graph": graph,
+        }
+    )
+
+
+def turtle_literal(value: str) -> str:
+    return json.dumps(value, ensure_ascii=True)
+
+
+def turtle_lang_literal(value: str, language: str) -> str:
+    return f"{turtle_literal(value)}@{language}"
+
+
+def turtle_resource(value: str, term_uris: dict[str, str]) -> str:
+    if value in term_uris:
+        return f"<{term_uris[value]}>"
+    if value.startswith(("http://", "https://")):
+        return f"<{value}>"
+    if ":" in value:
+        return value
+    return turtle_literal(value)
+
+
+def turtle_object_list(values: list[str], term_uris: dict[str, str]) -> str:
+    return ", ".join(turtle_resource(value, term_uris) for value in values)
+
+
+def build_skos_ttl(data: dict[str, Any]) -> str:
+    term_uris = {term["id"]: term["uri"] for _section, term in iter_terms(data)}
+    lines = [f"@prefix {prefix}: <{uri}> ." for prefix, uri in TURTLE_PREFIXES.items()]
+    lines.extend(
+        [
+            "",
+            "<https://opendataproducts.org/odpv-v1.0/> a skos:ConceptScheme ;",
+            f"  skos:prefLabel {turtle_lang_literal(data['name']['en'], 'en')} ;",
+            f"  skos:definition {turtle_lang_literal(data['description']['en'], 'en')} .",
+            "",
+        ]
+    )
+
+    for section, term in iter_terms(data):
+        statements = [
+            f"<{term['uri']}> a skos:Concept",
+            "  skos:inScheme <https://opendataproducts.org/odpv-v1.0/>",
+            f"  skos:prefLabel {turtle_lang_literal(term['preferredLabel']['en'], 'en')}",
+            f"  skos:definition {turtle_lang_literal(term['definition']['en'], 'en')}",
+            f"  skos:notation {turtle_literal(term['id'])}",
+            f"  dcterms:type {turtle_literal(term['type'])}",
+            f"  dcterms:isPartOf {turtle_literal(section['id'])}",
+        ]
+        aliases = term.get("alsoKnownAs", {}).get("en", [])
+        if aliases:
+            statements.append("  skos:altLabel " + ", ".join(turtle_lang_literal(alias, "en") for alias in aliases))
+        related_terms = [related for related in term.get("relatedTerms", []) if related in term_uris]
+        if related_terms:
+            statements.append("  skos:related " + turtle_object_list(related_terms, term_uris))
+        for mapping_type, mapping_values in term.get("mappings", {}).items():
+            predicate = MAPPING_PREDICATES.get(mapping_type)
+            if predicate and mapping_values:
+                statements.append(f"  {predicate} " + turtle_object_list(mapping_values, term_uris))
+        lines.append(" ;\n".join(statements) + " .")
+        lines.append("")
+    return "\n".join(lines)
+
+
 def build_artifacts(data: dict[str, Any]) -> dict[Path, str]:
     artifacts = {
         CANONICAL_JSON: dump_json(data),
+        CANONICAL_JSONLD: build_jsonld(data),
+        CANONICAL_SKOS_TTL: build_skos_ttl(data),
         TERMS_JSONL: build_terms_jsonl(data),
     }
     for section in iter_sections(data):

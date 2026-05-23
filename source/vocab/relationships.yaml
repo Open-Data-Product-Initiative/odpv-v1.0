@@ -104,6 +104,9 @@ sections:
     - requires
     - dependsOn
     - consumes
+    mappings:
+      closeMatch:
+      - prov:used
     domain:
     - UseCase
     - Agent
@@ -679,6 +682,9 @@ sections:
     - dependsOn
     - Reference
     - Dataset
+    mappings:
+      closeMatch:
+      - prov:wasDerivedFrom
     domain:
     - DataProduct
     - Dataset

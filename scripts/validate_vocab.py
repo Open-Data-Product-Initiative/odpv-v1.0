@@ -8,6 +8,8 @@ import yaml
 
 from vocab_utils import (
     CANONICAL_JSON,
+    CANONICAL_JSONLD,
+    CANONICAL_SKOS_TTL,
     SECTION_IDS,
     TERMS_JSONL,
     VOCAB_DIR,
@@ -37,6 +39,25 @@ def main() -> int:
             errors.append("odpv.json does not match odpv.yaml")
     except Exception as exc:  # noqa: BLE001
         errors.append(f"Could not parse odpv.json: {exc}")
+
+    try:
+        with CANONICAL_JSONLD.open("r", encoding="utf-8") as handle:
+            jsonld_data = json.load(handle)
+        if jsonld_data.get("@type") != "skos:ConceptScheme":
+            errors.append("odpv.jsonld does not describe a skos:ConceptScheme")
+        if len(jsonld_data.get("@graph", [])) != len(iter_terms(data)):
+            errors.append("odpv.jsonld graph term count does not match canonical term count")
+    except Exception as exc:  # noqa: BLE001
+        errors.append(f"Could not parse odpv.jsonld: {exc}")
+
+    try:
+        skos_text = CANONICAL_SKOS_TTL.read_text(encoding="utf-8")
+        if "skos:ConceptScheme" not in skos_text:
+            errors.append("odpv.skos.ttl does not contain a skos:ConceptScheme")
+        if skos_text.count(" a skos:Concept") != len(iter_terms(data)) + 1:
+            errors.append("odpv.skos.ttl concept count does not match canonical term count")
+    except Exception as exc:  # noqa: BLE001
+        errors.append(f"Could not read odpv.skos.ttl: {exc}")
 
     try:
         lines = TERMS_JSONL.read_text(encoding="utf-8").splitlines()

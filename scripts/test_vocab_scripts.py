@@ -26,6 +26,27 @@ class VocabScriptTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
         self.assertIn("Vocabulary artifacts are in sync", result.stdout)
 
+    def test_generate_check_includes_linked_data_artifacts(self):
+        jsonld_path = ROOT / "source/vocab/odpv.jsonld"
+        skos_path = ROOT / "source/vocab/odpv.skos.ttl"
+        result = self.run_script("scripts/generate_vocab_artifacts.py")
+
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        self.assertTrue(jsonld_path.exists())
+        self.assertTrue(skos_path.exists())
+
+        jsonld = json.loads(jsonld_path.read_text(encoding="utf-8"))
+        self.assertEqual(jsonld["@context"]["skos"], "http://www.w3.org/2004/02/skos/core#")
+        self.assertEqual(jsonld["@graph"][0]["@id"], "https://opendataproducts.org/odpv-v1.0/terms/DataProduct")
+        dataset = next(item for item in jsonld["@graph"] if item["id"] == "Dataset")
+        self.assertIn("dcat:Dataset", dataset["mappings"]["exactMatch"])
+        self.assertIn("schema:Dataset", dataset["mappings"]["exactMatch"])
+
+        skos = skos_path.read_text(encoding="utf-8")
+        self.assertIn("@prefix skos: <http://www.w3.org/2004/02/skos/core#> .", skos)
+        self.assertIn("<https://opendataproducts.org/odpv-v1.0/terms/Dataset> a skos:Concept", skos)
+        self.assertIn("skos:exactMatch dcat:Dataset, schema:Dataset", skos)
+
     def test_validate_vocab_reports_expected_counts(self):
         result = self.run_script("scripts/validate_vocab.py")
 
