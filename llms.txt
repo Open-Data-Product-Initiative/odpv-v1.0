@@ -41,6 +41,7 @@ Agent-oriented source scripts:
 - scripts/generate_vocab_artifacts.py regenerates derived vocabulary artifacts from canonical source/vocab/odpv.yaml, including JSON, JSON-LD, SKOS Turtle, JSONL, and section YAML. Use `python3 scripts/generate_vocab_artifacts.py --check` to detect drift.
 - scripts/validate_vocab.py validates vocabulary structure, required fields, generated artifacts, JSONL, section files, and relationship guidance.
 - scripts/search_vocab.py searches ODPV terms using preferredLabel, alsoKnownAs, definition, examples, and relatedTerms. Use `--json` for machine-readable results.
+- scripts/agent_vocab_helper.py provides JSON-first agent helpers: `resolve <text>`, `explain <term-id>`, `relationship <source> <verb> <target>`, and `context <term-id>`.
 - scripts/check_cross_spec_drift.py fetches the published ODPS, ODPC, and ODPG schemas, compares their schema terms against ODPV, and writes a dated report under cross-spec-drift/. Use `python3 scripts/check_cross_spec_drift.py --check` to detect report drift.
 - scripts/test_vocab_scripts.py verifies the helper scripts.
 
@@ -57,7 +58,7 @@ Recommended agent workflow:
 1. Fetch /llms.txt first to understand the standards-family context and available vocabulary resources.
 2. Use the Open Data Product Agent SDK when the task spans multiple standards or needs reusable tooling across ODPS, ODPC, ODPG, and ODPV.
 3. Load /vocab/terms.jsonl for term search, retrieval, embeddings, and lightweight lookup.
-4. If working from the source repository, use scripts/search_vocab.py for repeatable local term lookup; use `--json` when another tool or agent will consume the result.
+4. If working from the source repository, use scripts/agent_vocab_helper.py for repeatable local term resolution, explanations, relationship checks, and context packets. Use scripts/search_vocab.py for broader search; use `--json` when another tool or agent will consume the result.
 5. Use /vocab/odpv.yaml when full vocabulary structure, section context, schema-compatible metadata, or validation context is needed.
 6. Match user language against preferredLabel, alsoKnownAs, definition, examples, and relatedTerms.
 7. Check the vocabulary version and include it when generating structured outputs.
