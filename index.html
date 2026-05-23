@@ -27,7 +27,7 @@
         >
         <meta
             name="ai-agent-guidance"
-            content="Use /llms.txt for agent guidance and /vocab/terms.jsonl for retrieval-friendly vocabulary terms."
+            content="Use /llms.txt for agent guidance, /vocab/terms.jsonl for retrieval-friendly vocabulary terms, and /vocab/odpv.jsonld or /vocab/odpv.skos.ttl for linked-data tooling."
         >
 
     <title>Open Data Product Vocab (ODPV) version RC | Linux Foundation</title>
@@ -360,6 +360,9 @@
                     <a href="#what-odpv-defines" class="toc-h2 toc-link" data-title="What ODPV Defines">What ODPV Defines</a>
                   </li>
                   <li>
+                    <a href="#machine-readable-vocabulary-resources" class="toc-h2 toc-link" data-title="Machine-Readable Vocabulary Resources">Machine-Readable Vocabulary Resources</a>
+                  </li>
+                  <li>
                     <a href="#companion-vocabulary-not-a-heavy-ontology" class="toc-h2 toc-link" data-title="Companion Vocabulary, Not a Heavy Ontology">Companion Vocabulary, Not a Heavy Ontology</a>
                   </li>
                   <li>
@@ -367,6 +370,9 @@
                   </li>
                   <li>
                     <a href="#why-odpv-matters" class="toc-h2 toc-link" data-title="Why ODPV Matters">Why ODPV Matters</a>
+                  </li>
+                  <li>
+                    <a href="#automated-drift-detection" class="toc-h2 toc-link" data-title="Automated Drift Detection">Automated Drift Detection</a>
                   </li>
                   <li>
                     <a href="#example-use" class="toc-h2 toc-link" data-title="Example Use">Example Use</a>
@@ -458,15 +464,15 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 
 <p><img src="images/odpv-e8f71eb8.png" width="750px"></p>
 <h2 id='what-odpv-defines'>What ODPV Defines</h2>
-<p>ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The first version focuses on four concept groups:</p>
+<p>ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The current vocabulary contains 78 terms across four concept groups:</p>
 
-<p><strong>ODPV Core</strong>: <a href="#odpv-core">ODPV Core</a> defines foundational terms used across the standards family.These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.</p>
+<p><strong>ODPV Core</strong>: <a href="#odpv-core">ODPV Core</a> defines foundational terms used across the standards family. These terms describe the basic objects, roles, classifications, and references needed to manage data products, catalogs, graphs, and agent workflows.</p>
 
-<p><strong>ODPV Value</strong>: <a href="#odpv-value">ODPV Value</a> defines terms that connect data products to business demand, objectives, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.</p>
+<p><strong>ODPV Value</strong>: <a href="#odpv-value">ODPV Value</a> defines terms that connect data products to business demand, objectives, strategy, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.</p>
 
-<p><strong>ODPV Governance</strong>: <a href="#odpv-governance">ODPV Governance</a> defines terms for quality, access, legal, operational, and compliance context.These terms help describe how data products are governed, accessed, controlled, and trusted.</p>
+<p><strong>ODPV Governance</strong>: <a href="#odpv-governance">ODPV Governance</a> defines terms for quality, access, licensing, pricing, support, legal, operational, and compliance context. These terms help describe how data products are governed, accessed, controlled, and trusted.</p>
 
-<p><strong>ODPV Relationships</strong>: <a href="#odpv-relationships">ODPV Relationships</a> defines reusable relationship terms for graph implementation and portfolio analysis. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, and catalogs in a consistent way.</p>
+<p><strong>ODPV Relationships</strong>: <a href="#odpv-relationships">ODPV Relationships</a> defines reusable relationship terms for graph implementation, portfolio analysis, and cross-spec linking. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, catalogs, workflows, agents, and services in a consistent way.</p>
 
 <p>These groups create a common language for describing, connecting, validating, and reasoning over data product portfolios.</p>
 
@@ -484,17 +490,17 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 </tr>
 <tr>
 <td>ODPV Value</td>
-<td>Business value, demand, outcomes, gaps, and priorities</td>
+<td>Business value, strategy, demand, outcomes, gaps, and priorities</td>
 <td style="text-align: right">17</td>
 </tr>
 <tr>
 <td>ODPV Governance</td>
-<td>Quality, access, licensing, agreements, policy, and compliance</td>
+<td>Quality, access, licensing, pricing, support, agreements, policy, and compliance</td>
 <td style="text-align: right">19</td>
 </tr>
 <tr>
 <td>ODPV Relationships</td>
-<td>Relationship terms for graphs and portfolio analysis</td>
+<td>Relationship terms for graphs, portfolio analysis, and cross-spec linking</td>
 <td style="text-align: right">24</td>
 </tr>
 <tr>
@@ -505,6 +511,47 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 </tbody></table>
 
 <p><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues">Suggest addition to the vocabulary</a> </p>
+<h2 id='machine-readable-vocabulary-resources'>Machine-Readable Vocabulary Resources</h2>
+<p>ODPV is published in multiple machine-readable forms for tools, AI agents, catalogs, graph workflows, and semantic tooling.</p>
+
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Format</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="vocab/odpv.yaml"><code>odpv.yaml</code></a></td>
+<td>YAML</td>
+<td>Canonical machine-readable vocabulary source</td>
+</tr>
+<tr>
+<td><a href="vocab/odpv.json"><code>odpv.json</code></a></td>
+<td>JSON</td>
+<td>JSON representation for tools, APIs, search indexes, and graph applications</td>
+</tr>
+<tr>
+<td><a href="vocab/odpv.jsonld"><code>odpv.jsonld</code></a></td>
+<td>JSON-LD</td>
+<td>Linked-data representation for semantic tooling and graph workflows</td>
+</tr>
+<tr>
+<td><a href="vocab/odpv.skos.ttl"><code>odpv.skos.ttl</code></a></td>
+<td>Turtle</td>
+<td>SKOS representation with labels, definitions, related terms, and external mappings</td>
+</tr>
+<tr>
+<td><a href="vocab/terms.jsonl"><code>terms.jsonl</code></a></td>
+<td>JSONL</td>
+<td>Agent-friendly one-term-per-line file for retrieval, embeddings, and lightweight tools</td>
+</tr>
+<tr>
+<td><a href="llms.txt"><code>llms.txt</code></a></td>
+<td>Text</td>
+<td>AI agent guidance for discovering and using ODPV resources</td>
+</tr>
+</tbody></table>
 <h2 id='companion-vocabulary-not-a-heavy-ontology'>Companion Vocabulary, Not a Heavy Ontology</h2>
 <p>ODPV is not intended to be a heavy ontology. It is a practical controlled vocabulary that gives stable reference terms to the OpenDataProducts.org standards family. Each specification can reference ODPV terms instead of redefining shared concepts locally. Shared terms belong in ODPV. Spec-specific terms stay in the relevant specification. Extensions can define additional domain-specific or organization-specific terms.</p>
 <h2 id='relationship-to-odps-odpc-and-odpg'>Relationship to ODPS, ODPC, and ODPG</h2>
@@ -539,11 +586,15 @@ ODPS homepage: https://opendataproducts.org/
 <li>Portfolio analysis</li>
 <li>Tool development</li>
 </ul>
+<h2 id='automated-drift-detection'>Automated Drift Detection</h2>
+<p>ODPV includes automated cross-spec drift detection for the Open Data Product standards family. A weekly GitHub Action fetches the published ODPS, ODPC, and ODPG schemas, compares their schema terms against the canonical ODPV vocabulary, and writes a dated report.</p>
+
+<p>Reports are kept in <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/tree/main/cross-spec-drift"><code>cross-spec-drift/</code></a> so the project can track how alignment changes over time and use the historical reports as input for later analysis.</p>
 <h2 id='example-use'>Example Use</h2>
 <ul>
-<li>A data product in ODPS can reference ODPV terms for concepts such as DataProduct, Owner, SLA, DataQuality, License, and AccessMethod.</li>
-<li>A catalog in ODPC can reference ODPV terms for concepts such as DataProductCatalog, UseCase, BusinessObjective, KPI, Signal, Gap, and Priority.</li>
-<li>A graph in ODPG can reference ODPV terms for node types and relationship types such as supports, requires, contributesTo, measures, belongsTo, dependsOn, governedBy, providedBy, consumedBy, and indicates.</li>
+<li>A data product in ODPS can reference ODPV terms for concepts such as DataProduct, ProductDetails, ProductStrategy, DataHolder, SLA, DataQuality, License, DataAccess, PricingPlan, PaymentGateway, and Support.</li>
+<li>A catalog in ODPC can reference ODPV terms for concepts such as DataProductCatalog, UseCase, BusinessObjective, KPI, Signal, Gap, Priority, Reference, and Owner.</li>
+<li>A graph in ODPG can reference ODPV terms for node types and relationship types such as Agent, Workflow, Capability, uses, supports, contributesTo, measures, dependsOn, produces, consumes, ownedBy, alignsWith, impacts, exposes, and identifies.</li>
 </ul>
 <h2 id='specification-aims'>Specification Aims</h2>
 <ul>
@@ -671,11 +722,11 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 
 <!-- AI_AGENT_SCRIPT_GUIDANCE:
 When working from the source repository, use scripts/search_vocab.py for repeatable local term lookup.
-Use scripts/generate_vocab_artifacts.py after editing source/vocab/odpv.yaml to regenerate derived JSON, JSONL, and section YAML files.
+Use scripts/generate_vocab_artifacts.py after editing source/vocab/odpv.yaml to regenerate derived JSON, JSON-LD, SKOS Turtle, JSONL, and section YAML files.
 Use scripts/generate_vocab_artifacts.py --check in CI or review workflows to detect drift between canonical and derived vocabulary artifacts.
 Use scripts/validate_vocab.py to validate vocabulary structure, generated artifacts, JSONL output, section files, examples, and relationship guidance.
 Use scripts/test_vocab_scripts.py to verify the helper scripts themselves.
-Use scripts/check_cross_spec_drift.py to compare published ODPS, ODPC, and ODPG schema terms against ODPV and refresh cross-spec-drift/odpv-cross-spec-drift.md.
+Use scripts/check_cross_spec_drift.py to compare published ODPS, ODPC, and ODPG schema terms against ODPV and refresh the dated cross-spec-drift report.
 Do not edit generated vocabulary artifacts directly unless intentionally repairing generated output; update source/vocab/odpv.yaml first.
 -->
 
@@ -699,7 +750,7 @@ Do not edit generated vocabulary artifacts directly unless intentionally repairi
 </tr>
 <tr>
 <td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/check_cross_spec_drift.py"><code>check_cross_spec_drift.py</code></a></td>
-<td>Compares published ODPS, ODPC, and ODPG schema terms against ODPV and writes <code>cross-spec-drift/odpv-cross-spec-drift.md</code></td>
+<td>Compares published ODPS, ODPC, and ODPG schema terms against ODPV and writes a dated report under <code>cross-spec-drift/</code></td>
 </tr>
 </tbody></table>
 

@@ -41,7 +41,7 @@ Agent-oriented source scripts:
 - scripts/generate_vocab_artifacts.py regenerates derived vocabulary artifacts from canonical source/vocab/odpv.yaml, including JSON, JSON-LD, SKOS Turtle, JSONL, and section YAML. Use `python3 scripts/generate_vocab_artifacts.py --check` to detect drift.
 - scripts/validate_vocab.py validates vocabulary structure, required fields, generated artifacts, JSONL, section files, and relationship guidance.
 - scripts/search_vocab.py searches ODPV terms using preferredLabel, alsoKnownAs, definition, examples, and relatedTerms. Use `--json` for machine-readable results.
-- scripts/check_cross_spec_drift.py fetches the published ODPS, ODPC, and ODPG schemas, compares their schema terms against ODPV, and writes cross-spec-drift/odpv-cross-spec-drift.md. Use `python3 scripts/check_cross_spec_drift.py --check` to detect report drift.
+- scripts/check_cross_spec_drift.py fetches the published ODPS, ODPC, and ODPG schemas, compares their schema terms against ODPV, and writes a dated report under cross-spec-drift/. Use `python3 scripts/check_cross_spec_drift.py --check` to detect report drift.
 - scripts/test_vocab_scripts.py verifies the helper scripts.
 
 File selection guidance:
