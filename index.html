@@ -662,6 +662,7 @@ Use scripts/generate_vocab_artifacts.py after editing source/vocab/odpv.yaml to 
 Use scripts/generate_vocab_artifacts.py --check in CI or review workflows to detect drift between canonical and derived vocabulary artifacts.
 Use scripts/validate_vocab.py to validate vocabulary structure, generated artifacts, JSONL output, section files, examples, and relationship guidance.
 Use scripts/test_vocab_scripts.py to verify the helper scripts themselves.
+Use scripts/check_cross_spec_drift.py to compare the published ODPG schema node and edge terms against ODPV and refresh cross-spec-drift/odpg-odpv-drift.md.
 Do not edit generated vocabulary artifacts directly unless intentionally repairing generated output; update source/vocab/odpv.yaml first.
 -->
 
@@ -682,6 +683,10 @@ Do not edit generated vocabulary artifacts directly unless intentionally repairi
 <tr>
 <td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/search_vocab.py"><code>search_vocab.py</code></a></td>
 <td>Searches ODPV terms using labels, aliases, definitions, examples, and related terms</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/check_cross_spec_drift.py"><code>check_cross_spec_drift.py</code></a></td>
+<td>Compares the published ODPG schema node and edge terms against ODPV and writes <code>cross-spec-drift/odpg-odpv-drift.md</code></td>
 </tr>
 </tbody></table>
 
