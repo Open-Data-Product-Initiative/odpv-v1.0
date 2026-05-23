@@ -27,7 +27,7 @@
         >
         <meta
             name="ai-agent-guidance"
-            content="Use /llms.txt for agent guidance, /vocab/terms.jsonl for retrieval-friendly vocabulary terms, and /vocab/odpv.jsonld or /vocab/odpv.skos.ttl for linked-data tooling."
+            content="Use /llms.txt for agent guidance, /vocab/terms.jsonl for retrieval-friendly vocabulary terms, /vocab/odpv.jsonld or /vocab/odpv.skos.ttl for linked-data tooling, and source helper scripts for local agent workflows."
         >
 
     <title>Open Data Product Vocab (ODPV) version RC | Linux Foundation</title>
@@ -363,6 +363,9 @@
                     <a href="#machine-readable-vocabulary-resources" class="toc-h2 toc-link" data-title="Machine-Readable Vocabulary Resources">Machine-Readable Vocabulary Resources</a>
                   </li>
                   <li>
+                    <a href="#agent-helper-commands" class="toc-h2 toc-link" data-title="Agent Helper Commands">Agent Helper Commands</a>
+                  </li>
+                  <li>
                     <a href="#companion-vocabulary-not-a-heavy-ontology" class="toc-h2 toc-link" data-title="Companion Vocabulary, Not a Heavy Ontology">Companion Vocabulary, Not a Heavy Ontology</a>
                   </li>
                   <li>
@@ -567,6 +570,36 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 <td><a href="llms.txt"><code>llms.txt</code></a></td>
 <td>Text</td>
 <td>AI agent guidance for discovering and using ODPV resources</td>
+</tr>
+</tbody></table>
+<h2 id='agent-helper-commands'>Agent Helper Commands</h2>
+<p>ODPV includes source helper scripts for repeatable local vocabulary lookup, relationship checking, and context engineering workflows.</p>
+
+<table><thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>python3 scripts/agent_vocab_helper.py resolve &lt;text&gt;</code></td>
+<td>Resolve source language, aliases, or user phrases to a canonical ODPV term</td>
+</tr>
+<tr>
+<td><code>python3 scripts/agent_vocab_helper.py explain &lt;term-id&gt;</code></td>
+<td>Return a compact JSON explanation of a term with definition, aliases, related terms, mappings, and examples</td>
+</tr>
+<tr>
+<td><code>python3 scripts/agent_vocab_helper.py relationship &lt;source&gt; &lt;verb&gt; &lt;target&gt;</code></td>
+<td>Check whether a relationship exists and whether source and target fit the relationship domain and range hints</td>
+</tr>
+<tr>
+<td><code>python3 scripts/agent_vocab_helper.py context &lt;term-id&gt;</code></td>
+<td>Produce an agent-ready context packet for retrieval, grounding, and prompt assembly</td>
+</tr>
+<tr>
+<td><code>python3 scripts/search_vocab.py &quot;&lt;query&gt;&quot; --json</code></td>
+<td>Search more broadly across labels, aliases, definitions, examples, and related terms</td>
 </tr>
 </tbody></table>
 <h2 id='companion-vocabulary-not-a-heavy-ontology'>Companion Vocabulary, Not a Heavy Ontology</h2>
