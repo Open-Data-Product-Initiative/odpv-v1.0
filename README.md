@@ -6,97 +6,44 @@ The Open Data Products Vocabulary, ODPV, is a vendor-neutral, open-source, machi
 
 # What ODPV Defines
 
-ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The first version focuses on four concept groups:
+ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The current vocabulary contains 78 terms across four concept groups:
 
-* ODPV Core
-* ODPV Value
-* ODPV Governance
-* ODPV Relationships
+| Section | Purpose | Terms |
+|---|---|---:|
+| ODPV Core | Foundational objects, roles, classifications, and references used across data products, catalogs, graphs, and agent workflows | 18 |
+| ODPV Value | Demand, objectives, KPIs, strategy, outcomes, opportunities, risks, and portfolio prioritization | 17 |
+| ODPV Governance | Quality, access, licensing, pricing, support, agreements, policies, compliance, and stewardship | 19 |
+| ODPV Relationships | Reusable relationship terms for graph implementation, portfolio analysis, and cross-spec linking | 24 |
 
 These groups create a common language for describing, connecting, validating, and reasoning over data product portfolios.
 
-# ODPV Core
+# Vocabulary Files
 
-ODPV Core defines foundational terms used across the standards family.
+The canonical vocabulary source is [`source/vocab/odpv.yaml`](source/vocab/odpv.yaml). Derived files are generated from that source for tools, AI agents, catalogs, search, and graph workflows:
 
-The first version includes:
+| Resource | Purpose |
+|---|---|
+| [`source/vocab/odpv.yaml`](source/vocab/odpv.yaml) | Canonical machine-readable vocabulary |
+| [`source/vocab/odpv.json`](source/vocab/odpv.json) | JSON representation for tools and APIs |
+| [`source/vocab/terms.jsonl`](source/vocab/terms.jsonl) | Agent-friendly one-term-per-line vocabulary for retrieval and embeddings |
+| [`source/vocab/core.yaml`](source/vocab/core.yaml) | Core terms only |
+| [`source/vocab/value.yaml`](source/vocab/value.yaml) | Value terms only |
+| [`source/vocab/governance.yaml`](source/vocab/governance.yaml) | Governance terms only |
+| [`source/vocab/relationships.yaml`](source/vocab/relationships.yaml) | Relationship terms only |
+| [`source/llms.txt`](source/llms.txt) | AI agent guidance for using ODPV resources |
 
-* DataProduct
-* ProductDetails
-* DataProductCatalog
-* DataProductGraph
-* Dataset
-* Distribution
-* DataService
-* Agent
-* Workflow
-* Capability
-* Provider
-* DataHolder
-* Consumer
-* Owner
-* Steward
+# Toolkit and AI Agents
 
-These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.
+The primary implementation toolkit for the Open Data Product standards family is the [Open Data Product Agent SDK](https://github.com/Open-Data-Product-Initiative/odp-agent-sdk). Use it when building tools, validators, catalog integrations, graph workflows, or AI agent workflows that need to work across ODPS, ODPC, ODPG, and ODPV.
 
-# ODPV Value
+This repository also includes helper scripts for maintaining and using the vocabulary:
 
-ODPV Value defines terms that connect data products to business demand, objectives, outcomes, and prioritization.
-
-The first version includes:
-
-* UseCase
-* BusinessObjective
-* KPI
-* Impact
-* Signal
-* Gap
-* Priority
-* StrategicOpportunity
-* ProductStrategy
-* ValueProposition
-* PortfolioPriority
-
-These terms help connect data products to measurable value and portfolio-level decision-making.
-
-# ODPV Governance
-
-ODPV Governance defines terms for quality, access, legal, operational, and compliance context.
-
-The first version includes:
-
-* DataQuality
-* SLA
-* License
-* DataAccess
-* AccessMethod
-* PricingPlan
-* PaymentGateway
-* Support
-* Agreement
-* Policy
-* ComplianceRule
-
-These terms help describe how data products are governed, accessed, controlled, and trusted.
-
-# ODPV Relationships
-
-ODPV Relationships defines reusable relationship terms for graph implementation and portfolio analysis.
-
-The first version includes:
-
-* supports
-* requires
-* contributesTo
-* measures
-* belongsTo
-* dependsOn
-* governedBy
-* providedBy
-* consumedBy
-* indicates
-
-These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, and catalogs in a consistent way.
+| Script | Purpose |
+|---|---|
+| [`scripts/search_vocab.py`](scripts/search_vocab.py) | Search ODPV terms by label, alias, definition, example, and related term |
+| [`scripts/validate_vocab.py`](scripts/validate_vocab.py) | Validate the canonical vocabulary and generated artifacts |
+| [`scripts/generate_vocab_artifacts.py`](scripts/generate_vocab_artifacts.py) | Regenerate JSON, JSONL, and section YAML files from `odpv.yaml` |
+| [`scripts/check_cross_spec_drift.py`](scripts/check_cross_spec_drift.py) | Compare published ODPS, ODPC, and ODPG schema terms against ODPV |
 
 # Companion Vocabulary, Not a Heavy Ontology
 
@@ -134,9 +81,9 @@ Reports are kept in [`cross-spec-drift/`](cross-spec-drift/) so the project can 
 
 # Example Use
 
-* A data product in ODPS can reference ODPV terms for concepts such as DataProduct, Owner, SLA, DataQuality, License, and AccessMethod.
-* A catalog in ODPC can reference ODPV terms for concepts such as DataProductCatalog, UseCase, BusinessObjective, KPI, Signal, Gap, and Priority.
-* A graph in ODPG can reference ODPV terms for node types and relationship types such as supports, requires, contributesTo, measures, belongsTo, dependsOn, governedBy, providedBy, consumedBy, and indicates.
+* A data product in ODPS can reference ODPV terms for concepts such as DataProduct, ProductDetails, ProductStrategy, DataHolder, SLA, DataQuality, License, DataAccess, PricingPlan, PaymentGateway, and Support.
+* A catalog in ODPC can reference ODPV terms for concepts such as DataProductCatalog, UseCase, BusinessObjective, KPI, Signal, Gap, Priority, Reference, and Owner.
+* A graph in ODPG can reference ODPV terms for node types and relationship types such as Agent, Workflow, Capability, uses, supports, contributesTo, measures, dependsOn, produces, consumes, ownedBy, alignsWith, impacts, exposes, and identifies.
 
 # Specification Aims
 
