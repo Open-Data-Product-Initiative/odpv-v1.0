@@ -1,0 +1,48 @@
+name: Cross-Spec Drift
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.x"
+
+    - name: Install Python dependencies
+      run: python -m pip install PyYAML certifi
+
+    - name: Generate cross-spec drift report
+      run: PYTHONDONTWRITEBYTECODE=1 python scripts/check_cross_spec_drift.py
+
+    - name: Validate generated report and vocabulary artifacts
+      run: |
+        PYTHONDONTWRITEBYTECODE=1 python scripts/check_cross_spec_drift.py --check
+        PYTHONDONTWRITEBYTECODE=1 python scripts/validate_vocab.py
+        PYTHONDONTWRITEBYTECODE=1 python scripts/generate_vocab_artifacts.py --check
+
+    - name: Commit drift report when changed
+      run: |
+        if [ -z "$(git status --porcelain -- cross-spec-drift)" ]; then
+          echo "No drift report changes to commit."
+          exit 0
+        fi
+
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add cross-spec-drift
+        git commit -m "chore: update weekly cross-spec drift report"
+        git push
