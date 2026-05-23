@@ -1,7 +1,9 @@
 import json
+import re
 import subprocess
 import sys
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -88,14 +90,18 @@ class VocabScriptTests(unittest.TestCase):
         self.assertIn("Catalog", terms_by_id["DataProductCatalog"]["alsoKnownAs"]["en"])
 
     def test_cross_spec_drift_check_reports_online_schema_alignment(self):
-        report_path = ROOT / "cross-spec-drift/odpv-cross-spec-drift.md"
+        report_date = datetime.now(timezone.utc).date().isoformat()
+        report_path = ROOT / f"cross-spec-drift/{report_date}-odpv-cross-spec-drift.md"
+        legacy_report_path = ROOT / "cross-spec-drift/odpv-cross-spec-drift.md"
         result = self.run_script("scripts/check_cross_spec_drift.py")
 
         self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
         self.assertTrue(report_path.exists())
+        self.assertFalse(legacy_report_path.exists())
 
         report = report_path.read_text(encoding="utf-8")
         self.assertIn("# ODPV Cross-Spec Drift Report", report)
+        self.assertRegex(report, r"- Last drift detection run: `\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z`")
         self.assertIn("- ODPG schema: `https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml`", report)
         self.assertIn("- ODPC schema: `https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml`", report)
         self.assertIn("- ODPS schema: `https://opendataproducts.org/v4.1/schema/odps.yaml`", report)

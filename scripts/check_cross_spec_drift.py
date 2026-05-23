@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import argparse
+import re
 import ssl
 import sys
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.request import urlopen
@@ -17,7 +19,10 @@ from vocab_utils import ROOT, iter_terms, load_yaml
 DEFAULT_ODPG_SCHEMA = "https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml"
 DEFAULT_ODPC_SCHEMA = "https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml"
 DEFAULT_ODPS_SCHEMA = "https://opendataproducts.org/v4.1/schema/odps.yaml"
-DEFAULT_REPORT = ROOT / "cross-spec-drift" / "odpv-cross-spec-drift.md"
+DEFAULT_REPORT_DIR = ROOT / "cross-spec-drift"
+DEFAULT_REPORT_NAME = "odpv-cross-spec-drift.md"
+LEGACY_REPORT = DEFAULT_REPORT_DIR / DEFAULT_REPORT_NAME
+RUN_TIMESTAMP_RE = re.compile(r"^- Last drift detection run: `([^`]+)`$", re.MULTILINE)
 ODPC_HELPER_DEFINITIONS = {"LanguageString", "ExtensionProperties", "CatalogMeta"}
 ODPS_COMPONENT_MAPPINGS = {
     "contract": "DataContract",
@@ -216,6 +221,28 @@ def display_source(source: str) -> str:
         return source
 
 
+def current_run_timestamp() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def dated_report_path(run_timestamp: str) -> Path:
+    return DEFAULT_REPORT_DIR / f"{run_timestamp[:10]}-{DEFAULT_REPORT_NAME}"
+
+
+def existing_run_timestamp(report_path: Path) -> str | None:
+    if not report_path.exists():
+        return None
+    match = RUN_TIMESTAMP_RE.search(report_path.read_text(encoding="utf-8"))
+    if not match:
+        return None
+    return match.group(1)
+
+
+def remove_legacy_report(report_path: Path) -> None:
+    if LEGACY_REPORT.exists() and report_path.resolve() != LEGACY_REPORT.resolve():
+        LEGACY_REPORT.unlink()
+
+
 def render_rows(spec_name: str, rows: list[DriftRow]) -> list[str]:
     possible_drifts = [row for row in rows if row.status == "Possible drift"]
     lines = [
@@ -302,6 +329,7 @@ def render_report(
     odpg_schema_source: str,
     odpc_schema_source: str,
     odps_schema_source: str,
+    run_timestamp: str,
 ) -> str:
     rows = [*odpg_rows, *odpc_rows, *odps_rows]
     possible_drifts = [row for row in rows if row.status == "Possible drift"]
@@ -310,6 +338,7 @@ def render_report(
         "",
         "This report compares published Open Data Product family schemas against the canonical ODPV vocabulary.",
         "",
+        f"- Last drift detection run: `{run_timestamp}`",
         f"- ODPG schema: `{display_source(odpg_schema_source)}`",
         f"- ODPC schema: `{display_source(odpc_schema_source)}`",
         f"- ODPS schema: `{display_source(odps_schema_source)}`",
@@ -350,31 +379,46 @@ def main() -> int:
     parser.add_argument("--odpg-schema", default=DEFAULT_ODPG_SCHEMA, help="URL or path to ODPG YAML schema")
     parser.add_argument("--odpc-schema", default=DEFAULT_ODPC_SCHEMA, help="URL or path to ODPC YAML schema")
     parser.add_argument("--odps-schema", default=DEFAULT_ODPS_SCHEMA, help="URL or path to ODPS YAML schema")
-    parser.add_argument("--report", type=Path, default=DEFAULT_REPORT, help="Markdown report path")
+    parser.add_argument("--report", type=Path, help="Markdown report path")
     parser.add_argument("--check", action="store_true", help="Fail if the existing report is out of sync")
     args = parser.parse_args()
 
     odpg_rows = build_odpg_rows(args.odpg_schema)
     odpc_rows = build_odpc_rows(args.odpc_schema)
     odps_rows = build_odps_rows(args.odps_schema)
-    report = render_report(odpg_rows, odpc_rows, odps_rows, args.odpg_schema, args.odpc_schema, args.odps_schema)
+    run_timestamp = current_run_timestamp()
+    report_path = args.report if args.report else dated_report_path(run_timestamp)
+    run_timestamp = existing_run_timestamp(report_path) if args.check else run_timestamp
+    if not run_timestamp:
+        run_timestamp = current_run_timestamp()
+    report = render_report(
+        odpg_rows,
+        odpc_rows,
+        odps_rows,
+        args.odpg_schema,
+        args.odpc_schema,
+        args.odps_schema,
+        run_timestamp,
+    )
 
     if args.check:
-        if not args.report.exists():
-            print(f"Missing cross-spec drift report: {args.report}", file=sys.stderr)
+        if not report_path.exists():
+            print(f"Missing cross-spec drift report: {report_path}", file=sys.stderr)
             return 1
-        current = args.report.read_text(encoding="utf-8")
+        current = report_path.read_text(encoding="utf-8")
         if current != report:
-            print(f"Cross-spec drift report is out of sync: {args.report}", file=sys.stderr)
+            print(f"Cross-spec drift report is out of sync: {report_path}", file=sys.stderr)
             return 1
         print("Cross-spec drift report is in sync")
         return 0
 
-    args.report.parent.mkdir(parents=True, exist_ok=True)
-    args.report.write_text(report, encoding="utf-8")
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(report, encoding="utf-8")
+    if not args.report:
+        remove_legacy_report(report_path)
     rows = [*odpg_rows, *odpc_rows, *odps_rows]
     possible_drifts = sum(1 for row in rows if row.status == "Possible drift")
-    print(f"Wrote {args.report} terms={len(rows)} possibleDrifts={possible_drifts}")
+    print(f"Wrote {report_path} terms={len(rows)} possibleDrifts={possible_drifts}")
     return 0
 
 

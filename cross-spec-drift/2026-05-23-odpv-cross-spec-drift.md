@@ -2,6 +2,7 @@
 
 This report compares published Open Data Product family schemas against the canonical ODPV vocabulary.
 
+- Last drift detection run: `2026-05-23T11:45:19Z`
 - ODPG schema: `https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml`
 - ODPC schema: `https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml`
 - ODPS schema: `https://opendataproducts.org/v4.1/schema/odps.yaml`
