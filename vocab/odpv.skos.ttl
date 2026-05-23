@@ -1,0 +1,802 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema: <https://schema.org/> .
+
+<https://opendataproducts.org/odpv-v1.0/> a skos:ConceptScheme ;
+  skos:prefLabel "Open Data Product Vocabulary"@en ;
+  skos:definition "Shared vocabulary for the OpenDataProducts.org standards family."@en .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataProduct> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Product"@en ;
+  skos:definition "A managed data offering designed for reuse, with defined ownership, access, quality, usage terms, and value context."@en ;
+  skos:notation "DataProduct" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "data product"@en, "data offering"@en, "reusable data asset"@en, "data product asset"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Dataset>, <https://opendataproducts.org/odpv-v1.0/terms/DataService>, <https://opendataproducts.org/odpv-v1.0/terms/Distribution> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/ProductDetails> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Product Details"@en ;
+  skos:definition "The descriptive metadata block for a data product, including name, product identifier, description, value proposition, visibility, status, and version."@en ;
+  skos:notation "ProductDetails" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "details"@en, "product details"@en, "product metadata"@en, "descriptive metadata"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataProduct>, <https://opendataproducts.org/odpv-v1.0/terms/ValueProposition>, <https://opendataproducts.org/odpv-v1.0/terms/GovernanceProfile>, <https://opendataproducts.org/odpv-v1.0/terms/PortfolioPriority> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Product Catalog"@en ;
+  skos:definition "A managed collection of data products and related portfolio objects, such as use cases, objectives, KPIs, signals, and references."@en ;
+  skos:notation "DataProductCatalog" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "data catalog"@en, "Catalog"@en, "ODPC Catalog"@en, "product catalog"@en, "data product portfolio"@en, "portfolio catalog"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataProduct>, <https://opendataproducts.org/odpv-v1.0/terms/DataProductGraph>, <https://opendataproducts.org/odpv-v1.0/terms/Reference> ;
+  skos:closeMatch dcat:Catalog, schema:DataCatalog .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataProductGraph> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Product Graph"@en ;
+  skos:definition "A graph representation that connects data products, catalogs, use cases, objectives, KPIs, signals, and governance objects through defined relationships."@en ;
+  skos:notation "DataProductGraph" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "data product graph"@en, "portfolio graph"@en, "knowledge graph"@en, "product relationship graph"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog>, <https://opendataproducts.org/odpv-v1.0/terms/Reference> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Dataset> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Dataset"@en ;
+  skos:definition "A structured collection of data that may be part of, or exposed through, a data product. Aligns with DCAT where applicable."@en ;
+  skos:notation "Dataset" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "data set"@en, "data collection"@en, "source dataset"@en, "data resource"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataProduct>, <https://opendataproducts.org/odpv-v1.0/terms/Distribution>, <https://opendataproducts.org/odpv-v1.0/terms/DataService> ;
+  skos:exactMatch dcat:Dataset, schema:Dataset .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Distribution> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Distribution"@en ;
+  skos:definition "A specific accessible form of a dataset, such as a file, API response, export, or downloadable representation. Aligns with DCAT where applicable."@en ;
+  skos:notation "Distribution" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "data file"@en, "data download"@en, "export"@en, "data representation"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Dataset>, <https://opendataproducts.org/odpv-v1.0/terms/DataService>, <https://opendataproducts.org/odpv-v1.0/terms/DataAccess> ;
+  skos:exactMatch dcat:Distribution ;
+  skos:closeMatch schema:DataDownload .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataService> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Service"@en ;
+  skos:definition "A service that provides access to data or data operations, such as an API, query endpoint, or data delivery service. Aligns with DCAT where applicable."@en ;
+  skos:notation "DataService" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "data API"@en, "API"@en, "data endpoint"@en, "query service"@en, "delivery service"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Dataset>, <https://opendataproducts.org/odpv-v1.0/terms/Distribution>, <https://opendataproducts.org/odpv-v1.0/terms/DataAccess> ;
+  skos:exactMatch dcat:DataService .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Agent> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Agent"@en ;
+  skos:definition "An AI agent, automation actor, or software system that can use data products, services, workflows, or graph context to perform a task."@en ;
+  skos:notation "Agent" ;
+  dcterms:type "role" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "AI agent"@en, "automation actor"@en, "autonomous agent"@en, "software agent"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Consumer>, <https://opendataproducts.org/odpv-v1.0/terms/Workflow>, <https://opendataproducts.org/odpv-v1.0/terms/DataService> ;
+  skos:closeMatch prov:Agent .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Workflow> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Workflow"@en ;
+  skos:definition "A business, operational, analytical, or technical process that coordinates activities, systems, agents, data products, or services."@en ;
+  skos:notation "Workflow" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "process"@en, "business workflow"@en, "technical workflow"@en, "orchestration flow"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/UseCase>, <https://opendataproducts.org/odpv-v1.0/terms/Agent>, <https://opendataproducts.org/odpv-v1.0/terms/Capability> ;
+  skos:closeMatch prov:Activity .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Capability> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Capability"@en ;
+  skos:definition "A reusable business, organizational, analytical, operational, or technical ability that can be supported by data products, workflows, agents, or services."@en ;
+  skos:notation "Capability" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "business capability"@en, "technical capability"@en, "organizational capability"@en, "reusable capability"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Domain>, <https://opendataproducts.org/odpv-v1.0/terms/Workflow>, <https://opendataproducts.org/odpv-v1.0/terms/StrategicOpportunity> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Provider> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Provider"@en ;
+  skos:definition "A person, team, organization, or system that provides or publishes a data product, dataset, distribution, or data service."@en ;
+  skos:notation "Provider" ;
+  dcterms:type "role" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "publisher"@en, "supplier"@en, "source provider"@en, "data provider"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Owner>, <https://opendataproducts.org/odpv-v1.0/terms/Steward>, <https://opendataproducts.org/odpv-v1.0/terms/Consumer> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataHolder> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Holder"@en ;
+  skos:definition "A legal entity or accountable organization that holds, controls, or is responsible for a data product or the data it contains."@en ;
+  skos:notation "DataHolder" ;
+  dcterms:type "role" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "dataHolder"@en, "data holder"@en, "holding organization"@en, "accountable legal entity"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Provider>, <https://opendataproducts.org/odpv-v1.0/terms/Owner>, <https://opendataproducts.org/odpv-v1.0/terms/Steward>, <https://opendataproducts.org/odpv-v1.0/terms/DataAgreement> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Consumer> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Consumer"@en ;
+  skos:definition "A person, team, organization, system, or agent that uses or consumes a data product, dataset, distribution, or data service."@en ;
+  skos:notation "Consumer" ;
+  dcterms:type "role" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "user"@en, "data user"@en, "customer"@en, "recipient"@en, "consuming agent"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Provider>, <https://opendataproducts.org/odpv-v1.0/terms/DataProduct>, <https://opendataproducts.org/odpv-v1.0/terms/DataAccess> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Owner> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Owner"@en ;
+  skos:definition "A person, team, or organization accountable for a data product, catalog, dataset, service, or related object."@en ;
+  skos:notation "Owner" ;
+  dcterms:type "role" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "accountable owner"@en, "product owner"@en, "business owner"@en, "asset owner"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Provider>, <https://opendataproducts.org/odpv-v1.0/terms/Steward> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Steward> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Steward"@en ;
+  skos:definition "A person, team, or organization responsible for the operational management, quality, metadata, and lifecycle of a data product or related object."@en ;
+  skos:notation "Steward" ;
+  dcterms:type "role" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "data steward"@en, "product steward"@en, "metadata steward"@en, "quality steward"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Owner>, <https://opendataproducts.org/odpv-v1.0/terms/Provider>, <https://opendataproducts.org/odpv-v1.0/terms/DataQuality> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Domain> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Domain"@en ;
+  skos:definition "A business, organizational, subject, or functional area used to group data products and related objects."@en ;
+  skos:notation "Domain" ;
+  dcterms:type "classification" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "business domain"@en, "data domain"@en, "subject area"@en, "functional area"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Identifier> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Identifier"@en ;
+  skos:definition "A stable value used to uniquely identify a vocabulary term, specification object, product, catalog item, or graph node."@en ;
+  skos:notation "Identifier" ;
+  dcterms:type "reference" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "id"@en, "unique id"@en, "persistent id"@en, "node id"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Reference>, <https://opendataproducts.org/odpv-v1.0/terms/DataProduct> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Reference> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Reference"@en ;
+  skos:definition "A link or pointer to another object, specification file, external vocabulary term, system record, or graph node."@en ;
+  skos:notation "Reference" ;
+  dcterms:type "reference" ;
+  dcterms:isPartOf "core" ;
+  skos:altLabel "link"@en, "pointer"@en, "external reference"@en, "object reference"@en, "GraphReference"@en, "ProductReference"@en, "ProductModel"@en, "graph reference"@en, "product reference"@en, "product model reference"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Identifier>, <https://opendataproducts.org/odpv-v1.0/terms/DataProduct>, <https://opendataproducts.org/odpv-v1.0/terms/DataProductGraph> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/UseCase> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Use Case"@en ;
+  skos:definition "A practical business, operational, analytical, or technical scenario where one or more data products are used to create value."@en ;
+  skos:notation "UseCase" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "use case"@en, "scenario"@en, "business scenario"@en, "application case"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataProduct>, <https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective>, <https://opendataproducts.org/odpv-v1.0/terms/DataNeed>, <https://opendataproducts.org/odpv-v1.0/terms/Outcome> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Business Objective"@en ;
+  skos:definition "A business goal or intended outcome that data products, use cases, or portfolio actions support."@en ;
+  skos:notation "BusinessObjective" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "objective"@en, "business goal"@en, "strategic goal"@en, "target outcome"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Outcome>, <https://opendataproducts.org/odpv-v1.0/terms/KPI>, <https://opendataproducts.org/odpv-v1.0/terms/Impact>, <https://opendataproducts.org/odpv-v1.0/terms/UseCase> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/KPI> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "KPI"@en ;
+  skos:definition "A measurable indicator used to track progress toward a business objective, outcome, or portfolio goal."@en ;
+  skos:notation "KPI" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "key performance indicator"@en, "metric"@en, "performance measure"@en, "success measure"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective>, <https://opendataproducts.org/odpv-v1.0/terms/Outcome>, <https://opendataproducts.org/odpv-v1.0/terms/Impact> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Impact> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Impact"@en ;
+  skos:definition "The expected or observed effect created by a data product, use case, signal, or portfolio decision."@en ;
+  skos:notation "Impact" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "effect"@en, "value impact"@en, "business impact"@en, "observed effect"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Outcome>, <https://opendataproducts.org/odpv-v1.0/terms/Benefit>, <https://opendataproducts.org/odpv-v1.0/terms/KPI>, <https://opendataproducts.org/odpv-v1.0/terms/ValueProposition> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Signal> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Signal"@en ;
+  skos:definition "An observed demand, trend, risk, gap, usage pattern, policy change, market change, or operational event that may require action."@en ;
+  skos:notation "Signal" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "market signal"@en, "demand signal"@en, "trigger"@en, "observation"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Demand>, <https://opendataproducts.org/odpv-v1.0/terms/Risk>, <https://opendataproducts.org/odpv-v1.0/terms/Gap>, <https://opendataproducts.org/odpv-v1.0/terms/Opportunity> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Gap> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Gap"@en ;
+  skos:definition "A missing data product, dataset, capability, quality level, access method, relationship, or portfolio coverage area."@en ;
+  skos:notation "Gap" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "missing capability"@en, "coverage gap"@en, "data gap"@en, "portfolio gap"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataNeed>, <https://opendataproducts.org/odpv-v1.0/terms/Opportunity>, <https://opendataproducts.org/odpv-v1.0/terms/Signal>, <https://opendataproducts.org/odpv-v1.0/terms/Priority> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Priority> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Priority"@en ;
+  skos:definition "A ranking or importance level used to guide portfolio planning, product development, investment, or remediation."@en ;
+  skos:notation "Priority" ;
+  dcterms:type "classification" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "importance level"@en, "ranking"@en, "urgency"@en, "priority level"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/PortfolioPriority>, <https://opendataproducts.org/odpv-v1.0/terms/Signal>, <https://opendataproducts.org/odpv-v1.0/terms/Gap>, <https://opendataproducts.org/odpv-v1.0/terms/Risk> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Outcome> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Outcome"@en ;
+  skos:definition "A desired or achieved result connected to a business objective, use case, KPI, or impact statement."@en ;
+  skos:notation "Outcome" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "result"@en, "target result"@en, "achieved result"@en, "intended outcome"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective>, <https://opendataproducts.org/odpv-v1.0/terms/KPI>, <https://opendataproducts.org/odpv-v1.0/terms/Impact>, <https://opendataproducts.org/odpv-v1.0/terms/Benefit> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataNeed> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Need"@en ;
+  skos:definition "A required data input, data product, dataset, attribute, capability, or access pattern needed to support a use case or objective."@en ;
+  skos:notation "DataNeed" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "data requirement"@en, "data demand"@en, "required data"@en, "information need"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/UseCase>, <https://opendataproducts.org/odpv-v1.0/terms/Gap>, <https://opendataproducts.org/odpv-v1.0/terms/Demand>, <https://opendataproducts.org/odpv-v1.0/terms/DataProduct> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Benefit> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Benefit"@en ;
+  skos:definition "A positive business, operational, financial, social, or technical value expected from a data product, use case, or portfolio action."@en ;
+  skos:notation "Benefit" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "value"@en, "expected benefit"@en, "positive impact"@en, "business benefit"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Impact>, <https://opendataproducts.org/odpv-v1.0/terms/Outcome>, <https://opendataproducts.org/odpv-v1.0/terms/ValueProposition> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Demand> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Demand"@en ;
+  skos:definition "Evidence of need or interest from consumers, stakeholders, systems, markets, policies, or operational processes."@en ;
+  skos:notation "Demand" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "need"@en, "interest"@en, "request"@en, "demand signal"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Signal>, <https://opendataproducts.org/odpv-v1.0/terms/DataNeed>, <https://opendataproducts.org/odpv-v1.0/terms/Opportunity>, <https://opendataproducts.org/odpv-v1.0/terms/UseCase> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Opportunity> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Opportunity"@en ;
+  skos:definition "A possible area for value creation, reuse, innovation, service improvement, monetization, or better decision-making."@en ;
+  skos:notation "Opportunity" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "value opportunity"@en, "improvement area"@en, "innovation opportunity"@en, "reuse opportunity"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Signal>, <https://opendataproducts.org/odpv-v1.0/terms/Gap>, <https://opendataproducts.org/odpv-v1.0/terms/Benefit>, <https://opendataproducts.org/odpv-v1.0/terms/Impact> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/StrategicOpportunity> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Strategic Opportunity"@en ;
+  skos:definition "An inferred or declared opportunity with strategic relevance, such as a portfolio improvement, optimization, unmet need, or emerging value area."@en ;
+  skos:notation "StrategicOpportunity" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "strategic opportunity"@en, "portfolio opportunity"@en, "strategic value opportunity"@en, "emerging opportunity"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Opportunity>, <https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective>, <https://opendataproducts.org/odpv-v1.0/terms/Capability>, <https://opendataproducts.org/odpv-v1.0/terms/Gap> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/ProductStrategy> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Product Strategy"@en ;
+  skos:definition "The strategic plan or context for a data product, including objectives, alignment, dates, status, and KPIs used to describe intended value."@en ;
+  skos:notation "ProductStrategy" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "productStrategy"@en, "product strategy"@en, "product strategic plan"@en, "strategic product context"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective>, <https://opendataproducts.org/odpv-v1.0/terms/KPI>, <https://opendataproducts.org/odpv-v1.0/terms/StrategicOpportunity>, <https://opendataproducts.org/odpv-v1.0/terms/PortfolioPriority> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Risk> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Risk"@en ;
+  skos:definition "A possible negative event, weakness, exposure, or uncertainty that may affect data product value, trust, access, compliance, or operation."@en ;
+  skos:notation "Risk" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "issue"@en, "exposure"@en, "threat"@en, "concern"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Signal>, <https://opendataproducts.org/odpv-v1.0/terms/Priority>, <https://opendataproducts.org/odpv-v1.0/terms/Gap> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/ValueProposition> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Value Proposition"@en ;
+  skos:definition "A short explanation of why a data product, use case, or portfolio item matters and what value it is expected to create."@en ;
+  skos:notation "ValueProposition" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "value statement"@en, "value case"@en, "product value"@en, "business value statement"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Benefit>, <https://opendataproducts.org/odpv-v1.0/terms/Impact>, <https://opendataproducts.org/odpv-v1.0/terms/Outcome>, <https://opendataproducts.org/odpv-v1.0/terms/UseCase> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/PortfolioPriority> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Portfolio Priority"@en ;
+  skos:definition "A portfolio-level priority assigned to a data product, use case, signal, gap, or objective."@en ;
+  skos:notation "PortfolioPriority" ;
+  dcterms:type "classification" ;
+  dcterms:isPartOf "value" ;
+  skos:altLabel "portfolio ranking"@en, "portfolio importance"@en, "investment priority"@en, "planning priority"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Priority>, <https://opendataproducts.org/odpv-v1.0/terms/Gap>, <https://opendataproducts.org/odpv-v1.0/terms/Signal>, <https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataQuality> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Quality"@en ;
+  skos:definition "The expected, measured, or reported quality of a data product, dataset, distribution, or data service."@en ;
+  skos:notation "DataQuality" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "quality"@en, "data quality score"@en, "quality assessment"@en, "quality metrics"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/SLA>, <https://opendataproducts.org/odpv-v1.0/terms/DataContract>, <https://opendataproducts.org/odpv-v1.0/terms/Stewardship>, <https://opendataproducts.org/odpv-v1.0/terms/ComplianceRule> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/SLA> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "SLA"@en ;
+  skos:definition "A service-level agreement or expectation that defines operational commitments for a data product, distribution, or data service."@en ;
+  skos:notation "SLA" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "service level agreement"@en, "service commitment"@en, "operational commitment"@en, "service expectation"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataQuality>, <https://opendataproducts.org/odpv-v1.0/terms/Agreement>, <https://opendataproducts.org/odpv-v1.0/terms/AccessMethod>, <https://opendataproducts.org/odpv-v1.0/terms/DataContract> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/License> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "License"@en ;
+  skos:definition "The legal terms that define how a data product, dataset, distribution, or data service may be used, shared, or redistributed."@en ;
+  skos:notation "License" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "license"@en, "data license"@en, "usage license"@en, "legal license"@en, "redistribution terms"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/UsageRights>, <https://opendataproducts.org/odpv-v1.0/terms/Agreement>, <https://opendataproducts.org/odpv-v1.0/terms/DataAgreement>, <https://opendataproducts.org/odpv-v1.0/terms/Policy> ;
+  skos:closeMatch dcterms:LicenseDocument .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataAccess> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Access"@en ;
+  skos:definition "The access configuration or access description for a data product, dataset, distribution, or data service."@en ;
+  skos:notation "DataAccess" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "dataAccess"@en, "data access"@en, "access configuration"@en, "access description"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/AccessMethod>, <https://opendataproducts.org/odpv-v1.0/terms/AccessCondition>, <https://opendataproducts.org/odpv-v1.0/terms/DataService>, <https://opendataproducts.org/odpv-v1.0/terms/Distribution> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/AccessMethod> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Access Method"@en ;
+  skos:definition "The method used to access a data product, dataset, distribution, or data service, such as API, file download, query endpoint, or platform access."@en ;
+  skos:notation "AccessMethod" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "access channel"@en, "delivery method"@en, "access interface"@en, "data access method"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/AccessCondition>, <https://opendataproducts.org/odpv-v1.0/terms/DataService>, <https://opendataproducts.org/odpv-v1.0/terms/Distribution>, <https://opendataproducts.org/odpv-v1.0/terms/SLA> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/PricingPlan> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Pricing Plan"@en ;
+  skos:definition "A pricing, cost, subscription, or commercial plan that describes how a data product or data service may be paid for, charged, or monetized."@en ;
+  skos:notation "PricingPlan" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "pricingPlans"@en, "pricing plan"@en, "commercial plan"@en, "subscription plan"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Agreement>, <https://opendataproducts.org/odpv-v1.0/terms/License>, <https://opendataproducts.org/odpv-v1.0/terms/UsageRights>, <https://opendataproducts.org/odpv-v1.0/terms/PaymentGateway> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/PaymentGateway> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Payment Gateway"@en ;
+  skos:definition "A payment integration, payment service, or gateway used to process commercial access to a data product or data service."@en ;
+  skos:notation "PaymentGateway" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "paymentGateways"@en, "payment gateway"@en, "payment integration"@en, "payment service"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/PricingPlan>, <https://opendataproducts.org/odpv-v1.0/terms/Agreement>, <https://opendataproducts.org/odpv-v1.0/terms/DataAccess>, <https://opendataproducts.org/odpv-v1.0/terms/DataService> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Support> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Support"@en ;
+  skos:definition "The support model or contact channel for help, issue handling, or operational assistance related to a data product or data service."@en ;
+  skos:notation "Support" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "support"@en, "product support"@en, "support contact"@en, "help channel"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/SLA>, <https://opendataproducts.org/odpv-v1.0/terms/Stewardship>, <https://opendataproducts.org/odpv-v1.0/terms/Owner>, <https://opendataproducts.org/odpv-v1.0/terms/DataService> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Agreement> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Agreement"@en ;
+  skos:definition "A formal or informal agreement that defines usage, commercial, legal, operational, or governance terms for a data product or data exchange."@en ;
+  skos:notation "Agreement" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "data agreement"@en, "usage agreement"@en, "service agreement"@en, "commercial agreement"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataAgreement>, <https://opendataproducts.org/odpv-v1.0/terms/License>, <https://opendataproducts.org/odpv-v1.0/terms/UsageRights>, <https://opendataproducts.org/odpv-v1.0/terms/SLA> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Policy> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Policy"@en ;
+  skos:definition "A rule, guideline, or governance statement that applies to a data product, catalog, graph, use case, access method, or related object."@en ;
+  skos:notation "Policy" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "governance policy"@en, "rule"@en, "guideline"@en, "control policy"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/ComplianceRule>, <https://opendataproducts.org/odpv-v1.0/terms/GovernanceProfile>, <https://opendataproducts.org/odpv-v1.0/terms/AccessCondition>, <https://opendataproducts.org/odpv-v1.0/terms/Sensitivity> ;
+  skos:closeMatch odrl:Policy .
+
+<https://opendataproducts.org/odpv-v1.0/terms/ComplianceRule> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Compliance Rule"@en ;
+  skos:definition "A specific rule or requirement used to assess, enforce, or document compliance."@en ;
+  skos:notation "ComplianceRule" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "compliance requirement"@en, "control rule"@en, "regulatory rule"@en, "validation rule"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Policy>, <https://opendataproducts.org/odpv-v1.0/terms/GovernanceProfile>, <https://opendataproducts.org/odpv-v1.0/terms/DataQuality>, <https://opendataproducts.org/odpv-v1.0/terms/Risk> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Sensitivity> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Sensitivity"@en ;
+  skos:definition "A classification that indicates how sensitive a data product, dataset, attribute, distribution, or service is from a privacy, security, commercial, or operational perspective."@en ;
+  skos:notation "Sensitivity" ;
+  dcterms:type "classification" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "sensitivity level"@en, "data sensitivity"@en, "security classification"@en, "privacy classification"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Policy>, <https://opendataproducts.org/odpv-v1.0/terms/AccessCondition>, <https://opendataproducts.org/odpv-v1.0/terms/UsageRights>, <https://opendataproducts.org/odpv-v1.0/terms/GovernanceProfile> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/UsageRights> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Usage Rights"@en ;
+  skos:definition "The rights granted to consumers for using, sharing, modifying, deriving, or redistributing a data product or dataset."@en ;
+  skos:notation "UsageRights" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "use rights"@en, "permitted use"@en, "usage permissions"@en, "allowed use"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/License>, <https://opendataproducts.org/odpv-v1.0/terms/Agreement>, <https://opendataproducts.org/odpv-v1.0/terms/DataAgreement>, <https://opendataproducts.org/odpv-v1.0/terms/AccessCondition> ;
+  skos:closeMatch odrl:Permission .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Retention> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Retention"@en ;
+  skos:definition "The rules or expectations for how long data, metadata, logs, agreements, or related records should be retained."@en ;
+  skos:notation "Retention" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "retention rule"@en, "retention period"@en, "record retention"@en, "data retention"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Policy>, <https://opendataproducts.org/odpv-v1.0/terms/ComplianceRule>, <https://opendataproducts.org/odpv-v1.0/terms/DataAgreement>, <https://opendataproducts.org/odpv-v1.0/terms/Stewardship> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/AccessCondition> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Access Condition"@en ;
+  skos:definition "A condition that must be met before a consumer can access a data product, dataset, distribution, or data service."@en ;
+  skos:notation "AccessCondition" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "access rule"@en, "access requirement"@en, "eligibility condition"@en, "access constraint"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/AccessMethod>, <https://opendataproducts.org/odpv-v1.0/terms/UsageRights>, <https://opendataproducts.org/odpv-v1.0/terms/Policy>, <https://opendataproducts.org/odpv-v1.0/terms/Sensitivity> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/GovernanceProfile> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Governance Profile"@en ;
+  skos:definition "A reusable governance classification that describes the expected level of control, assurance, review, or operational maturity for a data product or catalog item."@en ;
+  skos:notation "GovernanceProfile" ;
+  dcterms:type "classification" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "governance level"@en, "assurance profile"@en, "control profile"@en, "maturity profile"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Policy>, <https://opendataproducts.org/odpv-v1.0/terms/ComplianceRule>, <https://opendataproducts.org/odpv-v1.0/terms/Sensitivity>, <https://opendataproducts.org/odpv-v1.0/terms/Stewardship> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataAgreement> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Agreement"@en ;
+  skos:definition "A structured agreement that defines the allowed use, responsibilities, obligations, and constraints for a data product or data exchange."@en ;
+  skos:notation "DataAgreement" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "data sharing agreement"@en, "data usage agreement"@en, "data exchange agreement"@en, "product agreement"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Agreement>, <https://opendataproducts.org/odpv-v1.0/terms/License>, <https://opendataproducts.org/odpv-v1.0/terms/UsageRights>, <https://opendataproducts.org/odpv-v1.0/terms/AccessCondition> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/DataContract> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Data Contract"@en ;
+  skos:definition "A technical or operational contract that defines expectations for schema, quality, delivery, compatibility, and change management."@en ;
+  skos:notation "DataContract" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "schema contract"@en, "delivery contract"@en, "operational contract"@en, "technical contract"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataQuality>, <https://opendataproducts.org/odpv-v1.0/terms/SLA>, <https://opendataproducts.org/odpv-v1.0/terms/AccessMethod>, <https://opendataproducts.org/odpv-v1.0/terms/Stewardship> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/Stewardship> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "Stewardship"@en ;
+  skos:definition "The assigned responsibility model for managing data product metadata, quality, lifecycle, and operational health."@en ;
+  skos:notation "Stewardship" ;
+  dcterms:type "object" ;
+  dcterms:isPartOf "governance" ;
+  skos:altLabel "data stewardship"@en, "product stewardship"@en, "metadata stewardship"@en, "lifecycle responsibility"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Steward>, <https://opendataproducts.org/odpv-v1.0/terms/Owner>, <https://opendataproducts.org/odpv-v1.0/terms/DataQuality>, <https://opendataproducts.org/odpv-v1.0/terms/GovernanceProfile> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/supports> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "supports"@en ;
+  skos:definition "Indicates that one object helps enable, serve, or make another object possible, such as a data product supporting a use case."@en ;
+  skos:notation "supports" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "enables"@en, "serves"@en, "helps"@en, "provides support for"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/contributesTo>, <https://opendataproducts.org/odpv-v1.0/terms/requires>, <https://opendataproducts.org/odpv-v1.0/terms/relatedTo> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/requires> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "requires"@en ;
+  skos:definition "Indicates that one object needs another object to be complete, useful, or executable, such as a use case requiring a data product."@en ;
+  skos:notation "requires" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "needs"@en, "depends on"@en, "must have"@en, "requires input from"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/dependsOn>, <https://opendataproducts.org/odpv-v1.0/terms/supports>, <https://opendataproducts.org/odpv-v1.0/terms/DataNeed> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/uses> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "uses"@en ;
+  skos:definition "Indicates that one object uses another object as part of execution, operation, analysis, automation, or decision-making."@en ;
+  skos:notation "uses" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "uses"@en, "uses as input"@en, "makes use of"@en, "operates with"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/requires>, <https://opendataproducts.org/odpv-v1.0/terms/dependsOn>, <https://opendataproducts.org/odpv-v1.0/terms/consumes> ;
+  skos:closeMatch prov:used .
+
+<https://opendataproducts.org/odpv-v1.0/terms/contributesTo> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "contributes to"@en ;
+  skos:definition "Indicates that one object helps advance another object, such as a use case contributing to a business objective."@en ;
+  skos:notation "contributesTo" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "advances"@en, "helps achieve"@en, "adds value to"@en, "supports progress toward"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/supports>, <https://opendataproducts.org/odpv-v1.0/terms/measures>, <https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/measures> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "measures"@en ;
+  skos:definition "Indicates that one object measures another object, such as a KPI measuring a business objective or outcome."@en ;
+  skos:notation "measures" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "tracks"@en, "monitors"@en, "evaluates"@en, "assesses"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/KPI>, <https://opendataproducts.org/odpv-v1.0/terms/Outcome>, <https://opendataproducts.org/odpv-v1.0/terms/BusinessObjective> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/belongsTo> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "belongs to"@en ;
+  skos:definition "Indicates that one object is assigned to, grouped under, or included in another object, such as a data product belonging to a catalog."@en ;
+  skos:notation "belongsTo" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "assigned to"@en, "grouped under"@en, "included in"@en, "cataloged under"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/partOf>, <https://opendataproducts.org/odpv-v1.0/terms/hasPart>, <https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/dependsOn> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "depends on"@en ;
+  skos:definition "Indicates that one object has a dependency on another object, such as a data product depending on another product, service, or dataset."@en ;
+  skos:notation "dependsOn" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "relies on"@en, "has dependency on"@en, "uses dependency"@en, "is dependent on"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/requires>, <https://opendataproducts.org/odpv-v1.0/terms/relatedTo>, <https://opendataproducts.org/odpv-v1.0/terms/derivedFrom> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/governedBy> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "governed by"@en ;
+  skos:definition "Indicates that one object is governed by another object, such as a data product governed by a license, policy, agreement, or compliance rule."@en ;
+  skos:notation "governedBy" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "controlled by"@en, "regulated by"@en, "subject to"@en, "under governance of"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Policy>, <https://opendataproducts.org/odpv-v1.0/terms/License>, <https://opendataproducts.org/odpv-v1.0/terms/Agreement>, <https://opendataproducts.org/odpv-v1.0/terms/ComplianceRule> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/providedBy> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "provided by"@en ;
+  skos:definition "Indicates that one object is provided, published, or made available by a provider."@en ;
+  skos:notation "providedBy" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "published by"@en, "supplied by"@en, "made available by"@en, "offered by"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Provider>, <https://opendataproducts.org/odpv-v1.0/terms/Owner>, <https://opendataproducts.org/odpv-v1.0/terms/Steward> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/consumedBy> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "consumed by"@en ;
+  skos:definition "Indicates that one object is used, accessed, or consumed by a consumer."@en ;
+  skos:notation "consumedBy" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "used by"@en, "accessed by"@en, "received by"@en, "consumed by"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Consumer>, <https://opendataproducts.org/odpv-v1.0/terms/AccessMethod>, <https://opendataproducts.org/odpv-v1.0/terms/UsageRights> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/produces> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "produces"@en ;
+  skos:definition "Indicates that one object creates, generates, outputs, or makes available another object, such as a workflow producing a dataset or data service."@en ;
+  skos:notation "produces" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "creates"@en, "generates"@en, "outputs"@en, "produces output"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/derivedFrom>, <https://opendataproducts.org/odpv-v1.0/terms/exposes>, <https://opendataproducts.org/odpv-v1.0/terms/DataProduct> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/consumes> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "consumes"@en ;
+  skos:definition "Indicates that one object consumes data, services, outputs, or interfaces from another object."@en ;
+  skos:notation "consumes" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "consumes"@en, "reads from"@en, "receives input from"@en, "takes as input"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/consumedBy>, <https://opendataproducts.org/odpv-v1.0/terms/uses>, <https://opendataproducts.org/odpv-v1.0/terms/Consumer> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/indicates> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "indicates"@en ;
+  skos:definition "Indicates that one object points to, reveals, or suggests another object, such as a signal indicating a gap, demand, risk, or opportunity."@en ;
+  skos:notation "indicates" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "points to"@en, "suggests"@en, "reveals"@en, "signals"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Signal>, <https://opendataproducts.org/odpv-v1.0/terms/Gap>, <https://opendataproducts.org/odpv-v1.0/terms/Demand>, <https://opendataproducts.org/odpv-v1.0/terms/Risk>, <https://opendataproducts.org/odpv-v1.0/terms/Opportunity> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/identifies> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "identifies"@en ;
+  skos:definition "Indicates that one object identifies, detects, discovers, or names another object, such as an agent identifying a strategic opportunity."@en ;
+  skos:notation "identifies" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "detects"@en, "discovers"@en, "finds"@en, "recognizes"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/indicates>, <https://opendataproducts.org/odpv-v1.0/terms/StrategicOpportunity>, <https://opendataproducts.org/odpv-v1.0/terms/Signal> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/relatedTo> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "related to"@en ;
+  skos:definition "Indicates a general relationship between two objects when a more specific relationship type is not available."@en ;
+  skos:notation "relatedTo" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "associated with"@en, "connected to"@en, "linked to"@en, "relevant to"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/supports>, <https://opendataproducts.org/odpv-v1.0/terms/dependsOn>, <https://opendataproducts.org/odpv-v1.0/terms/partOf> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/ownedBy> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "owned by"@en ;
+  skos:definition "Indicates that one object is owned or accountable to a person, team, organization, domain, or capability."@en ;
+  skos:notation "ownedBy" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "accountable to"@en, "has owner"@en, "owned by"@en, "ownership assigned to"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Owner>, <https://opendataproducts.org/odpv-v1.0/terms/Stewardship>, <https://opendataproducts.org/odpv-v1.0/terms/providedBy> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/alignsWith> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "aligns with"@en ;
+  skos:definition "Indicates that one object has strategic, semantic, organizational, or capability alignment with another object."@en ;
+  skos:notation "alignsWith" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "aligned with"@en, "maps to"@en, "corresponds to"@en, "strategically aligns with"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/contributesTo>, <https://opendataproducts.org/odpv-v1.0/terms/supports>, <https://opendataproducts.org/odpv-v1.0/terms/relatedTo> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/partOf> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "part of"@en ;
+  skos:definition "Indicates that one object is part of a larger object, such as a catalog item being part of a catalog."@en ;
+  skos:notation "partOf" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "component of"@en, "included in"@en, "member of"@en, "belongs within"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/hasPart>, <https://opendataproducts.org/odpv-v1.0/terms/belongsTo>, <https://opendataproducts.org/odpv-v1.0/terms/DataProductCatalog> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/hasPart> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "has part"@en ;
+  skos:definition "Indicates that one object contains or includes another object."@en ;
+  skos:notation "hasPart" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "contains"@en, "includes"@en, "has component"@en, "consists of"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/partOf>, <https://opendataproducts.org/odpv-v1.0/terms/belongsTo>, <https://opendataproducts.org/odpv-v1.0/terms/Dataset> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/derivedFrom> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "derived from"@en ;
+  skos:definition "Indicates that one object is derived from another object, such as an insight, product, dataset, or signal derived from a source."@en ;
+  skos:notation "derivedFrom" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "based on"@en, "sourced from"@en, "generated from"@en, "created from"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/dependsOn>, <https://opendataproducts.org/odpv-v1.0/terms/Reference>, <https://opendataproducts.org/odpv-v1.0/terms/Dataset> ;
+  skos:closeMatch prov:wasDerivedFrom .
+
+<https://opendataproducts.org/odpv-v1.0/terms/impacts> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "impacts"@en ;
+  skos:definition "Indicates that one object affects, changes, influences, or has an impact on another object."@en ;
+  skos:notation "impacts" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "affects"@en, "influences"@en, "changes"@en, "has impact on"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/Impact>, <https://opendataproducts.org/odpv-v1.0/terms/contributesTo>, <https://opendataproducts.org/odpv-v1.0/terms/supports> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/exposes> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "exposes"@en ;
+  skos:definition "Indicates that one object exposes a data service, interface, endpoint, distribution, or access method."@en ;
+  skos:notation "exposes" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "exposes interface"@en, "makes available through"@en, "provides endpoint"@en, "publishes interface"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/DataService>, <https://opendataproducts.org/odpv-v1.0/terms/AccessMethod>, <https://opendataproducts.org/odpv-v1.0/terms/Distribution> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/replaces> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "replaces"@en ;
+  skos:definition "Indicates that one object replaces another object, such as a newer data product replacing an older version."@en ;
+  skos:notation "replaces" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "supersedes"@en, "succeeds"@en, "takes over from"@en, "replaces version"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/versionOf>, <https://opendataproducts.org/odpv-v1.0/terms/derivedFrom>, <https://opendataproducts.org/odpv-v1.0/terms/relatedTo> .
+
+<https://opendataproducts.org/odpv-v1.0/terms/versionOf> a skos:Concept ;
+  skos:inScheme <https://opendataproducts.org/odpv-v1.0/> ;
+  skos:prefLabel "version of"@en ;
+  skos:definition "Indicates that one object is a version of another object."@en ;
+  skos:notation "versionOf" ;
+  dcterms:type "relationship" ;
+  dcterms:isPartOf "relationships" ;
+  skos:altLabel "variant of"@en, "release of"@en, "revision of"@en, "versioned form of"@en ;
+  skos:related <https://opendataproducts.org/odpv-v1.0/terms/replaces>, <https://opendataproducts.org/odpv-v1.0/terms/derivedFrom>, <https://opendataproducts.org/odpv-v1.0/terms/Identifier> .

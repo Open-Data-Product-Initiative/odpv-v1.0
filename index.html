@@ -13,6 +13,8 @@
     content="The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management." />
     <link rel="alternate" type="text/plain" title="LLMs and AI agent guidance" href="/llms.txt">
     <link rel="alternate" type="application/x-ndjson" title="ODPV terms JSONL" href="/vocab/terms.jsonl">
+    <link rel="alternate" type="application/ld+json" title="ODPV JSON-LD" href="/vocab/odpv.jsonld">
+    <link rel="alternate" type="text/turtle" title="ODPV SKOS Turtle" href="/vocab/odpv.skos.ttl">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
@@ -582,13 +584,14 @@ ODPS homepage: https://opendataproducts.org/
   <span class="pi">-</span> <span class="s">ODPC</span>
   <span class="pi">-</span> <span class="s">ODPG</span>
 </code></pre></div>
-<p>ODPV is published in several forms for different users and tools. This specification provides the human-readable documentation, while the vocabulary files provide machine-readable representations for validation, catalog integration, graph construction, AI retrieval, and automation. Use <code>odpv.yaml</code> as the canonical source, <code>odpv.json</code> when JSON is easier to consume, the section YAML files when only one vocabulary area is needed, and <code>terms.jsonl</code> for search, embeddings, and lightweight AI agent workflows.</p>
+<p>ODPV is published in several forms for different users and tools. This specification provides the human-readable documentation, while the vocabulary files provide machine-readable representations for validation, catalog integration, graph construction, AI retrieval, linked-data tooling, and automation. Use <code>odpv.yaml</code> as the canonical source, <code>odpv.json</code> when JSON is easier to consume, <code>odpv.jsonld</code> or <code>odpv.skos.ttl</code> for semantic web and linked-data tooling, the section YAML files when only one vocabulary area is needed, and <code>terms.jsonl</code> for search, embeddings, and lightweight AI agent workflows.</p>
 
 <p>The primary implementation toolkit for the whole Open Data Product standards family is the <a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk">Open Data Product Agent SDK</a>. Use it when building tools, validators, agent workflows, catalog integrations, graph workflows, or automation that needs to work across ODPS, ODPC, ODPG, and ODPV together.</p>
 
 <!-- AI_AGENT_GUIDANCE:
 Use /vocab/odpv.yaml as the canonical ODPV vocabulary source.
 Use /vocab/terms.jsonl for retrieval, embeddings, search, and lightweight tool calls.
+Use /vocab/odpv.jsonld and /vocab/odpv.skos.ttl for linked-data, semantic web, and SKOS-aware tooling.
 Use /vocab/core.yaml, /vocab/value.yaml, /vocab/governance.yaml, and /vocab/relationships.yaml when only one vocabulary section is needed.
 Use https://github.com/Open-Data-Product-Initiative/odp-agent-sdk as the main SDK for cross-standard Open Data Product tooling.
 Use stable term ids and uris exactly as published. Do not redefine official ODPV terms.
@@ -621,6 +624,16 @@ If a needed term is missing, treat it as an extension candidate and use a separa
 <td><a href="vocab/odpv.json"><code>odpv.json</code></a></td>
 <td>JSON</td>
 <td>JSON representation for tools, APIs, search indexes, and graph applications</td>
+</tr>
+<tr>
+<td><a href="vocab/odpv.jsonld"><code>odpv.jsonld</code></a></td>
+<td>JSON-LD</td>
+<td>Linked-data representation for semantic tooling and graph workflows</td>
+</tr>
+<tr>
+<td><a href="vocab/odpv.skos.ttl"><code>odpv.skos.ttl</code></a></td>
+<td>Turtle</td>
+<td>SKOS representation with labels, definitions, related terms, and external mappings</td>
 </tr>
 <tr>
 <td><a href="vocab/terms.jsonl"><code>terms.jsonl</code></a></td>
@@ -674,7 +687,7 @@ Do not edit generated vocabulary artifacts directly unless intentionally repairi
 </thead><tbody>
 <tr>
 <td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/generate_vocab_artifacts.py"><code>generate_vocab_artifacts.py</code></a></td>
-<td>Regenerates derived vocabulary artifacts from canonical <code>odpv.yaml</code>; use <code>--check</code> in CI to detect drift</td>
+<td>Regenerates derived vocabulary artifacts from canonical <code>odpv.yaml</code>, including JSON, JSON-LD, SKOS Turtle, JSONL, and section YAML; use <code>--check</code> in CI to detect drift</td>
 </tr>
 <tr>
 <td><a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/validate_vocab.py"><code>validate_vocab.py</code></a></td>

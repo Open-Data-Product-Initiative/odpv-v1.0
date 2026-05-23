@@ -127,6 +127,12 @@
             "DataProductGraph",
             "Reference"
           ],
+          "mappings": {
+            "closeMatch": [
+              "dcat:Catalog",
+              "schema:DataCatalog"
+            ]
+          },
           "usedIn": [
             "ODPC",
             "ODPG"
@@ -199,6 +205,12 @@
             "Distribution",
             "DataService"
           ],
+          "mappings": {
+            "exactMatch": [
+              "dcat:Dataset",
+              "schema:Dataset"
+            ]
+          },
           "usedIn": [
             "ODPS",
             "ODPC"
@@ -235,6 +247,14 @@
             "DataService",
             "DataAccess"
           ],
+          "mappings": {
+            "exactMatch": [
+              "dcat:Distribution"
+            ],
+            "closeMatch": [
+              "schema:DataDownload"
+            ]
+          },
           "usedIn": [
             "ODPS"
           ],
@@ -272,6 +292,11 @@
             "DataAccess",
             "API"
           ],
+          "mappings": {
+            "exactMatch": [
+              "dcat:DataService"
+            ]
+          },
           "usedIn": [
             "ODPS",
             "ODPG"
@@ -309,6 +334,11 @@
             "Workflow",
             "DataService"
           ],
+          "mappings": {
+            "closeMatch": [
+              "prov:Agent"
+            ]
+          },
           "usedIn": [
             "ODPG"
           ],
@@ -344,6 +374,11 @@
             "Agent",
             "Capability"
           ],
+          "mappings": {
+            "closeMatch": [
+              "prov:Activity"
+            ]
+          },
           "usedIn": [
             "ODPG"
           ],
@@ -1440,6 +1475,11 @@
             "DataAgreement",
             "Policy"
           ],
+          "mappings": {
+            "closeMatch": [
+              "dcterms:LicenseDocument"
+            ]
+          },
           "usedIn": [
             "ODPS",
             "ODPC",
@@ -1700,6 +1740,11 @@
             "AccessCondition",
             "Sensitivity"
           ],
+          "mappings": {
+            "closeMatch": [
+              "odrl:Policy"
+            ]
+          },
           "usedIn": [
             "ODPS",
             "ODPC",
@@ -1813,6 +1858,11 @@
             "DataAgreement",
             "AccessCondition"
           ],
+          "mappings": {
+            "closeMatch": [
+              "odrl:Permission"
+            ]
+          },
           "usedIn": [
             "ODPS",
             "ODPC"
@@ -2172,6 +2222,11 @@
             "dependsOn",
             "consumes"
           ],
+          "mappings": {
+            "closeMatch": [
+              "prov:used"
+            ]
+          },
           "domain": [
             "UseCase",
             "Agent",
@@ -2951,6 +3006,11 @@
             "Reference",
             "Dataset"
           ],
+          "mappings": {
+            "closeMatch": [
+              "prov:wasDerivedFrom"
+            ]
+          },
           "domain": [
             "DataProduct",
             "Dataset",

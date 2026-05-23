@@ -95,6 +95,9 @@ sections:
     - Agreement
     - DataAgreement
     - Policy
+    mappings:
+      closeMatch:
+      - dcterms:LicenseDocument
     usedIn:
     - ODPS
     - ODPC
@@ -285,6 +288,9 @@ sections:
     - GovernanceProfile
     - AccessCondition
     - Sensitivity
+    mappings:
+      closeMatch:
+      - odrl:Policy
     usedIn:
     - ODPS
     - ODPC
@@ -368,6 +374,9 @@ sections:
     - Agreement
     - DataAgreement
     - AccessCondition
+    mappings:
+      closeMatch:
+      - odrl:Permission
     usedIn:
     - ODPS
     - ODPC
