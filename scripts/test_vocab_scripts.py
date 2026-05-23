@@ -72,6 +72,47 @@ class VocabScriptTests(unittest.TestCase):
         self.assertIn("score", matches[0])
         self.assertIn("matchedFields", matches[0])
 
+    def test_agent_vocab_helper_resolves_aliases(self):
+        result = self.run_script("scripts/agent_vocab_helper.py", "resolve", "API")
+
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        payload = json.loads(result.stdout)
+        self.assertEqual(payload["query"], "API")
+        self.assertEqual(payload["match"]["id"], "DataService")
+        self.assertEqual(payload["match"]["matchType"], "alias")
+        self.assertIn("API", payload["match"]["matchedAliases"])
+
+    def test_agent_vocab_helper_explains_terms(self):
+        result = self.run_script("scripts/agent_vocab_helper.py", "explain", "DataService")
+
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        payload = json.loads(result.stdout)
+        self.assertEqual(payload["id"], "DataService")
+        self.assertEqual(payload["section"], "core")
+        self.assertIn("dcat:DataService", payload["mappings"]["exactMatch"])
+        self.assertIn("API", payload["alsoKnownAs"]["en"])
+
+    def test_agent_vocab_helper_checks_relationships(self):
+        result = self.run_script("scripts/agent_vocab_helper.py", "relationship", "Agent", "uses", "DataService")
+
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        payload = json.loads(result.stdout)
+        self.assertEqual(payload["relationship"]["id"], "uses")
+        self.assertTrue(payload["compatible"])
+        self.assertTrue(payload["sourceCompatible"])
+        self.assertTrue(payload["targetCompatible"])
+
+    def test_agent_vocab_helper_returns_context_packets(self):
+        result = self.run_script("scripts/agent_vocab_helper.py", "context", "DataService")
+
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        payload = json.loads(result.stdout)
+        self.assertEqual(payload["contextType"], "odpv.term")
+        self.assertEqual(payload["term"]["id"], "DataService")
+        self.assertIn("Dataset", payload["neighbors"]["relatedTerms"])
+        self.assertIn("exposes", payload["relationshipHints"]["incoming"])
+        self.assertIn("dcat:DataService", payload["term"]["mappings"]["exactMatch"])
+
     def test_odpg_terms_are_aligned_without_promoting_aliases(self):
         import yaml
 

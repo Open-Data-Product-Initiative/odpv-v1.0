@@ -45,6 +45,7 @@ This repository also includes helper scripts for maintaining and using the vocab
 | [`scripts/search_vocab.py`](scripts/search_vocab.py) | Search ODPV terms by label, alias, definition, example, and related term |
 | [`scripts/validate_vocab.py`](scripts/validate_vocab.py) | Validate the canonical vocabulary and generated artifacts |
 | [`scripts/generate_vocab_artifacts.py`](scripts/generate_vocab_artifacts.py) | Regenerate JSON, JSON-LD, SKOS Turtle, JSONL, and section YAML files from `odpv.yaml` |
+| [`scripts/agent_vocab_helper.py`](scripts/agent_vocab_helper.py) | Resolve source phrases, explain terms, check relationships, and produce agent-ready context packets |
 | [`scripts/check_cross_spec_drift.py`](scripts/check_cross_spec_drift.py) | Compare published ODPS, ODPC, and ODPG schema terms against ODPV |
 
 # Term Governance
