@@ -403,6 +403,23 @@
               </ul>
           </li>
           <li>
+            <a href="#term-governance-rules" class="toc-h1 toc-link" data-title="Term Governance Rules">Term Governance Rules</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#adding-a-new-official-term" class="toc-h2 toc-link" data-title="Adding A New Official Term">Adding A New Official Term</a>
+                  </li>
+                  <li>
+                    <a href="#adding-an-alias" class="toc-h2 toc-link" data-title="Adding An Alias">Adding An Alias</a>
+                  </li>
+                  <li>
+                    <a href="#adding-external-mappings" class="toc-h2 toc-link" data-title="Adding External Mappings">Adding External Mappings</a>
+                  </li>
+                  <li>
+                    <a href="#drift-review-workflow" class="toc-h2 toc-link" data-title="Drift Review Workflow">Drift Review Workflow</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#odpv-core" class="toc-h1 toc-link" data-title="ODPV Core">ODPV Core</a>
           </li>
           <li>
@@ -841,7 +858,131 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>Validate this ODPV vocabulary file and suggest schema-compliant repairs.
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>Identify terminology drift between this ODPC catalog and the official ODPV terms.
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>Propose an ODPV extension term for a missing domain-specific concept.
-</code></pre></div><h1 id='odpv-core'>ODPV Core</h1>
+</code></pre></div><h1 id='term-governance-rules'>Term Governance Rules</h1>
+<p>ODPV is a shared vocabulary, not a catch-all list of every field used by every specification. New terms should be added when they improve shared understanding across the Open Data Products standards family or when they provide a stable bridge between specifications, tools, catalogs, graphs, and AI agents.</p>
+
+<p>Use these rules when reviewing drift reports, GitHub issues, pull requests, or proposed vocabulary additions.</p>
+
+<table><thead>
+<tr>
+<th>Situation</th>
+<th>Preferred action</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A concept is shared by more than one standard, tool, catalog, graph, or agent workflow</td>
+<td>Add an official ODPV term</td>
+<td>Shared concepts need stable ids, labels, definitions, aliases, examples, and mappings.</td>
+</tr>
+<tr>
+<td>A source term is only a different spelling, casing, plural form, or common synonym of an existing ODPV term</td>
+<td>Add an alias in <code>alsoKnownAs</code></td>
+<td>The canonical term stays stable while search, drift checks, and agent matching improve.</td>
+</tr>
+<tr>
+<td>A source term is narrower than an existing ODPV term but still useful to map</td>
+<td>Add an alias only if the meaning is safely equivalent; otherwise add an external or close mapping</td>
+<td>Avoid overloading broad terms with narrower meanings that could mislead tools.</td>
+</tr>
+<tr>
+<td>A concept belongs only to one specification&#39;s internal structure</td>
+<td>Keep it in that source specification</td>
+<td>ODPV should not duplicate schema plumbing or implementation-only fields.</td>
+</tr>
+<tr>
+<td>A concept belongs to a domain, organization, or implementation profile</td>
+<td>Use an extension namespace or prefix</td>
+<td>Domain-specific vocabulary should be extensible without changing the shared core.</td>
+</tr>
+<tr>
+<td>A concept already has a strong external standard term</td>
+<td>Add a mapping such as <code>exactMatch</code>, <code>closeMatch</code>, <code>broadMatch</code>, <code>narrowMatch</code>, or <code>relatedMatch</code></td>
+<td>External mappings make ODPV interoperable without forcing it to become a heavy ontology.</td>
+</tr>
+<tr>
+<td>A source specification uses an unclear or inconsistent term</td>
+<td>Open an issue against the source specification</td>
+<td>Some drift is better fixed at the source rather than normalized into ODPV.</td>
+</tr>
+</tbody></table>
+<h2 id='adding-a-new-official-term'>Adding A New Official Term</h2>
+<p>A new ODPV term should include:</p>
+
+<ul>
+<li>stable <code>id</code> and <code>uri</code></li>
+<li><code>type</code></li>
+<li><code>status</code></li>
+<li><code>introducedIn</code></li>
+<li><code>preferredLabel</code></li>
+<li>clear definition</li>
+<li>useful <code>alsoKnownAs</code> aliases</li>
+<li><code>relatedTerms</code></li>
+<li><code>usedIn</code></li>
+<li>examples</li>
+<li>external <code>mappings</code> when an established vocabulary applies</li>
+</ul>
+
+<p>Definitions should describe what the concept means, not where it appears in a schema. Examples should show practical use in ODPS, ODPC, ODPG, tools, catalogs, graphs, or AI workflows.</p>
+<h2 id='adding-an-alias'>Adding An Alias</h2>
+<p>Add an alias when the proposed term is safely equivalent to an existing ODPV term. Alias examples include:</p>
+
+<ul>
+<li>casing differences such as <code>license</code> for <code>License</code></li>
+<li>plural schema names such as <code>pricingPlans</code> for <code>PricingPlan</code></li>
+<li>source-spec naming differences such as <code>API</code> for <code>DataService</code></li>
+<li>relationship wording differences such as <code>monitors</code> for <code>measures</code></li>
+</ul>
+
+<p>Do not add an alias when the source term would change the meaning of the canonical term. In that case, add a new term, add a mapping, use an extension, or open a source-spec issue.</p>
+<h2 id='adding-external-mappings'>Adding External Mappings</h2>
+<p>Use external mappings to connect ODPV terms to established vocabularies such as DCAT, SKOS, PROV-O, ODRL, Dublin Core, schema.org, or SPDX.</p>
+
+<p>Mapping strength matters:</p>
+
+<table><thead>
+<tr>
+<th>Mapping</th>
+<th>Use when</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>exactMatch</code></td>
+<td>The external concept has the same practical meaning.</td>
+</tr>
+<tr>
+<td><code>closeMatch</code></td>
+<td>The external concept is similar enough for interoperability, but not identical.</td>
+</tr>
+<tr>
+<td><code>broadMatch</code></td>
+<td>The external concept is broader than the ODPV term.</td>
+</tr>
+<tr>
+<td><code>narrowMatch</code></td>
+<td>The external concept is narrower than the ODPV term.</td>
+</tr>
+<tr>
+<td><code>relatedMatch</code></td>
+<td>The external concept is related but should not be treated as equivalent.</td>
+</tr>
+</tbody></table>
+
+<p>When in doubt, prefer <code>closeMatch</code> over <code>exactMatch</code>.</p>
+<h2 id='drift-review-workflow'>Drift Review Workflow</h2>
+<p>When a drift report shows <code>Possible drift</code>:</p>
+
+<ol>
+<li>Check whether the source term already maps to an ODPV term through <code>alsoKnownAs</code>.</li>
+<li>Decide whether the source term is a shared concept, alias, source-spec detail, extension candidate, or source-spec issue.</li>
+<li>If adding or changing ODPV, update <code>source/vocab/odpv.yaml</code> first.</li>
+<li>Regenerate artifacts with <code>scripts/generate_vocab_artifacts.py</code>.</li>
+<li>Validate with <code>scripts/validate_vocab.py</code>.</li>
+<li>Refresh the drift report with <code>scripts/check_cross_spec_drift.py</code>.</li>
+</ol>
+
+<p>The goal is not to force every source term into ODPV. The goal is to keep shared vocabulary stable, useful, and interoperable.</p>
+<h1 id='odpv-core'>ODPV Core</h1>
 <p>ODPV Core defines the foundational terms used across the Open Data Products specification family. These terms describe the main objects, roles, classifications, and references that appear in ODPS, ODPC, and <a href="https://opendataproducts.org/odpg-v1.0/">ODPG</a>.</p>
 
 <p>The purpose of the core vocabulary is to create a shared language for describing data products and their surrounding ecosystem. It helps different specifications, catalogs, graphs, tools, and platforms use the same concepts consistently.</p>
