@@ -707,7 +707,7 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 <li>retrieve definitions, labels, aliases, related terms, and examples from <code>terms.jsonl</code></li>
 <li>validate vocabulary files against <code>odpv.schema.json</code></li>
 <li>explain distinctions between nearby terms such as <code>DataProduct</code>, <code>Dataset</code>, <code>DataService</code>, and <code>Distribution</code></li>
-<li>choose relationship terms such as <code>supports</code>, <code>requires</code>, <code>contributesTo</code>, <code>measures</code>, <code>dependsOn</code>, <code>governedBy</code>, <code>providedBy</code>, and <code>consumedBy</code></li>
+<li>choose relationship terms such as <code>uses</code>, <code>supports</code>, <code>requires</code>, <code>contributesTo</code>, <code>measures</code>, <code>dependsOn</code>, <code>produces</code>, <code>consumes</code>, <code>governedBy</code>, <code>providedBy</code>, <code>consumedBy</code>, <code>ownedBy</code>, <code>alignsWith</code>, <code>impacts</code>, <code>exposes</code>, and <code>identifies</code></li>
 <li>prepare graph-ready relationship names for ODPG or another graph implementation</li>
 <li>support catalog alignment by using the same terms in ODPC catalogs and ODPS product descriptions</li>
 <li>detect terminology drift, duplicate concepts, unclear aliases, or missing shared terms</li>
@@ -763,6 +763,7 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 <li>Do not invent new official terms when an existing ODPV term fits.</li>
 <li>Do not use <code>relatedTo</code> when a more specific relationship term such as <code>supports</code>, <code>requires</code>, <code>dependsOn</code>, or <code>governedBy</code> applies.</li>
 <li>Do not assume aliases are preferred labels; use them for search, mapping, and onboarding.</li>
+<li>Do not promote ODPG-local aliases such as <code>API</code> or <code>monitors</code> into standalone ODPV ids when <code>DataService</code> and <code>measures</code> are the canonical vocabulary terms.</li>
 <li>Do not edit generated vocabulary artifacts directly when changing official vocabulary content; update <code>source/vocab/odpv.yaml</code> first and regenerate derived files.</li>
 </ul>
 <h2 id='example-prompts-odpv-enables'>Example prompts ODPV enables</h2><div class="highlight"><pre class="highlight plaintext"><code>Find the best ODPV term for "data API" and return the stable id and uri.
@@ -861,9 +862,33 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 <td><code>DataService</code></td>
 <td>object</td>
 <td>A service that provides access to data or data operations, such as an API, query endpoint, or data delivery service. Aligns with DCAT where applicable.</td>
-<td>data API, data endpoint, query service, delivery service</td>
-<td><code>Dataset</code>, <code>Distribution</code>, <code>DataAccess</code></td>
-<td>ODPS</td>
+<td>data API, API, data endpoint, query service, delivery service</td>
+<td><code>Dataset</code>, <code>Distribution</code>, <code>DataAccess</code>, <code>API</code></td>
+<td>ODPS, ODPG</td>
+</tr>
+<tr>
+<td><code>Agent</code></td>
+<td>role</td>
+<td>An AI agent, automation actor, or software system that can use data products, services, workflows, or graph context to perform a task.</td>
+<td>AI agent, automation actor, autonomous agent, software agent</td>
+<td><code>Consumer</code>, <code>Workflow</code>, <code>DataService</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
+<td><code>Workflow</code></td>
+<td>object</td>
+<td>A business, operational, analytical, or technical process that coordinates activities, systems, agents, data products, or services.</td>
+<td>process, business workflow, technical workflow, orchestration flow</td>
+<td><code>UseCase</code>, <code>Agent</code>, <code>Capability</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
+<td><code>Capability</code></td>
+<td>object</td>
+<td>A reusable business, organizational, analytical, operational, or technical ability that can be supported by data products, workflows, agents, or services.</td>
+<td>business capability, technical capability, organizational capability, reusable capability</td>
+<td><code>Domain</code>, <code>Workflow</code>, <code>StrategicOpportunity</code></td>
+<td>ODPG</td>
 </tr>
 <tr>
 <td><code>Provider</code></td>
@@ -1066,6 +1091,14 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 <td>value opportunity, improvement area, innovation opportunity, reuse opportunity</td>
 <td><code>Signal</code>, <code>Gap</code>, <code>Benefit</code>, <code>Impact</code></td>
 <td>ODPC, ODPG</td>
+</tr>
+<tr>
+<td><code>StrategicOpportunity</code></td>
+<td>object</td>
+<td>An inferred or declared opportunity with strategic relevance, such as a portfolio improvement, optimization, unmet need, or emerging value area.</td>
+<td>strategic opportunity, portfolio opportunity, strategic value opportunity, emerging opportunity</td>
+<td><code>Opportunity</code>, <code>BusinessObjective</code>, <code>Capability</code>, <code>Gap</code></td>
+<td>ODPG</td>
 </tr>
 <tr>
 <td><code>Risk</code></td>
@@ -1337,6 +1370,14 @@ ODPG documentation: https://opendataproducts.org/odpg-v1.0/
 <td>ODPG</td>
 </tr>
 <tr>
+<td><code>uses</code></td>
+<td>relationship</td>
+<td>Indicates that one object uses another object as part of execution, operation, analysis, automation, or decision-making.</td>
+<td>uses, uses as input, makes use of, operates with</td>
+<td><code>requires</code>, <code>dependsOn</code>, <code>consumes</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
 <td><code>contributesTo</code></td>
 <td>relationship</td>
 <td>Indicates that one object helps advance another object, such as a use case contributing to a business objective.</td>
@@ -1393,6 +1434,22 @@ ODPG documentation: https://opendataproducts.org/odpg-v1.0/
 <td>ODPG</td>
 </tr>
 <tr>
+<td><code>produces</code></td>
+<td>relationship</td>
+<td>Indicates that one object creates, generates, outputs, or makes available another object, such as a workflow producing a dataset or data service.</td>
+<td>creates, generates, outputs, produces output</td>
+<td><code>derivedFrom</code>, <code>exposes</code>, <code>DataProduct</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
+<td><code>consumes</code></td>
+<td>relationship</td>
+<td>Indicates that one object consumes data, services, outputs, or interfaces from another object.</td>
+<td>consumes, reads from, receives input from, takes as input</td>
+<td><code>consumedBy</code>, <code>uses</code>, <code>Consumer</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
 <td><code>indicates</code></td>
 <td>relationship</td>
 <td>Indicates that one object points to, reveals, or suggests another object, such as a signal indicating a gap, demand, risk, or opportunity.</td>
@@ -1401,11 +1458,35 @@ ODPG documentation: https://opendataproducts.org/odpg-v1.0/
 <td>ODPG</td>
 </tr>
 <tr>
+<td><code>identifies</code></td>
+<td>relationship</td>
+<td>Indicates that one object identifies, detects, discovers, or names another object, such as an agent identifying a strategic opportunity.</td>
+<td>detects, discovers, finds, recognizes</td>
+<td><code>indicates</code>, <code>StrategicOpportunity</code>, <code>Signal</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
 <td><code>relatedTo</code></td>
 <td>relationship</td>
 <td>Indicates a general relationship between two objects when a more specific relationship type is not available.</td>
 <td>associated with, connected to, linked to, relevant to</td>
 <td><code>supports</code>, <code>dependsOn</code>, <code>partOf</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
+<td><code>ownedBy</code></td>
+<td>relationship</td>
+<td>Indicates that one object is owned or accountable to a person, team, organization, domain, or capability.</td>
+<td>accountable to, has owner, owned by, ownership assigned to</td>
+<td><code>Owner</code>, <code>Stewardship</code>, <code>providedBy</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
+<td><code>alignsWith</code></td>
+<td>relationship</td>
+<td>Indicates that one object has strategic, semantic, organizational, or capability alignment with another object.</td>
+<td>aligned with, maps to, corresponds to, strategically aligns with</td>
+<td><code>contributesTo</code>, <code>supports</code>, <code>relatedTo</code></td>
 <td>ODPG</td>
 </tr>
 <tr>
@@ -1430,6 +1511,22 @@ ODPG documentation: https://opendataproducts.org/odpg-v1.0/
 <td>Indicates that one object is derived from another object, such as an insight, product, dataset, or signal derived from a source.</td>
 <td>based on, sourced from, generated from, created from</td>
 <td><code>dependsOn</code>, <code>Reference</code>, <code>Dataset</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
+<td><code>impacts</code></td>
+<td>relationship</td>
+<td>Indicates that one object affects, changes, influences, or has an impact on another object.</td>
+<td>affects, influences, changes, has impact on</td>
+<td><code>Impact</code>, <code>contributesTo</code>, <code>supports</code></td>
+<td>ODPG</td>
+</tr>
+<tr>
+<td><code>exposes</code></td>
+<td>relationship</td>
+<td>Indicates that one object exposes a data service, interface, endpoint, distribution, or access method.</td>
+<td>exposes interface, makes available through, provides endpoint, publishes interface</td>
+<td><code>DataService</code>, <code>AccessMethod</code>, <code>Distribution</code></td>
 <td>ODPG</td>
 </tr>
 <tr>

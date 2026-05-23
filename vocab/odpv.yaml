@@ -168,6 +168,7 @@ sections:
         alsoKnownAs:
           en:
             - data API
+            - API
             - data endpoint
             - query service
             - delivery service
@@ -175,12 +176,93 @@ sections:
           - Dataset
           - Distribution
           - DataAccess
+          - API
         usedIn:
           - ODPS
+          - ODPG
         examples:
           en:
             - A REST API that returns fraud risk scores is a DataService.
+            - In ODPG graphs, an API node maps to the ODPV DataService term.
             - Use DataService for an API, query endpoint, or delivery service that provides access to data.
+
+      - id: Agent
+        uri: https://opendataproducts.org/odpv-v1.0/terms/Agent
+        type: role
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Agent
+        definition:
+          en: An AI agent, automation actor, or software system that can use data products, services, workflows, or graph context to perform a task.
+        alsoKnownAs:
+          en:
+            - AI agent
+            - automation actor
+            - autonomous agent
+            - software agent
+        relatedTerms:
+          - Consumer
+          - Workflow
+          - DataService
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - A maintenance recommendation agent uses an aviation risk score API to support operational decisions.
+            - Use Agent for an AI or automation actor represented in a graph or workflow.
+
+      - id: Workflow
+        uri: https://opendataproducts.org/odpv-v1.0/terms/Workflow
+        type: object
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Workflow
+        definition:
+          en: A business, operational, analytical, or technical process that coordinates activities, systems, agents, data products, or services.
+        alsoKnownAs:
+          en:
+            - process
+            - business workflow
+            - technical workflow
+            - orchestration flow
+        relatedTerms:
+          - UseCase
+          - Agent
+          - Capability
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - A fraud investigation workflow uses transaction event data and risk scoring services.
+            - Use Workflow for a process or orchestration flow represented as a graph node.
+
+      - id: Capability
+        uri: https://opendataproducts.org/odpv-v1.0/terms/Capability
+        type: object
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Capability
+        definition:
+          en: A reusable business, organizational, analytical, operational, or technical ability that can be supported by data products, workflows, agents, or services.
+        alsoKnownAs:
+          en:
+            - business capability
+            - technical capability
+            - organizational capability
+            - reusable capability
+        relatedTerms:
+          - Domain
+          - Workflow
+          - StrategicOpportunity
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - Predictive maintenance is a Capability supported by aircraft telemetry data products and monitoring workflows.
+            - Use Capability for a reusable business or technical ability that can be connected to products, workflows, and objectives.
 
       - id: Provider
         uri: https://opendataproducts.org/odpv-v1.0/terms/Provider
@@ -715,6 +797,33 @@ sections:
           en:
             - Combining mobility and weather data is an Opportunity for better route optimization.
             - Use Opportunity for a possible area of reuse, innovation, service improvement, monetization, or better decisions.
+
+      - id: StrategicOpportunity
+        uri: https://opendataproducts.org/odpv-v1.0/terms/StrategicOpportunity
+        type: object
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: Strategic Opportunity
+        definition:
+          en: An inferred or declared opportunity with strategic relevance, such as a portfolio improvement, optimization, unmet need, or emerging value area.
+        alsoKnownAs:
+          en:
+            - strategic opportunity
+            - portfolio opportunity
+            - strategic value opportunity
+            - emerging opportunity
+        relatedTerms:
+          - Opportunity
+          - BusinessObjective
+          - Capability
+          - Gap
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - Reducing unscheduled aircraft maintenance is a StrategicOpportunity identified from reliability signals and operational gaps.
+            - Use StrategicOpportunity when an opportunity has portfolio, strategic, or business-objective relevance.
 
       - id: Risk
         uri: https://opendataproducts.org/odpv-v1.0/terms/Risk
@@ -1306,6 +1415,42 @@ sections:
             - The Fraud Detection use case requires the Transaction Events DataProduct.
             - Use requires when one object needs another object to be complete, useful, or executable.
 
+      - id: uses
+        uri: https://opendataproducts.org/odpv-v1.0/terms/uses
+        type: relationship
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: uses
+        definition:
+          en: Indicates that one object uses another object as part of execution, operation, analysis, automation, or decision-making.
+        alsoKnownAs:
+          en:
+            - uses
+            - uses as input
+            - makes use of
+            - operates with
+        relatedTerms:
+          - requires
+          - dependsOn
+          - consumes
+        domain:
+          - UseCase
+          - Agent
+          - Workflow
+          - DataProduct
+        range:
+          - DataProduct
+          - DataService
+          - Dataset
+          - Workflow
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - A maintenance recommendation agent uses an aviation risk score data service.
+            - Use uses when one object actively uses another object during execution or operation.
+
       - id: contributesTo
         uri: https://opendataproducts.org/odpv-v1.0/terms/contributesTo
         type: relationship
@@ -1541,6 +1686,78 @@ sections:
             - The Customer Features DataProduct is consumedBy the Personalization Model Training system.
             - Use consumedBy when an object is used, accessed, or received by a consumer.
 
+      - id: produces
+        uri: https://opendataproducts.org/odpv-v1.0/terms/produces
+        type: relationship
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: produces
+        definition:
+          en: Indicates that one object creates, generates, outputs, or makes available another object, such as a workflow producing a dataset or data service.
+        alsoKnownAs:
+          en:
+            - creates
+            - generates
+            - outputs
+            - produces output
+        relatedTerms:
+          - derivedFrom
+          - exposes
+          - DataProduct
+        domain:
+          - Workflow
+          - DataProduct
+          - Agent
+          - DataService
+        range:
+          - Dataset
+          - DataService
+          - DataProduct
+          - Distribution
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - A scoring workflow produces a daily maintenance risk dataset.
+            - Use produces when one object creates, generates, outputs, or makes another object available.
+
+      - id: consumes
+        uri: https://opendataproducts.org/odpv-v1.0/terms/consumes
+        type: relationship
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: consumes
+        definition:
+          en: Indicates that one object consumes data, services, outputs, or interfaces from another object.
+        alsoKnownAs:
+          en:
+            - consumes
+            - reads from
+            - receives input from
+            - takes as input
+        relatedTerms:
+          - consumedBy
+          - uses
+          - Consumer
+        domain:
+          - DataProduct
+          - Agent
+          - Workflow
+          - DataService
+        range:
+          - Dataset
+          - DataService
+          - DataProduct
+          - Distribution
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - A recommendation agent consumes telemetry datasets and a risk score data service.
+            - Use consumes for active consumption of data, services, outputs, or interfaces.
+
       - id: indicates
         uri: https://opendataproducts.org/odpv-v1.0/terms/indicates
         type: relationship
@@ -1577,6 +1794,42 @@ sections:
             - A rising support ticket trend indicates a Gap in product usage data.
             - Use indicates when a signal, KPI, or observation points to a gap, demand, risk, or opportunity.
 
+      - id: identifies
+        uri: https://opendataproducts.org/odpv-v1.0/terms/identifies
+        type: relationship
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: identifies
+        definition:
+          en: Indicates that one object identifies, detects, discovers, or names another object, such as an agent identifying a strategic opportunity.
+        alsoKnownAs:
+          en:
+            - detects
+            - discovers
+            - finds
+            - recognizes
+        relatedTerms:
+          - indicates
+          - StrategicOpportunity
+          - Signal
+        domain:
+          - UseCase
+          - Agent
+          - KPI
+          - Signal
+        range:
+          - StrategicOpportunity
+          - Opportunity
+          - Gap
+          - Risk
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - A maintenance analytics agent identifies a StrategicOpportunity to reduce unscheduled maintenance.
+            - Use identifies when one object discovers or names an opportunity, condition, gap, or risk.
+
       - id: relatedTo
         uri: https://opendataproducts.org/odpv-v1.0/terms/relatedTo
         type: relationship
@@ -1612,6 +1865,79 @@ sections:
           en:
             - The Customer Profile DataProduct is relatedTo the Customer Segmentation UseCase.
             - Use relatedTo only when a more specific relationship type is not available.
+
+      - id: ownedBy
+        uri: https://opendataproducts.org/odpv-v1.0/terms/ownedBy
+        type: relationship
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: owned by
+        definition:
+          en: Indicates that one object is owned or accountable to a person, team, organization, domain, or capability.
+        alsoKnownAs:
+          en:
+            - accountable to
+            - has owner
+            - owned by
+            - ownership assigned to
+        relatedTerms:
+          - Owner
+          - Stewardship
+          - providedBy
+        domain:
+          - DataProduct
+          - DataService
+          - Dataset
+          - Workflow
+          - Agent
+        range:
+          - Owner
+          - Domain
+          - Capability
+          - Provider
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - The maintenance risk score data service is ownedBy the aviation analytics domain.
+            - Use ownedBy when a graph object has an accountable owner, domain, team, or capability.
+
+      - id: alignsWith
+        uri: https://opendataproducts.org/odpv-v1.0/terms/alignsWith
+        type: relationship
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: aligns with
+        definition:
+          en: Indicates that one object has strategic, semantic, organizational, or capability alignment with another object.
+        alsoKnownAs:
+          en:
+            - aligned with
+            - maps to
+            - corresponds to
+            - strategically aligns with
+        relatedTerms:
+          - contributesTo
+          - supports
+          - relatedTo
+        domain:
+          - StrategicOpportunity
+          - Capability
+          - UseCase
+          - DataProduct
+        range:
+          - BusinessObjective
+          - Domain
+          - Capability
+          - StrategicOpportunity
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - A predictive maintenance capability alignsWith the reduce unscheduled maintenance business objective.
+            - Use alignsWith for strategic, semantic, organizational, or capability alignment.
 
       - id: partOf
         uri: https://opendataproducts.org/odpv-v1.0/terms/partOf
@@ -1714,6 +2040,77 @@ sections:
           en:
             - The Churn Score Dataset is derivedFrom customer events and subscription history datasets.
             - Use derivedFrom when an object is based on, sourced from, generated from, or created from another object.
+
+      - id: impacts
+        uri: https://opendataproducts.org/odpv-v1.0/terms/impacts
+        type: relationship
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: impacts
+        definition:
+          en: Indicates that one object affects, changes, influences, or has an impact on another object.
+        alsoKnownAs:
+          en:
+            - affects
+            - influences
+            - changes
+            - has impact on
+        relatedTerms:
+          - Impact
+          - contributesTo
+          - supports
+        domain:
+          - Policy
+          - DataProduct
+          - Workflow
+          - StrategicOpportunity
+        range:
+          - UseCase
+          - KPI
+          - BusinessObjective
+          - Outcome
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - A delayed data refresh policy impacts a fraud detection use case.
+            - Use impacts when one object affects or influences a use case, metric, objective, or outcome.
+
+      - id: exposes
+        uri: https://opendataproducts.org/odpv-v1.0/terms/exposes
+        type: relationship
+        status: stable
+        introducedIn: 1.0.0
+        preferredLabel:
+          en: exposes
+        definition:
+          en: Indicates that one object exposes a data service, interface, endpoint, distribution, or access method.
+        alsoKnownAs:
+          en:
+            - exposes interface
+            - makes available through
+            - provides endpoint
+            - publishes interface
+        relatedTerms:
+          - DataService
+          - AccessMethod
+          - Distribution
+        domain:
+          - DataProduct
+          - Workflow
+          - Dataset
+          - Agent
+        range:
+          - DataService
+          - AccessMethod
+          - Distribution
+        usedIn:
+          - ODPG
+        examples:
+          en:
+            - The maintenance risk data product exposes a REST API represented as a DataService.
+            - Use exposes when one object makes an interface, endpoint, access method, or data service available.
 
       - id: replaces
         uri: https://opendataproducts.org/odpv-v1.0/terms/replaces
