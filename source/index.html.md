@@ -31,7 +31,7 @@ meta:
   - name: llms
     content: /llms.txt
   - name: ai-agent-guidance
-    content: Use /llms.txt for agent guidance, /vocab/terms.jsonl for retrieval-friendly vocabulary terms, and /vocab/odpv.jsonld or /vocab/odpv.skos.ttl for linked-data tooling.
+    content: Use /llms.txt for agent guidance, /vocab/terms.jsonl for retrieval-friendly vocabulary terms, /vocab/odpv.jsonld or /vocab/odpv.skos.ttl for linked-data tooling, and source helper scripts for local agent workflows.
 ---
 
 # OPEN DATA PRODUCT VOCABULARY - The Linux Foundation
@@ -90,6 +90,18 @@ ODPV is published in multiple machine-readable forms for tools, AI agents, catal
 | [`odpv.skos.ttl`](/vocab/odpv.skos.ttl) | Turtle | SKOS representation with labels, definitions, related terms, and external mappings |
 | [`terms.jsonl`](/vocab/terms.jsonl) | JSONL | Agent-friendly one-term-per-line file for retrieval, embeddings, and lightweight tools |
 | [`llms.txt`](/llms.txt) | Text | AI agent guidance for discovering and using ODPV resources |
+
+## Agent Helper Commands
+
+ODPV includes source helper scripts for repeatable local vocabulary lookup, relationship checking, and context engineering workflows.
+
+| Command | Purpose |
+|---|---|
+| `python3 scripts/agent_vocab_helper.py resolve <text>` | Resolve source language, aliases, or user phrases to a canonical ODPV term |
+| `python3 scripts/agent_vocab_helper.py explain <term-id>` | Return a compact JSON explanation of a term with definition, aliases, related terms, mappings, and examples |
+| `python3 scripts/agent_vocab_helper.py relationship <source> <verb> <target>` | Check whether a relationship exists and whether source and target fit the relationship domain and range hints |
+| `python3 scripts/agent_vocab_helper.py context <term-id>` | Produce an agent-ready context packet for retrieval, grounding, and prompt assembly |
+| `python3 scripts/search_vocab.py "<query>" --json` | Search more broadly across labels, aliases, definitions, examples, and related terms |
 
 ## Companion Vocabulary, Not a Heavy Ontology
 
