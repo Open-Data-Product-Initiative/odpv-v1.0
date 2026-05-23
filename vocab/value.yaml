@@ -366,6 +366,32 @@ sections:
       en:
       - Reducing unscheduled aircraft maintenance is a StrategicOpportunity identified from reliability signals and operational gaps.
       - Use StrategicOpportunity when an opportunity has portfolio, strategic, or business-objective relevance.
+  - id: ProductStrategy
+    uri: https://opendataproducts.org/odpv-v1.0/terms/ProductStrategy
+    type: object
+    status: stable
+    introducedIn: 1.0.0
+    preferredLabel:
+      en: Product Strategy
+    definition:
+      en: The strategic plan or context for a data product, including objectives, alignment, dates, status, and KPIs used to describe intended value.
+    alsoKnownAs:
+      en:
+      - productStrategy
+      - product strategy
+      - product strategic plan
+      - strategic product context
+    relatedTerms:
+    - BusinessObjective
+    - KPI
+    - StrategicOpportunity
+    - PortfolioPriority
+    usedIn:
+    - ODPS
+    examples:
+      en:
+      - A ProductStrategy links a customer intelligence data product to growth objectives and retention KPIs.
+      - Use ProductStrategy for product-level objectives, alignment, timing, status, and strategic KPIs.
   - id: Risk
     uri: https://opendataproducts.org/odpv-v1.0/terms/Risk
     type: object

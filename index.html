@@ -478,27 +478,27 @@ Development of the vocabulary is under the umbrella of the Linux Foundation. </p
 <tr>
 <td>ODPV Core</td>
 <td>Foundational objects, roles, classifications, and references</td>
-<td style="text-align: right">13</td>
+<td style="text-align: right">18</td>
 </tr>
 <tr>
 <td>ODPV Value</td>
 <td>Business value, demand, outcomes, gaps, and priorities</td>
-<td style="text-align: right">15</td>
+<td style="text-align: right">17</td>
 </tr>
 <tr>
 <td>ODPV Governance</td>
 <td>Quality, access, licensing, agreements, policy, and compliance</td>
-<td style="text-align: right">15</td>
+<td style="text-align: right">19</td>
 </tr>
 <tr>
 <td>ODPV Relationships</td>
 <td>Relationship terms for graphs and portfolio analysis</td>
-<td style="text-align: right">16</td>
+<td style="text-align: right">24</td>
 </tr>
 <tr>
 <td>Total</td>
 <td>Shared vocabulary terms</td>
-<td style="text-align: right">59</td>
+<td style="text-align: right">78</td>
 </tr>
 </tbody></table>
 
@@ -832,6 +832,14 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 <td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
+<td><code>ProductDetails</code></td>
+<td>object</td>
+<td>The descriptive metadata block for a data product, including name, product identifier, description, value proposition, visibility, status, and version.</td>
+<td>details, product details, product metadata, descriptive metadata</td>
+<td><code>DataProduct</code>, <code>ValueProposition</code>, <code>GovernanceProfile</code>, <code>PortfolioPriority</code></td>
+<td>ODPS</td>
+</tr>
+<tr>
 <td><code>DataProductCatalog</code></td>
 <td>object</td>
 <td>A managed collection of data products and related portfolio objects, such as use cases, objectives, KPIs, signals, and references.</td>
@@ -902,6 +910,14 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 <td>publisher, supplier, source provider, data provider</td>
 <td><code>Owner</code>, <code>Steward</code>, <code>Consumer</code></td>
 <td>ODPS, ODPC, ODPG</td>
+</tr>
+<tr>
+<td><code>DataHolder</code></td>
+<td>role</td>
+<td>A legal entity or accountable organization that holds, controls, or is responsible for a data product or the data it contains.</td>
+<td>dataHolder, data holder, holding organization, accountable legal entity</td>
+<td><code>Provider</code>, <code>Owner</code>, <code>Steward</code>, <code>DataAgreement</code></td>
+<td>ODPS</td>
 </tr>
 <tr>
 <td><code>Consumer</code></td>
@@ -1106,6 +1122,14 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 <td>ODPG</td>
 </tr>
 <tr>
+<td><code>ProductStrategy</code></td>
+<td>object</td>
+<td>The strategic plan or context for a data product, including objectives, alignment, dates, status, and KPIs used to describe intended value.</td>
+<td>productStrategy, product strategy, product strategic plan, strategic product context</td>
+<td><code>BusinessObjective</code>, <code>KPI</code>, <code>StrategicOpportunity</code>, <code>PortfolioPriority</code></td>
+<td>ODPS</td>
+</tr>
+<tr>
 <td><code>Risk</code></td>
 <td>object</td>
 <td>A possible negative event, weakness, exposure, or uncertainty that may affect data product value, trust, access, compliance, or operation.</td>
@@ -1200,8 +1224,16 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 <td><code>License</code></td>
 <td>object</td>
 <td>The legal terms that define how a data product, dataset, distribution, or data service may be used, shared, or redistributed.</td>
-<td>data license, usage license, legal license, redistribution terms</td>
+<td>license, data license, usage license, legal license, redistribution terms</td>
 <td><code>UsageRights</code>, <code>Agreement</code>, <code>DataAgreement</code>, <code>Policy</code></td>
+<td>ODPS, ODPC, ODPG</td>
+</tr>
+<tr>
+<td><code>DataAccess</code></td>
+<td>object</td>
+<td>The access configuration or access description for a data product, dataset, distribution, or data service.</td>
+<td>dataAccess, data access, access configuration, access description</td>
+<td><code>AccessMethod</code>, <code>AccessCondition</code>, <code>DataService</code>, <code>Distribution</code></td>
 <td>ODPS, ODPC, ODPG</td>
 </tr>
 <tr>
@@ -1211,6 +1243,30 @@ Use ODPV term ids and uris for stable shared concepts, labels, definitions, alia
 <td>access channel, delivery method, access interface, data access method</td>
 <td><code>AccessCondition</code>, <code>DataService</code>, <code>Distribution</code>, <code>SLA</code></td>
 <td>ODPS, ODPC, ODPG</td>
+</tr>
+<tr>
+<td><code>PricingPlan</code></td>
+<td>object</td>
+<td>A pricing, cost, subscription, or commercial plan that describes how a data product or data service may be paid for, charged, or monetized.</td>
+<td>pricingPlans, pricing plan, commercial plan, subscription plan</td>
+<td><code>Agreement</code>, <code>License</code>, <code>UsageRights</code>, <code>PaymentGateway</code></td>
+<td>ODPS</td>
+</tr>
+<tr>
+<td><code>PaymentGateway</code></td>
+<td>object</td>
+<td>A payment integration, payment service, or gateway used to process commercial access to a data product or data service.</td>
+<td>paymentGateways, payment gateway, payment integration, payment service</td>
+<td><code>PricingPlan</code>, <code>Agreement</code>, <code>DataAccess</code>, <code>DataService</code></td>
+<td>ODPS</td>
+</tr>
+<tr>
+<td><code>Support</code></td>
+<td>object</td>
+<td>The support model or contact channel for help, issue handling, or operational assistance related to a data product or data service.</td>
+<td>support, product support, support contact, help channel</td>
+<td><code>SLA</code>, <code>Stewardship</code>, <code>Owner</code>, <code>DataService</code></td>
+<td>ODPS</td>
 </tr>
 <tr>
 <td><code>Agreement</code></td>

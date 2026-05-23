@@ -89,11 +89,12 @@ Suggesting new terms:
 
 When selecting terms:
 - Use `DataProduct` for a managed reusable data offering.
+- Use `ProductDetails` for the ODPS `details` product metadata block, and `DataHolder` for the legal entity or accountable organization that holds or controls the data.
 - Use `Dataset` for a structured collection of data that may be part of or exposed through a data product.
 - Use `DataService` for an API, query endpoint, or delivery service that provides access to data. If an ODPG graph uses node type `API`, map it to ODPV `DataService`.
 - Use Core terms such as `Agent`, `Workflow`, and `Capability` when graph or automation contexts need actors, orchestration flows, or reusable abilities.
-- Use Value terms such as `UseCase`, `BusinessObjective`, `KPI`, `Signal`, `Gap`, `Priority`, and `StrategicOpportunity` to connect data products to demand and measurable outcomes.
-- Use Governance terms such as `DataQuality`, `SLA`, `License`, `Policy`, `ComplianceRule`, and `AccessCondition` to describe trust, access, obligations, and control.
+- Use Value terms such as `UseCase`, `BusinessObjective`, `KPI`, `Signal`, `Gap`, `Priority`, `StrategicOpportunity`, and `ProductStrategy` to connect data products to demand, strategy, and measurable outcomes.
+- Use Governance terms such as `DataQuality`, `SLA`, `License`, `DataAccess`, `AccessMethod`, `PricingPlan`, `PaymentGateway`, `Support`, `Policy`, `ComplianceRule`, and `AccessCondition` to describe trust, access, obligations, support, and control.
 - Use Relationship terms such as `uses`, `supports`, `requires`, `contributesTo`, `measures`, `dependsOn`, `produces`, `consumes`, `governedBy`, `providedBy`, `consumedBy`, `ownedBy`, `alignsWith`, `impacts`, `exposes`, and `identifies` when building graph structures.
 - Treat `monitors` as an alias of `measures`, not a standalone official ODPV relationship id.
 
