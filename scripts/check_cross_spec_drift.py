@@ -15,19 +15,21 @@ from vocab_utils import ROOT, iter_terms, load_yaml
 
 
 DEFAULT_ODPG_SCHEMA = "https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml"
-DEFAULT_REPORT = ROOT / "cross-spec-drift" / "odpg-odpv-drift.md"
+DEFAULT_ODPC_SCHEMA = "https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml"
+DEFAULT_REPORT = ROOT / "cross-spec-drift" / "odpv-cross-spec-drift.md"
+ODPC_HELPER_DEFINITIONS = {"LanguageString", "ExtensionProperties"}
 
 
 @dataclass(frozen=True)
 class DriftRow:
     source: str
-    odpg_term: str
+    spec_term: str
     odpv_match: str
     status: str
     notes: str
 
 
-def load_odpg_schema(source: str) -> dict[str, Any]:
+def load_schema(source: str) -> dict[str, Any]:
     if source.startswith(("http://", "https://")):
         context = None
         try:
@@ -59,6 +61,13 @@ def schema_examples(schema: dict[str, Any], object_name: str, property_name: str
     return examples
 
 
+def schema_definitions(schema: dict[str, Any]) -> dict[str, Any]:
+    definitions = schema.get("$defs", schema.get("definitions"))
+    if not isinstance(definitions, dict):
+        raise ValueError("Could not find $defs or definitions in schema")
+    return definitions
+
+
 def odpv_lookup() -> tuple[dict[str, dict[str, Any]], dict[str, str]]:
     terms_by_id: dict[str, dict[str, Any]] = {}
     alias_to_id: dict[str, str] = {}
@@ -72,17 +81,23 @@ def odpv_lookup() -> tuple[dict[str, dict[str, Any]], dict[str, str]]:
     return terms_by_id, alias_to_id
 
 
-def compare_terms(source: str, terms: list[str], terms_by_id: dict[str, dict[str, Any]], alias_to_id: dict[str, str]) -> list[DriftRow]:
+def compare_terms(
+    spec_name: str,
+    source: str,
+    terms: list[str],
+    terms_by_id: dict[str, dict[str, Any]],
+    alias_to_id: dict[str, str],
+) -> list[DriftRow]:
     rows: list[DriftRow] = []
     for term in terms:
         if term in terms_by_id:
             rows.append(
                 DriftRow(
                     source=source,
-                    odpg_term=term,
+                    spec_term=term,
                     odpv_match=term,
                     status="Exact match",
-                    notes="ODPG term is an official ODPV id.",
+                    notes=f"{spec_name} term is an official ODPV id.",
                 )
             )
             continue
@@ -92,10 +107,10 @@ def compare_terms(source: str, terms: list[str], terms_by_id: dict[str, dict[str
             rows.append(
                 DriftRow(
                     source=source,
-                    odpg_term=term,
+                    spec_term=term,
                     odpv_match=alias_match,
                     status="Alias match",
-                    notes="ODPG term maps through ODPV alias.",
+                    notes=f"{spec_name} term maps through ODPV alias.",
                 )
             )
             continue
@@ -103,7 +118,7 @@ def compare_terms(source: str, terms: list[str], terms_by_id: dict[str, dict[str
         rows.append(
             DriftRow(
                 source=source,
-                odpg_term=term,
+                spec_term=term,
                 odpv_match="",
                 status="Possible drift",
                 notes="No exact ODPV id or alias match found.",
@@ -112,15 +127,23 @@ def compare_terms(source: str, terms: list[str], terms_by_id: dict[str, dict[str
     return rows
 
 
-def build_rows(odpg_schema_source: str) -> list[DriftRow]:
-    schema = load_odpg_schema(odpg_schema_source)
+def build_odpg_rows(odpg_schema_source: str) -> list[DriftRow]:
+    schema = load_schema(odpg_schema_source)
     terms_by_id, alias_to_id = odpv_lookup()
     node_terms = schema_examples(schema, "node", "type")
     edge_terms = schema_examples(schema, "edge", "type")
     return [
-        *compare_terms("Node type", node_terms, terms_by_id, alias_to_id),
-        *compare_terms("Edge type", edge_terms, terms_by_id, alias_to_id),
+        *compare_terms("ODPG", "Node type", node_terms, terms_by_id, alias_to_id),
+        *compare_terms("ODPG", "Edge type", edge_terms, terms_by_id, alias_to_id),
     ]
+
+
+def build_odpc_rows(odpc_schema_source: str) -> list[DriftRow]:
+    schema = load_schema(odpc_schema_source)
+    terms_by_id, alias_to_id = odpv_lookup()
+    definitions = schema_definitions(schema)
+    terms = [term for term in definitions if term not in ODPC_HELPER_DEFINITIONS]
+    return compare_terms("ODPC", "Schema definition", terms, terms_by_id, alias_to_id)
 
 
 def markdown_escape(value: str) -> str:
@@ -141,29 +164,25 @@ def display_source(source: str) -> str:
         return source
 
 
-def render_report(rows: list[DriftRow], odpg_schema_source: str) -> str:
+def render_rows(spec_name: str, rows: list[DriftRow]) -> list[str]:
     possible_drifts = [row for row in rows if row.status == "Possible drift"]
     lines = [
-        "# ODPG to ODPV Drift Report",
+        f"## {spec_name} to ODPV",
         "",
-        "This report compares ODPG schema node and edge examples against the canonical ODPV vocabulary.",
-        "",
-        f"- ODPG schema: `{display_source(odpg_schema_source)}`",
-        "- ODPV source: `source/vocab/odpv.yaml`",
         f"- Checked terms: {len(rows)}",
         f"- Possible drifts: {len(possible_drifts)}",
         "",
     ]
 
     if possible_drifts:
-        lines.append("Possible drift detected. Review rows marked `Possible drift` and either add an ODPV term, add an ODPV alias, or update ODPG.")
+        lines.append("Possible drift detected. Review rows marked `Possible drift` and either add an ODPV term, add an ODPV alias, or update the source specification.")
     else:
         lines.append("No unresolved drift detected.")
 
     lines.extend(
         [
             "",
-            "| ODPG source | ODPG term | ODPV match | Status | Notes |",
+            f"| {spec_name} source | {spec_name} term | ODPV match | Status | Notes |",
             "|---|---|---|---|---|",
         ]
     )
@@ -174,7 +193,7 @@ def render_report(rows: list[DriftRow], odpg_schema_source: str) -> str:
             + " | ".join(
                 [
                     markdown_escape(row.source),
-                    f"`{markdown_escape(row.odpg_term)}`",
+                    f"`{markdown_escape(row.spec_term)}`",
                     match,
                     markdown_escape(row.status),
                     markdown_escape(row.notes),
@@ -182,18 +201,45 @@ def render_report(rows: list[DriftRow], odpg_schema_source: str) -> str:
             )
             + " |"
         )
+    return lines
+
+
+def render_report(odpg_rows: list[DriftRow], odpc_rows: list[DriftRow], odpg_schema_source: str, odpc_schema_source: str) -> str:
+    rows = [*odpg_rows, *odpc_rows]
+    possible_drifts = [row for row in rows if row.status == "Possible drift"]
+    lines = [
+        "# ODPV Cross-Spec Drift Report",
+        "",
+        "This report compares published Open Data Product family schemas against the canonical ODPV vocabulary.",
+        "",
+        f"- ODPG schema: `{display_source(odpg_schema_source)}`",
+        f"- ODPC schema: `{display_source(odpc_schema_source)}`",
+        "- ODPV source: `source/vocab/odpv.yaml`",
+        f"- Checked terms: {len(rows)}",
+        f"- Possible drifts: {len(possible_drifts)}",
+        "",
+    ]
+
+    if possible_drifts:
+        lines.append("Possible drift detected. Review rows marked `Possible drift` and either add an ODPV term, add an ODPV alias, or update the source specification.")
+    else:
+        lines.append("No unresolved drift detected.")
+
+    lines.extend(["", *render_rows("ODPG", odpg_rows), "", *render_rows("ODPC", odpc_rows)])
     return "\n".join(lines) + "\n"
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Compare ODPG schema terms against ODPV.")
+    parser = argparse.ArgumentParser(description="Compare published family schema terms against ODPV.")
     parser.add_argument("--odpg-schema", default=DEFAULT_ODPG_SCHEMA, help="URL or path to ODPG YAML schema")
+    parser.add_argument("--odpc-schema", default=DEFAULT_ODPC_SCHEMA, help="URL or path to ODPC YAML schema")
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT, help="Markdown report path")
     parser.add_argument("--check", action="store_true", help="Fail if the existing report is out of sync")
     args = parser.parse_args()
 
-    rows = build_rows(args.odpg_schema)
-    report = render_report(rows, args.odpg_schema)
+    odpg_rows = build_odpg_rows(args.odpg_schema)
+    odpc_rows = build_odpc_rows(args.odpc_schema)
+    report = render_report(odpg_rows, odpc_rows, args.odpg_schema, args.odpc_schema)
 
     if args.check:
         if not args.report.exists():
@@ -208,6 +254,7 @@ def main() -> int:
 
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(report, encoding="utf-8")
+    rows = [*odpg_rows, *odpc_rows]
     possible_drifts = sum(1 for row in rows if row.status == "Possible drift")
     print(f"Wrote {args.report} terms={len(rows)} possibleDrifts={possible_drifts}")
     return 0

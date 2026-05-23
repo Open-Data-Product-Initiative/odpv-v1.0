@@ -83,21 +83,25 @@ class VocabScriptTests(unittest.TestCase):
         self.assertIn("API", terms_by_id["DataService"]["alsoKnownAs"]["en"])
         self.assertIn("monitors", terms_by_id["measures"]["alsoKnownAs"]["en"])
 
-    def test_cross_spec_drift_check_reports_odpg_schema_alignment(self):
-        report_path = ROOT / "cross-spec-drift/odpg-odpv-drift.md"
+    def test_cross_spec_drift_check_reports_online_schema_alignment(self):
+        report_path = ROOT / "cross-spec-drift/odpv-cross-spec-drift.md"
         result = self.run_script("scripts/check_cross_spec_drift.py")
 
         self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
         self.assertTrue(report_path.exists())
 
         report = report_path.read_text(encoding="utf-8")
-        self.assertIn("# ODPG to ODPV Drift Report", report)
+        self.assertIn("# ODPV Cross-Spec Drift Report", report)
         self.assertIn("- ODPG schema: `https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml`", report)
+        self.assertIn("- ODPC schema: `https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml`", report)
+        self.assertIn("## ODPG to ODPV", report)
         self.assertIn("| ODPG source | ODPG term | ODPV match | Status | Notes |", report)
         self.assertIn("| Node type | `API` | `DataService` | Alias match | ODPG term maps through ODPV alias.", report)
         self.assertIn("| Edge type | `monitors` | `measures` | Alias match | ODPG term maps through ODPV alias.", report)
-        self.assertIn("| Edge type | `uses` | `uses` | Exact match | ODPG term is an official ODPV id.", report)
-        self.assertIn("No unresolved drift detected.", report)
+        self.assertIn("## ODPC to ODPV", report)
+        self.assertIn("| ODPC source | ODPC term | ODPV match | Status | Notes |", report)
+        self.assertIn("| Schema definition | `UseCase` | `UseCase` | Exact match | ODPC term is an official ODPV id.", report)
+        self.assertIn("| Schema definition | `ProductReference` |  | Possible drift | No exact ODPV id or alias match found.", report)
 
     def test_cross_spec_drift_check_can_validate_existing_report(self):
         self.run_script("scripts/check_cross_spec_drift.py")
