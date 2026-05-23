@@ -39,7 +39,7 @@ Agent-oriented source scripts:
 - scripts/generate_vocab_artifacts.py regenerates derived vocabulary artifacts from canonical source/vocab/odpv.yaml. Use `python3 scripts/generate_vocab_artifacts.py --check` to detect drift.
 - scripts/validate_vocab.py validates vocabulary structure, required fields, generated artifacts, JSONL, section files, and relationship guidance.
 - scripts/search_vocab.py searches ODPV terms using preferredLabel, alsoKnownAs, definition, examples, and relatedTerms. Use `--json` for machine-readable results.
-- scripts/check_cross_spec_drift.py fetches the published ODPG and ODPC schemas, compares their schema terms against ODPV, and writes cross-spec-drift/odpv-cross-spec-drift.md. Use `python3 scripts/check_cross_spec_drift.py --check` to detect report drift.
+- scripts/check_cross_spec_drift.py fetches the published ODPS, ODPC, and ODPG schemas, compares their schema terms against ODPV, and writes cross-spec-drift/odpv-cross-spec-drift.md. Use `python3 scripts/check_cross_spec_drift.py --check` to detect report drift.
 - scripts/test_vocab_scripts.py verifies the helper scripts.
 
 File selection guidance:
@@ -60,7 +60,7 @@ Recommended agent workflow:
 8. For graph work, use relationship domain and range fields from relationship terms.
 9. Return stable term id and uri, not only human-readable labels.
 10. If editing vocabulary files in the source repository, update source/vocab/odpv.yaml first, then run scripts/generate_vocab_artifacts.py and scripts/validate_vocab.py.
-11. If checking cross-spec drift with ODPG or ODPC, run scripts/check_cross_spec_drift.py to refresh the root cross-spec-drift report, or use `--check` to verify the committed report is current.
+11. If checking cross-spec drift with ODPS, ODPC, or ODPG, run scripts/check_cross_spec_drift.py to refresh the root cross-spec-drift report, or use `--check` to verify the committed report is current.
 12. If no existing term fits, suggest an extension term or propose a new shared term through GitHub issues instead of inventing a new meaning for an official term.
 
 Use ODPV terms by their stable `id` and `uri`. Do not redefine official ODPV terms or invent new meanings for existing terms. If a needed concept is not present, treat it as an extension candidate and use a separate namespace or prefix.

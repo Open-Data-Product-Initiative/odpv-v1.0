@@ -16,8 +16,13 @@ from vocab_utils import ROOT, iter_terms, load_yaml
 
 DEFAULT_ODPG_SCHEMA = "https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml"
 DEFAULT_ODPC_SCHEMA = "https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml"
+DEFAULT_ODPS_SCHEMA = "https://opendataproducts.org/v4.1/schema/odps.yaml"
 DEFAULT_REPORT = ROOT / "cross-spec-drift" / "odpv-cross-spec-drift.md"
 ODPC_HELPER_DEFINITIONS = {"LanguageString", "ExtensionProperties", "CatalogMeta"}
+ODPS_COMPONENT_MAPPINGS = {
+    "contract": "DataContract",
+    "dataQuality": "DataQuality",
+}
 
 
 @dataclass(frozen=True)
@@ -127,6 +132,32 @@ def compare_terms(
     return rows
 
 
+def compare_mapped_terms(
+    spec_name: str,
+    source: str,
+    terms: list[str],
+    terms_by_id: dict[str, dict[str, Any]],
+    alias_to_id: dict[str, str],
+    mappings: dict[str, str],
+) -> list[DriftRow]:
+    rows: list[DriftRow] = []
+    for term in terms:
+        mapped = mappings.get(term)
+        if mapped and mapped in terms_by_id:
+            rows.append(
+                DriftRow(
+                    source=source,
+                    spec_term=term,
+                    odpv_match=mapped,
+                    status="Alias match",
+                    notes=f"{spec_name} term maps through ODPV alias.",
+                )
+            )
+            continue
+        rows.extend(compare_terms(spec_name, source, [term], terms_by_id, alias_to_id))
+    return rows
+
+
 def build_odpg_rows(odpg_schema_source: str) -> list[DriftRow]:
     schema = load_schema(odpg_schema_source)
     terms_by_id, alias_to_id = odpv_lookup()
@@ -146,8 +177,29 @@ def build_odpc_rows(odpc_schema_source: str) -> list[DriftRow]:
     return compare_terms("ODPC", "Schema definition", terms, terms_by_id, alias_to_id)
 
 
+def build_odps_rows(odps_schema_source: str) -> list[DriftRow]:
+    schema = load_schema(odps_schema_source)
+    terms_by_id, alias_to_id = odpv_lookup()
+    try:
+        product_components = list(schema["properties"]["product"]["properties"])
+    except KeyError as exc:
+        raise ValueError("Could not find properties.product.properties in ODPS schema") from exc
+    return compare_mapped_terms(
+        "ODPS",
+        "Product component",
+        product_components,
+        terms_by_id,
+        alias_to_id,
+        ODPS_COMPONENT_MAPPINGS,
+    )
+
+
 def markdown_escape(value: str) -> str:
     return value.replace("|", "\\|")
+
+
+def bold(value: str) -> str:
+    return f"**{value}**" if value else value
 
 
 def display_source(source: str) -> str:
@@ -188,15 +240,54 @@ def render_rows(spec_name: str, rows: list[DriftRow]) -> list[str]:
     )
     for row in rows:
         match = f"`{row.odpv_match}`" if row.odpv_match else ""
+        cells = [
+            markdown_escape(row.source),
+            f"`{markdown_escape(row.spec_term)}`",
+            match,
+            markdown_escape(row.status),
+            markdown_escape(row.notes),
+        ]
+        if row.status == "Possible drift":
+            cells = [bold(cell) for cell in cells]
+        lines.append(
+            "| "
+            + " | ".join(cells)
+            + " |"
+        )
+    return lines
+
+
+def render_drift_summary(spec_rows: list[tuple[str, list[DriftRow]]]) -> list[str]:
+    possible_drifts = [
+        (spec_name, row)
+        for spec_name, rows in spec_rows
+        for row in rows
+        if row.status == "Possible drift"
+    ]
+    lines = [
+        "## Possible Drift Summary",
+        "",
+    ]
+    if not possible_drifts:
+        lines.append("No unresolved drift detected.")
+        return lines
+
+    lines.extend(
+        [
+            "| Spec | Source | Term | Suggested action |",
+            "|---|---|---|---|",
+        ]
+    )
+    action = "Review whether to add an ODPV term, add an alias, or update the source specification."
+    for spec_name, row in possible_drifts:
         lines.append(
             "| "
             + " | ".join(
                 [
+                    markdown_escape(spec_name),
                     markdown_escape(row.source),
                     f"`{markdown_escape(row.spec_term)}`",
-                    match,
-                    markdown_escape(row.status),
-                    markdown_escape(row.notes),
+                    action,
                 ]
             )
             + " |"
@@ -204,8 +295,15 @@ def render_rows(spec_name: str, rows: list[DriftRow]) -> list[str]:
     return lines
 
 
-def render_report(odpg_rows: list[DriftRow], odpc_rows: list[DriftRow], odpg_schema_source: str, odpc_schema_source: str) -> str:
-    rows = [*odpg_rows, *odpc_rows]
+def render_report(
+    odpg_rows: list[DriftRow],
+    odpc_rows: list[DriftRow],
+    odps_rows: list[DriftRow],
+    odpg_schema_source: str,
+    odpc_schema_source: str,
+    odps_schema_source: str,
+) -> str:
+    rows = [*odpg_rows, *odpc_rows, *odps_rows]
     possible_drifts = [row for row in rows if row.status == "Possible drift"]
     lines = [
         "# ODPV Cross-Spec Drift Report",
@@ -214,6 +312,7 @@ def render_report(odpg_rows: list[DriftRow], odpc_rows: list[DriftRow], odpg_sch
         "",
         f"- ODPG schema: `{display_source(odpg_schema_source)}`",
         f"- ODPC schema: `{display_source(odpc_schema_source)}`",
+        f"- ODPS schema: `{display_source(odps_schema_source)}`",
         "- ODPV source: `source/vocab/odpv.yaml`",
         f"- Checked terms: {len(rows)}",
         f"- Possible drifts: {len(possible_drifts)}",
@@ -225,7 +324,24 @@ def render_report(odpg_rows: list[DriftRow], odpc_rows: list[DriftRow], odpg_sch
     else:
         lines.append("No unresolved drift detected.")
 
-    lines.extend(["", *render_rows("ODPG", odpg_rows), "", *render_rows("ODPC", odpc_rows)])
+    lines.extend(
+        [
+            "",
+            *render_drift_summary(
+                [
+                    ("ODPG", odpg_rows),
+                    ("ODPC", odpc_rows),
+                    ("ODPS", odps_rows),
+                ]
+            ),
+            "",
+            *render_rows("ODPG", odpg_rows),
+            "",
+            *render_rows("ODPC", odpc_rows),
+            "",
+            *render_rows("ODPS", odps_rows),
+        ]
+    )
     return "\n".join(lines) + "\n"
 
 
@@ -233,13 +349,15 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Compare published family schema terms against ODPV.")
     parser.add_argument("--odpg-schema", default=DEFAULT_ODPG_SCHEMA, help="URL or path to ODPG YAML schema")
     parser.add_argument("--odpc-schema", default=DEFAULT_ODPC_SCHEMA, help="URL or path to ODPC YAML schema")
+    parser.add_argument("--odps-schema", default=DEFAULT_ODPS_SCHEMA, help="URL or path to ODPS YAML schema")
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT, help="Markdown report path")
     parser.add_argument("--check", action="store_true", help="Fail if the existing report is out of sync")
     args = parser.parse_args()
 
     odpg_rows = build_odpg_rows(args.odpg_schema)
     odpc_rows = build_odpc_rows(args.odpc_schema)
-    report = render_report(odpg_rows, odpc_rows, args.odpg_schema, args.odpc_schema)
+    odps_rows = build_odps_rows(args.odps_schema)
+    report = render_report(odpg_rows, odpc_rows, odps_rows, args.odpg_schema, args.odpc_schema, args.odps_schema)
 
     if args.check:
         if not args.report.exists():
@@ -254,7 +372,7 @@ def main() -> int:
 
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(report, encoding="utf-8")
-    rows = [*odpg_rows, *odpc_rows]
+    rows = [*odpg_rows, *odpc_rows, *odps_rows]
     possible_drifts = sum(1 for row in rows if row.status == "Possible drift")
     print(f"Wrote {args.report} terms={len(rows)} possibleDrifts={possible_drifts}")
     return 0

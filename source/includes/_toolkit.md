@@ -62,7 +62,7 @@ Use scripts/generate_vocab_artifacts.py after editing source/vocab/odpv.yaml to 
 Use scripts/generate_vocab_artifacts.py --check in CI or review workflows to detect drift between canonical and derived vocabulary artifacts.
 Use scripts/validate_vocab.py to validate vocabulary structure, generated artifacts, JSONL output, section files, examples, and relationship guidance.
 Use scripts/test_vocab_scripts.py to verify the helper scripts themselves.
-Use scripts/check_cross_spec_drift.py to compare published ODPG and ODPC schema terms against ODPV and refresh cross-spec-drift/odpv-cross-spec-drift.md.
+Use scripts/check_cross_spec_drift.py to compare published ODPS, ODPC, and ODPG schema terms against ODPV and refresh cross-spec-drift/odpv-cross-spec-drift.md.
 Do not edit generated vocabulary artifacts directly unless intentionally repairing generated output; update source/vocab/odpv.yaml first.
 -->
 
@@ -71,6 +71,6 @@ Do not edit generated vocabulary artifacts directly unless intentionally repairi
 | [`generate_vocab_artifacts.py`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/generate_vocab_artifacts.py) | Regenerates derived vocabulary artifacts from canonical `odpv.yaml`; use `--check` in CI to detect drift |
 | [`validate_vocab.py`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/validate_vocab.py) | Validates vocabulary structure, required fields, generated artifacts, JSONL, section files, and relationship guidance |
 | [`search_vocab.py`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/search_vocab.py) | Searches ODPV terms using labels, aliases, definitions, examples, and related terms |
-| [`check_cross_spec_drift.py`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/check_cross_spec_drift.py) | Compares published ODPG and ODPC schema terms against ODPV and writes `cross-spec-drift/odpv-cross-spec-drift.md` |
+| [`check_cross_spec_drift.py`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/blob/main/scripts/check_cross_spec_drift.py) | Compares published ODPS, ODPC, and ODPG schema terms against ODPV and writes `cross-spec-drift/odpv-cross-spec-drift.md` |
 
 The Markdown tables in this specification are intended for human readers. The YAML files are intended for programmable use, automation, validation, AI retrieval, and graph-based tooling.
