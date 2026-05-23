@@ -30,7 +30,7 @@ meta:
   - name: llms
     content: /llms.txt
   - name: ai-agent-guidance
-    content: Use /llms.txt for agent guidance and /vocab/terms.jsonl for retrieval-friendly vocabulary terms.
+    content: Use /llms.txt for agent guidance, /vocab/terms.jsonl for retrieval-friendly vocabulary terms, and /vocab/odpv.jsonld or /vocab/odpv.skos.ttl for linked-data tooling.
 ---
 
 # OPEN DATA PRODUCT VOCABULARY - The Linux Foundation
@@ -54,15 +54,15 @@ The Open Data Product Vocabulary, ODPV, is a vendor-neutral, open-source, machin
 
 ## What ODPV Defines
 
-ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The first version focuses on four concept groups:
+ODPV defines the shared vocabulary layer for the OpenDataProducts.org standards family. The current vocabulary contains 78 terms across four concept groups:
 
-**ODPV Core**: [ODPV Core](#odpv-core) defines foundational terms used across the standards family.These terms describe the basic objects and roles needed to manage data products, catalogs, and graphs.
+**ODPV Core**: [ODPV Core](#odpv-core) defines foundational terms used across the standards family. These terms describe the basic objects, roles, classifications, and references needed to manage data products, catalogs, graphs, and agent workflows.
 
-**ODPV Value**: [ODPV Value](#odpv-value) defines terms that connect data products to business demand, objectives, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.
+**ODPV Value**: [ODPV Value](#odpv-value) defines terms that connect data products to business demand, objectives, strategy, outcomes, and prioritization. These terms help connect data products to measurable value and portfolio-level decision-making.
 
-**ODPV Governance**: [ODPV Governance](#odpv-governance) defines terms for quality, access, legal, operational, and compliance context.These terms help describe how data products are governed, accessed, controlled, and trusted.
+**ODPV Governance**: [ODPV Governance](#odpv-governance) defines terms for quality, access, licensing, pricing, support, legal, operational, and compliance context. These terms help describe how data products are governed, accessed, controlled, and trusted.
 
-**ODPV Relationships**: [ODPV Relationships](#odpv-relationships) defines reusable relationship terms for graph implementation and portfolio analysis. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, and catalogs in a consistent way.
+**ODPV Relationships**: [ODPV Relationships](#odpv-relationships) defines reusable relationship terms for graph implementation, portfolio analysis, and cross-spec linking. These relationship terms help connect data products, use cases, objectives, KPIs, signals, providers, consumers, policies, catalogs, workflows, agents, and services in a consistent way.
 
 These groups create a common language for describing, connecting, validating, and reasoning over data product portfolios.
 
@@ -70,12 +70,25 @@ These groups create a common language for describing, connecting, validating, an
 | Section | Purpose | Term count |
 |---|---|---:|
 | ODPV Core | Foundational objects, roles, classifications, and references | 18 |
-| ODPV Value | Business value, demand, outcomes, gaps, and priorities | 17 |
-| ODPV Governance | Quality, access, licensing, agreements, policy, and compliance | 19 |
-| ODPV Relationships | Relationship terms for graphs and portfolio analysis | 24 |
+| ODPV Value | Business value, strategy, demand, outcomes, gaps, and priorities | 17 |
+| ODPV Governance | Quality, access, licensing, pricing, support, agreements, policy, and compliance | 19 |
+| ODPV Relationships | Relationship terms for graphs, portfolio analysis, and cross-spec linking | 24 |
 | Total | Shared vocabulary terms | 78 |
 
 [Suggest addition to the vocabulary](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues) 
+
+## Machine-Readable Vocabulary Resources
+
+ODPV is published in multiple machine-readable forms for tools, AI agents, catalogs, graph workflows, and semantic tooling.
+
+| Resource | Format | Purpose |
+|---|---|---|
+| [`odpv.yaml`](/vocab/odpv.yaml) | YAML | Canonical machine-readable vocabulary source |
+| [`odpv.json`](/vocab/odpv.json) | JSON | JSON representation for tools, APIs, search indexes, and graph applications |
+| [`odpv.jsonld`](/vocab/odpv.jsonld) | JSON-LD | Linked-data representation for semantic tooling and graph workflows |
+| [`odpv.skos.ttl`](/vocab/odpv.skos.ttl) | Turtle | SKOS representation with labels, definitions, related terms, and external mappings |
+| [`terms.jsonl`](/vocab/terms.jsonl) | JSONL | Agent-friendly one-term-per-line file for retrieval, embeddings, and lightweight tools |
+| [`llms.txt`](/llms.txt) | Text | AI agent guidance for discovering and using ODPV resources |
 
 ## Companion Vocabulary, Not a Heavy Ontology
 
@@ -113,11 +126,17 @@ ODPV helps prevent terminology drift across the standards family. Without a shar
 * Portfolio analysis
 * Tool development
 
+## Automated Drift Detection
+
+ODPV includes automated cross-spec drift detection for the Open Data Product standards family. A weekly GitHub Action fetches the published ODPS, ODPC, and ODPG schemas, compares their schema terms against the canonical ODPV vocabulary, and writes a dated report.
+
+Reports are kept in [`cross-spec-drift/`](https://github.com/Open-Data-Product-Initiative/odpv-v1.0/tree/main/cross-spec-drift) so the project can track how alignment changes over time and use the historical reports as input for later analysis.
+
 ## Example Use
 
-* A data product in ODPS can reference ODPV terms for concepts such as DataProduct, Owner, SLA, DataQuality, License, and AccessMethod.
-* A catalog in ODPC can reference ODPV terms for concepts such as DataProductCatalog, UseCase, BusinessObjective, KPI, Signal, Gap, and Priority.
-* A graph in ODPG can reference ODPV terms for node types and relationship types such as supports, requires, contributesTo, measures, belongsTo, dependsOn, governedBy, providedBy, consumedBy, and indicates.
+* A data product in ODPS can reference ODPV terms for concepts such as DataProduct, ProductDetails, ProductStrategy, DataHolder, SLA, DataQuality, License, DataAccess, PricingPlan, PaymentGateway, and Support.
+* A catalog in ODPC can reference ODPV terms for concepts such as DataProductCatalog, UseCase, BusinessObjective, KPI, Signal, Gap, Priority, Reference, and Owner.
+* A graph in ODPG can reference ODPV terms for node types and relationship types such as Agent, Workflow, Capability, uses, supports, contributesTo, measures, dependsOn, produces, consumes, ownedBy, alignsWith, impacts, exposes, and identifies.
 
 ## Specification Aims
 
