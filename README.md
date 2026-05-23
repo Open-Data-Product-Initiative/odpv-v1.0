@@ -1,3 +1,5 @@
+![Open Data Products Vocabulary header](source/images/odpv-readme-header.png)
+
 # Open Data Products Vocabulary (ODPV)
 
 The Open Data Products Vocabulary, ODPV, is a vendor-neutral, open-source, machine-readable controlled vocabulary for data product management. ODPV defines shared terms used across the OpenDataProducts.org standards family, including data products, catalogs, graphs, value concepts, governance concepts, and relationship terms. It is designed to help organizations use consistent language across specifications, catalogs, graph implementations, AI assistants, and GraphRAG-ready data product portfolios.
