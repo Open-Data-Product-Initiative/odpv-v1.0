@@ -69,6 +69,16 @@ Recommended agent workflow:
 
 Use ODPV terms by their stable `id` and `uri`. Do not redefine official ODPV terms or invent new meanings for existing terms. If a needed concept is not present, treat it as an extension candidate and use a separate namespace or prefix.
 
+Term governance rules:
+- Add an official ODPV term when a concept is shared by more than one standard, tool, catalog, graph, or agent workflow.
+- Add an alias in `alsoKnownAs` when a source term is only a different spelling, casing, plural form, or common synonym of an existing ODPV term.
+- Add an external mapping when an established vocabulary such as DCAT, SKOS, PROV-O, ODRL, Dublin Core, schema.org, or SPDX already defines a related concept.
+- Use `exactMatch` only when the external concept has the same practical meaning. Prefer `closeMatch` when the concepts are similar but not identical.
+- Do not add source-spec schema plumbing, implementation-only fields, or one-off internal fields as shared ODPV terms.
+- Use an extension namespace or prefix for domain-specific, organization-specific, or implementation-profile terms.
+- Open an issue against the source specification when drift comes from unclear or inconsistent source terminology.
+- When reviewing drift, choose one of these actions: add ODPV term, add alias, add external mapping, use extension namespace, keep source-specific, or open source-spec issue.
+
 When returning a matched ODPV term, include:
 - vocabularyVersion
 - section

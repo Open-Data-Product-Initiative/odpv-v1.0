@@ -47,6 +47,12 @@ This repository also includes helper scripts for maintaining and using the vocab
 | [`scripts/generate_vocab_artifacts.py`](scripts/generate_vocab_artifacts.py) | Regenerate JSON, JSON-LD, SKOS Turtle, JSONL, and section YAML files from `odpv.yaml` |
 | [`scripts/check_cross_spec_drift.py`](scripts/check_cross_spec_drift.py) | Compare published ODPS, ODPC, and ODPG schema terms against ODPV |
 
+# Term Governance
+
+ODPV is a shared vocabulary, not a catch-all list of every field used by every specification. Add an official term when a concept is shared across standards, tools, catalogs, graphs, or agent workflows. Add an alias when a source term is just a casing, spelling, plural, or synonym of an existing term. Use external mappings when an established vocabulary such as DCAT, SKOS, PROV-O, ODRL, Dublin Core, schema.org, or SPDX already defines a related concept.
+
+If a term belongs only to one specification's internal structure, keep it in that source specification. If a term is domain-specific or organization-specific, use an extension namespace or prefix. If a source specification uses unclear terminology, open an issue against the source specification instead of normalizing the problem into ODPV.
+
 # Companion Vocabulary, Not a Heavy Ontology
 
 ODPV is not intended to be a heavy ontology.

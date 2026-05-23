@@ -12,6 +12,7 @@ toc_footers:
 includes:
 - toolkit
 - agent_usage
+- term_governance
 - core
 - value
 - governance
