@@ -160,6 +160,7 @@ sections:
     alsoKnownAs:
       en:
       - data API
+      - API
       - data endpoint
       - query service
       - delivery service
@@ -167,12 +168,90 @@ sections:
     - Dataset
     - Distribution
     - DataAccess
+    - API
     usedIn:
     - ODPS
+    - ODPG
     examples:
       en:
       - A REST API that returns fraud risk scores is a DataService.
+      - In ODPG graphs, an API node maps to the ODPV DataService term.
       - Use DataService for an API, query endpoint, or delivery service that provides access to data.
+  - id: Agent
+    uri: https://opendataproducts.org/odpv-v1.0/terms/Agent
+    type: role
+    status: stable
+    introducedIn: 1.0.0
+    preferredLabel:
+      en: Agent
+    definition:
+      en: An AI agent, automation actor, or software system that can use data products, services, workflows, or graph context to perform a task.
+    alsoKnownAs:
+      en:
+      - AI agent
+      - automation actor
+      - autonomous agent
+      - software agent
+    relatedTerms:
+    - Consumer
+    - Workflow
+    - DataService
+    usedIn:
+    - ODPG
+    examples:
+      en:
+      - A maintenance recommendation agent uses an aviation risk score API to support operational decisions.
+      - Use Agent for an AI or automation actor represented in a graph or workflow.
+  - id: Workflow
+    uri: https://opendataproducts.org/odpv-v1.0/terms/Workflow
+    type: object
+    status: stable
+    introducedIn: 1.0.0
+    preferredLabel:
+      en: Workflow
+    definition:
+      en: A business, operational, analytical, or technical process that coordinates activities, systems, agents, data products, or services.
+    alsoKnownAs:
+      en:
+      - process
+      - business workflow
+      - technical workflow
+      - orchestration flow
+    relatedTerms:
+    - UseCase
+    - Agent
+    - Capability
+    usedIn:
+    - ODPG
+    examples:
+      en:
+      - A fraud investigation workflow uses transaction event data and risk scoring services.
+      - Use Workflow for a process or orchestration flow represented as a graph node.
+  - id: Capability
+    uri: https://opendataproducts.org/odpv-v1.0/terms/Capability
+    type: object
+    status: stable
+    introducedIn: 1.0.0
+    preferredLabel:
+      en: Capability
+    definition:
+      en: A reusable business, organizational, analytical, operational, or technical ability that can be supported by data products, workflows, agents, or services.
+    alsoKnownAs:
+      en:
+      - business capability
+      - technical capability
+      - organizational capability
+      - reusable capability
+    relatedTerms:
+    - Domain
+    - Workflow
+    - StrategicOpportunity
+    usedIn:
+    - ODPG
+    examples:
+      en:
+      - Predictive maintenance is a Capability supported by aircraft telemetry data products and monitoring workflows.
+      - Use Capability for a reusable business or technical ability that can be connected to products, workflows, and objectives.
   - id: Provider
     uri: https://opendataproducts.org/odpv-v1.0/terms/Provider
     type: role

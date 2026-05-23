@@ -21,7 +21,7 @@ Agents can use ODPV to:
 * retrieve definitions, labels, aliases, related terms, and examples from `terms.jsonl`
 * validate vocabulary files against `odpv.schema.json`
 * explain distinctions between nearby terms such as `DataProduct`, `Dataset`, `DataService`, and `Distribution`
-* choose relationship terms such as `supports`, `requires`, `contributesTo`, `measures`, `dependsOn`, `governedBy`, `providedBy`, and `consumedBy`
+* choose relationship terms such as `uses`, `supports`, `requires`, `contributesTo`, `measures`, `dependsOn`, `produces`, `consumes`, `governedBy`, `providedBy`, `consumedBy`, `ownedBy`, `alignsWith`, `impacts`, `exposes`, and `identifies`
 * prepare graph-ready relationship names for ODPG or another graph implementation
 * support catalog alignment by using the same terms in ODPC catalogs and ODPS product descriptions
 * detect terminology drift, duplicate concepts, unclear aliases, or missing shared terms
@@ -50,6 +50,7 @@ Agents using ODPV should keep vocabulary boundaries clear:
 * Do not invent new official terms when an existing ODPV term fits.
 * Do not use `relatedTo` when a more specific relationship term such as `supports`, `requires`, `dependsOn`, or `governedBy` applies.
 * Do not assume aliases are preferred labels; use them for search, mapping, and onboarding.
+* Do not promote ODPG-local aliases such as `API` or `monitors` into standalone ODPV ids when `DataService` and `measures` are the canonical vocabulary terms.
 * Do not edit generated vocabulary artifacts directly when changing official vocabulary content; update `source/vocab/odpv.yaml` first and regenerate derived files.
 
 ## Example prompts ODPV enables

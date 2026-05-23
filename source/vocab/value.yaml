@@ -340,6 +340,32 @@ sections:
       en:
       - Combining mobility and weather data is an Opportunity for better route optimization.
       - Use Opportunity for a possible area of reuse, innovation, service improvement, monetization, or better decisions.
+  - id: StrategicOpportunity
+    uri: https://opendataproducts.org/odpv-v1.0/terms/StrategicOpportunity
+    type: object
+    status: stable
+    introducedIn: 1.0.0
+    preferredLabel:
+      en: Strategic Opportunity
+    definition:
+      en: An inferred or declared opportunity with strategic relevance, such as a portfolio improvement, optimization, unmet need, or emerging value area.
+    alsoKnownAs:
+      en:
+      - strategic opportunity
+      - portfolio opportunity
+      - strategic value opportunity
+      - emerging opportunity
+    relatedTerms:
+    - Opportunity
+    - BusinessObjective
+    - Capability
+    - Gap
+    usedIn:
+    - ODPG
+    examples:
+      en:
+      - Reducing unscheduled aircraft maintenance is a StrategicOpportunity identified from reliability signals and operational gaps.
+      - Use StrategicOpportunity when an opportunity has portfolio, strategic, or business-objective relevance.
   - id: Risk
     uri: https://opendataproducts.org/odpv-v1.0/terms/Risk
     type: object
