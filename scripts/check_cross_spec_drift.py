@@ -22,7 +22,8 @@ DEFAULT_ODPS_SCHEMA = "https://opendataproducts.org/v4.1/schema/odps.yaml"
 DEFAULT_REPORT_DIR = ROOT / "cross-spec-drift"
 DEFAULT_REPORT_NAME = "odpv-cross-spec-drift.md"
 LEGACY_REPORT = DEFAULT_REPORT_DIR / DEFAULT_REPORT_NAME
-RUN_TIMESTAMP_RE = re.compile(r"^- Last drift detection run: `([^`]+)`$", re.MULTILINE)
+RUN_TIMESTAMP_RE = re.compile(r"^(?:- )?Last drift detection run: `([^`]+)`$", re.MULTILINE)
+REPORT_IMAGE = "../source/images/odpv-cross-spec-drift.png"
 ODPC_HELPER_DEFINITIONS = {"LanguageString", "ExtensionProperties", "CatalogMeta"}
 ODPS_COMPONENT_MAPPINGS = {
     "contract": "DataContract",
@@ -336,9 +337,12 @@ def render_report(
     lines = [
         "# ODPV Cross-Spec Drift Report",
         "",
+        f"![ODPV cross-spec drift]({REPORT_IMAGE})",
+        "",
         "This report compares published Open Data Product family schemas against the canonical ODPV vocabulary.",
         "",
-        f"- Last drift detection run: `{run_timestamp}`",
+        f"Last drift detection run: `{run_timestamp}`",
+        "",
         f"- ODPG schema: `{display_source(odpg_schema_source)}`",
         f"- ODPC schema: `{display_source(odpc_schema_source)}`",
         f"- ODPS schema: `{display_source(odps_schema_source)}`",

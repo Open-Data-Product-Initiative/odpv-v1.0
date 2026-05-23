@@ -139,7 +139,9 @@ class VocabScriptTests(unittest.TestCase):
 
         report = report_path.read_text(encoding="utf-8")
         self.assertIn("# ODPV Cross-Spec Drift Report", report)
-        self.assertRegex(report, r"- Last drift detection run: `\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z`")
+        self.assertIn("![ODPV cross-spec drift](../source/images/odpv-cross-spec-drift.png)", report)
+        self.assertRegex(report, r"Last drift detection run: `\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z`")
+        self.assertNotRegex(report, r"^- Last drift detection run:", re.MULTILINE)
         self.assertIn("- ODPG schema: `https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml`", report)
         self.assertIn("- ODPC schema: `https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml`", report)
         self.assertIn("- ODPS schema: `https://opendataproducts.org/v4.1/schema/odps.yaml`", report)
