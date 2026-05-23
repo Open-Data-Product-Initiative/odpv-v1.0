@@ -82,6 +82,10 @@ class VocabScriptTests(unittest.TestCase):
         self.assertNotIn("monitors", terms_by_id)
         self.assertIn("API", terms_by_id["DataService"]["alsoKnownAs"]["en"])
         self.assertIn("monitors", terms_by_id["measures"]["alsoKnownAs"]["en"])
+        self.assertIn("GraphReference", terms_by_id["Reference"]["alsoKnownAs"]["en"])
+        self.assertIn("ProductReference", terms_by_id["Reference"]["alsoKnownAs"]["en"])
+        self.assertIn("ProductModel", terms_by_id["Reference"]["alsoKnownAs"]["en"])
+        self.assertIn("Catalog", terms_by_id["DataProductCatalog"]["alsoKnownAs"]["en"])
 
     def test_cross_spec_drift_check_reports_online_schema_alignment(self):
         report_path = ROOT / "cross-spec-drift/odpv-cross-spec-drift.md"
@@ -101,7 +105,12 @@ class VocabScriptTests(unittest.TestCase):
         self.assertIn("## ODPC to ODPV", report)
         self.assertIn("| ODPC source | ODPC term | ODPV match | Status | Notes |", report)
         self.assertIn("| Schema definition | `UseCase` | `UseCase` | Exact match | ODPC term is an official ODPV id.", report)
-        self.assertIn("| Schema definition | `ProductReference` |  | Possible drift | No exact ODPV id or alias match found.", report)
+        self.assertIn("| Schema definition | `GraphReference` | `Reference` | Alias match | ODPC term maps through ODPV alias.", report)
+        self.assertIn("| Schema definition | `ProductReference` | `Reference` | Alias match | ODPC term maps through ODPV alias.", report)
+        self.assertIn("| Schema definition | `ProductModel` | `Reference` | Alias match | ODPC term maps through ODPV alias.", report)
+        self.assertIn("| Schema definition | `Catalog` | `DataProductCatalog` | Alias match | ODPC term maps through ODPV alias.", report)
+        self.assertNotIn("`CatalogMeta`", report)
+        self.assertIn("No unresolved drift detected.", report)
 
     def test_cross_spec_drift_check_can_validate_existing_report(self):
         self.run_script("scripts/check_cross_spec_drift.py")

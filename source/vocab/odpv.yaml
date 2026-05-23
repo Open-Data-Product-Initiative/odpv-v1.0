@@ -62,6 +62,8 @@ sections:
         alsoKnownAs:
           en:
             - data catalog
+            - Catalog
+            - ODPC Catalog
             - product catalog
             - data product portfolio
             - portfolio catalog
@@ -75,6 +77,7 @@ sections:
         examples:
           en:
             - The enterprise data marketplace is a DataProductCatalog containing reusable data products and related portfolio objects.
+            - In ODPC, the root Catalog object maps to the ODPV DataProductCatalog term.
             - Use DataProductCatalog when describing a managed collection of products, use cases, objectives, KPIs, and signals.
 
       - id: DataProductGraph
@@ -446,10 +449,18 @@ sections:
             - pointer
             - external reference
             - object reference
+            - GraphReference
+            - ProductReference
+            - ProductModel
+            - graph reference
+            - product reference
+            - product model reference
         relatedTerms:
           - Identifier
           - $ref
           - URI
+          - DataProduct
+          - DataProductGraph
         usedIn:
           - ODPS
           - ODPC
@@ -457,6 +468,7 @@ sections:
         examples:
           en:
             - A catalog entry may include a Reference to an external schema registry record.
+            - In ODPC, GraphReference, ProductReference, and ProductModel objects map to the ODPV Reference term.
             - Use Reference for a link or pointer to another object, file, vocabulary term, or system record.
 
   - id: value

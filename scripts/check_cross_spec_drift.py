@@ -17,7 +17,7 @@ from vocab_utils import ROOT, iter_terms, load_yaml
 DEFAULT_ODPG_SCHEMA = "https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml"
 DEFAULT_ODPC_SCHEMA = "https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml"
 DEFAULT_REPORT = ROOT / "cross-spec-drift" / "odpv-cross-spec-drift.md"
-ODPC_HELPER_DEFINITIONS = {"LanguageString", "ExtensionProperties"}
+ODPC_HELPER_DEFINITIONS = {"LanguageString", "ExtensionProperties", "CatalogMeta"}
 
 
 @dataclass(frozen=True)

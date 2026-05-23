@@ -5,10 +5,10 @@ This report compares published Open Data Product family schemas against the cano
 - ODPG schema: `https://opendataproducts.org/odpg-v1.0/schema/odpg.yaml`
 - ODPC schema: `https://opendataproducts.org/odpc-v1.0/schema/odpc.yaml`
 - ODPV source: `source/vocab/odpv.yaml`
-- Checked terms: 39
-- Possible drifts: 5
+- Checked terms: 38
+- Possible drifts: 0
 
-Possible drift detected. Review rows marked `Possible drift` and either add an ODPV term, add an ODPV alias, or update the source specification.
+No unresolved drift detected.
 
 ## ODPG to ODPV
 
@@ -51,20 +51,19 @@ No unresolved drift detected.
 
 ## ODPC to ODPV
 
-- Checked terms: 10
-- Possible drifts: 5
+- Checked terms: 9
+- Possible drifts: 0
 
-Possible drift detected. Review rows marked `Possible drift` and either add an ODPV term, add an ODPV alias, or update the source specification.
+No unresolved drift detected.
 
 | ODPC source | ODPC term | ODPV match | Status | Notes |
 |---|---|---|---|---|
 | Schema definition | `Owner` | `Owner` | Exact match | ODPC term is an official ODPV id. |
-| Schema definition | `GraphReference` |  | Possible drift | No exact ODPV id or alias match found. |
-| Schema definition | `ProductModel` |  | Possible drift | No exact ODPV id or alias match found. |
-| Schema definition | `ProductReference` |  | Possible drift | No exact ODPV id or alias match found. |
+| Schema definition | `GraphReference` | `Reference` | Alias match | ODPC term maps through ODPV alias. |
+| Schema definition | `ProductModel` | `Reference` | Alias match | ODPC term maps through ODPV alias. |
+| Schema definition | `ProductReference` | `Reference` | Alias match | ODPC term maps through ODPV alias. |
 | Schema definition | `UseCase` | `UseCase` | Exact match | ODPC term is an official ODPV id. |
 | Schema definition | `KPI` | `KPI` | Exact match | ODPC term is an official ODPV id. |
 | Schema definition | `BusinessObjective` | `BusinessObjective` | Exact match | ODPC term is an official ODPV id. |
 | Schema definition | `Signal` | `Signal` | Exact match | ODPC term is an official ODPV id. |
-| Schema definition | `CatalogMeta` |  | Possible drift | No exact ODPV id or alias match found. |
-| Schema definition | `Catalog` |  | Possible drift | No exact ODPV id or alias match found. |
+| Schema definition | `Catalog` | `DataProductCatalog` | Alias match | ODPC term maps through ODPV alias. |
