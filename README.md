@@ -124,6 +124,12 @@ ODPV helps prevent terminology drift across the standards family. Without a shar
 * Portfolio analysis
 * Tool development
 
+# Automated Drift Detection
+
+ODPV includes automated cross-spec drift detection for the Open Data Product standards family. A weekly GitHub Action fetches the published ODPS, ODPC, and ODPG schemas, compares their schema terms against the canonical ODPV vocabulary, and writes a dated report.
+
+Reports are kept in [`cross-spec-drift/`](cross-spec-drift/) so the project can track how alignment changes over time and use the historical reports as input for later analysis.
+
 # Example Use
 
 * A data product in ODPS can reference ODPV terms for concepts such as DataProduct, Owner, SLA, DataQuality, License, and AccessMethod.
